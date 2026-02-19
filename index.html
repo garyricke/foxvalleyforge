@@ -192,6 +192,32 @@ section{padding:80px 24px}
 #final-cta p{color:rgba(255,255,255,.7);font-size:1.1rem;max-width:560px;margin:0 auto 40px}
 .cta-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
 
+/* ── INTRO ANIMATION ── */
+#intro-overlay{position:fixed;inset:0;background:#000;z-index:9998;display:none;align-items:center;justify-content:center;overflow:hidden}
+#intro-overlay.running{display:flex}
+#intro-glow{position:absolute;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(197,160,89,.28) 0%,transparent 70%);opacity:0;transition:opacity 1.4s ease;pointer-events:none}
+#intro-glow.lit{opacity:1}
+.intro-stage{position:relative;width:100%;max-width:720px;padding:0 32px;height:280px;display:flex;align-items:center;justify-content:center}
+.intro-line{position:absolute;width:100%;font-family:var(--font-h);font-size:clamp(1.3rem,3.5vw,2.2rem);font-weight:400;color:#fff;letter-spacing:.05em;line-height:1.45;text-align:center;opacity:0;transform:translateY(10px);transition:opacity .7s ease,transform .7s ease;pointer-events:none}
+.intro-line.active{opacity:1;transform:translateY(0)}
+.intro-line.out{opacity:0;transform:translateY(-10px)}
+.intro-line.gold{color:var(--gold);font-size:clamp(1.5rem,4vw,2.5rem)}
+.intro-line.final{color:var(--gold);font-size:clamp(2.4rem,7vw,5rem);font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+#intro-logo-wrap{position:absolute;display:flex;flex-direction:column;align-items:center;gap:18px;pointer-events:none}
+#intro-logo-1{height:clamp(160px,28vw,320px);opacity:0;transform:scale(.82);transition:opacity 1.2s ease,transform 1.2s ease;filter:drop-shadow(0 0 40px rgba(197,160,89,.6))}
+#intro-logo-1.active{opacity:1;transform:scale(1)}
+#intro-logo-1.out{opacity:0;transform:scale(.82)}
+#intro-logo-2{height:clamp(100px,16vw,180px);opacity:0;transition:opacity 1s ease}
+#intro-logo-2.active{opacity:1}
+#intro-logo-2.out{opacity:0}
+#intro-tap{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;cursor:pointer;transition:opacity .6s ease}
+#intro-tap.hidden{opacity:0;pointer-events:none}
+#intro-tap-label{font-family:var(--font-h);font-size:.8rem;letter-spacing:.22em;color:rgba(255,255,255,.5);text-transform:uppercase;animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:.5}50%{opacity:1}}
+#intro-skip{position:fixed;bottom:32px;right:32px;background:transparent;border:1px solid rgba(255,255,255,.35);color:rgba(255,255,255,.55);font-family:var(--font-h);font-size:.75rem;letter-spacing:.14em;padding:8px 18px;cursor:pointer;border-radius:2px;opacity:0;transition:opacity .5s ease,color .2s,border-color .2s;z-index:9999}
+#intro-skip.visible{opacity:1}
+#intro-skip:hover{color:#fff;border-color:rgba(255,255,255,.8)}
+
 /* ── FOOTER ── */
 footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
 .footer-inner{max-width:1200px;margin:0 auto}
@@ -279,41 +305,30 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
 </style>
 </head>
 <body>
-<!-- PASSWORD GATE -->
-<div id="pw-gate" style="position:fixed;inset:0;background:var(--navy);z-index:9999;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:20px">
-  <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/v1770763739/forge-logo-w-fox-valley-23jan2026_d1dlgi.png" alt="Fox Valley Forge SC" style="height:100px">
-  <p style="font-family:'Oswald',sans-serif;color:rgba(255,255,255,.7);letter-spacing:.15em;font-size:.85rem;text-transform:uppercase">Preview Access</p>
-  <div style="display:flex;gap:0;box-shadow:0 4px 20px rgba(0,0,0,.4)">
-    <input id="pw-input" type="password" placeholder="Enter password" style="padding:12px 18px;font-size:1rem;border:none;border-radius:3px 0 0 3px;width:220px;font-family:'Source Sans 3',sans-serif;outline:none">
-    <button onclick="checkPw()" style="padding:12px 20px;background:var(--crimson);color:#fff;border:none;border-radius:0 3px 3px 0;font-family:'Oswald',sans-serif;font-size:.9rem;font-weight:700;letter-spacing:.08em;cursor:pointer">ENTER</button>
+<!-- INTRO ANIMATION OVERLAY -->
+<div id="intro-overlay">
+  <div id="intro-glow"></div>
+  <div class="intro-stage">
+    <div class="intro-line" id="il-1">For decades, two clubs shaped this community.</div>
+    <div class="intro-line gold" id="il-2">Campton United.&nbsp;&nbsp;Fox Valley Strikers.</div>
+    <div class="intro-line" id="il-3">Different names. The same belief.</div>
+    <div class="intro-line" id="il-4">In 2026, they became one.</div>
+    <div id="intro-logo-wrap">
+      <img id="intro-logo-1" src="https://res.cloudinary.com/dsbllwpbh/image/upload/v1770763739/forge-logo-w-fox-valley-23jan2026_d1dlgi.png" alt="Fox Valley Forge SC">
+      <img id="intro-logo-2" src="https://res.cloudinary.com/dsbllwpbh/image/upload/v1770763739/forge-logo-rec-23jan2026_k1dpys.png" alt="Forge SC">
+    </div>
+    <div class="intro-line" id="il-6">Seventy-eight years of experience. One mission.</div>
+    <div class="intro-line" id="il-7">Built for the player. Built for this valley.</div>
+    <div class="intro-line final" id="il-8">BUILT, NOT BOUGHT.</div>
   </div>
-  <p id="pw-error" style="color:var(--gold);font-size:.85rem;display:none">Incorrect password. Try again.</p>
+  <div id="intro-tap">
+    <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/v1770763739/forge-logo-w-fox-valley-23jan2026_d1dlgi.png" alt="Fox Valley Forge SC" style="height:clamp(80px,14vw,140px);filter:drop-shadow(0 0 20px rgba(197,160,89,.4))">
+    <p id="intro-tap-label">TAP ANYWHERE TO BEGIN</p>
+  </div>
+  <button id="intro-skip">SKIP ›</button>
+  <audio id="intro-audio" preload="auto" src="https://res.cloudinary.com/dsbllwpbh/video/upload/v1771543964/Fox_Valley_Forge-logo-reveal-voice-music_wgpemw.m4a"></audio>
 </div>
-<script>
-(function() {
-  if (sessionStorage.getItem('forge-access') === '1') {
-    document.addEventListener('DOMContentLoaded', function() {
-      document.getElementById('pw-gate').style.display = 'none';
-    });
-  }
-  window.checkPw = function() {
-    const val = document.getElementById('pw-input').value.trim().toLowerCase();
-    if (val === 'forge') {
-      sessionStorage.setItem('forge-access', '1');
-      document.getElementById('pw-gate').style.display = 'none';
-    } else {
-      document.getElementById('pw-error').style.display = 'block';
-      document.getElementById('pw-input').value = '';
-      document.getElementById('pw-input').focus();
-    }
-  };
-  document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('pw-input').addEventListener('keydown', function(e) {
-      if (e.key === 'Enter') checkPw();
-    });
-  });
-})();
-</script>
+
 <!-- Hidden Netlify form for build-time detection -->
 <form name="register" data-netlify="true" hidden>
   <input type="hidden" name="form-name" value="register">
@@ -1440,6 +1455,73 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
 
 <!-- ═══════════════════ JAVASCRIPT ═══════════════════ -->
 <script>
+// ── INTRO ANIMATION ──
+function startIntro() {
+  var overlay = document.getElementById('intro-overlay');
+  var audio   = document.getElementById('intro-audio');
+  var skip    = document.getElementById('intro-skip');
+  var glow    = document.getElementById('intro-glow');
+  if (!overlay) return;
+
+  var tap  = document.getElementById('intro-tap');
+  overlay.classList.add('running');
+
+  function show(id) {
+    var el = document.getElementById(id);
+    if (el) { el.classList.remove('out'); el.classList.add('active'); }
+  }
+  function hide(id) {
+    var el = document.getElementById(id);
+    if (el) { el.classList.remove('active'); el.classList.add('out'); }
+  }
+  function dismiss() {
+    audio.pause();
+    overlay.style.transition = 'opacity .9s ease';
+    overlay.style.opacity = '0';
+    setTimeout(function() { overlay.style.display = 'none'; }, 900);
+  }
+
+  // Cue points (seconds) — adjust if audio timing differs
+  var cues = [
+    { t: 0.3,  fn: function() { show('il-1'); } },
+    { t: 4.0,  fn: function() { hide('il-1'); show('il-2'); } },
+    { t: 7.0,  fn: function() { hide('il-2'); show('il-3'); } },
+    { t: 9.2,  fn: function() { hide('il-3'); show('il-4'); } },
+    { t: 11.5, fn: function() { hide('il-4'); glow.classList.add('lit'); show('intro-logo-1'); } },
+    { t: 13.2, fn: function() { show('intro-logo-2'); } },
+    { t: 15.5, fn: function() { hide('intro-logo-1'); hide('intro-logo-2'); glow.classList.remove('lit'); show('il-6'); } },
+    { t: 17.0, fn: function() { hide('il-6'); show('il-7'); } },
+    { t: 20.0, fn: function() { hide('il-7'); show('il-8'); } },
+  ];
+  var fired = {};
+
+  audio.addEventListener('timeupdate', function() {
+    var t = audio.currentTime;
+    cues.forEach(function(cue, i) {
+      if (!fired[i] && t >= cue.t) { fired[i] = true; cue.fn(); }
+    });
+  });
+
+  audio.addEventListener('ended', function() {
+    setTimeout(dismiss, 1800);
+  });
+
+  skip.addEventListener('click', dismiss);
+
+  function beginPlayback() {
+    tap.classList.add('hidden');
+    setTimeout(function() { skip.classList.add('visible'); }, 2000);
+    audio.play().catch(function() {});
+  }
+
+  // Tap anywhere on overlay to begin
+  tap.addEventListener('click', beginPlayback);
+
+  audio.play().catch(function() {
+    // Autoplay blocked — skip button already visible after 2s
+  });
+}
+
 // Generic Netlify form handler
 function netlifyForm(formId, wrapId, successId) {
   var form = document.getElementById(formId);
@@ -1565,6 +1647,8 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+startIntro();
 </script>
 </body>
 </html>
