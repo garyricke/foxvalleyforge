@@ -175,8 +175,9 @@ section{padding:80px 24px}
 .reg-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .reg-field{display:flex;flex-direction:column;gap:6px}
 .reg-field label{font-family:var(--font-h);font-size:.75rem;letter-spacing:.1em;color:var(--navy);font-weight:600}
-.reg-field input,.reg-field select{padding:10px 14px;border:2px solid var(--navy-10);border-radius:3px;font-family:var(--font-b);font-size:.95rem;color:var(--dark);background:#fff;transition:border-color .2s;width:100%}
-.reg-field input:focus,.reg-field select:focus{outline:none;border-color:var(--crimson)}
+.reg-field input,.reg-field select,.reg-field textarea{padding:10px 14px;border:2px solid var(--navy-10);border-radius:3px;font-family:var(--font-b);font-size:.95rem;color:var(--dark);background:#fff;transition:border-color .2s;width:100%}
+.reg-field input:focus,.reg-field select:focus,.reg-field textarea:focus{outline:none;border-color:var(--crimson)}
+.reg-field textarea{resize:vertical;min-height:90px}
 .reg-submit{background:var(--crimson);color:#fff;border:none;border-radius:3px;padding:13px;font-family:var(--font-h);font-size:.9rem;font-weight:700;letter-spacing:.08em;cursor:pointer;transition:background .2s;width:100%}
 .reg-submit:hover{background:var(--crimson-90)}
 .reg-success{text-align:center;padding:32px 16px}
@@ -286,6 +287,7 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
   <input type="email" name="email">
   <input type="tel" name="phone">
   <select name="age-group"><option value=""></option></select>
+  <textarea name="message"></textarea>
 </form>
 
 <!-- NAV -->
@@ -1218,9 +1220,9 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
           <input type="tel" id="reg-phone" name="phone" placeholder="(630) 555-0100">
         </div>
         <div class="reg-field">
-          <label for="reg-age">Player Age Group *</label>
-          <select id="reg-age" name="age-group" required>
-            <option value="" disabled selected>Select age group…</option>
+          <label for="reg-age">Player Age Group</label>
+          <select id="reg-age" name="age-group">
+            <option value="" selected>Select age group…</option>
             <option value="U3-U6 (Forge Foxes)">U3–U6 — Forge Foxes</option>
             <option value="U6-U11 (Forge Community)">U6–U11 — Forge Community</option>
             <option value="U6-U19 (Forge Ignite)">U6–U19 — Forge Ignite</option>
@@ -1228,6 +1230,10 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
             <option value="U15-U19 (Forge College Prep)">U15–U19 — Forge College Prep</option>
             <option value="Not sure yet">Not sure yet — help me find the right fit</option>
           </select>
+        </div>
+        <div class="reg-field">
+          <label for="reg-message">Message</label>
+          <textarea id="reg-message" name="message" placeholder="Any questions, specific programs you're interested in, or anything you'd like us to know…"></textarea>
         </div>
         <button type="submit" class="reg-submit">SECURE MY SPOT</button>
         <p style="font-size:.8rem;color:#888;text-align:center">No commitment required. We'll reach out personally.</p>
