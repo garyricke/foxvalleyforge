@@ -170,6 +170,21 @@ section{padding:80px 24px}
 .cp-badge{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:4px;padding:8px 20px;color:#fff;font-family:var(--font-h);font-size:.8rem;letter-spacing:.08em}
 .cp-badge.active{background:#fff;color:var(--crimson)}
 
+/* ── REGISTER FORM ── */
+.reg-form{display:flex;flex-direction:column;gap:16px;margin-top:16px}
+.reg-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.reg-field{display:flex;flex-direction:column;gap:6px}
+.reg-field label{font-family:var(--font-h);font-size:.75rem;letter-spacing:.1em;color:var(--navy);font-weight:600}
+.reg-field input,.reg-field select{padding:10px 14px;border:2px solid var(--navy-10);border-radius:3px;font-family:var(--font-b);font-size:.95rem;color:var(--dark);background:#fff;transition:border-color .2s;width:100%}
+.reg-field input:focus,.reg-field select:focus{outline:none;border-color:var(--crimson)}
+.reg-submit{background:var(--crimson);color:#fff;border:none;border-radius:3px;padding:13px;font-family:var(--font-h);font-size:.9rem;font-weight:700;letter-spacing:.08em;cursor:pointer;transition:background .2s;width:100%}
+.reg-submit:hover{background:var(--crimson-90)}
+.reg-success{text-align:center;padding:32px 16px}
+.reg-success h3{font-family:var(--font-h);font-size:1.6rem;color:var(--navy);margin-bottom:12px}
+.reg-success p{color:#555;font-size:1rem;line-height:1.65}
+.reg-success .check-circle{font-size:3rem;margin-bottom:16px;display:block}
+@media(max-width:540px){.reg-row{grid-template-columns:1fr}}
+
 /* ── FINAL CTA ── */
 #final-cta{background:var(--dark);padding:96px 24px;text-align:center}
 #final-cta h2{font-size:clamp(2rem,5vw,3.5rem);color:#fff;margin-bottom:16px}
@@ -275,7 +290,7 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
       <li><a href="#community">Our Story</a></li>
       <li><a href="#" onclick="openModal('modal-faq');return false">FAQ</a></li>
     </ul>
-    <a href="#final-cta" class="btn btn-crimson nav-cta">Register Now</a>
+    <a href="#" onclick="openModal('modal-register');return false" class="btn btn-crimson nav-cta">Register Now</a>
     <div class="hamburger" id="hamburger" aria-label="Menu">
       <span></span><span></span><span></span>
     </div>
@@ -287,7 +302,7 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
   <a href="#college" onclick="closeMobile()">College Pathway</a>
   <a href="#community" onclick="closeMobile()">Our Story</a>
   <a href="#" onclick="openModal('modal-faq');closeMobile();return false">FAQ</a>
-  <a href="#final-cta" onclick="closeMobile()" class="btn btn-crimson" style="text-align:center;margin-top:8px">Register Now</a>
+  <a href="#" onclick="closeMobile();openModal('modal-register');return false" class="btn btn-crimson" style="text-align:center;margin-top:8px">Register Now</a>
 </div>
 
 <!-- HERO -->
@@ -543,7 +558,7 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
           <h3>Women in Sports</h3>
           <p>Former Forge players who competed at the collegiate level return to share their stories. Hear first-hand what college coaches really want, what the recruiting process looks like, and how to make it happen from right here in Fox Valley.</p>
           <p><strong style="color:var(--gold)">Free for all Forge families. Open to U13+ players.</strong></p>
-          <a href="#final-cta" class="btn btn-crimson">Reserve Your Spot</a>
+          <button onclick="openModal('modal-register')" class="btn btn-crimson">Reserve Your Spot</button>
         </div>
         <div style="background:var(--gray);border-radius:8px;padding:24px;margin-top:20px" class="fade-in">
           <p style="font-family:var(--font-h);font-size:.8rem;letter-spacing:.12em;color:var(--crimson);margin-bottom:8px">ALUMNI OUTCOMES</p>
@@ -632,7 +647,7 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
     <h2>Ready to Forge Your Path?</h2>
     <p>Find the right program for your player and join the Fox Valley family. Tryout spots fill quickly — secure your evaluation today.</p>
     <div class="cta-btns">
-      <a href="mailto:info@foxvalleyforge.com" class="btn btn-crimson" style="font-size:1rem;padding:14px 32px">Register Now</a>
+      <button onclick="openModal('modal-register')" class="btn btn-crimson" style="font-size:1rem;padding:14px 32px">Register Now</button>
       <button class="btn btn-outline" onclick="openModal('modal-tryouts')" style="font-size:1rem;padding:14px 32px">How Tryouts Work</button>
       <button class="btn btn-outline" onclick="openModal('modal-faq')" style="font-size:1rem;padding:14px 32px">Got Questions?</button>
     </div>
@@ -676,7 +691,7 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
       <div class="footer-col">
         <h4>Connect</h4>
         <ul>
-          <li><a href="mailto:info@foxvalleyforge.com">info@foxvalleyforge.com</a></li>
+          <li><a href="mailto:info@forgesoccerclub.com">info@forgesoccerclub.com</a></li>
           <li><a href="#" onclick="openModal('modal-faq');return false">FAQ</a></li>
           <li><a href="#" onclick="openModal('modal-alumni');return false">Alumni Network</a></li>
           <li><a href="#college">Women in Sports — Mar 22</a></li>
@@ -686,7 +701,7 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
     </div>
     <div class="footer-bottom">
       <p>© 2026 Fox Valley Forge SC. All rights reserved. Non-profit organization.</p>
-      <p>Fox Valley, Illinois &nbsp;·&nbsp; foxvalleyforge.com</p>
+      <p>Fox Valley, Illinois &nbsp;·&nbsp; forgesoccerclub.com</p>
     </div>
   </div>
 </footer>
@@ -756,7 +771,7 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
     </div>
     <div class="modal-foot">
       <button class="btn btn-gold" onclick="closeModal('modal-futures')">Got It</button>
-      <a href="#final-cta" class="btn btn-crimson" onclick="closeModal('modal-futures')">Register Now</a>
+      <button onclick="closeModal('modal-futures');openModal('modal-register')" class="btn btn-crimson">Register Now</button>
     </div>
   </div>
 </div>
@@ -789,7 +804,7 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
     </div>
     <div class="modal-foot">
       <button class="btn btn-navy" onclick="closeModal('modal-community')">Got It</button>
-      <a href="#final-cta" class="btn btn-crimson" onclick="closeModal('modal-community')">Register Now</a>
+      <button onclick="closeModal('modal-community');openModal('modal-register')" class="btn btn-crimson">Register Now</button>
     </div>
   </div>
 </div>
@@ -833,7 +848,7 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
     <div class="modal-foot">
       <button class="btn btn-navy" onclick="closeModal('modal-performance')">Got It</button>
       <button class="btn btn-navy" onclick="closeModal('modal-performance');openModal('modal-tryouts')">How Tryouts Work</button>
-      <a href="#final-cta" class="btn btn-crimson" onclick="closeModal('modal-performance')">Register Now</a>
+      <button onclick="closeModal('modal-performance');openModal('modal-register')" class="btn btn-crimson">Register Now</button>
     </div>
   </div>
 </div>
@@ -878,7 +893,7 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
       </ul>
     </div>
     <div class="modal-foot">
-      <a href="#final-cta" class="btn btn-crimson" onclick="closeModal('modal-college')">Reserve Event Spot</a>
+      <button onclick="closeModal('modal-college');openModal('modal-register')" class="btn btn-crimson">Reserve Event Spot</button>
     </div>
   </div>
 </div>
@@ -918,7 +933,7 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
     </div>
     <div class="modal-foot">
       <button class="btn btn-navy" onclick="closeModal('modal-platform');openModal('modal-compare')">See Full Comparison</button>
-      <a href="#final-cta" class="btn btn-crimson" onclick="closeModal('modal-platform')">Find Your Program</a>
+      <button onclick="closeModal('modal-platform');openModal('modal-register')" class="btn btn-crimson">Find Your Program</button>
     </div>
   </div>
 </div>
@@ -951,7 +966,7 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
       <div class="highlight">"At other clubs, you're a number on a roster. Here, our staff knows your name, your hometown, your sports, and your motivations."</div>
     </div>
     <div class="modal-foot">
-      <a href="#final-cta" class="btn btn-crimson" onclick="closeModal('modal-coaching')">Register Now</a>
+      <button onclick="closeModal('modal-coaching');openModal('modal-register')" class="btn btn-crimson">Register Now</button>
     </div>
   </div>
 </div>
@@ -982,7 +997,7 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
       <div class="highlight">"A permanent home means a permanent commitment to this community."</div>
     </div>
     <div class="modal-foot">
-      <a href="#final-cta" class="btn btn-crimson" onclick="closeModal('modal-facilities')">Visit Us</a>
+      <button onclick="closeModal('modal-facilities');openModal('modal-register')" class="btn btn-crimson">Visit Us</button>
     </div>
   </div>
 </div>
@@ -1158,8 +1173,62 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
       <div class="highlight">"Questions before tryouts? Email us. Our coaches respond personally — because that's who we are."</div>
     </div>
     <div class="modal-foot">
-      <a href="mailto:info@foxvalleyforge.com" class="btn btn-crimson" onclick="closeModal('modal-tryouts')">Email Us a Question</a>
-      <a href="#final-cta" class="btn btn-navy" onclick="closeModal('modal-tryouts')">Register Now</a>
+      <a href="mailto:info@forgesoccerclub.com" class="btn btn-crimson" onclick="closeModal('modal-tryouts')">Email Us a Question</a>
+      <button onclick="closeModal('modal-tryouts');openModal('modal-register')" class="btn btn-navy">Register Now</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: REGISTER -->
+<div id="modal-register" class="modal-overlay" role="dialog" aria-modal="true">
+  <div class="modal">
+    <div class="modal-head">
+      <h2>Join the Forge Family</h2>
+      <button class="modal-close" onclick="closeModal('modal-register')" aria-label="Close">×</button>
+    </div>
+    <div class="modal-body" id="register-form-wrap">
+      <p style="color:#555;margin-bottom:4px">Secure your spot on the Forge waitlist. We'll reach out personally to find the right program for your player.</p>
+      <form name="register" method="POST" data-netlify="true" id="register-form" class="reg-form">
+        <input type="hidden" name="form-name" value="register">
+        <div class="reg-row">
+          <div class="reg-field">
+            <label for="reg-first">First Name *</label>
+            <input type="text" id="reg-first" name="first-name" required placeholder="Jane">
+          </div>
+          <div class="reg-field">
+            <label for="reg-last">Last Name *</label>
+            <input type="text" id="reg-last" name="last-name" required placeholder="Smith">
+          </div>
+        </div>
+        <div class="reg-field">
+          <label for="reg-email">Email Address *</label>
+          <input type="email" id="reg-email" name="email" required placeholder="jane@email.com">
+        </div>
+        <div class="reg-field">
+          <label for="reg-phone">Phone Number</label>
+          <input type="tel" id="reg-phone" name="phone" placeholder="(630) 555-0100">
+        </div>
+        <div class="reg-field">
+          <label for="reg-age">Player Age Group *</label>
+          <select id="reg-age" name="age-group" required>
+            <option value="" disabled selected>Select age group…</option>
+            <option value="U3-U6 (Forge Foxes)">U3–U6 — Forge Foxes</option>
+            <option value="U6-U11 (Forge Community)">U6–U11 — Forge Community</option>
+            <option value="U6-U19 (Forge Ignite)">U6–U19 — Forge Ignite</option>
+            <option value="U11-U19 (Forge Performance)">U11–U19 — Forge Performance</option>
+            <option value="U15-U19 (Forge College Prep)">U15–U19 — Forge College Prep</option>
+            <option value="Not sure yet">Not sure yet — help me find the right fit</option>
+          </select>
+        </div>
+        <button type="submit" class="reg-submit">SECURE MY SPOT</button>
+        <p style="font-size:.8rem;color:#888;text-align:center">No commitment required. We'll reach out personally.</p>
+      </form>
+    </div>
+    <div id="register-success" class="reg-success" style="display:none">
+      <span class="check-circle">✅</span>
+      <h3>You're on the List!</h3>
+      <p>Thanks for reaching out. A Forge coach will contact you personally within 48 hours to talk through the best program fit for your player.</p>
+      <p style="margin-top:12px;font-size:.9rem;color:#888">In the meantime, feel free to explore our programs or reach us at <a href="mailto:info@forgesoccerclub.com" style="color:var(--crimson)">info@forgesoccerclub.com</a>.</p>
     </div>
   </div>
 </div>
@@ -1202,8 +1271,8 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
       <p style="font-size:.9rem;color:#555">Forge Foxes is the natural on-ramp to our Forge Community program as players grow. When your child is ready for the next step, the pathway is already here.</p>
     </div>
     <div class="modal-foot">
-      <a href="mailto:info@foxvalleyforge.com" class="btn btn-navy" onclick="closeModal('modal-foxes')">Ask Us Anything</a>
-      <a href="#final-cta" class="btn btn-crimson" onclick="closeModal('modal-foxes')">Register Now</a>
+      <a href="mailto:info@forgesoccerclub.com" class="btn btn-navy" onclick="closeModal('modal-foxes')">Ask Us Anything</a>
+      <button onclick="closeModal('modal-foxes');openModal('modal-register')" class="btn btn-crimson">Register Now</button>
     </div>
   </div>
 </div>
@@ -1250,7 +1319,7 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
       </details>
       <details class="faq-item">
         <summary>How do I get started?</summary>
-        <p>Click "Register Now" at the top of this page, or email us at info@foxvalleyforge.com to arrange a facility visit or ask questions. Our coaches respond personally. We'd love to show you around.</p>
+        <p>Click "Register Now" at the top of this page, or email us at info@forgesoccerclub.com to arrange a facility visit or ask questions. Our coaches respond personally. We'd love to show you around.</p>
       </details>
       <details class="faq-item">
         <summary>Is Forge really a non-profit organization?</summary>
@@ -1266,14 +1335,40 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
       </details>
     </div>
     <div class="modal-foot">
-      <a href="mailto:info@foxvalleyforge.com" class="btn btn-navy" onclick="closeModal('modal-faq')">Email Us</a>
-      <a href="#final-cta" class="btn btn-crimson" onclick="closeModal('modal-faq')">Register Now</a>
+      <a href="mailto:info@forgesoccerclub.com" class="btn btn-navy" onclick="closeModal('modal-faq')">Email Us</a>
+      <button onclick="closeModal('modal-faq');openModal('modal-register')" class="btn btn-crimson">Register Now</button>
     </div>
   </div>
 </div>
 
 <!-- ═══════════════════ JAVASCRIPT ═══════════════════ -->
 <script>
+// Netlify register form
+document.addEventListener('DOMContentLoaded', function() {
+  const form = document.getElementById('register-form');
+  if (!form) return;
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const btn = form.querySelector('.reg-submit');
+    btn.textContent = 'SENDING…';
+    btn.disabled = true;
+    fetch('/', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+      body: new URLSearchParams(new FormData(form)).toString()
+    })
+    .then(function() {
+      document.getElementById('register-form-wrap').style.display = 'none';
+      document.getElementById('register-success').style.display = 'block';
+    })
+    .catch(function() {
+      btn.textContent = 'SECURE MY SPOT';
+      btn.disabled = false;
+      alert('Something went wrong. Please email us at info@forgesoccerclub.com');
+    });
+  });
+});
+
 // Modal system
 function openModal(id) {
   const m = document.getElementById(id);
