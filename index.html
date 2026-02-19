@@ -278,6 +278,15 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
 </style>
 </head>
 <body>
+<!-- Hidden Netlify form for build-time detection -->
+<form name="register" data-netlify="true" hidden>
+  <input type="hidden" name="form-name" value="register">
+  <input type="text" name="first-name">
+  <input type="text" name="last-name">
+  <input type="email" name="email">
+  <input type="tel" name="phone">
+  <select name="age-group"><option value=""></option></select>
+</form>
 
 <!-- NAV -->
 <nav id="main-nav">
@@ -1357,7 +1366,8 @@ document.addEventListener('DOMContentLoaded', function() {
       headers: {'Content-Type': 'application/x-www-form-urlencoded'},
       body: new URLSearchParams(new FormData(form)).toString()
     })
-    .then(function() {
+    .then(function(response) {
+      if (!response.ok) throw new Error('Server returned ' + response.status);
       document.getElementById('register-form-wrap').style.display = 'none';
       document.getElementById('register-success').style.display = 'block';
     })
@@ -1413,7 +1423,9 @@ function closeMobile() { mobileMenu.classList.remove('open'); }
 // Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
-    const target = document.querySelector(a.getAttribute('href'));
+    const href = a.getAttribute('href');
+    if (!href || href === '#') return;
+    const target = document.querySelector(href);
     if (target) {
       e.preventDefault();
       target.scrollIntoView({ behavior: 'smooth' });
