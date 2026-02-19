@@ -324,6 +324,13 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
   <select name="age-group"><option value=""></option></select>
   <textarea name="message"></textarea>
 </form>
+<form name="contact" data-netlify="true" hidden>
+  <input type="hidden" name="form-name" value="contact">
+  <input type="text" name="first-name">
+  <input type="text" name="last-name">
+  <input type="email" name="email">
+  <textarea name="message"></textarea>
+</form>
 
 <!-- NAV -->
 <nav id="main-nav">
@@ -695,7 +702,7 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
     <div class="cta-btns">
       <button onclick="openModal('modal-register')" class="btn btn-crimson" style="font-size:1rem;padding:14px 32px">Register Now</button>
       <button class="btn btn-outline" onclick="openModal('modal-tryouts')" style="font-size:1rem;padding:14px 32px">How Tryouts Work</button>
-      <button class="btn btn-outline" onclick="openModal('modal-faq')" style="font-size:1rem;padding:14px 32px">Got Questions?</button>
+      <button class="btn btn-outline" onclick="openModal('modal-contact')" style="font-size:1rem;padding:14px 32px">Got Questions?</button>
     </div>
   </div>
 </section>
@@ -1219,8 +1226,48 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
       <div class="highlight">"Questions before tryouts? Email us. Our coaches respond personally — because that's who we are."</div>
     </div>
     <div class="modal-foot">
-      <a href="mailto:info@forgesoccerclub.com" class="btn btn-crimson" onclick="closeModal('modal-tryouts')">Email Us a Question</a>
+      <button onclick="closeModal('modal-tryouts');openModal('modal-contact')" class="btn btn-crimson">Ask Us a Question</button>
       <button onclick="closeModal('modal-tryouts');openModal('modal-register')" class="btn btn-navy">Register Now</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: CONTACT -->
+<div id="modal-contact" class="modal-overlay" role="dialog" aria-modal="true">
+  <div class="modal">
+    <div class="modal-head">
+      <h2>Ask Us Anything</h2>
+      <button class="modal-close" onclick="closeModal('modal-contact')" aria-label="Close">×</button>
+    </div>
+    <div class="modal-body" id="contact-form-wrap">
+      <p style="color:#555;margin-bottom:4px">Have a question? We respond personally — usually within 24 hours.</p>
+      <form name="contact" method="POST" data-netlify="true" id="contact-form" class="reg-form">
+        <input type="hidden" name="form-name" value="contact">
+        <div class="reg-row">
+          <div class="reg-field">
+            <label for="con-first">First Name *</label>
+            <input type="text" id="con-first" name="first-name" required placeholder="Jane">
+          </div>
+          <div class="reg-field">
+            <label for="con-last">Last Name *</label>
+            <input type="text" id="con-last" name="last-name" required placeholder="Smith">
+          </div>
+        </div>
+        <div class="reg-field">
+          <label for="con-email">Email Address *</label>
+          <input type="email" id="con-email" name="email" required placeholder="jane@email.com">
+        </div>
+        <div class="reg-field">
+          <label for="con-message">Your Question *</label>
+          <textarea id="con-message" name="message" required placeholder="What would you like to know?"></textarea>
+        </div>
+        <button type="submit" class="reg-submit">SEND MESSAGE</button>
+      </form>
+    </div>
+    <div id="contact-success" class="reg-success" style="display:none">
+      <span class="check-circle">✅</span>
+      <h3>Message Received!</h3>
+      <p>Thanks for reaching out. A member of our staff will get back to you personally within 24 hours.</p>
     </div>
   </div>
 </div>
@@ -1385,7 +1432,7 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
       </details>
     </div>
     <div class="modal-foot">
-      <a href="mailto:info@forgesoccerclub.com" class="btn btn-navy" onclick="closeModal('modal-faq')">Email Us</a>
+      <button onclick="closeModal('modal-faq');openModal('modal-contact')" class="btn btn-navy">Ask Us a Question</button>
       <button onclick="closeModal('modal-faq');openModal('modal-register')" class="btn btn-crimson">Register Now</button>
     </div>
   </div>
@@ -1393,13 +1440,13 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
 
 <!-- ═══════════════════ JAVASCRIPT ═══════════════════ -->
 <script>
-// Netlify register form
-document.addEventListener('DOMContentLoaded', function() {
-  const form = document.getElementById('register-form');
+// Generic Netlify form handler
+function netlifyForm(formId, wrapId, successId) {
+  var form = document.getElementById(formId);
   if (!form) return;
   form.addEventListener('submit', function(e) {
     e.preventDefault();
-    const btn = form.querySelector('.reg-submit');
+    var btn = form.querySelector('.reg-submit');
     btn.textContent = 'SENDING…';
     btn.disabled = true;
     fetch('/', {
@@ -1409,15 +1456,24 @@ document.addEventListener('DOMContentLoaded', function() {
     })
     .then(function(response) {
       if (!response.ok) throw new Error('Server returned ' + response.status);
-      document.getElementById('register-form-wrap').style.display = 'none';
-      document.getElementById('register-success').style.display = 'block';
+      document.getElementById(wrapId).style.display = 'none';
+      document.getElementById(successId).style.display = 'block';
     })
     .catch(function() {
-      btn.textContent = 'SECURE MY SPOT';
+      btn.textContent = btn.dataset.label || 'SEND';
       btn.disabled = false;
       alert('Something went wrong. Please email us at info@forgesoccerclub.com');
     });
   });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  netlifyForm('contact-form', 'contact-form-wrap', 'contact-success');
+});
+
+// Netlify register form
+document.addEventListener('DOMContentLoaded', function() {
+  netlifyForm('register-form', 'register-form-wrap', 'register-success');
 });
 
 // Modal system
