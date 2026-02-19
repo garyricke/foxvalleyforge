@@ -279,6 +279,41 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
 </style>
 </head>
 <body>
+<!-- PASSWORD GATE -->
+<div id="pw-gate" style="position:fixed;inset:0;background:var(--navy);z-index:9999;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:20px">
+  <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/v1770763739/forge-logo-w-fox-valley-23jan2026_d1dlgi.png" alt="Fox Valley Forge SC" style="height:100px">
+  <p style="font-family:'Oswald',sans-serif;color:rgba(255,255,255,.7);letter-spacing:.15em;font-size:.85rem;text-transform:uppercase">Preview Access</p>
+  <div style="display:flex;gap:0;box-shadow:0 4px 20px rgba(0,0,0,.4)">
+    <input id="pw-input" type="password" placeholder="Enter password" style="padding:12px 18px;font-size:1rem;border:none;border-radius:3px 0 0 3px;width:220px;font-family:'Source Sans 3',sans-serif;outline:none">
+    <button onclick="checkPw()" style="padding:12px 20px;background:var(--crimson);color:#fff;border:none;border-radius:0 3px 3px 0;font-family:'Oswald',sans-serif;font-size:.9rem;font-weight:700;letter-spacing:.08em;cursor:pointer">ENTER</button>
+  </div>
+  <p id="pw-error" style="color:var(--gold);font-size:.85rem;display:none">Incorrect password. Try again.</p>
+</div>
+<script>
+(function() {
+  if (sessionStorage.getItem('forge-access') === '1') {
+    document.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('pw-gate').style.display = 'none';
+    });
+  }
+  window.checkPw = function() {
+    const val = document.getElementById('pw-input').value.trim().toLowerCase();
+    if (val === 'forge') {
+      sessionStorage.setItem('forge-access', '1');
+      document.getElementById('pw-gate').style.display = 'none';
+    } else {
+      document.getElementById('pw-error').style.display = 'block';
+      document.getElementById('pw-input').value = '';
+      document.getElementById('pw-input').focus();
+    }
+  };
+  document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('pw-input').addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') checkPw();
+    });
+  });
+})();
+</script>
 <!-- Hidden Netlify form for build-time detection -->
 <form name="register" data-netlify="true" hidden>
   <input type="hidden" name="form-name" value="register">
