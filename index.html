@@ -812,6 +812,7 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
         <h4>Connect</h4>
         <ul>
           <li><a href="#" onclick="openModal('modal-contact');return false">Contact Us</a></li>
+
           <li><a href="#" onclick="openModal('modal-faq');return false">FAQ</a></li>
           <li><a href="#" onclick="openModal('modal-alumni');return false">Alumni Network</a></li>
           <li><a href="#events">Girls in Sports Day — Mar 22</a></li>
@@ -821,7 +822,7 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
     </div>
     <div class="footer-bottom">
       <p>© 2026 Fox Valley Forge SC. All rights reserved. Non-profit organization.</p>
-      <p>Fox Valley, Illinois &nbsp;·&nbsp; forgesoccerclub.com</p>
+      <p>Fox Valley, Illinois &nbsp;·&nbsp; forgesoccerclub.com &nbsp;·&nbsp; <a href="mailto:info@forgesoccerclub.com" style="color:inherit;opacity:.7">info@forgesoccerclub.com</a></p>
     </div>
   </div>
 </footer>
@@ -1589,7 +1590,7 @@ function netlifyForm(formId, wrapId, successId) {
     .catch(function() {
       btn.textContent = btn.dataset.label || 'SEND';
       btn.disabled = false;
-      alert('Something went wrong. Please try again or use the contact form.');
+      alert('Something went wrong. Please try again or email gary.ricke@orbisdesign.com');
     });
   });
 }
