@@ -132,6 +132,11 @@ section{padding:80px 24px}
 #college{background:var(--gold-light);border-top:4px solid var(--gold);border-bottom:4px solid var(--gold)}
 .college-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
 .college-features{display:flex;flex-direction:column;gap:20px;margin-top:24px}
+.college-video-wrap{aspect-ratio:1/1;border-radius:8px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,.2);position:relative}
+.college-video-wrap video{width:100%;height:100%;object-fit:cover;display:block}
+.college-video-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,27,68,.88) 0%,rgba(0,27,68,.45) 55%,transparent 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:32px}
+.college-video-overlay .ov-label{font-family:var(--font-h);font-size:.75rem;letter-spacing:.18em;color:var(--gold);margin-bottom:10px}
+.college-video-overlay p{font-size:.95rem;color:rgba(255,255,255,.9);line-height:1.65;margin-bottom:16px}
 .college-feat{display:flex;gap:16px;align-items:flex-start}
 .feat-icon{width:48px;height:48px;flex-shrink:0}
 .feat-icon img{width:100%;height:100%;object-fit:contain}
@@ -638,10 +643,13 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
         <button class="btn btn-navy" onclick="openModal('modal-college')">How It Works →</button>
       </div>
       <div>
-        <div style="background:var(--gray);border-radius:8px;padding:24px" class="fade-in">
-          <p style="font-family:var(--font-h);font-size:.8rem;letter-spacing:.12em;color:var(--crimson);margin-bottom:8px">ALUMNI OUTCOMES</p>
-          <p style="font-size:.925rem;color:#444;line-height:1.6">Hundreds of Fox Valley players now compete at colleges across the country — D1, D2, D3, NAIA, and junior college. <strong>All players gaining access to collegiate play through the use of our multiple pathways.</strong></p>
-          <br><span class="link-more" onclick="openModal('modal-alumni')">Meet The Forge Family</span>
+        <div class="college-video-wrap fade-in">
+          <video id="college-video" src="https://player.vimeo.com/progressive_redirect/playback/1166662971/rendition/540p/file.mp4%20%28540p%29.mp4?loc=external&log_user=0&signature=7b6125e2128e486e81cc13169db37ed29c36d901c285d013567ad627dee62cee" muted playsinline loop preload="metadata"></video>
+          <div class="college-video-overlay">
+            <p class="ov-label">ALUMNI OUTCOMES</p>
+            <p>Hundreds of Fox Valley players now compete at colleges across the country — D1, D2, D3, NAIA, and junior college. <strong style="color:#fff">All players finding their right fit through our multiple pathways.</strong></p>
+            <span class="link-more" onclick="openModal('modal-alumni')">Meet The Forge Family</span>
+          </div>
         </div>
       </div>
     </div>
@@ -1684,6 +1692,18 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// College video — play on scroll into view, pause on scroll out
+var collegeVideo = document.getElementById('college-video');
+if (collegeVideo) {
+  var videoObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) { entry.target.play(); }
+      else { entry.target.pause(); }
+    });
+  }, { threshold: 0.3 });
+  videoObserver.observe(collegeVideo);
+}
 
 startIntro();
 </script>
