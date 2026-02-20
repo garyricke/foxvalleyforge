@@ -137,10 +137,11 @@ section{padding:80px 24px}
 .feat-icon img{width:100%;height:100%;object-fit:contain}
 .feat-text h4{font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:4px}
 .feat-text p{font-size:.875rem;color:#555;line-height:1.5}
-.event-callout{background:var(--navy);color:#fff;border-radius:8px;padding:28px;margin-top:32px}
-.event-callout .event-date{font-family:var(--font-h);font-size:.8rem;letter-spacing:.15em;color:var(--gold);margin-bottom:8px}
-.event-callout h3{font-size:1.3rem;margin-bottom:8px}
-.event-callout p{font-size:.875rem;color:rgba(255,255,255,.8);line-height:1.55;margin-bottom:16px}
+.event-callout{background:linear-gradient(rgba(0,27,68,.78),rgba(0,27,68,.78)),url('https://res.cloudinary.com/dsbllwpbh/image/upload/v1771432370/pitch-slide-14-chatgpt_msscmv.png') center/cover no-repeat;color:#fff;border-radius:8px;padding:32px 28px;margin-top:32px}
+.event-callout .event-label{font-family:var(--font-h);font-size:.75rem;letter-spacing:.22em;color:rgba(255,255,255,.55);text-transform:uppercase;margin-bottom:10px}
+.event-callout h3{font-size:clamp(2.4rem,6vw,4rem);font-weight:700;letter-spacing:.03em;line-height:1;margin-bottom:14px;color:#fff}
+.event-callout .event-date{font-family:var(--font-h);font-size:clamp(1.4rem,3.5vw,2.2rem);font-weight:600;color:var(--gold);margin-bottom:18px;line-height:1.1}
+.event-callout p{font-size:.9rem;color:rgba(255,255,255,.85);line-height:1.6;margin-bottom:16px}
 
 /* ── COMMUNITY ── */
 #community{background:var(--gray)}
@@ -622,11 +623,14 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
       </div>
       <div>
         <div class="event-callout fade-in">
-          <div class="event-date">Upcoming Event &nbsp;·&nbsp; March 22nd</div>
-          <h3>Women in Sports</h3>
-          <p>Former Forge players who competed at the collegiate level return to share their stories. Hear first-hand what college coaches really want, what the recruiting process looks like, and how to make it happen from right here in Fox Valley.</p>
-          <p><strong style="color:var(--gold)">Free for all Forge families. Open to U13+ players.</strong></p>
-          <button onclick="openModal('modal-register')" class="btn btn-crimson">Reserve Your Spot</button>
+          <div class="event-label">Save the Date</div>
+          <h3>Girls in Sports Day</h3>
+          <div class="event-date">Sunday, March 22nd</div>
+          <p>Join us as we celebrate the strength, confidence, and passion of our incredible female athletes — a fun, empowering day dedicated to uplifting the girls in our club and recognizing the impact they make both on and off the field.</p>
+          <p style="margin-top:12px;font-size:.9rem;color:rgba(255,255,255,.85)"><strong style="color:var(--gold);display:block;margin-bottom:6px">THE DAY INCLUDES:</strong>
+            Soccer challenges &nbsp;·&nbsp; Speed &amp; agility training &nbsp;·&nbsp; Yoga for recovery &amp; balance &nbsp;·&nbsp; A special panel of high school &amp; college players and coaches
+          </p>
+          <p style="margin-top:14px;font-size:.85rem;color:rgba(255,255,255,.65);font-style:italic">Registration details coming soon — stay tuned for more information!</p>
         </div>
         <div style="background:var(--gray);border-radius:8px;padding:24px;margin-top:20px" class="fade-in">
           <p style="font-family:var(--font-h);font-size:.8rem;letter-spacing:.12em;color:var(--crimson);margin-bottom:8px">ALUMNI OUTCOMES</p>
@@ -762,7 +766,7 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
           <li><a href="mailto:info@forgesoccerclub.com">info@forgesoccerclub.com</a></li>
           <li><a href="#" onclick="openModal('modal-faq');return false">FAQ</a></li>
           <li><a href="#" onclick="openModal('modal-alumni');return false">Alumni Network</a></li>
-          <li><a href="#college">Women in Sports — Mar 22</a></li>
+          <li><a href="#college">Girls in Sports Day — Mar 22</a></li>
           <li><a href="#" onclick="openModal('modal-compare');return false">Compare Programs</a></li>
         </ul>
       </div>
@@ -951,17 +955,10 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
         <li>Timeline planning: when to reach out, when to visit, when to commit</li>
       </ul>
       <div class="highlight">"D1 is a great dream. D2, D3, NAIA, and junior college are great lives. We help you find the right fit — not just the most impressive-sounding one."</div>
-      <h3>Women in Sports Event — March 22nd</h3>
-      <p>Former Forge players who competed at the collegiate level are returning to share their stories. This is a free event open to all U13+ players and families. Hear first-hand:</p>
-      <ul>
-        <li>What college coaches actually look for</li>
-        <li>What the recruiting process really feels like</li>
-        <li>How to balance academics and athletics in college</li>
-        <li>Why your club matters less than how you play and who knows you</li>
-      </ul>
     </div>
     <div class="modal-foot">
-      <button onclick="closeModal('modal-college');openModal('modal-register')" class="btn btn-crimson">Reserve Event Spot</button>
+      <button onclick="closeModal('modal-college')" class="btn btn-navy">Got It</button>
+      <button onclick="closeModal('modal-college');openModal('modal-register')" class="btn btn-crimson">Register Now</button>
     </div>
   </div>
 </div>
@@ -1059,7 +1056,7 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
         <li><strong>Multiple training spaces</strong> — teams have the flexibility and adaptability to train simultaneously</li>
       </ul>
       <h3>More Than a Training Ground</h3>
-      <p>Our facilities are community hubs. Events like our Women in Sports evening happen here. Alumni return here. Families gather here. It's where the Forge culture lives.</p>
+      <p>Our facilities are community hubs. Events like our Girls in Sports Day happen here. Alumni return here. Families gather here. It's where the Forge culture lives.</p>
       <h3>Geographic Coverage</h3>
       <p>Our two facilities are strategically positioned to minimize drive times for Fox Valley families. We know that convenience matters — and that asking families to drive an hour each way for a practice is not a sustainable model.</p>
       <div class="highlight">"A permanent home means a permanent commitment to this community."</div>
