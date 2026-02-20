@@ -137,11 +137,25 @@ section{padding:80px 24px}
 .feat-icon img{width:100%;height:100%;object-fit:contain}
 .feat-text h4{font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:4px}
 .feat-text p{font-size:.875rem;color:#555;line-height:1.5}
-.event-callout{background:linear-gradient(rgba(0,27,68,.78),rgba(0,27,68,.78)),url('https://res.cloudinary.com/dsbllwpbh/image/upload/v1771432370/pitch-slide-14-chatgpt_msscmv.png') center/cover no-repeat;color:#fff;border-radius:8px;padding:32px 28px;margin-top:32px}
-.event-callout .event-label{font-family:var(--font-h);font-size:.75rem;letter-spacing:.22em;color:rgba(255,255,255,.55);text-transform:uppercase;margin-bottom:10px}
-.event-callout h3{font-size:clamp(2.4rem,6vw,4rem);font-weight:700;letter-spacing:.03em;line-height:1;margin-bottom:14px;color:#fff}
-.event-callout .event-date{font-family:var(--font-h);font-size:clamp(1.4rem,3.5vw,2.2rem);font-weight:600;color:var(--gold);margin-bottom:18px;line-height:1.1}
-.event-callout p{font-size:.9rem;color:rgba(255,255,255,.85);line-height:1.6;margin-bottom:16px}
+/* ── EVENTS ── */
+#events{background:#fff;border-top:4px solid var(--gold)}
+.events-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(560px,1fr));gap:32px}
+.event-card{border-radius:8px;overflow:hidden;box-shadow:0 6px 32px rgba(0,0,0,.13);display:grid;grid-template-columns:1fr 1fr;min-height:400px}
+.event-card-img{position:relative;display:flex;flex-direction:column;justify-content:flex-end;padding:36px 32px;background-size:cover;background-position:center}
+.event-card-img::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,27,68,.82) 0%,rgba(0,0,0,.55) 100%)}
+.event-card-img>*{position:relative;z-index:1}
+.event-eyebrow{font-family:var(--font-h);font-size:.7rem;letter-spacing:.24em;color:rgba(255,255,255,.5);text-transform:uppercase;margin-bottom:12px}
+.event-card-title{font-family:var(--font-h);font-size:clamp(1.9rem,4vw,3rem);font-weight:700;color:#fff;line-height:1.0;margin-bottom:14px}
+.event-card-date{font-family:var(--font-h);font-size:clamp(1.1rem,2.2vw,1.6rem);font-weight:600;color:var(--gold);line-height:1.2}
+.event-card-body{background:#fff;padding:36px 32px;display:flex;flex-direction:column;justify-content:center;gap:16px}
+.event-card-body h4{font-family:var(--font-h);font-size:.75rem;letter-spacing:.16em;color:var(--crimson);margin-bottom:4px}
+.event-card-body p{font-size:.925rem;color:#555;line-height:1.65}
+.event-activities{list-style:none;padding:0;display:flex;flex-direction:column;gap:8px}
+.event-activities li{font-size:.9rem;color:#444;display:flex;align-items:flex-start;gap:10px;line-height:1.4}
+.event-activities li::before{content:'';display:inline-block;width:16px;height:16px;background:url('https://res.cloudinary.com/dsbllwpbh/image/upload/v1771515193/icon-soccer-ball-arrow-right_zvgy69.svg') center/contain no-repeat;flex-shrink:0;margin-top:1px;filter:brightness(0) saturate(100%) invert(17%) sepia(95%) saturate(2000%) hue-rotate(333deg) brightness(88%) contrast(102%)}
+.event-coming-soon{font-size:.82rem;color:#999;font-style:italic;border-top:1px solid #eee;padding-top:14px;margin-top:4px}
+@media(max-width:900px){.event-card{grid-template-columns:1fr}.event-card-img{min-height:260px}}
+@media(max-width:600px){.events-grid{grid-template-columns:1fr}}
 
 /* ── COMMUNITY ── */
 #community{background:var(--gray)}
@@ -356,6 +370,7 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
       <li><a href="#programs">Programs</a></li>
       <li><a href="#coaching">Coaching</a></li>
       <li><a href="#college">College Pathway</a></li>
+      <li><a href="#events">Events</a></li>
       <li><a href="#community">Our Story</a></li>
       <li><a href="#" onclick="openModal('modal-faq');return false">FAQ</a></li>
     </ul>
@@ -369,6 +384,7 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
   <a href="#programs" onclick="closeMobile()">Programs</a>
   <a href="#coaching" onclick="closeMobile()">Coaching</a>
   <a href="#college" onclick="closeMobile()">College Pathway</a>
+  <a href="#events" onclick="closeMobile()">Events</a>
   <a href="#community" onclick="closeMobile()">Our Story</a>
   <a href="#" onclick="openModal('modal-faq');closeMobile();return false">FAQ</a>
   <a href="#" onclick="closeMobile();openModal('modal-register');return false" class="btn btn-crimson" style="text-align:center;margin-top:8px">Register Now</a>
@@ -622,20 +638,44 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
         <button class="btn btn-navy" onclick="openModal('modal-college')">How It Works →</button>
       </div>
       <div>
-        <div class="event-callout fade-in">
-          <div class="event-label">Save the Date</div>
-          <h3>Girls in Sports Day</h3>
-          <div class="event-date">Sunday, March 22nd</div>
-          <p>Join us as we celebrate the strength, confidence, and passion of our incredible female athletes — a fun, empowering day dedicated to uplifting the girls in our club and recognizing the impact they make both on and off the field.</p>
-          <p style="margin-top:12px;font-size:.9rem;color:rgba(255,255,255,.85)"><strong style="color:var(--gold);display:block;margin-bottom:6px">THE DAY INCLUDES:</strong>
-            Soccer challenges &nbsp;·&nbsp; Speed &amp; agility training &nbsp;·&nbsp; Yoga for recovery &amp; balance &nbsp;·&nbsp; A special panel of high school &amp; college players and coaches
-          </p>
-          <p style="margin-top:14px;font-size:.85rem;color:rgba(255,255,255,.65);font-style:italic">Registration details coming soon — stay tuned for more information!</p>
-        </div>
-        <div style="background:var(--gray);border-radius:8px;padding:24px;margin-top:20px" class="fade-in">
+        <div style="background:var(--gray);border-radius:8px;padding:24px" class="fade-in">
           <p style="font-family:var(--font-h);font-size:.8rem;letter-spacing:.12em;color:var(--crimson);margin-bottom:8px">ALUMNI OUTCOMES</p>
           <p style="font-size:.925rem;color:#444;line-height:1.6">Hundreds of Fox Valley players now compete at colleges across the country — D1, D2, D3, NAIA, and junior college. <strong>All players gaining access to collegiate play through the use of our multiple pathways.</strong></p>
           <br><span class="link-more" onclick="openModal('modal-alumni')">Meet The Forge Family</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EVENTS -->
+<section id="events">
+  <div class="section-inner">
+    <p class="section-label fade-in">Community Events</p>
+    <h2 class="section-title fade-in">Upcoming Events</h2>
+    <p class="section-sub fade-in">More than training. Forge brings the community together.</p>
+    <div class="events-grid">
+      <div class="event-card fade-in">
+        <div class="event-card-img" style="background-image:url('https://res.cloudinary.com/dsbllwpbh/image/upload/v1771432370/pitch-slide-14-chatgpt_msscmv.png')">
+          <div class="event-eyebrow">Save the Date</div>
+          <h3 class="event-card-title">Girls in Sports Day</h3>
+          <div class="event-card-date">Sunday, March 22nd</div>
+        </div>
+        <div class="event-card-body">
+          <div>
+            <h4>About the Event</h4>
+            <p>Join us as we celebrate the strength, confidence, and passion of our incredible female athletes — a fun, empowering day dedicated to uplifting the girls in our club.</p>
+          </div>
+          <div>
+            <h4>The Day Includes</h4>
+            <ul class="event-activities">
+              <li>Soccer challenges to showcase skills</li>
+              <li>Speed and agility training</li>
+              <li>Yoga for recovery, relaxation, and balance</li>
+              <li>A special panel of high school &amp; college players and coaches</li>
+            </ul>
+          </div>
+          <p class="event-coming-soon">Registration details coming soon — stay tuned for more information!</p>
         </div>
       </div>
     </div>
@@ -766,7 +806,7 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
           <li><a href="mailto:info@forgesoccerclub.com">info@forgesoccerclub.com</a></li>
           <li><a href="#" onclick="openModal('modal-faq');return false">FAQ</a></li>
           <li><a href="#" onclick="openModal('modal-alumni');return false">Alumni Network</a></li>
-          <li><a href="#college">Girls in Sports Day — Mar 22</a></li>
+          <li><a href="#events">Girls in Sports Day — Mar 22</a></li>
           <li><a href="#" onclick="openModal('modal-compare');return false">Compare Programs</a></li>
         </ul>
       </div>
@@ -1095,7 +1135,7 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
       <div class="callout"><p>"That's the kind of community trust you can't manufacture. You have to earn it, year after year, family after family."</p></div>
     </div>
     <div class="modal-foot">
-      <a href="#college" class="btn btn-crimson" onclick="closeModal('modal-alumni')">Reserve Event Spot — Mar 22</a>
+      <a href="#events" class="btn btn-crimson" onclick="closeModal('modal-alumni')">Girls in Sports Day — Mar 22</a>
     </div>
   </div>
 </div>
