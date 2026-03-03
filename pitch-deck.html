@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fox Valley Forge SC — Partner Pitch Deck 2026</title>
+<link rel="icon" href="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1771377451/favicon-forge-1_r6l4ax.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:#001B44; --navy-90:#1A2F57; --navy-70:#4D5F7D; --navy-10:#E6EAF0;
+  --crimson:#A91335; --crimson-90:#B92B4A;
+  --gold:#C5A059; --gold-light:#F8F3EA;
+  --white:#FFFFFF; --gray:#F4F5F7; --dark:#0A0E17;
+  --font-h:'Oswald',Impact,sans-serif;
+  --font-b:'Source Sans 3','Helvetica Neue',Arial,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;overflow:hidden;background:var(--dark)}
+body{font-family:var(--font-b)}
+
+/* ── DECK WRAPPER ── */
+.deck{width:100%;height:100vh;position:relative}
+.slide{position:absolute;inset:0;display:none;flex-direction:column;justify-content:center;align-items:center;padding:64px;opacity:0;transition:opacity .4s ease}
+.slide.active{display:flex;opacity:1}
+.slide.prev{display:flex;opacity:0;pointer-events:none}
+
+/* ── NAV ── */
+.nav-bar{position:fixed;bottom:32px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:20px;z-index:100;background:rgba(0,0,0,.5);backdrop-filter:blur(8px);padding:10px 20px;border-radius:40px;border:1px solid rgba(255,255,255,.15)}
+.nav-btn{background:none;border:none;color:rgba(255,255,255,.7);font-size:1.2rem;cursor:pointer;padding:4px 12px;border-radius:20px;transition:all .2s;font-family:var(--font-h);letter-spacing:.04em}
+.nav-btn:hover{color:#fff;background:rgba(255,255,255,.1)}
+.slide-counter{font-family:var(--font-h);font-size:.85rem;color:rgba(255,255,255,.6);letter-spacing:.1em;min-width:60px;text-align:center}
+.progress-bar{position:fixed;top:0;left:0;height:3px;background:var(--gold);transition:width .4s ease;z-index:200}
+
+/* ── LOGO WATERMARK ── */
+.slide-logo{position:fixed;top:24px;left:32px;height:36px;opacity:.9;z-index:100}
+
+/* ── PLACEHOLDER STYLE ── */
+.ph{background:rgba(197,160,89,.15);border:1px dashed var(--gold);border-radius:4px;padding:3px 10px;color:var(--gold);font-style:italic;font-size:.85em;display:inline-block}
+
+/* ── TYPOGRAPHY HELPERS ── */
+h1,h2,h3,h4{font-family:var(--font-h);text-transform:uppercase;line-height:1.1}
+.eyebrow{font-family:var(--font-h);font-size:.8rem;letter-spacing:.22em;color:var(--gold);margin-bottom:16px}
+.slide-title{font-size:clamp(2rem,5vw,3.2rem);font-weight:700;margin-bottom:20px}
+.slide-sub{font-size:clamp(1rem,1.8vw,1.25rem);line-height:1.65;max-width:760px;opacity:.85}
+.gold{color:var(--gold)}
+.crimson{color:var(--crimson)}
+.center{text-align:center}
+.tag{display:inline-block;font-family:var(--font-h);font-size:.72rem;letter-spacing:.12em;padding:4px 12px;border-radius:3px;margin-bottom:10px}
+.tag-gold{background:var(--gold);color:var(--navy)}
+.tag-crimson{background:var(--crimson);color:#fff}
+.tag-outline{border:1px solid rgba(255,255,255,.3);color:rgba(255,255,255,.7)}
+
+/* ── GRID HELPERS ── */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:32px;width:100%;max-width:1100px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;width:100%;max-width:1100px}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;width:100%;max-width:1100px}
+
+/* ── CARD ── */
+.card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:28px 24px}
+.card-gold{background:rgba(197,160,89,.08);border-color:rgba(197,160,89,.3)}
+.card-crimson{background:rgba(169,19,53,.12);border-color:rgba(169,19,53,.3)}
+.card h3{font-family:var(--font-h);font-size:1rem;color:var(--gold);margin-bottom:10px;letter-spacing:.05em}
+.card p,.card li{font-size:.88rem;color:rgba(255,255,255,.78);line-height:1.6}
+.card ul{list-style:none;display:flex;flex-direction:column;gap:5px}
+.card ul li::before{content:"→ ";color:var(--gold);font-weight:700}
+
+/* ── SLIDE BACKGROUNDS ── */
+.bg-navy{background:var(--navy)}
+.bg-dark{background:var(--dark)}
+.bg-crimson{background:var(--crimson)}
+.bg-gold{background:var(--gold)}
+.bg-navy-grad{background:linear-gradient(135deg,var(--dark) 0%,var(--navy-90) 100%)}
+.bg-hero{background:linear-gradient(135deg,#000d22 0%,var(--navy) 60%,#1a0a1e 100%)}
+
+/* ── SLIDE 1: COVER ── */
+#s1{background:var(--dark);text-align:center}
+#s1::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(169,19,53,.2) 0%,transparent 60%),radial-gradient(ellipse at 70% 50%,rgba(197,160,89,.1) 0%,transparent 60%)}
+#s1 .cover-logo{height:160px;margin:0 auto 40px;position:relative;z-index:1}
+#s1 h1{font-size:clamp(1.5rem,3.5vw,2.4rem);font-weight:400;color:rgba(255,255,255,.5);letter-spacing:.08em;line-height:1.8;position:relative;z-index:1}
+#s1 h1 strong{color:#fff;font-weight:700;display:block;font-size:1.3em;margin-bottom:4px}
+#s1 .cover-divider{width:60px;height:3px;background:var(--gold);margin:32px auto;position:relative;z-index:1}
+#s1 .cover-sub{font-size:.9rem;letter-spacing:.18em;color:rgba(255,255,255,.4);text-transform:uppercase;position:relative;z-index:1}
+
+/* ── SLIDE 2: OPPORTUNITY ── */
+#s2{background:var(--navy-90)}
+#s2 .stat-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;width:100%;max-width:1100px;margin-top:32px}
+#s2 .opp-card{background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.1);border-top:3px solid var(--gold);border-radius:6px;padding:24px 20px;text-align:center}
+#s2 .opp-card .opp-icon{width:52px;height:52px;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;color:var(--gold)}
+#s2 .opp-card h3{font-size:.95rem;color:#fff;margin-bottom:8px}
+#s2 .opp-card p{font-size:.82rem;color:rgba(255,255,255,.6);line-height:1.5}
+#s2 .tension{margin-top:36px;max-width:760px;text-align:center;font-size:1.1rem;color:rgba(255,255,255,.65);font-style:italic;border-top:1px solid rgba(255,255,255,.1);padding-top:24px}
+#s2 .tension strong{color:var(--gold);font-style:normal}
+
+/* ── SLIDE 3: THE GAP ── */
+#s3{background:var(--dark)}
+.gap-grid{display:grid;grid-template-columns:1fr 80px 1fr 80px 1fr;gap:0;align-items:center;width:100%;max-width:1100px;margin-top:32px}
+.gap-col{border-radius:8px;padding:32px 24px;text-align:center}
+.gap-col.left,.gap-col.right{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1)}
+.gap-col.center-col{background:var(--navy);border:2px solid var(--gold);padding:40px 28px;position:relative;z-index:2;transform:scale(1.04)}
+.gap-arrow{text-align:center;color:rgba(255,255,255,.2);font-size:1.5rem}
+.gap-col h3{font-family:var(--font-h);font-size:.95rem;letter-spacing:.08em;margin-bottom:12px}
+.gap-col.left h3,.gap-col.right h3{color:rgba(255,255,255,.5)}
+.gap-col.center-col h3{color:var(--gold);font-size:1.1rem}
+.gap-col p{font-size:.82rem;line-height:1.6;color:rgba(255,255,255,.55)}
+.gap-col.center-col p{color:rgba(255,255,255,.85);font-size:.88rem}
+.gap-label{font-family:var(--font-h);font-size:.7rem;letter-spacing:.15em;padding:4px 10px;border-radius:3px;display:inline-block;margin-bottom:12px}
+.gap-label.bad{background:rgba(255,255,255,.08);color:rgba(255,255,255,.4)}
+.gap-label.good{background:var(--gold);color:var(--navy)}
+
+/* ── SLIDE 4: FORGE MODEL ── */
+#s4{background:var(--navy)}
+.pillar-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;width:100%;max-width:1100px;margin-top:32px}
+.pillar-card{border-radius:8px;padding:32px 28px}
+.pillar-card.access{background:rgba(197,160,89,.08);border:1px solid rgba(197,160,89,.25)}
+.pillar-card.dev{background:rgba(255,255,255,.11);border:2px solid rgba(255,255,255,.5);transform:scale(1.03)}
+.pillar-card.comm{background:rgba(197,160,89,.08);border:1px solid rgba(197,160,89,.25)}
+.pillar-card h3{font-family:var(--font-h);font-size:1.2rem;margin-bottom:16px;letter-spacing:.06em}
+.pillar-card.access h3{color:var(--gold)}
+.pillar-card.dev h3{color:#fff}
+.pillar-card.comm h3{color:var(--gold)}
+.pillar-card ul{list-style:none;display:flex;flex-direction:column;gap:7px}
+.pillar-card ul li{font-size:.87rem;color:rgba(255,255,255,.75);padding-left:16px;position:relative;line-height:1.4}
+.pillar-card ul li::before{content:"·";position:absolute;left:0;color:var(--gold);font-size:1.2rem;line-height:1}
+
+/* ── SLIDE 4B: DIFFERENT ── */
+#s4b{background:var(--dark)}
+.diff-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;width:100%;max-width:1100px;margin-top:32px}
+.diff-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:6px;padding:24px;display:flex;gap:16px;align-items:flex-start}
+.diff-num{font-family:var(--font-h);font-size:2rem;font-weight:700;color:var(--gold);opacity:.4;line-height:1;flex-shrink:0;width:40px}
+.diff-text h4{font-family:var(--font-h);font-size:.95rem;color:#fff;margin-bottom:6px;letter-spacing:.04em}
+.diff-text p{font-size:.83rem;color:rgba(255,255,255,.6);line-height:1.55}
+
+/* ── SLIDE 4C: VISION ── */
+#s4c{background:var(--navy-90)}
+.vision-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;width:100%;max-width:1100px;margin-top:36px}
+.vision-item{text-align:center;position:relative}
+.vision-item::after{content:'';position:absolute;top:28px;right:-8px;width:16px;height:2px;background:rgba(255,255,255,.15)}
+.vision-item:last-child::after{display:none}
+.vision-dot{width:56px;height:56px;display:flex;align-items:center;justify-content:center;color:var(--gold);margin:0 auto 16px}
+.vision-item h4{font-family:var(--font-h);font-size:.85rem;color:var(--gold);margin-bottom:6px;letter-spacing:.05em}
+.vision-item p{font-size:.78rem;color:rgba(255,255,255,.6);line-height:1.5}
+.vision-years{text-align:center;margin-top:32px;font-family:var(--font-h);font-size:.8rem;letter-spacing:.15em;color:rgba(255,255,255,.35)}
+
+/* ── SLIDE 5: MESSAGE ── */
+#s5{background:var(--dark);text-align:center}
+#s5::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(197,160,89,.06) 0%,transparent 70%)}
+#s5 blockquote{font-family:var(--font-h);font-size:clamp(1.6rem,3.5vw,2.8rem);font-weight:700;color:#fff;max-width:860px;line-height:1.3;position:relative;z-index:1;letter-spacing:.02em}
+#s5 blockquote span{color:var(--gold)}
+#s5 .msg-sub{font-size:1rem;color:rgba(255,255,255,.5);margin-top:32px;max-width:600px;position:relative;z-index:1}
+.now-pills{display:flex;gap:16px;justify-content:center;margin-top:28px;position:relative;z-index:1;flex-wrap:wrap}
+.now-pill{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);border-radius:40px;padding:10px 24px;font-family:var(--font-h);font-size:.8rem;letter-spacing:.1em;color:rgba(255,255,255,.7)}
+
+/* ── SLIDE 5B: PARTNERSHIP TYPES ── */
+#s5b{background:var(--navy)}
+.partner-types{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;width:100%;max-width:1100px;margin-top:32px}
+.pt-card{border-radius:8px;padding:28px 20px;text-align:center;cursor:default}
+.pt-card .pt-icon{width:60px;height:60px;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;color:var(--gold)}
+.pt-card h3{font-family:var(--font-h);font-size:1rem;margin-bottom:8px;letter-spacing:.05em}
+.pt-card p{font-size:.82rem;color:rgba(255,255,255,.65);line-height:1.55}
+.pt-1{background:rgba(197,160,89,.1);border:1px solid rgba(197,160,89,.3)}
+.pt-1 h3{color:var(--gold)}
+.pt-2{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.2)}
+.pt-2 h3{color:#fff}
+.pt-3{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12)}
+.pt-3 h3{color:#fff}
+.pt-4{background:rgba(26,47,87,.6);border:1px solid rgba(255,255,255,.1)}
+.pt-4 h3{color:rgba(255,255,255,.8)}
+
+/* ── SLIDE 6: FOUNDERS CIRCLE ── */
+#s6{background:var(--dark);text-align:center}
+#s6::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 30%,rgba(197,160,89,.08) 0%,transparent 60%)}
+.founders-tier{background:rgba(197,160,89,.06);border:1px solid rgba(197,160,89,.25);border-radius:12px;padding:40px;max-width:800px;width:100%;position:relative;z-index:1;margin-top:20px}
+.founders-amount{font-family:var(--font-h);font-size:clamp(2rem,5vw,3.5rem);font-weight:700;color:var(--gold);margin-bottom:8px}
+.founders-label{font-family:var(--font-h);font-size:.8rem;letter-spacing:.2em;color:rgba(255,255,255,.4);margin-bottom:32px}
+.founders-benefits{display:grid;grid-template-columns:1fr 1fr;gap:12px;text-align:left;margin-bottom:28px}
+.fb{display:flex;gap:12px;align-items:flex-start}
+.fb-dot{width:8px;height:8px;border-radius:50%;background:var(--gold);margin-top:5px;flex-shrink:0}
+.fb p{font-size:.88rem;color:rgba(255,255,255,.75);line-height:1.5}
+.founders-tagline{font-family:var(--font-h);font-size:1rem;color:rgba(255,255,255,.4);letter-spacing:.08em;border-top:1px solid rgba(255,255,255,.08);padding-top:20px}
+.founders-tagline strong{color:var(--gold)}
+
+/* ── SLIDE 7: CORPORATE ── */
+#s7{background:var(--navy-90)}
+.corp-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;width:100%;max-width:1000px;margin-top:28px;align-items:start}
+.corp-includes{background:rgba(0,0,0,.2);border-radius:8px;padding:28px}
+.corp-includes h3{font-family:var(--font-h);font-size:.85rem;letter-spacing:.15em;color:var(--gold);margin-bottom:16px}
+.corp-includes ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.corp-includes ul li{font-size:.88rem;color:rgba(255,255,255,.75);display:flex;gap:10px;align-items:flex-start;line-height:1.4}
+.corp-includes ul li::before{content:"✓";color:var(--gold);font-weight:700;flex-shrink:0}
+.corp-value{display:flex;flex-direction:column;gap:16px}
+.cv-item{background:rgba(255,255,255,.04);border-left:3px solid var(--gold);border-radius:0 6px 6px 0;padding:16px 20px}
+.cv-item h4{font-family:var(--font-h);font-size:.9rem;color:#fff;margin-bottom:4px;letter-spacing:.04em}
+.cv-item p{font-size:.82rem;color:rgba(255,255,255,.6);line-height:1.5}
+.corp-cta{text-align:center;margin-top:24px;font-family:var(--font-h);font-size:1rem;color:rgba(255,255,255,.5);letter-spacing:.06em}
+.corp-cta strong{color:var(--gold)}
+
+/* ── SLIDE 8: SCHOLARSHIP ── */
+#s8{background:var(--dark)}
+.scholar-layout{display:grid;grid-template-columns:1fr 1fr;gap:48px;width:100%;max-width:1000px;margin-top:24px;align-items:center}
+.scholar-story{text-align:center}
+.scholar-amount{font-family:var(--font-h);font-size:4rem;font-weight:700;color:var(--gold);line-height:1}
+.scholar-amount-label{font-family:var(--font-h);font-size:.75rem;letter-spacing:.2em;color:rgba(255,255,255,.4);margin-bottom:8px}
+.scholar-arrow{font-size:2rem;color:rgba(255,255,255,.15);margin:12px 0}
+.scholar-impact{font-family:var(--font-h);font-size:1.6rem;color:#fff}
+.scholar-impact span{color:var(--gold)}
+.scholar-benefits{display:flex;flex-direction:column;gap:16px}
+.sb-item{background:rgba(255,255,255,.04);border-radius:6px;padding:18px 20px;display:flex;gap:14px;align-items:flex-start}
+.sb-icon{width:44px;height:44px;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--gold)}
+.sb-text h4{font-family:var(--font-h);font-size:.9rem;color:var(--gold);margin-bottom:4px;letter-spacing:.04em}
+.sb-text p{font-size:.83rem;color:rgba(255,255,255,.65);line-height:1.5}
+.scholar-emotional{margin-top:28px;font-style:italic;font-size:1rem;color:rgba(255,255,255,.4);text-align:center;max-width:800px}
+.scholar-emotional strong{color:var(--gold);font-style:normal}
+
+/* ── SLIDE 9: LEGACY ── */
+#s9{background:var(--navy)}
+.legacy-intro{max-width:600px;text-align:center;margin-bottom:36px}
+.legacy-intro p{font-size:1rem;color:rgba(255,255,255,.7);line-height:1.7}
+.legacy-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;width:100%;max-width:1000px}
+.legacy-card{background:rgba(0,0,0,.2);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:28px 24px;text-align:center}
+.legacy-icon{width:52px;height:52px;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;color:var(--gold)}
+.legacy-card h3{font-family:var(--font-h);font-size:.95rem;color:var(--gold);margin-bottom:10px;letter-spacing:.05em}
+.legacy-card p{font-size:.83rem;color:rgba(255,255,255,.6);line-height:1.6}
+
+/* ── SLIDE 10: TOURNAMENT ── */
+#s10{background:var(--dark)}
+#s10::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 100%,rgba(169,19,53,.15) 0%,transparent 60%)}
+.tournament-name{font-family:var(--font-h);font-size:clamp(1.8rem,4vw,3rem);font-weight:700;color:#fff;text-align:center;margin-bottom:8px;position:relative;z-index:1}
+.tournament-name span{color:var(--gold)}
+.tournament-presented{font-family:var(--font-h);font-size:.85rem;letter-spacing:.15em;color:rgba(255,255,255,.4);text-align:center;margin-bottom:36px;position:relative;z-index:1}
+.tournament-perks{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;width:100%;max-width:1100px;position:relative;z-index:1}
+.tp-item{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:6px;padding:20px 16px;text-align:center}
+.tp-icon{width:52px;height:52px;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;color:var(--gold)}
+.tp-item h4{font-family:var(--font-h);font-size:.82rem;color:var(--gold);letter-spacing:.06em;line-height:1.3}
+
+/* ── SLIDE 11: MOMENTUM ── */
+#s11{background:var(--navy-90)}
+.impact-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;width:100%;max-width:1100px;margin-top:32px}
+.impact-card{background:rgba(0,0,0,.25);border-radius:8px;padding:24px 16px;text-align:center;border-bottom:3px solid var(--gold)}
+.impact-num{font-family:var(--font-h);font-size:2rem;font-weight:700;color:var(--gold);line-height:1;margin-bottom:6px}
+.impact-label{font-size:.78rem;color:rgba(255,255,255,.6);line-height:1.4}
+.transparency-note{margin-top:32px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:6px;padding:16px 24px;max-width:700px;text-align:center}
+.transparency-note p{font-size:.85rem;color:rgba(255,255,255,.55);line-height:1.6}
+.transparency-note strong{color:var(--gold)}
+
+/* ── SLIDE 12: INVESTOR SUMMIT ── */
+#s12{background:var(--dark);text-align:center}
+.summit-date{font-family:var(--font-h);font-size:.85rem;letter-spacing:.2em;color:var(--gold);margin-bottom:20px}
+.summit-features{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;width:100%;max-width:1000px;margin:32px auto}
+.sf-item{background:rgba(197,160,89,.06);border:1px solid rgba(197,160,89,.25);border-top:3px solid var(--gold);border-radius:6px;padding:24px 16px}
+.sf-icon{width:52px;height:52px;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;color:var(--gold)}
+.sf-item h4{font-family:var(--font-h);font-size:.88rem;color:#fff;margin-bottom:6px;letter-spacing:.04em}
+.sf-item p{font-size:.78rem;color:rgba(255,255,255,.5);line-height:1.5}
+.summit-cta{font-family:var(--font-h);font-size:1.1rem;color:rgba(255,255,255,.4);letter-spacing:.08em}
+.summit-cta strong{color:var(--gold)}
+/* ── ICON SVG SIZE ── */
+.opp-icon svg,.vision-dot svg,.pt-icon svg,.sb-icon svg,.legacy-icon svg,.tp-icon svg,.sf-icon svg{width:40px;height:40px;flex-shrink:0}
+
+/* ── SLIDE 13: LEADERSHIP ── */
+#s13{background:var(--navy)}
+.leaders-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;width:100%;max-width:1160px;margin-top:28px}
+.leader-card{background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:22px 16px;text-align:center}
+.leader-avatar{width:80px;height:80px;border-radius:50%;border:2px solid var(--gold);overflow:hidden;margin:0 auto 14px}
+.leader-avatar img{width:100%;height:100%;object-fit:cover;display:block}
+.leader-card h3{font-family:var(--font-h);font-size:.92rem;color:#fff;margin-bottom:4px;letter-spacing:.04em}
+.leader-card .leader-title{font-size:.72rem;color:var(--gold);letter-spacing:.07em;margin-bottom:10px}
+.leader-card p{font-size:.76rem;color:rgba(255,255,255,.62);line-height:1.55}
+
+/* ── SLIDE 14: CLOSING ── */
+#s14{background:var(--dark);text-align:center}
+#s14::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 60%,rgba(197,160,89,.05) 0%,transparent 70%)}
+#s14 .close-logo{height:100px;margin:0 auto 32px;position:relative;z-index:1}
+#s14 h2{font-size:clamp(1rem,2.5vw,1.6rem);font-weight:400;color:rgba(255,255,255,.5);letter-spacing:.12em;position:relative;z-index:1;margin-bottom:24px}
+#s14 .close-statement{font-family:var(--font-h);font-size:clamp(1.6rem,3.5vw,2.6rem);font-weight:700;color:#fff;max-width:800px;line-height:1.3;position:relative;z-index:1;margin-bottom:32px}
+#s14 .close-statement span{color:var(--gold)}
+#s14 .close-actions{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;position:relative;z-index:1}
+.btn-slide{font-family:var(--font-h);font-size:.85rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:12px 28px;border-radius:3px;border:none;cursor:pointer}
+.btn-gold{background:var(--gold);color:var(--navy)}
+.btn-ghost{background:transparent;border:1px solid rgba(255,255,255,.3);color:rgba(255,255,255,.7)}
+#s14 .contact{margin-top:32px;font-size:.88rem;color:rgba(255,255,255,.3);position:relative;z-index:1;letter-spacing:.06em}
+#s14 .contact strong{color:rgba(255,255,255,.5)}
+
+/* ── PRINT ── */
+@media print {
+  .nav-bar,.slide-logo,.progress-bar{display:none!important}
+  body,html{overflow:visible!important;height:auto!important}
+  .deck{height:auto}
+  .slide{position:relative!important;display:flex!important;opacity:1!important;page-break-after:always;height:100vh;min-height:600px}
+}
+</style>
+</head>
+<body>
+<!-- ═══ SVG ICON SPRITE ═══ -->
+<svg style="display:none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <symbol id="i-soccer-ball" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/>
+      <path d="M12 7.5 9.5 9v3l2.5 1.5 2.5-1.5V9z"/>
+      <path d="M12 7.5V4M9.5 9 6 7M14.5 9l3.5-2M9.5 12l-3 4M14.5 12l3 4"/>
+    </symbol>
+    <symbol id="i-trophy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M7 4v8a5 5 0 0 0 10 0V4H7z"/>
+      <path d="M7 6H4a1 1 0 0 0-1 1v1a3 3 0 0 0 3 3h1M17 6h3a1 1 0 0 1 1 1v1a3 3 0 0 1-3 3h-1M12 17v3M9 20h6"/>
+    </symbol>
+    <symbol id="i-clipboard" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="9" y="2" width="6" height="3" rx="1"/>
+      <rect x="4" y="4" width="16" height="18" rx="2"/>
+      <path d="M8 11h8M8 15h5"/>
+    </symbol>
+    <symbol id="i-dollar-coin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="9"/>
+      <path d="M12 6v12M9.5 9.5a2.5 2 0 0 1 5 0c0 1.4-1 2-2.5 2.5S9 13.6 9 15a2.5 2 0 0 0 5 0"/>
+    </symbol>
+    <symbol id="i-person" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="7" r="4"/>
+      <path d="M4 21v-1a8 8 0 0 1 16 0v1"/>
+    </symbol>
+    <symbol id="i-graduation-cap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22 9 12 4 2 9l10 5 10-5z"/>
+      <path d="M6 11.5V16a6 6 0 0 0 12 0v-4.5"/>
+      <line x1="22" y1="9" x2="22" y2="14"/>
+    </symbol>
+    <symbol id="i-whistle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="9" cy="14" r="5"/>
+      <path d="M14 14h4a3 3 0 0 0 0-6h-4"/>
+      <circle cx="9" cy="14" r="1.5" fill="currentColor" stroke="none"/>
+    </symbol>
+    <symbol id="i-stadium" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M2 20h20M5 20V9a7 7 0 0 1 14 0v11"/>
+      <path d="M9 20v-5h6v5"/>
+    </symbol>
+    <symbol id="i-diamond" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M6 3h12l4 6-10 12L2 9z"/>
+      <path d="M2 9h20M8 3l4 6 4-6"/>
+    </symbol>
+    <symbol id="i-building" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="4" y="2" width="16" height="20" rx="1"/>
+      <path d="M9 22v-4h6v4M8 6h2M14 6h2M8 10h2M14 10h2M8 14h2M14 14h2"/>
+    </symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+    </symbol>
+    <symbol id="i-tree" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 3 5 13h14z"/>
+      <path d="M12 9 6 19h12z"/>
+      <rect x="10" y="19" width="4" height="3"/>
+    </symbol>
+    <symbol id="i-tag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/>
+      <circle cx="7" cy="7" r="1.5" fill="currentColor" stroke="none"/>
+    </symbol>
+    <symbol id="i-open-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+      <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+    </symbol>
+    <symbol id="i-star-burst" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/>
+    </symbol>
+    <symbol id="i-scroll" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+      <polyline points="14,2 14,8 20,8"/>
+      <line x1="9" y1="13" x2="15" y2="13"/>
+      <line x1="9" y1="17" x2="15" y2="17"/>
+    </symbol>
+    <symbol id="i-briefcase" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="2" y="7" width="20" height="14" rx="2"/>
+      <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
+      <line x1="2" y1="13" x2="22" y2="13"/>
+    </symbol>
+    <symbol id="i-growth-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="3,21 3,3"/>
+      <polyline points="3,21 21,21"/>
+      <polyline points="6,16 10,10 14,13 19,7"/>
+      <circle cx="19" cy="7" r="1.5" fill="currentColor" stroke="none"/>
+    </symbol>
+    <symbol id="i-tent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 20 12 4l9 16H3z"/>
+      <path d="M9.5 20 12 15l2.5 5"/>
+    </symbol>
+    <symbol id="i-vip-badge" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/>
+      <line x1="12" y1="17.77" x2="12" y2="22"/>
+      <line x1="8" y1="22" x2="16" y2="22"/>
+    </symbol>
+    <symbol id="i-coffee-cup" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M17 8h1a4 4 0 0 1 0 8h-1"/>
+      <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8z"/>
+      <line x1="6" y1="2" x2="6" y2="5"/>
+      <line x1="10" y1="2" x2="10" y2="5"/>
+      <line x1="14" y1="2" x2="14" y2="5"/>
+    </symbol>
+    <symbol id="i-megaphone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M11 5 6 9H2v6h4l5 4V5z"/>
+      <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+      <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+    </symbol>
+    <symbol id="i-handshake" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M2 8h4l3 3h2l3-3h4l2 3-8 8-8-8 2-3z"/>
+      <path d="M10 11v5M14 11v5"/>
+    </symbol>
+    <symbol id="i-network" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="18" cy="5" r="3"/>
+      <circle cx="6" cy="12" r="3"/>
+      <circle cx="18" cy="19" r="3"/>
+      <path d="M8.59 13.51 15.42 17.49M15.41 6.51 8.59 10.49"/>
+    </symbol>
+    <symbol id="i-telescope" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="9" r="3"/>
+      <path d="M19 4 5 14"/>
+      <path d="M12 12v8M9 20h6"/>
+    </symbol>
+  </defs>
+</svg>
+
+
+<!-- Progress bar -->
+<div class="progress-bar" id="progress"></div>
+
+<!-- Logo watermark -->
+<img class="slide-logo" src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1770763739/forge-logo-w-fox-valley-23jan2026_d1dlgi.png" alt="Fox Valley Forge SC">
+
+<!-- Navigation -->
+<div class="nav-bar">
+  <button class="nav-btn" id="prev-btn" onclick="changeSlide(-1)">← Prev</button>
+  <div class="slide-counter" id="counter">1 / 14</div>
+  <button class="nav-btn" id="next-btn" onclick="changeSlide(1)">Next →</button>
+</div>
+
+<div class="deck">
+
+<!-- ═══ SLIDE 1: COVER ═══ -->
+<section class="slide active" id="s1" style="background:linear-gradient(rgba(0,27,68,0.62),rgba(0,27,68,0.62)),url('https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1771432369/pitch-slide-1-chatgpt_izp8fh.jpg') center/cover no-repeat !important;">
+  <img class="cover-logo" src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1770763739/forge-logo-w-fox-valley-23jan2026_d1dlgi.png" alt="Fox Valley Forge SC">
+  <h1>
+    <strong>Forging Players.</strong>
+    Forging Leaders.
+    <br>Forging Community.
+  </h1>
+  <div class="cover-divider"></div>
+  <p class="cover-sub">Partner Investment Prospectus &nbsp;·&nbsp; Fox Valley, Illinois &nbsp;·&nbsp; 2026</p>
+</section>
+
+<!-- ═══ SLIDE 2: THE OPPORTUNITY ═══ -->
+<section class="slide" id="s2" style="background:linear-gradient(rgba(0,27,68,0.78),rgba(0,27,68,0.78)),url('https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1771432369/pitch-slide-2-gemini_ot1v9v.jpg') center/cover no-repeat !important;">
+  <div class="eyebrow">The Opportunity</div>
+  <h2 class="slide-title center" style="color:#fff">Why Now</h2>
+  <div class="stat-cards">
+    <div class="opp-card">
+      <div class="opp-icon"><svg aria-hidden="true"><use href="#i-soccer-ball"/></svg></div>
+      <h3>Youth Soccer is Growing</h3>
+      <p>1 in 4 children play soccer at least one season per year. Participation is stable and rising across the Midwest.</p>
+    </div>
+    <div class="opp-card">
+      <div class="opp-icon"><svg aria-hidden="true"><use href="#i-trophy"/></svg></div>
+      <h3>World Cup Momentum</h3>
+      <p>The 2026 World Cup on home soil creates unprecedented visibility and youth participation interest in soccer.</p>
+    </div>
+    <div class="opp-card">
+      <div class="opp-icon"><svg aria-hidden="true"><use href="#i-clipboard"/></svg></div>
+      <h3>US Soccer Shake-Up</h3>
+      <p>Historic shift from birth-year to grade-year team structure opens the market for community-aligned clubs.</p>
+    </div>
+    <div class="opp-card">
+      <div class="opp-icon"><svg aria-hidden="true"><use href="#i-dollar-coin"/></svg></div>
+      <h3>Suburban Investment</h3>
+      <p>Fox Valley families spend <strong style="color:var(--gold)">$45M+ annually</strong> on youth sports. A growing market seeking trustworthy, local organizations.</p>
+    </div>
+  </div>
+  <p class="tension"><strong>"Yet access, stability, and leadership development remain inconsistent."</strong><br>That is the gap we were built to close.</p>
+</section>
+
+<!-- ═══ SLIDE 3: THE GAP ═══ -->
+<section class="slide" id="s3" style="background:linear-gradient(rgba(0,27,68,0.74),rgba(0,27,68,0.74)),url('https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1771432368/pitch-slide-3-chatgpt_r2s0jb.jpg') center/cover no-repeat !important;">
+  <div class="eyebrow">The Market Gap</div>
+  <h2 class="slide-title center" style="color:#fff">Where We Stand</h2>
+  <div class="gap-grid">
+    <div class="gap-col left">
+      <span class="gap-label bad">Community Rec</span>
+      <h3>No Structure.<br>No Pathway.</h3>
+      <p>Fun and accessible, but limited development, no college pathway, no leadership focus. Lacks ambition.</p>
+    </div>
+    <div class="gap-arrow">→</div>
+    <div class="gap-col center-col">
+      <span class="gap-label good">Fox Valley Forge SC</span>
+      <h3>The Trusted Bridge</h3>
+      <p>Professional development. Player-first. Non-profit. Bridging excellence and accessibility — for every Fox Valley family.</p>
+    </div>
+    <div class="gap-arrow">←</div>
+    <div class="gap-col right">
+      <span class="gap-label bad">Elite Platforms</span>
+      <h3>High Cost.<br>Heavy Travel.</h3>
+      <p>ECNL, MLS Next, GA — premium access, national travel, $3K–$8K+ annually. Low access for most families.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SLIDE 4: FORGE MODEL ═══ -->
+<section class="slide" id="s4" style="background:linear-gradient(rgba(0,27,68,0.8),rgba(0,27,68,0.8)),url('https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1771432368/pitch-slide-4-chatgpt_ugnji5.jpg') center/cover no-repeat !important;">
+  <div class="eyebrow">The Impact Model</div>
+  <h2 class="slide-title center" style="color:#fff">The Forge Model — Three Pillars</h2>
+  <div class="pillar-grid">
+    <div class="pillar-card access">
+      <h3>Access</h3>
+      <ul>
+        <li>Scholarship & Financial Aid</li>
+        <li>Flexible Payment Plans</li>
+        <li>Inclusion Initiatives</li>
+        <li>Multi-Sport Support</li>
+        <li>School Alignment</li>
+      </ul>
+    </div>
+    <div class="pillar-card dev">
+      <h3>Development</h3>
+      <ul>
+        <li>Licensed Coaching Staff</li>
+        <li>Age-Based Curriculum</li>
+        <li>Position-Specific Training</li>
+        <li>Leadership & Character Education</li>
+        <li>College Pathway Support</li>
+      </ul>
+    </div>
+    <div class="pillar-card comm">
+      <h3>Community</h3>
+      <ul>
+        <li>Two Permanent Local Facilities</li>
+        <li>School & Academic Alignment</li>
+        <li>Multi-Sport Respect</li>
+        <li>Family-Centered Programming</li>
+        <li>Manageable Regional Travel</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SLIDE 4B: WHAT MAKES US DIFFERENT ═══ -->
+<section class="slide" id="s4b" style="background:linear-gradient(rgba(0,27,68,0.8),rgba(0,27,68,0.8)),url('https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1771432368/pitch-slide-5-chatgpt_sc7hrk.jpg') center/cover no-repeat !important;">
+  <div class="eyebrow">Our Differentiators</div>
+  <h2 class="slide-title center" style="color:#fff">What Makes Forge Different</h2>
+  <div class="diff-grid">
+    <div class="diff-card">
+      <div class="diff-num">01</div>
+      <div class="diff-text">
+        <h4>Professionalism</h4>
+        <p>Unified brand, communication standards, and operational rigor that rivals organizations twice our size.</p>
+      </div>
+    </div>
+    <div class="diff-card">
+      <div class="diff-num">02</div>
+      <div class="diff-text">
+        <h4>Transparent Player Pathway</h4>
+        <p>Every family sees a clear, honest map from first kick to college. No surprises. No inflated promises.</p>
+      </div>
+    </div>
+    <div class="diff-card">
+      <div class="diff-num">03</div>
+      <div class="diff-text">
+        <h4>Coaching Continuity</h4>
+        <p>We build long-term coach-player relationships. No revolving door. One curriculum. One culture.</p>
+      </div>
+    </div>
+    <div class="diff-card">
+      <div class="diff-num">04</div>
+      <div class="diff-text">
+        <h4>Competitive Placement</h4>
+        <p>Honest, face-to-face evaluations ensure every player is at the right level — not cut, but placed.</p>
+      </div>
+    </div>
+    <div class="diff-card">
+      <div class="diff-num">05</div>
+      <div class="diff-text">
+        <h4>Financial Discipline</h4>
+        <p>Non-profit structure with full financial oversight. Every dollar invested returns to player development.</p>
+      </div>
+    </div>
+    <div class="diff-card">
+      <div class="diff-num">06</div>
+      <div class="diff-text">
+        <h4>Fox Valley's Largest Club</h4>
+        <p>Formed by the merger of two historic organizations. The most experienced, most resourced club in the region.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SLIDE 4C: 1-5 YEAR VISION ═══ -->
+<section class="slide" id="s4c" style="background:linear-gradient(rgba(0,27,68,0.78),rgba(0,27,68,0.78)),url('https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1771432369/pitch-slide-6-gemini_eppnq4.jpg') center/cover no-repeat !important;">
+  <div class="eyebrow">Growth Roadmap</div>
+  <h2 class="slide-title center" style="color:#fff">Vision: Years 1–5</h2>
+  <div class="vision-grid">
+    <div class="vision-item">
+      <div class="vision-dot"><svg aria-hidden="true"><use href="#i-person"/></svg></div>
+      <h4>Athlete Growth</h4>
+      <p>Grow from <strong style="color:var(--gold)">600</strong> to <strong style="color:var(--gold)">3,000+</strong> registered athletes over five years</p>
+    </div>
+    <div class="vision-item">
+      <div class="vision-dot"><svg aria-hidden="true"><use href="#i-graduation-cap"/></svg></div>
+      <h4>Scholarship Fund</h4>
+      <p>Grow scholarship fund from <strong style="color:var(--gold)">$15K</strong> to <strong style="color:var(--gold)">$75,000</strong> annually, serving <strong style="color:var(--gold)">20+</strong> athletes</p>
+    </div>
+    <div class="vision-item">
+      <div class="vision-dot"><svg aria-hidden="true"><use href="#i-whistle"/></svg></div>
+      <h4>Coaching Education</h4>
+      <p>100% licensed staff. Annual professional development program launched.</p>
+    </div>
+    <div class="vision-item">
+      <div class="vision-dot"><svg aria-hidden="true"><use href="#i-stadium"/></svg></div>
+      <h4>Facilities</h4>
+      <p>Expand outdoor fields, upgrade indoor space, and add SAQ &amp; recovery infrastructure — a professional performance center</p>
+    </div>
+    <div class="vision-item">
+      <div class="vision-dot"><svg aria-hidden="true"><use href="#i-trophy"/></svg></div>
+      <h4>Forge Cup Tournament</h4>
+      <p>Grow the Forge Cup to <strong style="color:var(--gold)">400+</strong> teams — a premier regional tournament for Fox Valley</p>
+    </div>
+  </div>
+  <p class="vision-years">Year 1 &nbsp;·&nbsp; Year 2 &nbsp;·&nbsp; Year 3 &nbsp;·&nbsp; Year 4 &nbsp;·&nbsp; Year 5</p>
+</section>
+
+<!-- ═══ SLIDE 5: THE MESSAGE ═══ -->
+<section class="slide" id="s5" style="background:linear-gradient(rgba(0,27,68,0.7),rgba(0,27,68,0.7)),url('https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1771432368/pitch-slide-7-chatgpt_b8whug.jpg') center/cover no-repeat !important;">
+  <div class="eyebrow" style="position:relative;z-index:1">The Invitation</div>
+  <blockquote>"We are inviting <span>community leaders</span> to invest in long-term youth development infrastructure."</blockquote>
+  <p class="msg-sub">This is a formation moment. The partners who join now don't just fund a club — they shape its culture, its name, and its legacy.</p>
+  <div class="now-pills">
+    <div class="now-pill">Formation Stage — Now is the Moment</div>
+    <div class="now-pill">Founding Partners Shape the Future</div>
+    <div class="now-pill">Non-Profit — 100% Mission-Aligned</div>
+  </div>
+</section>
+
+<!-- ═══ SLIDE 5B: PARTNERSHIP TYPES ═══ -->
+<section class="slide" id="s5b" style="background:linear-gradient(rgba(0,27,68,0.8),rgba(0,27,68,0.8)),url('https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1771432368/pitch-slide-8-chatgpt_w8btm6.jpg') center/cover no-repeat !important;">
+  <div class="eyebrow">Partnership Opportunities</div>
+  <h2 class="slide-title center" style="color:#fff">Four Ways to Invest</h2>
+  <div class="partner-types">
+    <div class="pt-card pt-1">
+      <div class="pt-icon"><svg aria-hidden="true"><use href="#i-diamond"/></svg></div>
+      <h3>Founders Circle</h3>
+      <p>High net worth &amp; business leaders. Naming rights, leadership role, and legacy recognition.</p>
+    </div>
+    <div class="pt-card pt-2">
+      <div class="pt-icon"><svg aria-hidden="true"><use href="#i-building"/></svg></div>
+      <h3>Corporate Impact</h3>
+      <p>Community leadership partners. Brand visibility, family access, and scholarship recognition.</p>
+    </div>
+    <div class="pt-card pt-3">
+      <div class="pt-icon"><svg aria-hidden="true"><use href="#i-heart"/></svg></div>
+      <h3>Scholarship Naming</h3>
+      <p>Fund an athlete's development. Named recognition, annual impact story, appreciation event.</p>
+    </div>
+    <div class="pt-card pt-4">
+      <div class="pt-icon"><svg aria-hidden="true"><use href="#i-tree"/></svg></div>
+      <h3>Legacy &amp; Estate</h3>
+      <p>Forge Legacy Society. Long-term giving through estate planning, donor-advised funds, and stock donations.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SLIDE 6: FOUNDERS CIRCLE ═══ -->
+<section class="slide" id="s6" style="background:linear-gradient(rgba(0,27,68,0.72),rgba(0,27,68,0.72)),url('https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1771432369/pitch-slide-9-chatgpt_twbpsg.jpg') center/cover no-repeat !important;">
+  <div class="eyebrow" style="position:relative;z-index:1">Founding Partner Tier</div>
+  <h2 class="slide-title center" style="color:#fff;position:relative;z-index:1">Founders Circle</h2>
+  <div class="founders-tier">
+    <div class="founders-amount">$250K — $10M+</div>
+    <div class="founders-label">Investment Range &nbsp;·&nbsp; Truly Foundational &nbsp;·&nbsp; Legend of the Game</div>
+    <div class="founders-benefits">
+      <div class="fb"><div class="fb-dot"></div><p>Naming Rights — Fields &amp; Fieldhouse</p></div>
+      <div class="fb"><div class="fb-dot"></div><p>Annual Leadership Role &amp; Dinner</p></div>
+      <div class="fb"><div class="fb-dot"></div><p>Annual Impact Reports</p></div>
+      <div class="fb"><div class="fb-dot"></div><p>Recognition on Website, Socials &amp; All Media</p></div>
+      <div class="fb"><div class="fb-dot"></div><p>Early Access to Tournament &amp; Event Opportunities</p></div>
+      <div class="fb"><div class="fb-dot"></div><p>Seat at Annual Investor Summit</p></div>
+    </div>
+    <div class="founders-tagline">You're not just writing a check. <strong>You're changing the game.</strong></div>
+  </div>
+</section>
+
+<!-- ═══ SLIDE 7: CORPORATE IMPACT ═══ -->
+<section class="slide" id="s7" style="background:linear-gradient(rgba(0,27,68,0.8),rgba(0,27,68,0.8)),url('https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1771432369/pitch-slide-10-chatgpt_xxqdm0.jpg') center/cover no-repeat !important;">
+  <div class="eyebrow">Community Leadership Partners</div>
+  <h2 class="slide-title center" style="color:#fff">Corporate Impact Partnership</h2>
+  <div class="corp-grid">
+    <div class="corp-includes">
+      <h3>What's Included</h3>
+      <ul>
+        <li>Digital visibility across all club channels</li>
+        <li>Fieldhouse banners &amp; on-site branding</li>
+        <li>Social media features &amp; spotlights</li>
+        <li>Tournament naming rights opportunities</li>
+        <li>Access to club families — <strong>400+ households</strong> and growing</li>
+        <li>Employee volunteer opportunities</li>
+        <li>Scholarship sponsorship recognition</li>
+      </ul>
+    </div>
+    <div>
+      <div class="corp-value">
+        <div class="cv-item">
+          <h4>Community Credibility</h4>
+          <p>Align your brand with Fox Valley's most trusted youth development organization.</p>
+        </div>
+        <div class="cv-item">
+          <h4>Affluent Family Access</h4>
+          <p>Direct connection to suburban Fox Valley families — high engagement, high trust.</p>
+        </div>
+        <div class="cv-item">
+          <h4>Brand Goodwill</h4>
+          <p>Genuine, mission-aligned community impact — not a logo on a banner, a relationship.</p>
+        </div>
+      </div>
+      <p class="corp-cta" style="margin-top:20px">Investment tiers: <strong>$5,000 — $25,000 annually</strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SLIDE 8: SCHOLARSHIP NAMING ═══ -->
+<section class="slide" id="s8" style="background:linear-gradient(rgba(0,27,68,0.72),rgba(0,27,68,0.72)),url('https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1771432368/pitch-slide-11-chatgpt_rffwi2.jpg') center/cover no-repeat !important;">
+  <div class="eyebrow">Emotional Investment</div>
+  <h2 class="slide-title center" style="color:#fff">Scholarship Naming Program</h2>
+  <div class="scholar-layout">
+    <div class="scholar-story">
+      <div class="scholar-amount-label">Annual Gift</div>
+      <div class="scholar-amount">$10K</div>
+      <div class="scholar-arrow">↓</div>
+      <div class="scholar-impact">Funds <span>4+ athletes</span></div>
+      <div class="scholar-arrow">↓</div>
+      <div class="scholar-impact" style="font-size:1.1rem;color:rgba(255,255,255,.6)">Who otherwise couldn't play.</div>
+    </div>
+    <div class="scholar-benefits">
+      <div class="sb-item">
+        <div class="sb-icon"><svg aria-hidden="true"><use href="#i-tag"/></svg></div>
+        <div class="sb-text">
+          <h4>Named Recognition</h4>
+          <p>Your name — or a loved one's — on the scholarship. On the wall. On the website. In the story.</p>
+        </div>
+      </div>
+      <div class="sb-item">
+        <div class="sb-icon"><svg aria-hidden="true"><use href="#i-open-book"/></svg></div>
+        <div class="sb-text">
+          <h4>Annual Impact Story</h4>
+          <p>Each year, receive a personal story of the athletes your scholarship supported. Real names. Real impact.</p>
+        </div>
+      </div>
+      <div class="sb-item">
+        <div class="sb-icon"><svg aria-hidden="true"><use href="#i-star-burst"/></svg></div>
+        <div class="sb-text">
+          <h4>Annual Appreciation Event</h4>
+          <p>Meet the athletes. See the impact. Be recognized by the community.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="scholar-emotional">This is more than a donation. <strong>It's a child's season. Their confidence. Their future.</strong></p>
+</section>
+
+<!-- ═══ SLIDE 9: LEGACY & ESTATE ═══ -->
+<section class="slide" id="s9" style="background:linear-gradient(rgba(0,27,68,0.78),rgba(0,27,68,0.78)),url('https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1771432368/pitch-slide-12-chatgpt_qnrsj6.jpg') center/cover no-repeat !important;">
+  <div class="eyebrow">Long-Term Giving</div>
+  <h2 class="slide-title center" style="color:#fff">Forge Legacy Society</h2>
+  <div class="legacy-intro">
+    <p>For alumni, long-term supporters, and families who want their commitment to Fox Valley's youth to outlast them. Giving that compounds across generations.</p>
+  </div>
+  <div class="legacy-grid">
+    <div class="legacy-card">
+      <div class="legacy-icon"><svg aria-hidden="true"><use href="#i-scroll"/></svg></div>
+      <h3>Estate Planning</h3>
+      <p>Include Fox Valley Forge SC in your estate or will. Your legacy shapes the next generation of the Fox Valley community.</p>
+    </div>
+    <div class="legacy-card">
+      <div class="legacy-icon"><svg aria-hidden="true"><use href="#i-briefcase"/></svg></div>
+      <h3>Donor-Advised Funds</h3>
+      <p>Recommend grants from your DAF to Fox Valley Forge SC. Tax-efficient, flexible, and impactful.</p>
+    </div>
+    <div class="legacy-card">
+      <div class="legacy-icon"><svg aria-hidden="true"><use href="#i-growth-chart"/></svg></div>
+      <h3>Appreciated Stock</h3>
+      <p>Donate appreciated securities directly. Avoid capital gains. Maximize your gift. Minimize tax burden.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SLIDE 10: TOURNAMENT ═══ -->
+<section class="slide" id="s10" style="background:linear-gradient(rgba(0,27,68,0.7),rgba(0,27,68,0.7)),url('https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1771432370/pitch-slide-13-chatgpt_q9e9xx.png') center/cover no-repeat !important;">
+  <div class="eyebrow" style="position:relative;z-index:1">Presenting Sponsorship</div>
+  <div class="tournament-name">The Forge Cup<br><span>Presented by "<span class="ph">[Sponsor Name]</span>"</span></div>
+  <div class="tournament-presented">Annual Regional Tournament &nbsp;·&nbsp; Fox Valley, Illinois &nbsp;·&nbsp; 200 Teams &amp; Growing — Vision: 400+ Teams</div>
+  <div class="tournament-perks">
+    <div class="tp-item">
+      <div class="tp-icon"><svg aria-hidden="true"><use href="#i-tent"/></svg></div>
+      <h4>Hospitality Tent Access</h4>
+    </div>
+    <div class="tp-item">
+      <div class="tp-icon"><svg aria-hidden="true"><use href="#i-vip-badge"/></svg></div>
+      <h4>VIP Viewing &amp; Parking</h4>
+    </div>
+    <div class="tp-item">
+      <div class="tp-icon"><svg aria-hidden="true"><use href="#i-coffee-cup"/></svg></div>
+      <h4>Networking Breakfast</h4>
+    </div>
+    <div class="tp-item">
+      <div class="tp-icon"><svg aria-hidden="true"><use href="#i-megaphone"/></svg></div>
+      <h4>Recognition During Finals</h4>
+    </div>
+    <div class="tp-item">
+      <div class="tp-icon"><svg aria-hidden="true"><use href="#i-trophy"/></svg></div>
+      <h4>Trophy Presentation</h4>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SLIDE 11: MOMENTUM & IMPACT ═══ -->
+<section class="slide" id="s11" style="background:linear-gradient(rgba(0,27,68,0.78),rgba(0,27,68,0.78)),url('https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1771432370/pitch-slide-14-chatgpt_msscmv.png') center/cover no-repeat !important;">
+  <div class="eyebrow">Proof of Impact</div>
+  <h2 class="slide-title center" style="color:#fff">Momentum &amp; Impact</h2>
+  <div class="impact-grid">
+    <div class="impact-card">
+      <div class="impact-num">600+</div>
+      <div class="impact-label">Athletes Currently Registered</div>
+    </div>
+    <div class="impact-card">
+      <div class="impact-num">$15K</div>
+      <div class="impact-label">Annual Scholarship Fund — 10+ Athletes Supported</div>
+    </div>
+    <div class="impact-card">
+      <div class="impact-num">312+</div>
+      <div class="impact-label">College Commitments (Estimated)</div>
+    </div>
+    <div class="impact-card">
+      <div class="impact-num">6–8</div>
+      <div class="impact-label">Community Events Hosted Annually</div>
+    </div>
+    <div class="impact-card">
+      <div class="impact-num">100%</div>
+      <div class="impact-label">Non-Profit — All Funds to Mission</div>
+    </div>
+  </div>
+  <div class="transparency-note">
+    <p><strong>Financial Transparency:</strong> Fox Valley Forge SC is a registered nonprofit. Audited financial summaries are available to all partners. Detailed financials and 990s available upon request.</p>
+  </div>
+</section>
+
+<!-- ═══ SLIDE 12: INVESTOR SUMMIT ═══ -->
+<section class="slide" id="s12" style="background:linear-gradient(rgba(0,27,68,0.76),rgba(0,27,68,0.76)),url('https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1771432369/pitch-slide-15-chatgpt_pwfrpi.png') center/cover no-repeat !important;">
+  <div class="eyebrow" style="position:relative;z-index:1">Annual Partner Event</div>
+  <h2 class="slide-title center" style="color:#fff">Annual Investor Summit</h2>
+  <p class="slide-sub center" style="max-width:560px;margin:0 auto;color:rgba(255,255,255,.85)">You are part of the process. Every partner receives an annual seat at the table.</p>
+  <div class="summit-features">
+    <div class="sf-item">
+      <div class="sf-icon"><svg aria-hidden="true"><use href="#i-person"/></svg></div>
+      <h4>Meet Leadership</h4>
+      <p>Direct access to club directors, coaches, and board members</p>
+    </div>
+    <div class="sf-item">
+      <div class="sf-icon"><svg aria-hidden="true"><use href="#i-soccer-ball"/></svg></div>
+      <h4>Hear from Athletes</h4>
+      <p>Real stories from the players your investment supports</p>
+    </div>
+    <div class="sf-item">
+      <div class="sf-icon"><svg aria-hidden="true"><use href="#i-telescope"/></svg></div>
+      <h4>Vision &amp; Strategy</h4>
+      <p>First access to growth plans, new programs, and partnership opportunities</p>
+    </div>
+    <div class="sf-item">
+      <div class="sf-icon"><svg aria-hidden="true"><use href="#i-network"/></svg></div>
+      <h4>Network</h4>
+      <p>Connect with fellow community leaders and Fox Valley business partners</p>
+    </div>
+  </div>
+  <p class="summit-cta">Next Summit: <strong>December 2026 — Fox Valley, Illinois</strong></p>
+</section>
+
+<!-- ═══ SLIDE 13: LEADERSHIP ═══ -->
+<section class="slide" id="s13" style="background:linear-gradient(rgba(0,27,68,0.78),rgba(0,27,68,0.78)),url('https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1771432370/pitch-slide-16-chatgpt_csbfnz.png') center/cover no-repeat !important;">
+  <div class="eyebrow">The Team</div>
+  <h2 class="slide-title center" style="color:#fff">Meet Our Leadership</h2>
+  <div class="leaders-grid">
+    <div class="leader-card">
+      <div class="leader-avatar"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1772032501/profilepic-linkedin-Michael-Weyant-gemini_uetjix.jpg" alt="Mike Weyant"></div>
+      <h3>Mike Weyant</h3>
+      <div class="leader-title">President</div>
+      <p>An experienced business and sales leader, Mike brings strategic leadership and a community-first mindset to the club's long-term vision.</p>
+    </div>
+    <div class="leader-card">
+      <div class="leader-avatar"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1772032486/profilepic-linkedin-Jeff-Dunaway-gemini_arrmvi.jpg" alt="Jeff Dunaway"></div>
+      <h3>Jeff Dunaway</h3>
+      <div class="leader-title">Vice President</div>
+      <p>CEO of Dunaway Brothers, Inc., Jeff brings operational leadership, deep local relationships, and a strong commitment to community impact.</p>
+    </div>
+    <div class="leader-card">
+      <div class="leader-avatar"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1772032493/profilepic-linkedin-Katerina-Tsoukalas-Heitkemper-gemini_fa1sfe.jpg" alt="Kathy Heitkemper"></div>
+      <h3>Kathy Heitkemper</h3>
+      <div class="leader-title">Secretary</div>
+      <p>An attorney and law firm partner, Kathy brings structure, professionalism, and trusted governance oversight to the leadership team.</p>
+    </div>
+    <div class="leader-card">
+      <div class="leader-avatar"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1772032513/profilepic-linkedin-Talia-Jensen-gemini_ecwezt.jpg" alt="Talia Jensen"></div>
+      <h3>Talia Jensen</h3>
+      <div class="leader-title">Treasurer</div>
+      <p>A CPA and accounting advisory professional, Talia ensures Fox Valley Forge SC is built on strong financial stewardship and accountability.</p>
+    </div>
+    <div class="leader-card">
+      <div class="leader-avatar"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1772032507/profilepic-linkedin-Robert-M-Kuhn-gemini_jwuouz.png" alt="Robert Kuhn"></div>
+      <h3>Robert Kuhn</h3>
+      <div class="leader-title">Director of Partnership</div>
+      <p>A financial advisory and investment leader, Robert brings strategic relationship-building and long-term growth expertise to support the club's mission.</p>
+    </div>
+    <div class="leader-card">
+      <div class="leader-avatar"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1772205710/profile-linkedin-chad-ransom-gemini_aqfa4n.jpg" alt="Chad Ransom"></div>
+      <h3>Chad Ransom</h3>
+      <div class="leader-title">Board Member</div>
+      <p>A Senior Account Executive at RingCentral, Chad brings a relationship-driven, growth mindset and expertise in enterprise solutions to support the club's mission.</p>
+    </div>
+    <div class="leader-card">
+      <div class="leader-avatar"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1772205957/profile-linkedin-trevor-b-gemini_a9umn3.jpg" alt="Trevor Bauer"></div>
+      <h3>Trevor Bauer</h3>
+      <div class="leader-title">Board Member</div>
+      <p>Lead Operations Director at DemandWorks Media, Trevor brings operational leadership and deep local Fox Valley ties to the board.</p>
+    </div>
+    <div class="leader-card">
+      <div class="leader-avatar"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1772205951/profile-linkedin-trae-manny-gemini_pj7ahw.jpg" alt="Trae Manny"></div>
+      <h3>Trae Manny</h3>
+      <div class="leader-title">Board Member</div>
+      <p>A sales leader at Stryker whose journey began in coaching, Trae brings a coach's perspective and strong community connection from Geneva to the board.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SLIDE 14: CLOSING ═══ -->
+<section class="slide" id="s14" style="background:linear-gradient(rgba(0,27,68,0.62),rgba(0,27,68,0.62)),url('https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1771432370/pitch-slide-17-chatgpt_y9fkd6.png') center/cover no-repeat !important;">
+  <img class="close-logo" src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1770763739/forge-logo-w-fox-valley-23jan2026_d1dlgi.png" alt="Fox Valley Forge SC">
+  <h2>A youth leadership organization that uses soccer as the vehicle.</h2>
+  <div class="close-statement">We don't just develop players.<br>We develop <span>the next generation</span><br>of Fox Valley's community.</div>
+  <div class="close-actions">
+    <button class="btn-slide btn-gold">Become a Founding Partner</button>
+    <button class="btn-slide btn-ghost">Schedule a Conversation</button>
+  </div>
+  <p class="contact">Contact: <strong>Robert Kuhn &nbsp;·&nbsp; <a href="mailto:robert.kuhn@forgesoccerclub.com" style="color:inherit">robert.kuhn@forgesoccerclub.com</a> &nbsp;·&nbsp; 469‑525‑3366</strong></p>
+</section>
+
+</div><!-- end deck -->
+
+<script>
+const slides = document.querySelectorAll('.slide');
+const total = slides.length;
+let current = 0;
+
+function goTo(n) {
+  slides[current].classList.remove('active');
+  slides[current].classList.add('prev');
+  setTimeout(() => slides[current].classList.remove('prev'), 400);
+  current = (n + total) % total;
+  slides[current].classList.add('active');
+  document.getElementById('counter').textContent = (current + 1) + ' / ' + total;
+  document.getElementById('progress').style.width = ((current + 1) / total * 100) + '%';
+}
+
+function changeSlide(dir) { goTo(current + dir); }
+
+// Keyboard navigation
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') { e.preventDefault(); changeSlide(1); }
+  if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); changeSlide(-1); }
+});
+
+// Touch/swipe
+let touchX = 0;
+document.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; });
+document.addEventListener('touchend', e => {
+  const diff = touchX - e.changedTouches[0].clientX;
+  if (Math.abs(diff) > 50) changeSlide(diff > 0 ? 1 : -1);
+});
+
+// Init progress
+document.getElementById('progress').style.width = (1 / total * 100) + '%';
+
+// ── HIGH-RES FOR PRINT ──
+var WEB_PARAMS = 'f_auto,q_auto';
+var PRINT_PARAMS = 'q_100';
+
+function swapCloudinaryParams(param) {
+  var from = param === PRINT_PARAMS ? WEB_PARAMS : PRINT_PARAMS;
+  var to   = param === PRINT_PARAMS ? PRINT_PARAMS : WEB_PARAMS;
+  // img src attributes
+  document.querySelectorAll('img[src*="res.cloudinary.com"]').forEach(function(img) {
+    img.src = img.src.replace(from, to);
+  });
+  // inline style backgrounds
+  document.querySelectorAll('[style*="res.cloudinary.com"]').forEach(function(el) {
+    el.setAttribute('style', el.getAttribute('style').replace(new RegExp(from, 'g'), to));
+  });
+}
+
+window.addEventListener('beforeprint', function() { swapCloudinaryParams(PRINT_PARAMS); });
+window.addEventListener('afterprint',  function() { swapCloudinaryParams(WEB_PARAMS); });
+</script>
+</body>
+</html>

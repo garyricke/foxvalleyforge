@@ -1,0 +1,1891 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fox Valley Forge SC — One Valley. One Club.</title>
+<meta name="description" content="Fox Valley's most trusted player-centric soccer club. Built, not bought. From first kick to college. Your path, your pace.">
+<link rel="icon" href="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1771377451/favicon-forge-1_r6l4ax.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:#001B44; --navy-90:#1A2F57; --navy-70:#4D5F7D; --navy-10:#E6EAF0;
+  --crimson:#A91335; --crimson-90:#B92B4A;
+  --gold:#C5A059; --gold-light:#F8F3EA;
+  --white:#FFFFFF; --gray:#F4F5F7; --dark:#0A0E17;
+  --font-h:'Oswald',Impact,sans-serif;
+  --font-b:'Source Sans 3','Helvetica Neue',Arial,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-b);color:var(--dark);background:#fff;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+h1,h2,h3,h4{font-family:var(--font-h);text-transform:uppercase;line-height:1.1}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;width:100%;z-index:1000;background:var(--navy);transition:box-shadow .3s}
+nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.4)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.nav-logo img{height:40px}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{font-family:var(--font-h);font-size:.9rem;font-weight:500;color:rgba(255,255,255,.85);letter-spacing:.06em;transition:color .2s}
+.nav-links a:hover{color:var(--gold)}
+.btn{display:inline-block;font-family:var(--font-h);font-size:.85rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:10px 22px;border-radius:3px;cursor:pointer;transition:all .2s;border:2px solid transparent}
+.btn-crimson{background:var(--crimson);color:#fff;border-color:var(--crimson)}
+.btn-crimson:hover{background:var(--crimson-90);border-color:var(--crimson-90)}
+.btn-outline{background:transparent;color:#fff;border-color:#fff}
+.btn-outline:hover{background:rgba(255,255,255,.1)}
+.btn-navy{background:var(--navy);color:#fff;border-color:var(--navy)}
+.btn-gold{background:var(--gold);color:var(--navy);border-color:var(--gold)}
+.btn-gold:hover{background:#b8923e}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px}
+.hamburger span{display:block;width:24px;height:2px;background:#fff;transition:.3s}
+.mobile-menu{display:none;position:fixed;top:72px;left:0;width:100%;background:var(--navy-90);z-index:999;padding:24px;flex-direction:column;gap:16px}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-family:var(--font-h);font-size:1.1rem;color:#fff;letter-spacing:.06em;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+
+/* ── HERO ── */
+#hero{position:relative;height:100vh;min-height:600px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.hero-overlay{position:absolute;inset:0;background:rgba(0,27,68,.72);z-index:1}
+.hero-content{position:relative;z-index:2;text-align:center;padding:0 24px;max-width:860px}
+.hero-content h1{font-size:clamp(2.8rem,7vw,5.5rem);font-weight:700;color:#fff;letter-spacing:.04em;margin-bottom:12px}
+.hero-content h1 span{color:var(--gold)}
+.hero-eyebrow{font-family:var(--font-h);font-size:clamp(.8rem,2vw,1rem);font-weight:500;color:var(--gold);letter-spacing:.2em;text-transform:uppercase;margin-bottom:16px}
+.hero-sub{font-size:clamp(1.1rem,2.5vw,1.5rem);color:rgba(255,255,255,.9);margin-bottom:12px;font-weight:300;letter-spacing:.02em}
+.hero-tagline{font-family:var(--font-h);font-size:clamp(.85rem,1.8vw,1.1rem);color:var(--gold);letter-spacing:.15em;margin-bottom:40px}
+.hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+
+/* ── STATS ── */
+#stats{background:var(--navy);padding:28px 24px}
+.stats-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
+.stat{text-align:center;padding:16px 8px;border-right:1px solid rgba(255,255,255,.12)}
+.stat:last-child{border:none}
+.stat-num{font-family:var(--font-h);font-size:1.8rem;font-weight:700;color:var(--gold);line-height:1}
+.stat-label{font-size:.8rem;color:rgba(255,255,255,.7);margin-top:6px;letter-spacing:.04em}
+
+/* ── SECTIONS ── */
+section{padding:80px 24px}
+.section-inner{max-width:1200px;margin:0 auto}
+.section-label{font-family:var(--font-h);font-size:.8rem;font-weight:600;letter-spacing:.2em;color:var(--crimson);margin-bottom:12px}
+.section-title{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:700;margin-bottom:16px}
+.section-sub{font-size:1.1rem;color:#555;max-width:640px;line-height:1.65;margin-bottom:48px}
+
+/* ── PILLARS ── */
+#pillars{background:#fff}
+.pillars-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:24px}
+.pillar{background:var(--gray);border-radius:6px;padding:32px 24px;border-top:4px solid var(--gold);transition:transform .2s,box-shadow .2s}
+.pillar:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,27,68,.12)}
+.pillar-icon{width:56px;height:56px;margin-bottom:16px}
+.pillar-icon img{width:100%;height:100%;object-fit:contain}
+.pillar h3{font-size:1.1rem;font-weight:600;margin-bottom:10px;color:var(--navy)}
+.pillar p{font-size:.9rem;color:#555;line-height:1.6;margin-bottom:16px}
+.link-more{font-family:var(--font-h);font-size:.75rem;font-weight:600;letter-spacing:.08em;color:#fff;background:var(--crimson);cursor:pointer;transition:background .2s;display:inline-block;padding:5px 12px;border-radius:3px;border:none}
+.link-more:hover{background:var(--crimson-90)}
+
+/* ── PROGRAMS ── */
+#programs{background:var(--gray)}
+.programs-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.prog-card{background:#fff;border-radius:6px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.07);display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s}
+.prog-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.12)}
+.prog-header{padding:28px 24px 20px;background:var(--navy)}
+.prog-header.gold{background:var(--gold)}
+.prog-header.crimson{background:var(--crimson)}
+.prog-age{font-family:var(--font-h);font-size:.75rem;letter-spacing:.15em;color:rgba(255,255,255,.7);margin-bottom:6px}
+.prog-header.gold .prog-age{color:rgba(0,27,68,.6)}
+.prog-header h3{font-size:1.3rem;font-weight:700;color:#fff}
+.prog-header.gold h3{color:var(--navy)}
+.prog-body{padding:24px;flex:1;display:flex;flex-direction:column}
+.prog-body ul{list-style:none;margin-bottom:20px;flex:1}
+.prog-body ul li{font-size:.9rem;color:#444;padding:6px 0;border-bottom:1px solid #eee;display:flex;gap:8px;align-items:flex-start;line-height:1.4}
+.prog-body ul li::before{content:"";display:inline-block;width:18px;height:18px;background:url('https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1771515193/icon-soccer-ball-arrow-right_zvgy69.svg') center/contain no-repeat;flex-shrink:0;margin-top:1px}
+/* icon color matches panel header */
+.prog-card:has(.prog-header.gold) .prog-body ul li::before{filter:brightness(0) saturate(100%) invert(67%) sepia(38%) saturate(540%) hue-rotate(5deg) brightness(98%) contrast(92%)}
+.prog-card:has(.prog-header.crimson) .prog-body ul li::before{filter:brightness(0) saturate(100%) invert(17%) sepia(95%) saturate(2000%) hue-rotate(333deg) brightness(88%) contrast(102%)}
+.prog-card:has(.prog-header:not(.gold):not(.crimson)) .prog-body ul li::before{filter:brightness(0) saturate(100%) invert(7%) sepia(70%) saturate(2800%) hue-rotate(208deg) brightness(85%) contrast(105%)}
+
+/* ── PLATFORM MYTH ── */
+#platform{background:var(--navy);position:relative;overflow:hidden}
+#platform::before{content:'';position:absolute;inset:0;background:url('https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1771377683/forge-logos-diff-colors_vajegu.jpg') center/cover no-repeat;opacity:.15;z-index:0}
+.platform-inner{position:relative;z-index:1;max-width:1200px;margin:0 auto}
+#platform .section-title{color:#fff}
+#platform .section-sub{color:rgba(255,255,255,.75)}
+.myth-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:40px}
+.myth-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:6px;padding:28px 24px}
+.myth-card h4{font-size:1rem;color:var(--gold);margin-bottom:10px}
+.myth-card p{font-size:.9rem;color:rgba(255,255,255,.8);line-height:1.6}
+
+/* ── COACHING ── */
+#coaching{background:#fff}
+.coaching-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.coach-box{border:2px solid var(--navy-10);border-radius:6px;padding:32px 24px;text-align:center;transition:border-color .2s}
+.coach-box:hover{border-color:var(--gold)}
+.coach-icon{width:64px;height:64px;margin-bottom:16px;margin-left:auto;margin-right:auto;display:block}
+.coach-icon img{width:100%;height:100%;object-fit:contain}
+.coach-box h3{font-size:1rem;font-weight:600;color:var(--navy);margin-bottom:10px}
+.coach-box p{font-size:.9rem;color:#555;line-height:1.6}
+
+/* ── COLLEGE ── */
+#college{background:var(--gold-light);border-top:4px solid var(--gold);border-bottom:4px solid var(--gold)}
+.college-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.college-features{display:flex;flex-direction:column;gap:20px;margin-top:24px}
+.college-video-wrap{aspect-ratio:1/1;border-radius:8px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,.2);position:relative}
+.college-video-wrap video{width:100%;height:100%;object-fit:cover;display:block}
+.college-video-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,27,68,.88) 0%,rgba(0,27,68,.45) 55%,transparent 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:32px}
+.college-video-overlay .ov-label{font-family:var(--font-h);font-size:.75rem;letter-spacing:.18em;color:var(--gold);margin-bottom:10px}
+.college-video-overlay p{font-size:.95rem;color:rgba(255,255,255,.9);line-height:1.65;margin-bottom:16px}
+.college-feat{display:flex;gap:16px;align-items:flex-start}
+.feat-icon{width:48px;height:48px;flex-shrink:0}
+.feat-icon img{width:100%;height:100%;object-fit:contain}
+.feat-text h4{font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:4px}
+.feat-text p{font-size:.875rem;color:#555;line-height:1.5}
+/* ── EVENTS ── */
+#events{background:#fff;border-top:4px solid var(--gold)}
+.events-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(560px,1fr));gap:32px}
+.event-card{border-radius:8px;overflow:hidden;box-shadow:0 6px 32px rgba(0,0,0,.13);display:grid;grid-template-columns:1fr 1fr;min-height:400px}
+.event-card-img{position:relative;display:flex;flex-direction:column;justify-content:flex-end;padding:36px 32px;background-size:cover;background-position:center}
+.event-card-img::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,27,68,.82) 0%,rgba(0,0,0,.55) 100%)}
+.event-card-img>*{position:relative;z-index:1}
+.event-eyebrow{font-family:var(--font-h);font-size:.7rem;letter-spacing:.24em;color:rgba(255,255,255,.5);text-transform:uppercase;margin-bottom:12px}
+.event-card-title{font-family:var(--font-h);font-size:clamp(1.9rem,4vw,3rem);font-weight:700;color:#fff;line-height:1.0;margin-bottom:14px}
+.event-card-date{font-family:var(--font-h);font-size:clamp(1.1rem,2.2vw,1.6rem);font-weight:600;color:var(--gold);line-height:1.2}
+.event-card-body{background:#fff;padding:36px 32px;display:flex;flex-direction:column;justify-content:center;gap:16px}
+.event-card-body h4{font-family:var(--font-h);font-size:.75rem;letter-spacing:.16em;color:var(--crimson);margin-bottom:4px}
+.event-card-body p{font-size:.925rem;color:#555;line-height:1.65}
+.event-activities{list-style:none;padding:0;display:flex;flex-direction:column;gap:8px}
+.event-activities li{font-size:.9rem;color:#444;display:flex;align-items:flex-start;gap:10px;line-height:1.4}
+.event-activities li::before{content:'';display:inline-block;width:16px;height:16px;background:url('https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1771515193/icon-soccer-ball-arrow-right_zvgy69.svg') center/contain no-repeat;flex-shrink:0;margin-top:1px;filter:brightness(0) saturate(100%) invert(17%) sepia(95%) saturate(2000%) hue-rotate(333deg) brightness(88%) contrast(102%)}
+.event-coming-soon{font-size:.82rem;color:#999;font-style:italic;border-top:1px solid #eee;padding-top:14px;margin-top:4px}
+@media(max-width:900px){.event-card{grid-template-columns:1fr}.event-card-img{min-height:260px}}
+@media(max-width:600px){.events-grid{grid-template-columns:1fr}}
+[data-hidden-event]{display:none}
+
+/* ── COMMUNITY ── */
+#community{background:var(--gray)}
+.community-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.community-stats{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px}
+.c-stat{background:#fff;border-radius:6px;padding:20px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.c-stat-num{font-family:var(--font-h);font-size:2rem;font-weight:700;color:var(--crimson)}
+.c-stat-label{font-size:.8rem;color:#666;margin-top:4px}
+.community-visual{background:var(--navy);border-radius:8px;padding:40px;color:#fff;display:flex;flex-direction:column;gap:20px}
+.community-visual h3{font-size:1.6rem;color:var(--gold)}
+.community-visual p{font-size:.95rem;color:rgba(255,255,255,.85);line-height:1.65}
+
+/* ── YOUR PATH ── */
+#yourpath{background:var(--navy)}
+.path-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+.path-card{border:1px solid rgba(255,255,255,.15);border-radius:6px;padding:28px 24px;background:rgba(255,255,255,.05)}
+.path-card h3{font-size:1rem;color:var(--gold);margin-bottom:10px}
+.path-card p{font-size:.875rem;color:rgba(255,255,255,.8);line-height:1.6}
+#yourpath .section-title{color:#fff}
+#yourpath .section-sub{color:rgba(255,255,255,.75);max-width:600px}
+
+/* ── COMPARISON TEASER ── */
+#compare-teaser{background:var(--crimson);padding:48px 24px;text-align:center}
+#compare-teaser h2{font-size:clamp(1.5rem,3vw,2.2rem);color:#fff;margin-bottom:12px}
+#compare-teaser p{color:rgba(255,255,255,.85);font-size:1.05rem;margin-bottom:28px;max-width:560px;margin-left:auto;margin-right:auto}
+.compare-preview{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-bottom:28px}
+.cp-badge{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:4px;padding:8px 20px;color:#fff;font-family:var(--font-h);font-size:.8rem;letter-spacing:.08em}
+.cp-badge.active{background:#fff;color:var(--crimson)}
+
+/* ── REGISTER FORM ── */
+.reg-form{display:flex;flex-direction:column;gap:16px;margin-top:16px}
+.reg-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.reg-field{display:flex;flex-direction:column;gap:6px}
+.reg-field label{font-family:var(--font-h);font-size:.75rem;letter-spacing:.1em;color:var(--navy);font-weight:600}
+.reg-field input,.reg-field select,.reg-field textarea{padding:10px 14px;border:2px solid var(--navy-10);border-radius:3px;font-family:var(--font-b);font-size:.95rem;color:var(--dark);background:#fff;transition:border-color .2s;width:100%}
+.reg-field input:focus,.reg-field select:focus,.reg-field textarea:focus{outline:none;border-color:var(--crimson)}
+.reg-field textarea{resize:vertical;min-height:90px}
+.reg-submit{background:var(--crimson);color:#fff;border:none;border-radius:3px;padding:13px;font-family:var(--font-h);font-size:.9rem;font-weight:700;letter-spacing:.08em;cursor:pointer;transition:background .2s;width:100%}
+.reg-submit:hover{background:var(--crimson-90)}
+.reg-success{text-align:center;padding:32px 16px}
+.reg-success h3{font-family:var(--font-h);font-size:1.6rem;color:var(--navy);margin-bottom:12px}
+.reg-success p{color:#555;font-size:1rem;line-height:1.65}
+.reg-success .check-circle{font-size:3rem;margin-bottom:16px;display:block}
+@media(max-width:540px){.reg-row{grid-template-columns:1fr}}
+
+/* ── FINAL CTA ── */
+#final-cta{background:var(--dark);padding:96px 24px;text-align:center}
+#final-cta h2{font-size:clamp(2rem,5vw,3.5rem);color:#fff;margin-bottom:16px}
+#final-cta p{color:rgba(255,255,255,.7);font-size:1.1rem;max-width:560px;margin:0 auto 40px}
+.cta-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+
+/* ── INTRO ANIMATION ── */
+#intro-overlay{position:fixed;inset:0;background:#000;z-index:9998;display:none;align-items:center;justify-content:center;overflow:hidden}
+#intro-overlay.running{display:flex}
+#intro-glow{position:absolute;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(197,160,89,.28) 0%,transparent 70%);opacity:0;transition:opacity 1.4s ease;pointer-events:none}
+#intro-glow.lit{opacity:1}
+.intro-stage{position:relative;width:100%;max-width:720px;padding:0 32px;height:280px;display:flex;align-items:center;justify-content:center}
+.intro-line{position:absolute;width:100%;font-family:var(--font-h);font-size:clamp(1.3rem,3.5vw,2.2rem);font-weight:400;color:#fff;letter-spacing:.05em;line-height:1.45;text-align:center;opacity:0;transform:translateY(10px);transition:opacity .7s ease,transform .7s ease;pointer-events:none}
+.intro-line.active{opacity:1;transform:translateY(0)}
+.intro-line.out{opacity:0;transform:translateY(-10px)}
+.intro-line.gold{color:var(--gold);font-size:clamp(1.5rem,4vw,2.5rem)}
+.intro-line.final{color:var(--gold);font-size:clamp(2.4rem,7vw,5rem);font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+#intro-logo-wrap{position:absolute;display:flex;flex-direction:column;align-items:center;gap:18px;pointer-events:none}
+#intro-logo-1{height:clamp(160px,28vw,320px);opacity:0;transform:scale(.82);transition:opacity 1.2s ease,transform 1.2s ease;filter:drop-shadow(0 0 40px rgba(197,160,89,.6))}
+#intro-logo-1.active{opacity:1;transform:scale(1)}
+#intro-logo-1.out{opacity:0;transform:scale(.82)}
+#intro-logo-2{height:clamp(100px,16vw,180px);opacity:0;transition:opacity 1s ease}
+#intro-logo-2.active{opacity:1}
+#intro-logo-2.out{opacity:0}
+#intro-tap{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;cursor:pointer;transition:opacity .6s ease}
+#intro-tap.hidden{opacity:0;pointer-events:none}
+#intro-tap-label{font-family:var(--font-h);font-size:.8rem;letter-spacing:.22em;color:rgba(255,255,255,.5);text-transform:uppercase;animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:.5}50%{opacity:1}}
+#intro-skip{position:fixed;bottom:32px;right:32px;background:transparent;border:1px solid rgba(255,255,255,.35);color:rgba(255,255,255,.55);font-family:var(--font-h);font-size:.75rem;letter-spacing:.14em;padding:8px 18px;cursor:pointer;border-radius:2px;opacity:0;transition:opacity .5s ease,color .2s,border-color .2s;z-index:9999}
+#intro-skip.visible{opacity:1}
+#intro-skip:hover{color:#fff;border-color:rgba(255,255,255,.8)}
+
+/* ── FOOTER ── */
+footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
+.footer-inner{max-width:1200px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
+.footer-brand img{height:48px;margin-bottom:16px}
+.footer-brand p{font-size:.875rem;line-height:1.6;max-width:260px}
+.footer-col h4{font-family:var(--font-h);font-size:.85rem;letter-spacing:.1em;color:var(--gold);margin-bottom:16px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.footer-col ul li a{font-size:.875rem;color:rgba(255,255,255,.65);transition:color .2s}
+.footer-col ul li a:hover{color:var(--gold)}
+.footer-hashtags{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
+.hashtag{font-family:var(--font-h);font-size:.75rem;letter-spacing:.06em;color:var(--gold);background:rgba(197,160,89,.1);padding:4px 10px;border-radius:3px}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:gap}
+.footer-bottom p{font-size:.8rem}
+
+/* ── MODALS ── */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:2000;overflow-y:auto;padding:40px 20px}
+.modal-overlay.open{display:flex;align-items:flex-start;justify-content:center;animation:fadeIn .25s ease}
+.modal{background:#fff;border-radius:8px;width:100%;max-width:760px;overflow:hidden;animation:slideUp .3s ease;margin:auto}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes slideUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.modal-head{background:var(--navy);padding:24px 28px;display:flex;align-items:center;justify-content:space-between}
+.modal-head h2{font-size:1.3rem;color:#fff;letter-spacing:.06em}
+.modal-head .modal-close{background:none;border:none;color:rgba(255,255,255,.7);font-size:1.6rem;cursor:pointer;line-height:1;padding:0 4px;transition:color .2s}
+.modal-head .modal-close:hover{color:#fff}
+.modal-body{padding:32px 28px;max-height:70vh;overflow-y:auto;font-size:.95rem;line-height:1.65;color:#333}
+.modal-body h3{font-family:var(--font-h);font-size:1.1rem;color:var(--navy);margin:24px 0 10px;text-transform:uppercase;letter-spacing:.05em}
+.modal-body h3:first-child{margin-top:0}
+.modal-body p{margin-bottom:12px}
+.modal-body ul{margin:0 0 16px 20px;display:flex;flex-direction:column;gap:6px}
+.modal-body ul li{color:#444}
+.modal-body .highlight{background:var(--gold-light);border-left:4px solid var(--gold);padding:14px 18px;border-radius:0 4px 4px 0;margin:16px 0;font-style:italic}
+.modal-body .callout{background:var(--navy);color:#fff;padding:18px 20px;border-radius:6px;margin:20px 0}
+.modal-body .callout p{color:rgba(255,255,255,.9);margin:0}
+.modal-foot{padding:20px 28px;background:var(--gray);border-top:1px solid #e0e0e0;display:flex;gap:12px;align-items:center;justify-content:flex-end}
+
+/* Compare table */
+.compare-table{width:100%;border-collapse:collapse;font-size:.875rem;margin:16px 0}
+.compare-table th{background:var(--navy);color:#fff;font-family:var(--font-h);letter-spacing:.06em;padding:10px 14px;text-align:left}
+.compare-table th:not(:first-child){text-align:center}
+.compare-table td{padding:10px 14px;border-bottom:1px solid #eee}
+.compare-table td:not(:first-child){text-align:center}
+.compare-table tr:nth-child(even) td{background:var(--gray)}
+.compare-table .forge td{font-weight:700;color:var(--navy)}
+.compare-table .forge td:nth-child(2){background:rgba(0,27,68,.06)}
+.check{color:var(--navy);font-weight:700}
+.cross{color:#999}
+
+/* FAQ accordion */
+.faq-item{border-bottom:1px solid #eee}
+.faq-item summary{font-family:var(--font-h);font-size:.95rem;font-weight:600;color:var(--navy);padding:14px 0;cursor:pointer;letter-spacing:.03em;list-style:none;display:flex;justify-content:space-between;align-items:center}
+.faq-item summary::after{content:"+";font-size:1.2rem;color:var(--crimson);flex-shrink:0}
+.faq-item[open] summary::after{content:"−"}
+.faq-item p{padding:0 0 14px;color:#555;font-size:.9rem;line-height:1.65}
+
+/* fade-in-on-scroll */
+.fade-in{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.fade-in.visible{opacity:1;transform:none}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  .pillars-grid,.programs-grid{grid-template-columns:repeat(2,1fr)}
+  .stats-grid{grid-template-columns:repeat(3,1fr)}
+  .stat:nth-child(3),.stat:nth-child(6){border-right:none}
+  .footer-top{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  .nav-links,.nav-cta{display:none}
+  .hamburger{display:flex}
+  .hero-btns{flex-direction:column;align-items:center}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .stat{border-right:none;border-bottom:1px solid rgba(255,255,255,.12)}
+  .myth-grid,.coaching-grid,.path-grid{grid-template-columns:1fr}
+  .college-grid,.community-grid{grid-template-columns:1fr}
+  .pillars-grid,.programs-grid{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr}
+  .footer-bottom{flex-direction:column;gap:8px;text-align:center}
+  section{padding:56px 20px}
+  .modal-overlay{padding:20px 12px}
+  .modal-body{max-height:65vh}
+}
+@media(max-width:480px){
+  .stats-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<!-- INTRO ANIMATION OVERLAY -->
+<div id="intro-overlay">
+  <div id="intro-glow"></div>
+  <div class="intro-stage">
+    <div class="intro-line" id="il-1">For decades, two clubs shaped this community.</div>
+    <div class="intro-line gold" id="il-2">Campton United.&nbsp;&nbsp;Fox Valley Strikers.</div>
+    <div class="intro-line" id="il-3">Different names. The same belief.</div>
+    <div class="intro-line" id="il-4">In 2026, they became one.</div>
+    <div id="intro-logo-wrap">
+      <img id="intro-logo-1" src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1770763739/forge-logo-w-fox-valley-23jan2026_d1dlgi.png" alt="Fox Valley Forge SC">
+      <img id="intro-logo-2" src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1770763739/forge-logo-rec-23jan2026_k1dpys.png" alt="Forge SC">
+    </div>
+    <div class="intro-line" id="il-6">Seventy-eight years of experience. One mission.</div>
+    <div class="intro-line" id="il-7">Built for the player. Built for this valley.</div>
+    <div class="intro-line final" id="il-8">BUILT, NOT BOUGHT.</div>
+  </div>
+  <div id="intro-tap">
+    <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1770763739/forge-logo-w-fox-valley-23jan2026_d1dlgi.png" alt="Fox Valley Forge SC" style="height:clamp(80px,14vw,140px);filter:drop-shadow(0 0 20px rgba(197,160,89,.4))">
+    <p id="intro-tap-label">TAP ANYWHERE TO BEGIN</p>
+  </div>
+  <button id="intro-skip">SKIP ›</button>
+  <audio id="intro-audio" preload="auto" src="https://res.cloudinary.com/dsbllwpbh/video/upload/v1771543964/Fox_Valley_Forge-logo-reveal-voice-music_wgpemw.m4a"></audio>
+</div>
+
+<!-- Hidden Netlify form for build-time detection -->
+<form name="register" data-netlify="true" hidden>
+  <input type="hidden" name="form-name" value="register">
+  <input type="text" name="first-name">
+  <input type="text" name="last-name">
+  <input type="email" name="email">
+  <input type="tel" name="phone">
+  <select name="age-group"><option value=""></option></select>
+  <textarea name="message"></textarea>
+</form>
+<form name="contact" data-netlify="true" hidden>
+  <input type="hidden" name="form-name" value="contact">
+  <input type="text" name="first-name">
+  <input type="text" name="last-name">
+  <input type="email" name="email">
+  <textarea name="message"></textarea>
+</form>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1770763739/forge-logo-w-fox-valley-23jan2026_d1dlgi.png" alt="Fox Valley Forge SC"></a>
+    <ul class="nav-links">
+      <li><a href="#programs">Programs</a></li>
+      <li><a href="#coaching">Coaching</a></li>
+      <li><a href="#college">College Pathway</a></li>
+      <li><a href="#events">Events</a></li>
+      <li><a href="#community">Our Story</a></li>
+      <li><a href="#" onclick="openModal('modal-faq');return false">FAQ</a></li>
+    </ul>
+    <a href="#" onclick="openModal('modal-register');return false" class="btn btn-crimson nav-cta">Request Information</a>
+    <div class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#programs" onclick="closeMobile()">Programs</a>
+  <a href="#coaching" onclick="closeMobile()">Coaching</a>
+  <a href="#college" onclick="closeMobile()">College Pathway</a>
+  <a href="#events" onclick="closeMobile()">Events</a>
+  <a href="#community" onclick="closeMobile()">Our Story</a>
+  <a href="#" onclick="openModal('modal-faq');closeMobile();return false">FAQ</a>
+  <a href="#" onclick="closeMobile();openModal('modal-register');return false" class="btn btn-crimson" style="text-align:center;margin-top:8px">Request Information</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <video class="hero-video" autoplay muted loop playsinline poster="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1771377808/crowd-cheers-forge-players_vwip1x.jpg">
+    <source src="https://player.vimeo.com/progressive_redirect/playback/1165855603/rendition/1080p/file.mp4%20%281080p%29.mp4?loc=external&log_user=0&signature=84faaab9ae99913630d1e92da6794f0d1ba4223e3b49e7296ce335ec21f0d3f3" type="video/mp4">
+  </video>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1770763739/forge-logo-w-fox-valley-23jan2026_d1dlgi.png" alt="Fox Valley Forge SC" style="height:200px;margin:0 auto 24px">
+    <p class="hero-eyebrow">Fox Valley Forge SC &nbsp;·&nbsp; Est. Fox Valley, Illinois</p>
+    <h1>BUILT,<br><span>NOT BOUGHT.</span></h1>
+    <p class="hero-sub">One Valley. One Club.</p>
+    <p class="hero-tagline">From First Kick to College &nbsp;·&nbsp; Your Path, Your Pace</p>
+    <div class="hero-btns">
+      <a href="#programs" class="btn btn-crimson">Find Your Program</a>
+      <button class="btn btn-outline" onclick="openModal('modal-story')">Our Story</button>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div id="stats">
+  <div class="stats-grid">
+    <div class="stat"><div class="stat-num">Fox Valley's</div><div class="stat-label">Largest Soccer Club</div></div>
+    <div class="stat"><div class="stat-num">U4–U19</div><div class="stat-label">All Ages, All Levels</div></div>
+    <div class="stat"><div class="stat-num" data-countup="2">2</div><div class="stat-label">Permanent Indoor Facilities</div></div>
+    <div class="stat"><div class="stat-num" data-countup="100" data-suffix="s">100s</div><div class="stat-label">of College Placements</div></div>
+    <div class="stat"><div class="stat-num">Non-Profit</div><div class="stat-label">Player-First. Always.</div></div>
+    <div class="stat"><div class="stat-num" data-countup="78">78</div><div class="stat-label">Years Combined History</div></div>
+  </div>
+</div>
+
+<!-- PILLARS -->
+<section id="pillars">
+  <div class="section-inner">
+    <p class="section-label fade-in">The Forge Difference</p>
+    <h2 class="section-title fade-in">Why Families Choose Forge</h2>
+    <p class="section-sub fade-in">We sit in the optimal position — professional development standards and real college pathway support, with the community soul and family flexibility that few clubs can match.</p>
+    <div class="pillars-grid">
+      <div class="pillar fade-in">
+        <div class="pillar-icon"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1771514387/icon-heritage-credibility-gem_n5ufi4.png" alt="Heritage & Credibility"></div>
+        <h3>Heritage &amp; Credibility</h3>
+        <p>Decades of serving Fox Valley families. Hundreds of college players. Thousands of local kids shaped by the game. Our track record speaks for itself.</p>
+        <span class="link-more" onclick="openModal('modal-story')">Deep Dive</span>
+      </div>
+      <div class="pillar fade-in">
+        <div class="pillar-icon"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1771514388/icon-professional-development-grok-2_skqb6f.jpg" alt="Professional Development"></div>
+        <h3>Professional Development</h3>
+        <p>Licensed coaching, a unified curriculum across every age group, and active college coaches on staff. Elite-level development — no platform badge required.</p>
+        <span class="link-more" onclick="openModal('modal-coaching')">Deep Dive</span>
+      </div>
+      <div class="pillar fade-in">
+        <div class="pillar-icon"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1771514387/icon-accessible-pathways-grok_xqfj07.jpg" alt="Accessible Pathways"></div>
+        <h3>Accessible Pathways</h3>
+        <p>Four clear programs under one roof — from first kick to college prep. Every family finds the right fit without compromise or all-or-nothing pressure.</p>
+        <span class="link-more" onclick="openModal('modal-path')">Deep Dive</span>
+      </div>
+      <div class="pillar fade-in">
+        <div class="pillar-icon"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1771514389/icon-whole-player-culture-grok_jgdkvj.jpg" alt="Whole-Player Culture"></div>
+        <h3>Whole-Player Culture</h3>
+        <p>Character, academics, leadership, and mental resilience alongside performance. Multi-sport tolerance. Flexible expectations for real families.</p>
+        <span class="link-more" onclick="openModal('modal-philosophy')">Deep Dive</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section id="programs">
+  <div class="section-inner">
+    <p class="section-label fade-in">Our Programs</p>
+    <h2 class="section-title fade-in">Your Pathway Starts Here</h2>
+    <p class="section-sub fade-in">Five connected programs. One pathway. No matter where your player is today, there's a home for them at Forge.</p>
+    <div class="programs-grid">
+      <div class="prog-card fade-in">
+        <div class="prog-header gold">
+          <div class="prog-age">Ages U3–U6</div>
+          <h3>Forge Foxes</h3>
+        </div>
+        <div class="prog-body">
+          <ul>
+            <li>Fun, movement &amp; smiles — with a soccer ball</li>
+            <li>1-player, 1-ball activities &amp; obstacle courses</li>
+            <li>Coach-led, parent participation welcomed</li>
+            <li>Color games, dribble games, music &amp; high-fives</li>
+            <li>No tryouts — everyone welcome</li>
+          </ul>
+          <button class="btn btn-gold" style="width:100%;color:var(--navy)" onclick="openModal('modal-foxes')">Learn More</button>
+        </div>
+      </div>
+      <div class="prog-card fade-in">
+        <div class="prog-header gold">
+          <div class="prog-age">Ages U6–U12</div>
+          <h3>Forge Community</h3>
+        </div>
+        <div class="prog-body">
+          <ul>
+            <li>Fun-first, no scores or standings</li>
+            <li>Ball mastery, coordination &amp; teamwork</li>
+            <li>Everyone welcome — no tryouts</li>
+            <li>Parent education workshops included</li>
+            <li>Most affordable development entry point</li>
+          </ul>
+          <button class="btn btn-navy" style="width:100%" onclick="openModal('modal-futures')">Learn More</button>
+        </div>
+      </div>
+      <div class="prog-card fade-in">
+        <div class="prog-header">
+          <div class="prog-age">Ages U6–U12</div>
+          <h3>Forge Ignite</h3>
+        </div>
+        <div class="prog-body">
+          <ul>
+            <li>Competitive travel soccer</li>
+            <li>Regional travel — stay close to home</li>
+            <li>Multi-sport &amp; academic flexibility</li>
+            <li>Every player gets meaningful game time</li>
+            <li>School-grade based teams (2026–27)</li>
+          </ul>
+          <button class="btn btn-navy" style="width:100%" onclick="openModal('modal-community')">Learn More</button>
+        </div>
+      </div>
+      <div class="prog-card fade-in">
+        <div class="prog-header crimson">
+          <div class="prog-age">Ages U11–U19</div>
+          <h3>Forge Performance</h3>
+        </div>
+        <div class="prog-body">
+          <ul>
+            <li>NPL, National League &amp; top showcases</li>
+            <li>3–4 dedicated soccer activities per week</li>
+            <li>Introduction to video &amp; game film</li>
+            <li>Sports Recruits CRM for recruiting</li>
+            <li>Active D1, D3 &amp; college coaches on staff</li>
+          </ul>
+          <button class="btn btn-crimson" style="width:100%" onclick="openModal('modal-performance')">Learn More</button>
+        </div>
+      </div>
+      <div class="prog-card fade-in">
+        <div class="prog-header">
+          <div class="prog-age">Add-On Package</div>
+          <h3>Forge College Prep</h3>
+        </div>
+        <div class="prog-body">
+          <ul>
+            <li>Sports Recruits profile + direct coach outreach</li>
+            <li>Highlight video production support</li>
+            <li>Campus visit &amp; timeline planning</li>
+            <li>Guest College Coach Training Series</li>
+            <li>Alumni network: 100s of college players</li>
+          </ul>
+          <button class="btn btn-navy" style="width:100%" onclick="openModal('modal-college')">Learn More</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLATFORM MYTH -->
+<section id="platform">
+  <div class="platform-inner">
+    <p class="section-label fade-in" style="color:var(--gold)">The Truth About Elite Clubs</p>
+    <h2 class="section-title fade-in">College Coaches Recruit Players, Not Logos.</h2>
+    <p class="section-sub fade-in">College coaches watch film, attend showcases, and respond to direct outreach. Our athletes earn college offers every year — because great coaching, development, and personal relationships open every door.</p>
+    <div class="myth-grid">
+      <div class="myth-card fade-in">
+        <h4>The Myth</h4>
+        <p>"My child must join an ECNL or MLS Next club to get a college scholarship."</p>
+      </div>
+      <div class="myth-card fade-in">
+        <h4>The Reality</h4>
+        <p>Coaches watch film, attend showcases, and respond to direct outreach. Our staff ARE college coaches — they know exactly what recruiters want to see.</p>
+      </div>
+      <div class="myth-card fade-in">
+        <h4>Our Promise</h4>
+        <p>High-level soccer without driving into the city three times a week. Professional coaching, real college support, and a community you actually belong to.</p>
+      </div>
+    </div>
+    <div style="display:flex;gap:16px;flex-wrap:wrap">
+      <button class="btn btn-gold" onclick="openModal('modal-platform')">Bust the Myth →</button>
+      <button class="btn btn-outline" onclick="openModal('modal-compare')">See Full Comparison</button>
+    </div>
+  </div>
+</section>
+
+<!-- COACHING -->
+<section id="coaching">
+  <div class="section-inner">
+    <p class="section-label fade-in">Our Coaching Staff</p>
+    <h2 class="section-title fade-in">Coaches Who Know Your Name</h2>
+    <p class="section-sub fade-in">Not a template. Not an automated score sheet. A real coach who knows your player, your family, and your goals — sitting down face to face with you.</p>
+    <div class="coaching-grid">
+      <div class="coach-box fade-in">
+        <div class="coach-icon"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1771514387/icon-active-college-coaches-grok_h7fxb0.jpg" alt="Active College Coaches On Staff"></div>
+        <h3>Active College Coaches On Staff</h3>
+        <p>D1, D3, and community college coaches coach our teams. They're actively making recruiting decisions — and they're directly connected to your player.</p>
+        <br><span class="link-more" onclick="openModal('modal-coaching')">Meet Our Approach</span>
+      </div>
+      <div class="coach-box fade-in">
+        <div class="coach-icon"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1771514387/icon-face-to-face-gem_atvuic.png" alt="Face-to-Face Evaluations"></div>
+        <h3>Face-to-Face Evaluations</h3>
+        <p>No template scoring. No form letters. After every evaluation, families receive direct, personal feedback from a coach who knows your player's story.</p>
+        <br><span class="link-more" onclick="openModal('modal-tryouts')">How Tryouts Work</span>
+      </div>
+      <div class="coach-box fade-in">
+        <div class="coach-icon"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1771514389/icon-unified-curriculum-grok-b_zkv6d7.jpg" alt="Unified Curriculum"></div>
+        <h3>Unified Curriculum</h3>
+        <p>The same methodology from U6 to U19. Players build skills year after year with consistency, coach continuity, and no revolving-door turnover.</p>
+        <br><span class="link-more" onclick="openModal('modal-coaching')">Our Philosophy</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COLLEGE PATHWAY -->
+<section id="college">
+  <div class="section-inner">
+    <div class="college-grid">
+      <div>
+        <p class="section-label fade-in">College Pathway</p>
+        <h2 class="section-title fade-in">Your College Journey Starts in Fox Valley.</h2>
+        <p style="color:#555;line-height:1.65;margin-bottom:8px" class="fade-in">D1 is a great dream. But D2, D3, NAIA, and junior college are great lives. We help every player find their right fit — not just the most impressive-sounding one.</p>
+        <div class="college-features">
+          <div class="college-feat fade-in">
+            <div class="feat-icon"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1771514388/icon-sports-recruits-platform-grok_grtqx1.jpg" alt="Sports Recruits Platform"></div>
+            <div class="feat-text">
+              <h4>Sports Recruits Platform</h4>
+              <p>Build your recruiting profile, email college coaches directly, and track who's viewed your page.</p>
+            </div>
+          </div>
+          <div class="college-feat fade-in">
+            <div class="feat-icon"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1771514388/icon-highlight-video-support-grok_wfylmk.jpg" alt="Highlight Video Support"></div>
+            <div class="feat-text">
+              <h4>Highlight Video Support</h4>
+              <p>We help you build a compelling video that shows coaches exactly what they need to see.</p>
+            </div>
+          </div>
+          <div class="college-feat fade-in">
+            <div class="feat-icon"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1771514387/icon-direct-coach-access-grok_lqnedu.jpg" alt="Direct Coach Access"></div>
+            <div class="feat-text">
+              <h4>Direct Coach Access</h4>
+              <p>Our staff includes active college coaches. Real conversations about real opportunities — no middleman.</p>
+            </div>
+          </div>
+        </div>
+        <br>
+        <button class="btn btn-navy" onclick="openModal('modal-college')">How It Works →</button>
+      </div>
+      <div>
+        <div class="college-video-wrap fade-in">
+          <video id="college-video" src="https://player.vimeo.com/progressive_redirect/playback/1166662971/rendition/540p/file.mp4%20%28540p%29.mp4?loc=external&log_user=0&signature=7b6125e2128e486e81cc13169db37ed29c36d901c285d013567ad627dee62cee" muted playsinline loop preload="metadata"></video>
+          <div class="college-video-overlay">
+            <p class="ov-label">ALUMNI OUTCOMES</p>
+            <p>Hundreds of Fox Valley players now compete at colleges across the country — D1, D2, D3, NAIA, and junior college. <strong style="color:#fff">All players finding their right fit through our multiple pathways.</strong></p>
+            <span class="link-more" onclick="openModal('modal-alumni')">Meet The Forge Family</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EVENTS -->
+<section id="events">
+  <div class="section-inner">
+    <p class="section-label fade-in">Community Events</p>
+    <h2 class="section-title fade-in">Upcoming Events</h2>
+    <p class="section-sub fade-in">More than training. Forge brings the community together.</p>
+    <div class="events-grid">
+      <div class="event-card fade-in">
+        <div class="event-card-img" style="background-image:url('https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1771432370/pitch-slide-14-chatgpt_msscmv.png')">
+          <div class="event-eyebrow">Save the Date</div>
+          <h3 class="event-card-title">Girls in Sports Day</h3>
+          <div class="event-card-date">Sunday, March 22nd</div>
+        </div>
+        <div class="event-card-body">
+          <div>
+            <h4>About the Event</h4>
+            <p>Join us as we celebrate the strength, confidence, and passion of our incredible female athletes — a fun, empowering day dedicated to uplifting the girls in our club.</p>
+          </div>
+          <div>
+            <h4>The Day Includes</h4>
+            <ul class="event-activities">
+              <li>Soccer challenges to showcase skills</li>
+              <li>Speed and agility training</li>
+              <li>Yoga for recovery, relaxation, and balance</li>
+              <li>A special panel of high school &amp; college players and coaches</li>
+            </ul>
+          </div>
+          <p class="event-coming-soon">Registration details coming soon — stay tuned for more information!</p>
+        </div>
+      </div>
+
+      <div class="event-card fade-in" data-hidden-event>
+        <div class="event-card-img" style="background-image:url('https://res.cloudinary.com/dsbllwpbh/image/upload/v1772211945/st-patricks-day-parade_ftgx7y.jpg')">
+          <div class="event-eyebrow">Community Event</div>
+          <h3 class="event-card-title">St. Patrick's Day Parade</h3>
+          <div class="event-card-date">Saturday, March 14th</div>
+        </div>
+        <div class="event-card-body">
+          <div>
+            <h4>About the Event</h4>
+            <p>Join the Fox Valley Forge SC family as we march together in the local St. Patrick's Day Parade — a beloved community tradition where we show up loud and proud in our club colors.</p>
+          </div>
+          <div>
+            <h4>What to Expect</h4>
+            <ul class="event-activities">
+              <li>March as a team in full club colors</li>
+              <li>Celebrate with families and fans along the route</li>
+              <li>Build team unity off the pitch</li>
+              <li>Show our Fox Valley community pride</li>
+            </ul>
+          </div>
+          <p class="event-coming-soon">Details and meeting point coming soon — stay tuned!</p>
+        </div>
+      </div>
+
+      <div class="event-card fade-in" data-hidden-event>
+        <div class="event-card-img" style="background-image:url('https://res.cloudinary.com/dsbllwpbh/image/upload/v1772211945/open-gyms_jtvx1c.jpg')">
+          <div class="event-eyebrow">Free Play</div>
+          <h3 class="event-card-title">March ID Sessions</h3>
+          <div class="event-card-date">Dates Coming Soon</div>
+        </div>
+        <div class="event-card-body">
+          <div>
+            <h4>About the Event</h4>
+            <p>Hit the turf on your own schedule. March ID Sessions give players free, unstructured time on the indoor field to play, practice, and develop at their own pace.</p>
+          </div>
+          <div>
+            <h4>What to Expect</h4>
+            <ul class="event-activities">
+              <li>Open to all registered players</li>
+              <li>Drop-in format — no reservation required</li>
+              <li>Full indoor turf access</li>
+              <li>Coaches present to guide and encourage</li>
+            </ul>
+          </div>
+          <p class="event-coming-soon">Specific dates TBD — check back soon for the schedule!</p>
+        </div>
+      </div>
+
+      <div class="event-card fade-in" data-hidden-event>
+        <div class="event-card-img" style="background-image:url('https://res.cloudinary.com/dsbllwpbh/image/upload/v1772211945/open-gyms_jtvx1c.jpg')">
+          <div class="event-eyebrow">Free Play</div>
+          <h3 class="event-card-title">April ID Sessions</h3>
+          <div class="event-card-date">Dates Coming Soon</div>
+        </div>
+        <div class="event-card-body">
+          <div>
+            <h4>About the Event</h4>
+            <p>Spring is here and the doors are open. April ID Sessions are a great way to stay sharp, build confidence, and connect with teammates before the summer season kicks off.</p>
+          </div>
+          <div>
+            <h4>What to Expect</h4>
+            <ul class="event-activities">
+              <li>Open to all registered players</li>
+              <li>Drop-in format — no reservation required</li>
+              <li>Full indoor turf access</li>
+              <li>Coaches present to guide and encourage</li>
+            </ul>
+          </div>
+          <p class="event-coming-soon">Specific dates TBD — check back soon for the schedule!</p>
+        </div>
+      </div>
+
+      <div class="event-card fade-in" data-hidden-event>
+        <div class="event-card-img" style="background-image:url('https://res.cloudinary.com/dsbllwpbh/image/upload/v1772211945/team-tryouts_v47xti.jpg')">
+          <div class="event-eyebrow">Join the Team</div>
+          <h3 class="event-card-title">Team Selections &amp; Tryouts</h3>
+          <div class="event-card-date">May 18th – 21st</div>
+        </div>
+        <div class="event-card-body">
+          <div>
+            <h4>About the Event</h4>
+            <p>Your chance to earn a spot on a Fox Valley Forge SC team. Our evaluation process is fair, supportive, and designed to find the right fit for every player across all age groups.</p>
+          </div>
+          <div>
+            <h4>What to Expect</h4>
+            <ul class="event-activities">
+              <li>Skill evaluations by certified coaches</li>
+              <li>Position-specific training assessments</li>
+              <li>Small-sided game evaluation</li>
+              <li>Placement across all age groups and levels</li>
+            </ul>
+          </div>
+          <p class="event-coming-soon">Registration details coming soon — all skill levels welcome!</p>
+        </div>
+      </div>
+
+      <div class="event-card fade-in" data-hidden-event>
+        <div class="event-card-img" style="background-image:url('https://res.cloudinary.com/dsbllwpbh/image/upload/v1772211945/3v3-tournament_oc6m62.jpg')">
+          <div class="event-eyebrow">Summer Competition</div>
+          <h3 class="event-card-title">3v3 Live Tournament</h3>
+          <div class="event-card-date">Saturday, June 27th</div>
+        </div>
+        <div class="event-card-body">
+          <div>
+            <h4>About the Event</h4>
+            <p>Fast, fun, and competitive — our 3v3 Live Tournament is one of the most exciting events of the summer. Small-sided soccer at its best, open to all ages.</p>
+          </div>
+          <div>
+            <h4>What to Expect</h4>
+            <ul class="event-activities">
+              <li>Multiple age brackets for all levels</li>
+              <li>Back-to-back games throughout the day</li>
+              <li>Food, music, and family atmosphere</li>
+              <li>Prizes and recognition for top finishers</li>
+            </ul>
+          </div>
+          <p class="event-coming-soon">Team registration opening soon — start building your squad!</p>
+        </div>
+      </div>
+
+      <div class="event-card fade-in" data-hidden-event>
+        <div class="event-card-img" style="background-image:url('https://res.cloudinary.com/dsbllwpbh/image/upload/v1772211945/usa-cup_exkhct.jpg')">
+          <div class="event-eyebrow">Elite Competition</div>
+          <h3 class="event-card-title">USA Cup</h3>
+          <div class="event-card-date">July 10th – 18th</div>
+        </div>
+        <div class="event-card-body">
+          <div>
+            <h4>About the Event</h4>
+            <p>One of the premier youth soccer tournaments in the country. Fox Valley Forge SC represents our community at the highest level of national competition — a milestone experience for every player.</p>
+          </div>
+          <div>
+            <h4>What to Expect</h4>
+            <ul class="event-activities">
+              <li>National and international competition</li>
+              <li>Multiple age group divisions</li>
+              <li>Elite coaching and in-tournament development</li>
+              <li>An unforgettable team experience</li>
+            </ul>
+          </div>
+          <p class="event-coming-soon">Team rosters and travel details coming soon — get ready!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMUNITY -->
+<section id="community">
+  <div class="section-inner">
+    <div class="community-grid">
+      <div>
+        <p class="section-label fade-in">Our Story</p>
+        <h2 class="section-title fade-in">Rooted Here. Built for This.</h2>
+        <p style="color:#555;line-height:1.65;margin-bottom:20px" class="fade-in">Fox Valley Forge SC was built from the ground up by people who love this community. We didn't merge to survive — we merged to lead. To become something bigger, better, and more capable of serving every family in the Fox Valley corridor.</p>
+        <div class="community-stats">
+          <div class="c-stat fade-in"><div class="c-stat-num" data-countup="2">2</div><div class="c-stat-label">Indoor Facilities</div></div>
+          <div class="c-stat fade-in"><div class="c-stat-num" data-countup="100" data-suffix="s">100s</div><div class="c-stat-label">College Athletes</div></div>
+          <div class="c-stat fade-in"><div class="c-stat-num" data-countup="1000" data-suffix="s">1000s</div><div class="c-stat-label">Kids Developed</div></div>
+          <div class="c-stat fade-in"><div class="c-stat-num">Non-Profit</div><div class="c-stat-label">Always</div></div>
+        </div>
+        <br>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <button class="btn btn-crimson" onclick="openModal('modal-story')">The Forge Story →</button>
+          <button class="btn btn-navy" onclick="openModal('modal-facilities')">Our Facilities →</button>
+        </div>
+      </div>
+      <div class="community-visual fade-in">
+        <h3>Two Permanent Homes. One Community.</h3>
+        <p>Unlike national "badge" clubs that borrow fields and have no community anchor, Fox Valley Forge SC operates two permanent indoor facilities in the heart of Fox Valley — Batavia, Geneva, and St. Charles area.</p>
+        <p>Year-round training capability. Permanent, dedicated facility access. A real home where players and families belong — not just a schedule and a jersey.</p>
+        <p style="color:var(--gold);font-family:var(--font-h);font-size:.85rem;letter-spacing:.1em">BATAVIA · GENEVA · ST. CHARLES · ELGIN · BURLINGTON</p>
+        <span class="link-more" onclick="openModal('modal-facilities')">Explore Our Facilities</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- YOUR PATH -->
+<section id="yourpath">
+  <div class="section-inner">
+    <p class="section-label fade-in" style="color:var(--gold)">No Pressure. No Dead Ends.</p>
+    <h2 class="section-title fade-in" style="color:#fff">Your Path. Your Pace.</h2>
+    <p class="section-sub fade-in">One of the biggest fears families bring to us: "What if we make the wrong choice?" We built Fox Valley Forge SC to eliminate that fear.</p>
+    <div class="path-grid">
+      <div class="path-card fade-in">
+        <h3>Multi-Sport Friendly</h3>
+        <p>We don't just tolerate multi-sport athletes — we actively encourage it. Baseball, basketball, gymnastics alongside soccer? That's a feature, not a problem.</p>
+      </div>
+      <div class="path-card fade-in">
+        <h3>Late Bloomers Welcome</h3>
+        <p>Kids develop at different rates. A player who isn't ready for elite competition at U12 might be a standout at U15. We build for it. We plan for it. We celebrate it.</p>
+      </div>
+      <div class="path-card fade-in">
+        <h3>No All-or-Nothing Decisions</h3>
+        <p>Players can move between Community and Performance pathways as they grow. No stigma, no drama — just the right level at the right time.</p>
+      </div>
+    </div>
+    <br>
+    <div style="text-align:center">
+      <button class="btn btn-gold" onclick="openModal('modal-path')">Learn How It Works →</button>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON TEASER -->
+<div id="compare-teaser">
+  <h2>See How We Stack Up</h2>
+  <p>Professional development, real college pathway support, community roots — at a fraction of the platform club cost and commitment.</p>
+  <div class="compare-preview">
+    <span class="cp-badge">Park District Rec</span>
+    <span class="cp-badge active">Fox Valley Forge SC ✓</span>
+    <span class="cp-badge">Travel Soccer Clubs</span>
+  </div>
+  <button class="btn btn-outline" onclick="openModal('modal-compare')" style="font-size:.9rem">View Full Comparison →</button>
+</div>
+
+<!-- FINAL CTA -->
+<section id="final-cta">
+  <div class="section-inner">
+    <p style="font-family:var(--font-h);font-size:.85rem;letter-spacing:.2em;color:var(--gold);margin-bottom:16px">ONE VALLEY. ONE CLUB. ONE PATHWAY.</p>
+    <h2>Ready to Forge Your Path?</h2>
+    <p>Find the right program for your player and join the Fox Valley family. Tryout spots fill quickly — secure your evaluation today.</p>
+    <div class="cta-btns">
+      <button onclick="openModal('modal-register')" class="btn btn-crimson" style="font-size:1rem;padding:14px 32px">Request Information</button>
+      <button class="btn btn-outline" onclick="openModal('modal-tryouts')" style="font-size:1rem;padding:14px 32px">How Tryouts Work</button>
+      <button class="btn btn-outline" onclick="openModal('modal-contact')" style="font-size:1rem;padding:14px 32px">Got Questions?</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1770763739/forge-logo-w-fox-valley-23jan2026_d1dlgi.png" alt="Fox Valley Forge SC">
+        <p>One Valley. One Club. Youth soccer for the Fox Valley corridor — Batavia, Geneva, St. Charles, Elgin, Burlington and beyond.</p>
+        <div class="footer-hashtags" style="margin-top:16px">
+          <span class="hashtag">#ForgeForward</span>
+          <span class="hashtag">#OneValley</span>
+          <span class="hashtag">#ForgePathway</span>
+          <span class="hashtag">#ForgeFutures</span>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Programs</h4>
+        <ul>
+          <li><a href="#" onclick="openModal('modal-foxes');return false">Forge Foxes (U3–U6)</a></li>
+          <li><a href="#" onclick="openModal('modal-futures');return false">Forge Community (U6–U12)</a></li>
+          <li><a href="#" onclick="openModal('modal-community');return false">Forge Ignite (U6–U12)</a></li>
+          <li><a href="#" onclick="openModal('modal-performance');return false">Forge Performance (U11–U19)</a></li>
+          <li><a href="#" onclick="openModal('modal-college');return false">Forge College Prep (Add-On)</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Learn More</h4>
+        <ul>
+          <li><a href="#" onclick="openModal('modal-philosophy');return false">Built, Not Bought</a></li>
+          <li><a href="#" onclick="openModal('modal-coaching');return false">Our Coaching</a></li>
+          <li><a href="#" onclick="openModal('modal-facilities');return false">Facilities</a></li>
+          <li><a href="#" onclick="openModal('modal-story');return false">Our Story</a></li>
+          <li><a href="#" onclick="openModal('modal-tryouts');return false">Tryout Process</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="#" onclick="openModal('modal-contact');return false">Contact Us</a></li>
+
+          <li><a href="#" onclick="openModal('modal-faq');return false">FAQ</a></li>
+          <li><a href="#" onclick="openModal('modal-alumni');return false">Alumni Network</a></li>
+          <li><a href="#events">Upcoming Events</a></li>
+          <li><a href="#" onclick="openModal('modal-compare');return false">Compare Programs</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Fox Valley Forge SC. All rights reserved. Non-profit organization.</p>
+      <p>Fox Valley, Illinois &nbsp;·&nbsp; forgesoccerclub.com &nbsp;·&nbsp; <a href="mailto:info@forgesoccerclub.com" style="color:inherit;opacity:.7">info@forgesoccerclub.com</a></p>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════ MODALS ═══════════════════ -->
+
+<!-- MODAL 1: Philosophy -->
+<div id="modal-philosophy" class="modal-overlay" role="dialog" aria-modal="true">
+  <div class="modal">
+    <div class="modal-head">
+      <h2>Built, Not Bought</h2>
+      <button class="modal-close" onclick="closeModal('modal-philosophy')" aria-label="Close">×</button>
+    </div>
+    <div class="modal-body">
+      <h3>The Forge Metaphor</h3>
+      <p>Iron becomes steel through heat, pressure, and time. There are no shortcuts. You can't rush the process. That's exactly how we develop soccer players — and people.</p>
+      <p>The name "Forge" isn't marketing. It's a philosophy. Every great player we've developed was shaped through patient, intentional coaching, honest relationships, and the willingness to trust the process even when it's hard.</p>
+      <div class="highlight">"We grow talent from within. We don't poach players from other clubs, and we don't build rosters by collecting players developed elsewhere."</div>
+      <h3>Development Over Selection</h3>
+      <p>Many clubs build their reputation by selecting already-developed players from other programs and putting them in a jersey. We build ours by developing players from the ground up — from their first session at Forge through their college commitment.</p>
+      <p>The difference is real, and families feel it. When a coach has watched your player develop over years, their feedback carries weight that no template evaluation ever could.</p>
+      <h3>The Adult in the Room</h3>
+      <p>Youth soccer can be an anxious space. Parents feel pressure to make the "right" choice. Players feel pressure to perform. Coaches sometimes feel pressure to win at the cost of development.</p>
+      <p>We choose to be the adult in the room. That means honest conversations — including ones that are hard to hear. It means telling a family when their player isn't ready for the Performance pathway, and explaining exactly what they need to work on to get there. It means celebrating when a player earns a spot at an elite platform club, because that's our job done.</p>
+      <h3>Three Core Promises</h3>
+      <ul>
+        <li><strong>Honest evaluations</strong> — We tell you the truth about where your player is and what they need, every time.</li>
+        <li><strong>Personal relationships</strong> — Your coach knows your player's name, their town, their other sports, and their goals.</li>
+        <li><strong>Patience with development</strong> — We don't write off late bloomers. We build programs around the reality that players develop at different rates.</li>
+      </ul>
+      <div class="callout"><p>"Every player who earns a spot at an elite platform club is OUR success story. That's the Forge philosophy in action."</p></div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-crimson" onclick="closeModal('modal-philosophy');document.getElementById('programs').scrollIntoView()">Explore Programs</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL 2: Forge Community (formerly Futures) -->
+<div id="modal-futures" class="modal-overlay" role="dialog" aria-modal="true">
+  <div class="modal">
+    <div class="modal-head">
+      <h2>Forge Community — U6 to U12</h2>
+      <button class="modal-close" onclick="closeModal('modal-futures')" aria-label="Close">×</button>
+    </div>
+    <div class="modal-body">
+      <h3>The Curious Fox Program</h3>
+      <p>Forge Community is where structured development begins. Ages U6 through U12. Our goal at this stage is simple: help your child fall in love with the game.</p>
+      <p>No scores. No standings. No pressure. Just fun, friends, and a ball at their feet.</p>
+      <h3>What Kids Learn</h3>
+      <ul>
+        <li>Dribbling and ball mastery — the foundation of everything</li>
+        <li>First touch and passing fundamentals</li>
+        <li>Running with the ball, changing direction</li>
+        <li>Teamwork, listening, and following instructions</li>
+        <li>How to win with grace and lose with dignity</li>
+        <li>Why showing up and working hard matters</li>
+      </ul>
+      <h3>How Sessions Work</h3>
+      <p>Sessions are once per week, age-appropriate, and built around small-sided games — 3v3 and 4v4 formats where every child touches the ball constantly. No one is standing on the sideline waiting for a turn.</p>
+      <p>Our licensed coaches use age-appropriate methodology designed specifically for young children's motor development and attention spans. Sessions are energetic, structured, and always end with a smile.</p>
+      <h3>For Parents</h3>
+      <p>We run parent education workshops alongside our Futures program. You'll learn how to support your young athlete without creating pressure, how to talk about soccer at home, and how to recognize the signs that your child is ready to grow into more competitive play.</p>
+      <div class="highlight">"Multi-sport participation is actively encouraged at this age. We want your child to be an athlete first."</div>
+      <h3>No Tryouts. Everyone Welcome.</h3>
+      <p>Forge Futures has no tryouts and no cuts. This program is open to every child in the Fox Valley corridor. Our most affordable option — starting well under $200 per season. Financial assistance is always available.</p>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-gold" onclick="closeModal('modal-futures')">Got It</button>
+      <button onclick="closeModal('modal-futures');openRegisterWithProgram('U6-U12 (Forge Community)')" class="btn btn-crimson">Request Information</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL 3: Forge Ignite (formerly Community) -->
+<div id="modal-community" class="modal-overlay" role="dialog" aria-modal="true">
+  <div class="modal">
+    <div class="modal-head">
+      <h2>Forge Ignite — U6 to U12</h2>
+      <button class="modal-close" onclick="closeModal('modal-community')" aria-label="Close">×</button>
+    </div>
+    <div class="modal-body">
+      <h3>Competitive Soccer That Doesn't Rule Your Life</h3>
+      <p>Forge Ignite is competitive travel soccer designed for real families. You'll have real competition, real development, and a real team — without the travel burden, schedule chaos, or all-or-nothing commitment of a national-platform lifestyle.</p>
+      <h3>What to Expect</h3>
+      <ul>
+        <li><strong>2 practices per week</strong> — structured, coached, purposeful</li>
+        <li><strong>Regional and state tournament play</strong> — mostly within a 2-hour radius</li>
+        <li><strong>Licensed coaching</strong> — the same curriculum as our Performance pathway, age-appropriate</li>
+        <li><strong>Grade-based team structure</strong> — aligned to Illinois governing body policy for 2026–27</li>
+        <li><strong>Multi-sport tolerance</strong> — built into our scheduling model, not just tolerated</li>
+      </ul>
+      <h3>Playing Time Philosophy</h3>
+      <p>Every player on a Forge Ignite team matters. We believe in meaningful playing time for every roster player. We don't carry players who won't play, and we don't bench players who show up and work hard.</p>
+      <h3>Academic Flexibility</h3>
+      <p>School comes first at Fox Valley Forge SC. We plan around academic calendars. We work with families on schedule conflicts. We never ask a player to choose between a school commitment and soccer.</p>
+      <div class="highlight">"We finally found a club that gets it — competitive enough to grow, flexible enough to live." — A Forge Ignite family</div>
+      <h3>Pathway to Performance</h3>
+      <p>Players in the Community pathway can move to the Performance pathway as they develop — there are no dead ends and no stigma. Players develop at different rates, and we build our programs to reflect that reality.</p>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-navy" onclick="closeModal('modal-community')">Got It</button>
+      <button onclick="closeModal('modal-community');openRegisterWithProgram('U6-U12 (Forge Ignite)')" class="btn btn-crimson">Request Information</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL 4: Forge Performance -->
+<div id="modal-performance" class="modal-overlay" role="dialog" aria-modal="true">
+  <div class="modal">
+    <div class="modal-head">
+      <h2>Forge Performance — U11 to U19</h2>
+      <button class="modal-close" onclick="closeModal('modal-performance')" aria-label="Close">×</button>
+    </div>
+    <div class="modal-body">
+      <h3>The Fierce Fox Program</h3>
+      <p>Forge Performance is Fox Valley's highest-level competitive soccer program. For players who are serious about college soccer, elite competition, and maximum development — this is where it happens.</p>
+      <h3>Competition Level</h3>
+      <ul>
+        <li>Midwest Conference, NPL, and National League play</li>
+        <li>Top showcase tournaments for college recruiting exposure</li>
+        <li>Regional and national competition opportunities</li>
+        <li>High-quality opponents that challenge your player every weekend</li>
+      </ul>
+      <h3>Training Environment</h3>
+      <ul>
+        <li><strong>3–4 dedicated soccer activities per week</strong> plus match days</li>
+        <li><strong>Introduction to video</strong> — players learn to see their game the way coaches do</li>
+        <li><strong>Sports performance support</strong> — strength, conditioning, injury prevention</li>
+        <li><strong>Unified curriculum</strong> built around a clear playing philosophy</li>
+      </ul>
+      <h3>College Pathway Integration</h3>
+      <p>Every Forge Performance player U15 and above gets access to the <strong>Sports Recruits platform</strong> — a CRM-style tool to build your recruiting profile, email college coaches directly, and track engagement.</p>
+      <p>Our staff includes <strong>active D1, D3, and community college coaches</strong>. They don't just advise on recruiting — they're the ones making recruiting decisions at their schools. That's direct access you simply cannot get at most clubs.</p>
+      <div class="highlight">"You do NOT need an ECNL or MLS Next badge to get recruited for college. Our Performance players prove it every year."</div>
+      <h3>What We Look For in Tryouts</h3>
+      <ul>
+        <li>Technical ability and first touch</li>
+        <li>Tactical awareness and decision-making</li>
+        <li>Physical attributes and work rate</li>
+        <li>Character and coachability — we weigh this heavily</li>
+      </ul>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-navy" onclick="closeModal('modal-performance')">Got It</button>
+      <button class="btn btn-navy" onclick="closeModal('modal-performance');openModal('modal-tryouts')">How Tryouts Work</button>
+      <button onclick="closeModal('modal-performance');openRegisterWithProgram('U11-U19 (Forge Performance)')" class="btn btn-crimson">Request Information</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL 5: College Prep -->
+<div id="modal-college" class="modal-overlay" role="dialog" aria-modal="true">
+  <div class="modal">
+    <div class="modal-head">
+      <h2>Forge College Prep — Add-On Package</h2>
+      <button class="modal-close" onclick="closeModal('modal-college')" aria-label="Close">×</button>
+    </div>
+    <div class="modal-body">
+      <h3>Your College Pathway Starts in Fox Valley</h3>
+      <p>College coaches don't just recruit from ECNL rosters. They watch film, attend showcases, and respond to direct, well-crafted outreach. We give every Forge Performance player the tools, connections, and support to do exactly that.</p>
+      <h3>Sports Recruits Platform</h3>
+      <ul>
+        <li>Build a complete recruiting profile with stats, video, academic info</li>
+        <li>Email college coaches directly from the platform</li>
+        <li>Track which coaches have viewed your profile</li>
+        <li>Manage your college list and communication history</li>
+        <li>Used by thousands of college coaches across all divisions</li>
+      </ul>
+      <h3>What Our Staff Brings</h3>
+      <p>Our coaching staff includes <strong>active D1, D3, and community college coaches</strong>. These are the people actually sitting in recruiting meetings, watching film, and making offers. They coach your player, they know their game, and they can speak to their character directly.</p>
+      <p>That's a level of direct access that national platform clubs — with their anonymous roster of hundreds — simply cannot replicate.</p>
+      <h3>The Full Support Package</h3>
+      <ul>
+        <li>Highlight video production guidance</li>
+        <li>Academic transcript review — grades matter as much as goals</li>
+        <li>Campus visit planning and preparation</li>
+        <li>Communication templates for reaching out to coaches</li>
+        <li>Timeline planning: when to reach out, when to visit, when to commit</li>
+      </ul>
+      <div class="highlight">"D1 is a great dream. D2, D3, NAIA, and junior college are great lives. We help you find the right fit — not just the most impressive-sounding one."</div>
+    </div>
+    <div class="modal-foot">
+      <button onclick="closeModal('modal-college')" class="btn btn-navy">Got It</button>
+      <button onclick="closeModal('modal-college');openRegisterWithProgram('U15-U19 (Forge College Prep)')" class="btn btn-crimson">Request Information</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL 6: Platform Myth -->
+<div id="modal-platform" class="modal-overlay" role="dialog" aria-modal="true">
+  <div class="modal">
+    <div class="modal-head">
+      <h2>The Platform Club Myth</h2>
+      <button class="modal-close" onclick="closeModal('modal-platform')" aria-label="Close">×</button>
+    </div>
+    <div class="modal-body">
+      <h3>What Platform Clubs Are</h3>
+      <p>ECNL, MLS Next, and Girls Academy are national leagues for top-level youth competition. They offer national competition, college recruiting exposure, and high training standards. For players tracking toward Division I, they can offer genuine value.</p>
+      <h3>What They Actually Cost</h3>
+      <ul>
+        <li><strong>$3,000–$8,000+/year</strong> in club fees alone</li>
+        <li>National travel: flights, hotels, rental cars — multiple weekends per year</li>
+        <li>3–4 practices per week, year-round</li>
+        <li>Mandatory commitment — other sports, family vacations, school events are secondary</li>
+        <li>Roster volatility — players are cut and replaced regularly</li>
+      </ul>
+      <h3>The Myth</h3>
+      <div class="callout"><p>"My child MUST join a platform club to get recruited for college soccer."</p></div>
+      <h3>The Truth</h3>
+      <p>College coaches recruit players, not badges. Here's how recruiting actually works:</p>
+      <ul>
+        <li>Coaches watch <strong>film</strong> — a great highlight video gets attention regardless of club</li>
+        <li>Coaches attend <strong>showcases</strong> — any club can attend top showcases</li>
+        <li>Coaches respond to <strong>direct outreach</strong> — a well-crafted Sports Recruits profile works</li>
+        <li>Coaches rely on <strong>personal relationships</strong> — our staff ARE college coaches who can speak to your player directly</li>
+      </ul>
+      <p>Our players earn college offers every single year. Without ECNL. Without MLS Next. Because great coaching, great character, and a real relationship with a coach who knows your name matters more than a national league badge.</p>
+      <h3>When Should a Player Consider a Platform Club?</h3>
+      <p>If your player is genuinely tracking toward D1 and a platform affiliation offers specific exposure or scouting access that meets their goals — that may be the right move. And if it is, we'll help you make that transition and celebrate it. That's our job done.</p>
+      <div class="highlight">"Leaving for an elite platform is success, not failure. We say that, and we mean it."</div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-navy" onclick="closeModal('modal-platform');openModal('modal-compare')">See Full Comparison</button>
+      <button onclick="closeModal('modal-platform');openModal('modal-register')" class="btn btn-crimson">Find Your Program</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL 7: Coaching -->
+<div id="modal-coaching" class="modal-overlay" role="dialog" aria-modal="true">
+  <div class="modal">
+    <div class="modal-head">
+      <h2>Coaches Who Know Your Name</h2>
+      <button class="modal-close" onclick="closeModal('modal-coaching')" aria-label="Close">×</button>
+    </div>
+    <div class="modal-body">
+      <h3>Active College Coaches on Our Staff</h3>
+      <p>Our staff includes active D1, D3, and community college coaches — people who are currently making recruiting decisions at their schools. They don't just advise players about college soccer. They're in the ecosystem, watching film, making calls, and attending showcases.</p>
+      <p>When they say a player is ready for the next level, college coaches listen. Because they're peers.</p>
+      <h3>Face-to-Face Evaluations</h3>
+      <p>At a large platform club, player evaluations are often template-driven — a scoring sheet, a number, a form letter. At Forge, evaluations are conversations.</p>
+      <p>A coach who has watched your player develop sits down with your family and gives direct, specific, actionable feedback. They know your player's strengths, what they need to work on, and where they realistically fit in the pathway. No surprises. No form letters. Real feedback.</p>
+      <h3>Coaching Education Standards</h3>
+      <ul>
+        <li>All coaches hold required USSF or equivalent licenses</li>
+        <li>Ongoing professional development — coaching never stops learning</li>
+        <li>Age-appropriate periodization training across all levels</li>
+        <li>Transparent evaluation criteria published before tryouts</li>
+      </ul>
+      <h3>Unified Curriculum</h3>
+      <p>One of the most undervalued things a club can offer: consistency. At Fox Valley Forge SC, the same philosophy and methodology runs from U6 to U19. Players build on the same technical foundation year after year. When they move up a level, they don't have to relearn the fundamentals — they build on them.</p>
+      <h3>Coach Continuity</h3>
+      <p>We don't churn coaches. When a player builds a relationship with a coach, we protect that relationship. Coaching continuity — staying with the same coach for multiple seasons — is one of the strongest predictors of player development. We build for it intentionally.</p>
+      <div class="highlight">"At other clubs, you're a number on a roster. Here, our staff knows your name, your hometown, your sports, and your motivations."</div>
+    </div>
+    <div class="modal-foot">
+      <button onclick="closeModal('modal-coaching');openModal('modal-register')" class="btn btn-crimson">Request Information</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL 8: Facilities -->
+<div id="modal-facilities" class="modal-overlay" role="dialog" aria-modal="true">
+  <div class="modal">
+    <div class="modal-head">
+      <h2>Your Home Field Advantage</h2>
+      <button class="modal-close" onclick="closeModal('modal-facilities')" aria-label="Close">×</button>
+    </div>
+    <div class="modal-body">
+      <h3>Two Permanent Indoor Facilities</h3>
+      <p>Fox Valley Forge SC operates two permanent indoor facilities in the Fox Valley corridor — serving families in Batavia, Geneva, St. Charles, and surrounding communities.</p>
+      <p>This is a significant competitive advantage. Many clubs operate without a permanent home base — borrowing fields, changing venues, with no physical anchor in the communities they serve. Fox Valley Forge SC is different. We are rooted here.</p>
+      <p>We do not. This is our home. This is your home.</p>
+      <h3>Year-Round Training</h3>
+      <ul>
+        <li><strong>No renting or sharing space with competitors</strong> — permanent access means priority scheduling for our teams</li>
+        <li><strong>Dedicated facility access</strong> — no competing with outside organizations for field time</li>
+        <li><strong>Professional-quality surfaces</strong> — your player trains on the same quality surface every session</li>
+        <li><strong>Multiple training spaces</strong> — teams have the flexibility and adaptability to train simultaneously</li>
+      </ul>
+      <h3>More Than a Training Ground</h3>
+      <p>Our facilities are community hubs. Events like our Girls in Sports Day happen here. Alumni return here. Families gather here. It's where the Forge culture lives.</p>
+      <h3>Geographic Coverage</h3>
+      <p>Our two facilities are strategically positioned to minimize drive times for Fox Valley families. We know that convenience matters — and that asking families to drive an hour each way for a practice is not a sustainable model.</p>
+      <div class="highlight">"A permanent home means a permanent commitment to this community."</div>
+    </div>
+    <div class="modal-foot">
+      <button onclick="closeModal('modal-facilities');openModal('modal-register')" class="btn btn-crimson">Visit Us</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL 9: Alumni -->
+<div id="modal-alumni" class="modal-overlay" role="dialog" aria-modal="true">
+  <div class="modal">
+    <div class="modal-head">
+      <h2>The Forge Family</h2>
+      <button class="modal-close" onclick="closeModal('modal-alumni')" aria-label="Close">×</button>
+    </div>
+    <div class="modal-body">
+      <h3>A Legacy Built Over Decades</h3>
+      <p>Thousands of Fox Valley players have come through the programs that became Fox Valley Forge SC. Hundreds of them went on to play college soccer — at D1, D2, D3, NAIA, and junior college programs across the country.</p>
+      <p>They're our best advertisement. And we're bringing them back.</p>
+      <h3>Alumni Ambassador Program</h3>
+      <p>Former players are returning to serve as brand ambassadors — visiting practices, speaking to current players, and reinforcing one simple truth: the Fox Valley path works. You don't need to leave home to reach your goals.</p>
+      <h3>Guest College Coach Training Series</h3>
+      <p>An ongoing series bringing active college coaches to train with our players and speak with families. Real conversations about what coaches look for, how recruiting works, and how to stand out — directly from the people making the decisions.</p>
+      <p>What you'll gain:</p>
+      <ul>
+        <li>What college coaches actually look for — from people who've been recruited</li>
+        <li>What the recruiting process really feels like from the player's side</li>
+        <li>How to balance academics and athletics at the college level</li>
+        <li>Why development, character, and relationships matter more than the badge on your jersey</li>
+        <li>The range of outcomes: D1, D3, NAIA, and why they're all great paths</li>
+      </ul>
+      <h3>Generational Roots</h3>
+      <p>We have families where older siblings played for our predecessor clubs, and younger siblings are now in our youngest programs. Parents who played here are bringing their own kids to train. That kind of multi-generational trust doesn't happen by accident — it's built over decades of doing the right thing.</p>
+      <div class="callout"><p>"That's the kind of community trust you can't manufacture. You have to earn it, year after year, family after family."</p></div>
+    </div>
+    <div class="modal-foot">
+      <a href="#events" class="btn btn-crimson" onclick="closeModal('modal-alumni')">Girls in Sports Day — Mar 22</a>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL 10: Story -->
+<div id="modal-story" class="modal-overlay" role="dialog" aria-modal="true">
+  <div class="modal">
+    <div class="modal-head">
+      <h2>Why We Merged to Lead</h2>
+      <button class="modal-close" onclick="closeModal('modal-story')" aria-label="Close">×</button>
+    </div>
+    <div class="modal-body">
+      <h3>Two Clubs. One Mission. One Moment.</h3>
+      <p>Fox Valley's soccer community has always had two of its strongest clubs running alongside each other — two organizations with a combined 78 years of history, hundreds of families, and a shared belief in development-first soccer.</p>
+      <p>The decision to unite was not driven by financial pressure or market fear. It was driven by ambition.</p>
+      <div class="callout"><p>"We didn't merge to survive. We merged to lead."</p></div>
+      <h3>What the Merger Means for Your Player</h3>
+      <ul>
+        <li><strong>Deeper coaching staff</strong> — the best coaches from both organizations, unified under one philosophy</li>
+        <li><strong>More consistent programming</strong> — a single, unified curriculum replacing two separate systems</li>
+        <li><strong>Better facility access</strong> — two permanent indoor locations, fully resourced</li>
+        <li><strong>Stronger alumni network</strong> — combining the alumni of two historic programs</li>
+        <li><strong>Unified development pathway</strong> from U4 all the way through college prep</li>
+      </ul>
+      <h3>What It Means for the Community</h3>
+      <p>One clear choice for Fox Valley families who want serious player development without the platform club lifestyle. Fox Valley's largest and most experienced soccer organization. Full stop.</p>
+      <p>Instead of two good clubs competing for the same families, there is now one great club serving all of them — with more resources, more depth, and more capability than either organization had alone.</p>
+      <h3>Be Part of Something Bigger</h3>
+      <p>The merger was a strength play. Innovation over reaction. Proactive thinking over market survival. The result is an organization positioned to lead the Fox Valley soccer ecosystem for the next generation.</p>
+      <div class="highlight">"Elite clubs win trophies. Leading clubs shape ecosystems." — Our founding vision for Fox Valley Forge SC</div>
+    </div>
+    <div class="modal-foot">
+      <a href="#programs" class="btn btn-crimson" onclick="closeModal('modal-story')">Explore Programs</a>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL 11: Your Path -->
+<div id="modal-path" class="modal-overlay" role="dialog" aria-modal="true">
+  <div class="modal">
+    <div class="modal-head">
+      <h2>Your Path, Your Pace</h2>
+      <button class="modal-close" onclick="closeModal('modal-path')" aria-label="Close">×</button>
+    </div>
+    <div class="modal-body">
+      <h3>The Fear We Hear Most</h3>
+      <p>"What if we make the wrong choice?"</p>
+      <p>Parents ask us this constantly. What if we pick the wrong level? What if our child develops later than expected? What if they want to try a different sport? What if the all-in commitment is too much?</p>
+      <p>We built Fox Valley Forge SC to eliminate that fear.</p>
+      <h3>Multi-Sport Athletes</h3>
+      <p>We don't just tolerate multi-sport participation — we actively encourage it. Research consistently shows that multi-sport athletes develop better movement patterns, suffer fewer overuse injuries, and often emerge as stronger athletes by their mid-teens than single-sport specialists who started early.</p>
+      <p>At Fox Valley Forge SC, playing baseball, basketball, lacrosse, or gymnastics alongside soccer is a feature, not a problem. Our scheduling reflects that commitment — not just our words.</p>
+      <h3>Late Bloomers</h3>
+      <p>Players develop at wildly different rates — physically, emotionally, and technically. A player who isn't ready for the Performance pathway at U12 might be a standout at U15. We know this. We plan for it. And we never close a door prematurely.</p>
+      <p>We've seen it happen. We've coached those players. And we've celebrated when they've gone on to play college soccer from a position that felt uncertain just a few years earlier.</p>
+      <h3>No Dead Ends</h3>
+      <p>Players can move between the Community and Performance pathways as they develop. There is no stigma and no drama. There is only the right level at the right time — and a coaching staff that communicates honestly about what that means.</p>
+      <h3>Academic Respect. Always.</h3>
+      <p>School comes first. Full stop. We plan around academic calendars. We work with families on exam conflicts, school trips, and academic priorities. We don't create schedules that force impossible choices.</p>
+      <div class="highlight">"You don't have to get everything right in U10. The pathway is long. We'll be here."</div>
+    </div>
+    <div class="modal-foot">
+      <a href="#programs" class="btn btn-crimson" onclick="closeModal('modal-path')">Find Your Level</a>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL 12: Compare -->
+<div id="modal-compare" class="modal-overlay" role="dialog" aria-modal="true">
+  <div class="modal">
+    <div class="modal-head">
+      <h2>How We Compare</h2>
+      <button class="modal-close" onclick="closeModal('modal-compare')" aria-label="Close">×</button>
+    </div>
+    <div class="modal-body">
+      <p>Fox Valley Forge SC sits in the optimal position — the professional development and college pathway support of an elite club, with the community values and family flexibility that other clubs struggle to match.</p>
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Category</th>
+            <th>Park District / Rec</th>
+            <th style="background:var(--crimson)">Fox Valley Forge SC</th>
+            <th>Travel Soccer Clubs</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Annual Cost</td><td>$50–$300</td><td class="forge"><strong>$800–$2,500</strong></td><td>$3,000–$8,000+</td></tr>
+          <tr><td>Weekly Practices</td><td>1×</td><td class="forge"><strong>2–3×</strong></td><td>3–4×</td></tr>
+          <tr><td>Travel Radius</td><td>Local only</td><td class="forge"><strong>Regional (≤2 hrs)</strong></td><td>National (flights)</td></tr>
+          <tr><td>Non-Profit</td><td>Varies</td><td class="forge"><strong class="check">✓ Yes</strong></td><td class="cross">✗ No</td></tr>
+          <tr><td>Permanent Facilities</td><td>Park fields</td><td class="forge"><strong class="check">✓ 2 Indoor</strong></td><td class="cross">Rented / Varies</td></tr>
+          <tr><td>Coaching Quality</td><td>Volunteer/Variable</td><td class="forge"><strong>Licensed + College Coaches</strong></td><td>Licensed Specialists</td></tr>
+          <tr><td>College Placement Support</td><td class="cross">None</td><td class="forge"><strong class="check">✓ Full (Sports Recruits + Staff)</strong></td><td>Varies (badge-dependent)</td></tr>
+          <tr><td>Face-to-Face Evaluations</td><td class="cross">None</td><td class="forge"><strong class="check">✓ Always</strong></td><td class="cross">Template/Automated</td></tr>
+          <tr><td>Multi-Sport Tolerance</td><td class="check">High</td><td class="forge"><strong class="check">High</strong></td><td class="cross">Low</td></tr>
+          <tr><td>Academic Flexibility</td><td class="check">High</td><td class="forge"><strong class="check">High</strong></td><td class="cross">Low</td></tr>
+          <tr><td>Community Roots</td><td class="check">High</td><td class="forge"><strong class="check">High</strong></td><td class="cross">Low (national brand)</td></tr>
+          <tr><td>Coach Continuity</td><td>Low</td><td class="forge"><strong class="check">High</strong></td><td class="cross">Low (roster churn)</td></tr>
+          <tr><td>Family Relationships</td><td>Minimal</td><td class="forge"><strong class="check">Central</strong></td><td class="cross">Transactional</td></tr>
+        </tbody>
+      </table>
+      <div class="callout"><p><strong>Bottom line:</strong> Professional development standards and real college pathway support — with the community soul and family flexibility that other clubs cannot match. At a fraction of the cost.</p></div>
+    </div>
+    <div class="modal-foot">
+      <a href="#programs" class="btn btn-crimson" onclick="closeModal('modal-compare')">Find Your Program</a>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL 13: Tryouts -->
+<div id="modal-tryouts" class="modal-overlay" role="dialog" aria-modal="true">
+  <div class="modal">
+    <div class="modal-head">
+      <h2>The Evaluation Process</h2>
+      <button class="modal-close" onclick="closeModal('modal-tryouts')" aria-label="Close">×</button>
+    </div>
+    <div class="modal-body">
+      <h3>We Meet Your Player at Their Level</h3>
+      <p>Our approach is holistic. We work hard to find the right fit for every player — whether that's Forge Ignite, Forge Performance, a training-only option, or another pathway within our organization.</p>
+      <p>In most cases, we find a home for every player who comes to us. In rare situations — limited roster spots, coaching availability, or age group constraints — we may not be able to offer a placement. We will always be honest about that, and we will always help guide families toward the right next step.</p>
+      <h3>Before Tryouts: Open Evaluation Days</h3>
+      <p>We run open evaluation sessions for players and families who want to experience our coaching before committing to tryouts. No pressure. No obligation. Just come and train with us and see if the fit feels right.</p>
+      <h3>The Evaluation Itself</h3>
+      <p>Our evaluations are face-to-face assessments conducted by coaches who have context — not just a clipboard and a number. We evaluate:</p>
+      <ul>
+        <li><strong>Technical ability</strong> — ball mastery, first touch, passing, shooting</li>
+        <li><strong>Tactical awareness</strong> — decision-making, positioning, reading the game</li>
+        <li><strong>Physical attributes</strong> — speed, strength, athleticism for age</li>
+        <li><strong>Character and coachability</strong> — we weigh this heavily. Talent without character doesn't get far here.</li>
+      </ul>
+      <h3>After Evaluation: Honest Feedback</h3>
+      <p>Every family receives direct, specific feedback from a coach — not a form letter, not a template score. You'll hear what your player did well, what they need to work on, and where we recommend they be placed. These are honest conversations, delivered with respect.</p>
+      <h3>Timeline</h3>
+      <ul>
+        <li><strong>Annual Ignite &amp; Performance pathway tryouts:</strong> Typically April–May for the following fall season. Open to new and returning members.</li>
+        <li><strong>Open evaluation days:</strong> Announced in March — sign up for our newsletter to be notified</li>
+        <li><strong>Ignite &amp; Performance Pathways:</strong> Rolling placements throughout the year as spots open</li>
+        <li><strong>Returning players:</strong> Existing roster members have placement priority</li>
+      </ul>
+      <div class="highlight">"Questions before tryouts? Email us. Our coaches respond personally — because that's who we are."</div>
+    </div>
+    <div class="modal-foot">
+      <button onclick="closeModal('modal-tryouts');openModal('modal-contact')" class="btn btn-crimson">Ask Us a Question</button>
+      <button onclick="closeModal('modal-tryouts');openModal('modal-register')" class="btn btn-navy">Request Information</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: CONTACT -->
+<div id="modal-contact" class="modal-overlay" role="dialog" aria-modal="true">
+  <div class="modal">
+    <div class="modal-head">
+      <h2>Ask Us Anything</h2>
+      <button class="modal-close" onclick="closeModal('modal-contact')" aria-label="Close">×</button>
+    </div>
+    <div class="modal-body" id="contact-form-wrap">
+      <p style="color:#555;margin-bottom:4px">Have a question? We respond personally — usually within 24 hours.</p>
+      <form name="contact" method="POST" data-netlify="true" id="contact-form" class="reg-form">
+        <input type="hidden" name="form-name" value="contact">
+        <div class="reg-row">
+          <div class="reg-field">
+            <label for="con-first">First Name *</label>
+            <input type="text" id="con-first" name="first-name" required placeholder="Jane">
+          </div>
+          <div class="reg-field">
+            <label for="con-last">Last Name *</label>
+            <input type="text" id="con-last" name="last-name" required placeholder="Smith">
+          </div>
+        </div>
+        <div class="reg-field">
+          <label for="con-email">Email Address *</label>
+          <input type="email" id="con-email" name="email" required placeholder="jane@email.com">
+        </div>
+        <div class="reg-field">
+          <label for="con-message">Your Question *</label>
+          <textarea id="con-message" name="message" required placeholder="What would you like to know?"></textarea>
+        </div>
+        <button type="submit" class="reg-submit">SEND MESSAGE</button>
+      </form>
+    </div>
+    <div id="contact-success" class="reg-success" style="display:none">
+      <span class="check-circle">✅</span>
+      <h3>Message Received!</h3>
+      <p>Thanks for reaching out. A member of our staff will get back to you personally within 24 hours.</p>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: REGISTER -->
+<div id="modal-register" class="modal-overlay" role="dialog" aria-modal="true">
+  <div class="modal">
+    <div class="modal-head">
+      <h2>Join the Forge Family</h2>
+      <button class="modal-close" onclick="closeModal('modal-register')" aria-label="Close">×</button>
+    </div>
+    <div class="modal-body" id="register-form-wrap">
+      <p style="color:#555;margin-bottom:4px">Tell us about your player and we'll reach out personally to find the right fit.</p>
+      <form name="register" method="POST" data-netlify="true" id="register-form" class="reg-form">
+        <input type="hidden" name="form-name" value="register">
+        <div class="reg-row">
+          <div class="reg-field">
+            <label for="reg-first">First Name *</label>
+            <input type="text" id="reg-first" name="first-name" required placeholder="Jane">
+          </div>
+          <div class="reg-field">
+            <label for="reg-last">Last Name *</label>
+            <input type="text" id="reg-last" name="last-name" required placeholder="Smith">
+          </div>
+        </div>
+        <div class="reg-field">
+          <label for="reg-email">Email Address *</label>
+          <input type="email" id="reg-email" name="email" required placeholder="jane@email.com">
+        </div>
+        <div class="reg-field">
+          <label for="reg-phone">Phone Number</label>
+          <input type="tel" id="reg-phone" name="phone" placeholder="(630) 555-0100">
+        </div>
+        <div class="reg-field">
+          <label for="reg-age">Player Age Group</label>
+          <select id="reg-age" name="age-group">
+            <option value="" selected>Select age group…</option>
+            <option value="U3-U6 (Forge Foxes)">U3–U6 — Forge Foxes</option>
+            <option value="U6-U12 (Forge Community)">U6–U12 — Forge Community</option>
+            <option value="U6-U12 (Forge Ignite)">U6–U12 — Forge Ignite</option>
+            <option value="U11-U19 (Forge Performance)">U11–U19 — Forge Performance</option>
+            <option value="Forge College Prep (Add-On)">Forge College Prep — Add-On Package</option>
+            <option value="Not sure yet">Not sure yet — help me find the right fit</option>
+          </select>
+        </div>
+        <div class="reg-field">
+          <label for="reg-message">Message</label>
+          <textarea id="reg-message" name="message" placeholder="Any questions, specific programs you're interested in, or anything you'd like us to know…"></textarea>
+        </div>
+        <button type="submit" class="reg-submit">REQUEST INFORMATION</button>
+        <p style="font-size:.8rem;color:#888;text-align:center">No commitment required. We'll reach out personally.</p>
+      </form>
+    </div>
+    <div id="register-success" class="reg-success" style="display:none">
+      <span class="check-circle">✅</span>
+      <h3>You're on the List!</h3>
+      <p>Thanks for reaching out. A Forge coach will contact you personally within 48 hours to talk through the best program fit for your player.</p>
+      <p style="margin-top:12px;font-size:.9rem;color:#888">In the meantime, feel free to explore our programs or <a href="#" onclick="openModal('modal-contact');return false" style="color:var(--crimson)">send us a message</a>.</p>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: FORGE FOXES -->
+<div id="modal-foxes" class="modal-overlay" role="dialog" aria-modal="true">
+  <div class="modal">
+    <div class="modal-head">
+      <h2>Forge Foxes — U3 to U6</h2>
+      <button class="modal-close" onclick="closeModal('modal-foxes')" aria-label="Close">×</button>
+    </div>
+    <div class="modal-body">
+      <p style="font-size:1.15rem;font-weight:600;color:var(--navy);margin-bottom:8px">Fall in love with the ball, the game, and the club.</p>
+      <p style="margin-bottom:24px">Forge Foxes is our introductory program for children ages 3–6. No pressure, no tryouts, no complicated instruction — just fun, movement, and smiles with a soccer ball. Coach-led with parent participation welcomed.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px">
+        <div>
+          <h4 style="font-family:var(--font-h);color:var(--crimson);font-size:.85rem;letter-spacing:.1em;margin-bottom:12px">WHAT WE DO</h4>
+          <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:8px;font-size:.9rem">
+            <li>🎯 1 player, 1 ball — individual skill focus</li>
+            <li>🐻 Color and animal movement games</li>
+            <li>⚽ Dribble games and obstacle courses</li>
+            <li>🎵 Goals, bubbles, music, and high-fives</li>
+            <li>🏃 Learning to love the ball</li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="font-family:var(--font-h);color:var(--crimson);font-size:.85rem;letter-spacing:.1em;margin-bottom:12px">WHAT PLAYERS GAIN</h4>
+          <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:8px;font-size:.9rem">
+            <li>✅ Confidence on and off the ball</li>
+            <li>✅ Coordination and body awareness</li>
+            <li>✅ Social comfort with peers</li>
+            <li>✅ A genuine love of soccer</li>
+            <li>✅ A foundation to grow from</li>
+          </ul>
+        </div>
+      </div>
+      <div style="background:var(--gold-light);border-left:4px solid var(--gold);padding:16px 20px;border-radius:3px;margin-bottom:16px">
+        <p style="font-style:italic;color:var(--navy);font-size:.95rem">"Fun, movement, and smiles — with a soccer ball." No tryouts. No cuts. Everyone welcome.</p>
+      </div>
+      <p style="font-size:.9rem;color:#555">Forge Foxes is the natural on-ramp to our Forge Community program as players grow. When your child is ready for the next step, the pathway is already here.</p>
+    </div>
+    <div class="modal-foot">
+      <a href="#" class="btn btn-navy" onclick="closeModal('modal-foxes');openModal('modal-contact');return false">Ask Us Anything</a>
+      <button onclick="closeModal('modal-foxes');openRegisterWithProgram('U3-U6 (Forge Foxes)')" class="btn btn-crimson">Request Information</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL 14: FAQ -->
+<div id="modal-faq" class="modal-overlay" role="dialog" aria-modal="true">
+  <div class="modal">
+    <div class="modal-head">
+      <h2>Frequently Asked Questions</h2>
+      <button class="modal-close" onclick="closeModal('modal-faq')" aria-label="Close">×</button>
+    </div>
+    <div class="modal-body">
+      <details class="faq-item">
+        <summary>How much does it cost to join Fox Valley Forge SC?</summary>
+        <p>Costs vary by program. Forge Foxes (U3–U6) is our most affordable entry point. Forge Community and Forge Ignite range from approximately $800–$1,500/year. Forge Performance ranges from $1,500–$2,500/year. As a non-profit, every dollar goes back into player development. Financial assistance is available — just ask.</p>
+      </details>
+      <details class="faq-item">
+        <summary>When are tryouts for the Performance pathway?</summary>
+        <p>Performance pathway tryouts are typically held in April and May for the following fall season. Open evaluation days are announced in March. Sign up for our newsletter to be notified as soon as dates are set.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Can my child play another sport while at Forge?</summary>
+        <p>Absolutely — and we mean that. We actively encourage multi-sport participation, especially for younger players. We build our schedules to accommodate other sports seasons, and we never penalize players for other athletic commitments. Multi-sport athletes are welcome here.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What if my child gets recruited by an ECNL or MLS Next club?</summary>
+        <p>We celebrate it. That is our success. Our job is to develop your player to the point where elite platforms want them. When that happens, we support the transition and they join our growing alumni community. We genuinely mean this — we do not hold players back from what's right for them.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How is this different from park district soccer?</summary>
+        <p>Park district programs are a wonderful introduction to the sport. We pick up where they leave off — licensed coaches, a structured development curriculum, competitive play with real opponents, college pathway support, and year-round development opportunities. Many of our families start in park districts and naturally grow into Forge.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Do you guarantee college scholarships?</summary>
+        <p>No — and any club that does is misleading you. We give your player every tool, connection, and opportunity to pursue college soccer. The outcome depends on the player, the academic fit, and the hard work they invest. We're honest about this because we respect you enough to tell the truth.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What age groups do you have?</summary>
+        <p>We serve players from U4 (ages 3–4) through U19 (age 18), with programs at every level from recreational through college-prep competitive.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Where do you train?</summary>
+        <p>We operate two permanent indoor facilities in the Fox Valley corridor — Batavia, Geneva, and St. Charles area — plus outdoor field access across the region. Year-round training with permanent, dedicated facility access.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How do I get started?</summary>
+        <p>Click "Request Information" at the top of this page, or <a href="#" onclick="closeModal('modal-faq');openModal('modal-contact');return false" style="color:var(--crimson)">send us a message</a> to arrange a facility visit or ask questions. Our coaches respond personally. We'd love to show you around.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Is Forge really a non-profit organization?</summary>
+        <p>Yes. Every dollar collected goes directly back into player development, facility quality, coaching education, and program support. No shareholders, no profit motive — just the mission. This is one of the most meaningful ways we differ from many of our competitors.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What are the US Soccer birth-year changes and how do they affect my player?</summary>
+        <p>US Soccer recently shifted from birth-year age groups to a grade-year model aligned with the school calendar. This means age groups are now based on your child's school grade rather than their birth year. In practice, the change simplifies scheduling for families (soccer seasons align with school years) and better reflects a child's physical and social development stage. If your player was mid-program during the transition, we will work with you directly to ensure correct placement in the right group. Questions? Email us — we're happy to walk through exactly how this affects your family.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Why did Campton United and Fox Valley Strikers merge to form Forge?</summary>
+        <p>This was a merger by choice, not necessity — two healthy, well-established clubs deciding to lead together rather than compete separately. Combined, our two organizations bring 78 years of Fox Valley youth soccer history. The merger created the region's largest player-centric club with two permanent indoor facilities, a unified coaching staff, and a single development pathway from U3 through college prep. Families who were with Campton United or Fox Valley Strikers will find the same coaches, the same community values, and a bigger platform to grow in. We are one valley, one club — and this was the right move for the players we serve.</p>
+      </details>
+    </div>
+    <div class="modal-foot">
+      <button onclick="closeModal('modal-faq');openModal('modal-contact')" class="btn btn-navy">Ask Us a Question</button>
+      <button onclick="closeModal('modal-faq');openModal('modal-register')" class="btn btn-crimson">Request Information</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ JAVASCRIPT ═══════════════════ -->
+<script>
+// ── HIDDEN EVENTS ──
+(function(){
+  var params = new URLSearchParams(window.location.search);
+  if(params.get('show') === 'hiddenevents'){
+    document.querySelectorAll('[data-hidden-event]').forEach(function(el){
+      el.style.display = 'grid';
+    });
+  }
+})();
+
+// ── INTRO ANIMATION ──
+function startIntro() {
+  var overlay = document.getElementById('intro-overlay');
+  var audio   = document.getElementById('intro-audio');
+  var skip    = document.getElementById('intro-skip');
+  var glow    = document.getElementById('intro-glow');
+  if (!overlay) return;
+
+  var tap  = document.getElementById('intro-tap');
+  overlay.classList.add('running');
+
+  function show(id) {
+    var el = document.getElementById(id);
+    if (el) { el.classList.remove('out'); el.classList.add('active'); }
+  }
+  function hide(id) {
+    var el = document.getElementById(id);
+    if (el) { el.classList.remove('active'); el.classList.add('out'); }
+  }
+  function dismiss() {
+    audio.pause();
+    overlay.style.transition = 'opacity .9s ease';
+    overlay.style.opacity = '0';
+    setTimeout(function() { overlay.style.display = 'none'; }, 900);
+  }
+
+  // Cue points (seconds) — adjust if audio timing differs
+  var cues = [
+    { t: 0.3,  fn: function() { show('il-1'); } },
+    { t: 4.0,  fn: function() { hide('il-1'); show('il-2'); } },
+    { t: 7.0,  fn: function() { hide('il-2'); show('il-3'); } },
+    { t: 9.2,  fn: function() { hide('il-3'); show('il-4'); } },
+    { t: 11.5, fn: function() { hide('il-4'); glow.classList.add('lit'); show('intro-logo-1'); } },
+    { t: 13.2, fn: function() { show('intro-logo-2'); } },
+    { t: 15.5, fn: function() { hide('intro-logo-1'); hide('intro-logo-2'); glow.classList.remove('lit'); show('il-6'); } },
+    { t: 17.0, fn: function() { hide('il-6'); show('il-7'); } },
+    { t: 20.0, fn: function() { hide('il-7'); show('il-8'); } },
+  ];
+  var fired = {};
+
+  audio.addEventListener('timeupdate', function() {
+    var t = audio.currentTime;
+    cues.forEach(function(cue, i) {
+      if (!fired[i] && t >= cue.t) { fired[i] = true; cue.fn(); }
+    });
+  });
+
+  audio.addEventListener('ended', function() {
+    setTimeout(dismiss, 1800);
+  });
+
+  skip.addEventListener('click', dismiss);
+
+  function beginPlayback() {
+    tap.classList.add('hidden');
+    setTimeout(function() { skip.classList.add('visible'); }, 2000);
+    audio.play().catch(function() {});
+  }
+
+  // Tap anywhere on overlay to begin
+  tap.addEventListener('click', beginPlayback);
+
+  audio.play().catch(function() {
+    // Autoplay blocked — skip button already visible after 2s
+  });
+}
+
+// Generic Netlify form handler
+function netlifyForm(formId, wrapId, successId) {
+  var form = document.getElementById(formId);
+  if (!form) return;
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var btn = form.querySelector('.reg-submit');
+    btn.textContent = 'SENDING…';
+    btn.disabled = true;
+    fetch('/', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+      body: new URLSearchParams(new FormData(form)).toString()
+    })
+    .then(function(response) {
+      if (!response.ok) throw new Error('Server returned ' + response.status);
+      document.getElementById(wrapId).style.display = 'none';
+      document.getElementById(successId).style.display = 'block';
+    })
+    .catch(function() {
+      btn.textContent = btn.dataset.label || 'SEND';
+      btn.disabled = false;
+      alert('Something went wrong. Please try again or email gary.ricke@orbisdesign.com');
+    });
+  });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  netlifyForm('contact-form', 'contact-form-wrap', 'contact-success');
+});
+
+// Netlify register form
+document.addEventListener('DOMContentLoaded', function() {
+  netlifyForm('register-form', 'register-form-wrap', 'register-success');
+});
+
+// Modal system
+function openRegisterWithProgram(program) {
+  openModal('modal-register');
+  var sel = document.getElementById('reg-age');
+  if (sel && program) sel.value = program;
+}
+
+function openModal(id) {
+  const m = document.getElementById(id);
+  if (!m) return;
+  m.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  m.querySelector('.modal').focus && m.querySelector('.modal').focus();
+}
+function closeModal(id) {
+  const m = document.getElementById(id);
+  if (!m) return;
+  m.classList.remove('open');
+  document.body.style.overflow = '';
+}
+// Close on overlay click
+document.querySelectorAll('.modal-overlay').forEach(overlay => {
+  overlay.addEventListener('click', e => {
+    if (e.target === overlay) closeModal(overlay.id);
+  });
+});
+// ESC key
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    document.querySelectorAll('.modal-overlay.open').forEach(m => closeModal(m.id));
+  }
+});
+
+// Sticky nav
+const nav = document.getElementById('main-nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 20);
+});
+
+// Hamburger menu
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobile-menu');
+hamburger.addEventListener('click', () => {
+  mobileMenu.classList.toggle('open');
+});
+function closeMobile() { mobileMenu.classList.remove('open'); }
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const href = a.getAttribute('href');
+    if (!href || href === '#') return;
+    const target = document.querySelector(href);
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+});
+
+// Count-up animation
+function animateCount(el) {
+  const target = +el.dataset.countup;
+  const suffix = el.dataset.suffix || '';
+  const duration = 1800;
+  const start = performance.now();
+  function step(now) {
+    const progress = Math.min((now - start) / duration, 1);
+    // ease-out cubic
+    const eased = 1 - Math.pow(1 - progress, 3);
+    el.textContent = Math.floor(eased * target) + (progress === 1 ? suffix : '');
+    if (progress < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+const countObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      animateCount(entry.target);
+      countObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('[data-countup]').forEach(el => countObserver.observe(el));
+
+// Fade-in on scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// College video — play on scroll into view, pause on scroll out
+var collegeVideo = document.getElementById('college-video');
+if (collegeVideo) {
+  var videoObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) { entry.target.play(); }
+      else { entry.target.pause(); }
+    });
+  }, { threshold: 0.3 });
+  videoObserver.observe(collegeVideo);
+}
+
+startIntro();
+
+// ── HIGH-RES FOR PRINT ──
+var WEB_PARAMS = 'f_auto,q_auto';
+var PRINT_PARAMS = 'q_100';
+
+function swapCloudinaryParams(param) {
+  var from = param === PRINT_PARAMS ? WEB_PARAMS : PRINT_PARAMS;
+  var to   = param === PRINT_PARAMS ? PRINT_PARAMS : WEB_PARAMS;
+  document.querySelectorAll('img[src*="res.cloudinary.com"]').forEach(function(img) {
+    img.src = img.src.replace(from, to);
+  });
+  document.querySelectorAll('[style*="res.cloudinary.com"]').forEach(function(el) {
+    el.setAttribute('style', el.getAttribute('style').replace(new RegExp(from, 'g'), to));
+  });
+}
+
+window.addEventListener('beforeprint', function() { swapCloudinaryParams(PRINT_PARAMS); });
+window.addEventListener('afterprint',  function() { swapCloudinaryParams(WEB_PARAMS); });
+</script>
+</body>
+</html>

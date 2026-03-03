@@ -1,0 +1,2052 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fox Valley Forge SC — Brand &amp; Style Guide</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        /* ================================================================
+           CSS CUSTOM PROPERTIES
+           ================================================================ */
+        :root {
+            --forge-navy:   #001B44;
+            --forge-crimson: #A91335;
+            --forge-gold:   #C5A059;
+            --forge-white:  #FFFFFF;
+            --forge-light:  #F4F5F7;
+            --forge-dark:   #0A0E17;
+
+            /* Tints */
+            --navy-90: #1A2F57;
+            --navy-70: #4D5F7D;
+            --navy-50: #808FA2;
+            --navy-30: #B3BFC8;
+            --navy-10: #E6EAF0;
+
+            --crimson-90: #B92B4A;
+            --crimson-70: #C95A72;
+            --crimson-50: #D4899A;
+            --crimson-30: #E4B8C2;
+            --crimson-10: #F5E7EB;
+
+            --gold-90: #CBB06A;
+            --gold-70: #D4BD83;
+            --gold-50: #E2D0AC;
+            --gold-30: #EDE1CB;
+            --gold-10: #F8F3EA;
+
+            /* Typography */
+            --font-display: 'Oswald', 'Impact', sans-serif;
+            --font-body:    'Source Sans 3', 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        /* ================================================================
+           RESET & BASE
+           ================================================================ */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html { scroll-behavior: smooth; font-size: 16px; }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--forge-dark);
+            background: var(--forge-white);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img { max-width: 100%; height: auto; display: block; }
+        a { color: var(--forge-crimson); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        /* ================================================================
+           LAYOUT
+           ================================================================ */
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* ================================================================
+           HERO / COVER
+           ================================================================ */
+        .hero {
+            background: var(--forge-navy);
+            color: var(--forge-white);
+            padding: 5rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background:
+                radial-gradient(ellipse at 20% 80%, rgba(169,19,53,0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(197,160,89,0.10) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content { position: relative; z-index: 1; }
+
+        .hero-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 3rem;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-logos img {
+            height: 180px;
+            width: auto;
+            filter: drop-shadow(0 4px 24px rgba(0,0,0,0.35));
+        }
+
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: 3.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero .subtitle {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--forge-gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero .version {
+            font-size: 0.85rem;
+            color: var(--navy-50);
+        }
+
+        /* ================================================================
+           TABLE OF CONTENTS
+           ================================================================ */
+        .toc {
+            background: var(--forge-light);
+            padding: 3rem 2rem;
+            border-bottom: 3px solid var(--forge-gold);
+        }
+
+        .toc h2 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--forge-navy);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .toc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 0.75rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .toc-grid a {
+            display: block;
+            padding: 0.75rem 1rem;
+            background: var(--forge-white);
+            border-left: 4px solid var(--forge-gold);
+            color: var(--forge-navy);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+
+        .toc-grid a:hover {
+            background: var(--forge-navy);
+            color: var(--forge-white);
+            text-decoration: none;
+            border-left-color: var(--forge-crimson);
+        }
+
+        /* ================================================================
+           SECTIONS
+           ================================================================ */
+        .section {
+            padding: 4rem 0;
+            border-bottom: 1px solid #E0E3E8;
+        }
+
+        .section:last-child { border-bottom: none; }
+
+        .section-header {
+            margin-bottom: 2.5rem;
+        }
+
+        .section-number {
+            font-family: var(--font-display);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--forge-gold);
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .section h2 {
+            font-family: var(--font-display);
+            font-size: 2.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            color: var(--forge-navy);
+            line-height: 1.15;
+        }
+
+        .section h3 {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            color: var(--forge-navy);
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .section p {
+            max-width: 740px;
+            margin-bottom: 1rem;
+        }
+
+        .section ul, .section ol {
+            max-width: 740px;
+            margin-bottom: 1.25rem;
+            padding-left: 1.5rem;
+        }
+
+        .section li { margin-bottom: 0.4rem; }
+
+        /* ================================================================
+           BRAND ESSENCE (Positioning / Mission)
+           ================================================================ */
+        .brand-pillars {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .pillar-card {
+            background: var(--forge-light);
+            border-top: 4px solid var(--forge-gold);
+            padding: 1.75rem;
+        }
+
+        .pillar-card h4 {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            color: var(--forge-navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .pillar-card p {
+            font-size: 0.95rem;
+            color: var(--navy-70);
+        }
+
+        .brand-statement {
+            background: var(--forge-navy);
+            color: var(--forge-white);
+            padding: 2.5rem;
+            margin: 2rem 0;
+            border-left: 6px solid var(--forge-gold);
+        }
+
+        .brand-statement p {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            font-weight: 400;
+            line-height: 1.5;
+            max-width: 100%;
+        }
+
+        .brand-statement .attribution {
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            color: var(--forge-gold);
+            margin-top: 1rem;
+            margin-bottom: 0;
+        }
+
+        /* ================================================================
+           LOGO SECTION
+           ================================================================ */
+        .logo-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 2rem;
+        }
+
+        .logo-card {
+            text-align: center;
+        }
+
+        .logo-card .logo-frame {
+            padding: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 300px;
+            margin-bottom: 1rem;
+            border: 1px solid #E0E3E8;
+        }
+
+        .logo-frame.bg-white  { background: var(--forge-white); }
+        .logo-frame.bg-navy   { background: var(--forge-navy); }
+        .logo-frame.bg-light  { background: var(--forge-light); }
+        .logo-frame.bg-dark   { background: var(--forge-dark); }
+
+        .logo-card .logo-frame img {
+            max-height: 220px;
+            width: auto;
+        }
+
+        .logo-card .label {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--forge-navy);
+        }
+
+        .logo-card .desc {
+            font-size: 0.9rem;
+            color: var(--navy-70);
+            margin-top: 0.25rem;
+        }
+
+        /* Clear-space / minimum size */
+        .clear-space-demo {
+            display: inline-block;
+            position: relative;
+            padding: 2.5rem;
+            border: 2px dashed var(--forge-gold);
+            background: var(--forge-white);
+            margin-top: 1.5rem;
+        }
+
+        .clear-space-demo img {
+            height: 140px;
+            width: auto;
+        }
+
+        .clear-space-label {
+            position: absolute;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--forge-gold);
+        }
+
+        .clear-space-label.top    { top: 6px; left: 50%; transform: translateX(-50%); }
+        .clear-space-label.bottom { bottom: 6px; left: 50%; transform: translateX(-50%); }
+        .clear-space-label.left   { left: 4px; top: 50%; transform: translateY(-50%) rotate(-90deg); }
+        .clear-space-label.right  { right: 4px; top: 50%; transform: translateY(-50%) rotate(90deg); }
+
+        /* Misuse grid */
+        .misuse-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .misuse-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--forge-light);
+            border: 1px solid #E0E3E8;
+            position: relative;
+        }
+
+        .misuse-item::after {
+            content: '';
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 28px;
+            height: 28px;
+            background: var(--forge-crimson);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .misuse-item .x-mark {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            width: 24px;
+            height: 24px;
+            color: white;
+            font-weight: 700;
+            font-size: 14px;
+            line-height: 24px;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .misuse-item p {
+            font-size: 0.85rem;
+            color: var(--navy-70);
+            margin-top: 0.75rem;
+        }
+
+        /* ================================================================
+           COLOR PALETTE
+           ================================================================ */
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .color-card {
+            overflow: hidden;
+            border: 1px solid #E0E3E8;
+        }
+
+        .color-card.primary { border-top: none; }
+
+        .color-swatch {
+            height: 160px;
+            display: flex;
+            align-items: flex-end;
+            padding: 1rem;
+        }
+
+        .color-swatch .swatch-name {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .color-info {
+            padding: 1rem;
+            background: var(--forge-white);
+        }
+
+        .color-info .color-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.35rem 0;
+            border-bottom: 1px solid #F0F0F0;
+            font-size: 0.9rem;
+        }
+
+        .color-info .color-row:last-child { border-bottom: none; }
+
+        .color-info .color-label {
+            font-weight: 600;
+            color: var(--navy-70);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.08em;
+        }
+
+        .color-info .color-value {
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            color: var(--forge-dark);
+        }
+
+        /* Tint strips */
+        .tint-section { margin-top: 2.5rem; }
+
+        .tint-strip {
+            display: flex;
+            margin-bottom: 0.5rem;
+            border: 1px solid #E0E3E8;
+            overflow: hidden;
+        }
+
+        .tint-strip .tint-cell {
+            flex: 1;
+            padding: 1.25rem 0.75rem;
+            text-align: center;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+
+        .tint-strip .tint-label {
+            display: block;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-top: 0.25rem;
+            opacity: 0.7;
+        }
+
+        /* Usage ratios */
+        .usage-bar {
+            display: flex;
+            height: 48px;
+            margin-top: 2rem;
+            overflow: hidden;
+            border: 1px solid #E0E3E8;
+        }
+
+        .usage-bar div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        /* ================================================================
+           TYPOGRAPHY
+           ================================================================ */
+        .type-specimen {
+            background: var(--forge-light);
+            padding: 2rem;
+            margin-top: 1rem;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--forge-navy);
+        }
+
+        .type-specimen .specimen-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--forge-gold);
+            margin-bottom: 0.75rem;
+        }
+
+        .type-specimen.display-font {
+            font-family: var(--font-display);
+        }
+
+        .type-specimen.body-font {
+            font-family: var(--font-body);
+        }
+
+        .specimen-hero {
+            font-size: 3rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            line-height: 1.1;
+            color: var(--forge-navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .specimen-alphabet {
+            font-size: 1.2rem;
+            color: var(--navy-70);
+            line-height: 1.8;
+        }
+
+        .type-scale {
+            margin-top: 2rem;
+        }
+
+        .type-scale-row {
+            display: flex;
+            align-items: baseline;
+            padding: 1rem 0;
+            border-bottom: 1px solid #E0E3E8;
+            gap: 1.5rem;
+        }
+
+        .type-scale-row:last-child { border-bottom: none; }
+
+        .type-scale-meta {
+            flex: 0 0 180px;
+            font-size: 0.75rem;
+            color: var(--navy-70);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .type-scale-example {
+            flex: 1;
+            color: var(--forge-navy);
+        }
+
+        /* ================================================================
+           VOICE & TONE
+           ================================================================ */
+        .voice-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .voice-card {
+            padding: 1.75rem;
+            border: 1px solid #E0E3E8;
+        }
+
+        .voice-card h4 {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            text-transform: uppercase;
+            color: var(--forge-navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .voice-card p {
+            font-size: 0.93rem;
+            color: var(--navy-70);
+        }
+
+        .do-dont {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .do-col, .dont-col {
+            padding: 1.5rem;
+        }
+
+        .do-col {
+            background: #E8F5E9;
+            border-top: 4px solid #2E7D32;
+        }
+
+        .dont-col {
+            background: #FFEBEE;
+            border-top: 4px solid var(--forge-crimson);
+        }
+
+        .do-col h4, .dont-col h4 {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+        }
+
+        .do-col h4 { color: #2E7D32; }
+        .dont-col h4 { color: var(--forge-crimson); }
+
+        .do-col ul, .dont-col ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .do-col li::before { content: '\2713  '; color: #2E7D32; font-weight: 700; }
+        .dont-col li::before { content: '\2717  '; color: var(--forge-crimson); font-weight: 700; }
+
+        /* ================================================================
+           IMAGERY & PHOTOGRAPHY
+           ================================================================ */
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .photo-placeholder {
+            aspect-ratio: 4/3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--forge-white);
+            text-align: center;
+            padding: 1rem;
+        }
+
+        /* ================================================================
+           APPLICATIONS
+           ================================================================ */
+        .app-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .app-card {
+            border: 1px solid #E0E3E8;
+            overflow: hidden;
+        }
+
+        .app-card-header {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .app-card-body {
+            padding: 1.25rem;
+            background: var(--forge-white);
+        }
+
+        .app-card-body h4 {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            text-transform: uppercase;
+            color: var(--forge-navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .app-card-body p {
+            font-size: 0.9rem;
+            color: var(--navy-70);
+        }
+
+        /* Jersey mockup */
+        .jersey-preview {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .jersey {
+            width: 180px;
+            height: 220px;
+            border-radius: 8px 8px 0 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            border: 2px solid rgba(0,0,0,0.1);
+        }
+
+        .jersey img {
+            height: 60px;
+            width: auto;
+            margin-bottom: 0.5rem;
+        }
+
+        .jersey .jersey-label {
+            font-family: var(--font-display);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-top: auto;
+            padding: 0.5rem;
+        }
+
+        /* ================================================================
+           SOCIAL MEDIA TEMPLATES
+           ================================================================ */
+        .social-example {
+            max-width: 480px;
+            margin: 1.5rem 0;
+            border: 1px solid #E0E3E8;
+            overflow: hidden;
+        }
+
+        .social-header {
+            background: var(--forge-navy);
+            padding: 2rem;
+            text-align: center;
+            color: var(--forge-white);
+        }
+
+        .social-header img {
+            height: 60px;
+            margin: 0 auto 1rem;
+        }
+
+        .social-header h4 {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            text-transform: uppercase;
+        }
+
+        .social-footer {
+            background: var(--forge-gold);
+            padding: 0.75rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .social-footer span {
+            font-family: var(--font-display);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--forge-navy);
+            font-weight: 600;
+        }
+
+        /* ================================================================
+           PROGRAM IDENTITY
+           ================================================================ */
+        .program-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1.5rem;
+        }
+
+        .program-table th, .program-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #E0E3E8;
+            font-size: 0.93rem;
+        }
+
+        .program-table th {
+            background: var(--forge-navy);
+            color: var(--forge-white);
+            font-family: var(--font-display);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 0.85rem;
+        }
+
+        .program-table tr:nth-child(even) {
+            background: var(--forge-light);
+        }
+
+        .program-color {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            vertical-align: middle;
+            margin-right: 0.5rem;
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+
+        /* ================================================================
+           FOOTER
+           ================================================================ */
+        .guide-footer {
+            background: var(--forge-navy);
+            color: var(--navy-50);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .guide-footer img {
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            opacity: 0.6;
+        }
+
+        .guide-footer p {
+            font-size: 0.85rem;
+            max-width: 500px;
+            margin: 0 auto 0.5rem;
+        }
+
+        .guide-footer .copyright {
+            color: var(--navy-70);
+            margin-top: 1rem;
+        }
+
+        /* ================================================================
+           UTILITIES
+           ================================================================ */
+        .mt-1 { margin-top: 0.5rem; }
+        .mt-2 { margin-top: 1rem; }
+        .mt-3 { margin-top: 1.5rem; }
+        .mt-4 { margin-top: 2rem; }
+        .mb-2 { margin-bottom: 1rem; }
+        .text-center { text-align: center; }
+        .text-gold { color: var(--forge-gold); }
+        .text-crimson { color: var(--forge-crimson); }
+        .text-navy { color: var(--forge-navy); }
+        .text-small { font-size: 0.85rem; color: var(--navy-70); }
+
+        .divider {
+            border: none;
+            border-top: 2px solid var(--forge-gold);
+            max-width: 80px;
+            margin: 2rem 0;
+        }
+
+        .highlight-box {
+            background: var(--gold-10);
+            border-left: 4px solid var(--forge-gold);
+            padding: 1.25rem 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .highlight-box p {
+            font-size: 0.93rem;
+            max-width: 100%;
+        }
+
+        /* ================================================================
+           RESPONSIVE
+           ================================================================ */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .hero-logos img { height: 120px; }
+            .color-grid { grid-template-columns: 1fr; }
+            .do-dont { grid-template-columns: 1fr; }
+            .type-scale-row { flex-direction: column; gap: 0.5rem; }
+            .type-scale-meta { flex: none; }
+            .photo-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media print {
+            .hero { padding: 2rem; }
+            .section { padding: 2rem 0; break-inside: avoid; }
+            .toc { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ================================================================
+     HERO
+     ================================================================ -->
+<header class="hero">
+    <div class="hero-content">
+        <div class="hero-logos">
+            <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/v1772573826/forge-logo-w-fox-valley-23jan2026_ojhvif.png" alt="Fox Valley Forge SC — Primary Logo">
+            <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/v1772573827/forge-logo-no-fox-valley-23jan2026_olh5tk.png" alt="Fox Valley Forge SC — Compact Logo">
+            <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/v1772573826/forge-logo-rec-23jan2026_bifcvt.png" alt="Fox Valley Forge SC — Rec/Kids Logo">
+        </div>
+        <h1>Fox Valley Forge SC</h1>
+        <p class="subtitle">Brand &amp; Style Guide</p>
+        <p class="version">Version 1.0 &mdash; January 2026</p>
+    </div>
+</header>
+
+<!-- ================================================================
+     TABLE OF CONTENTS
+     ================================================================ -->
+<nav class="toc">
+    <div class="container">
+        <h2>Contents</h2>
+        <div class="toc-grid">
+            <a href="#brand-essence">01 &mdash; Brand Essence</a>
+            <a href="#logos">02 &mdash; Logo System</a>
+            <a href="#colors">03 &mdash; Color Palette</a>
+            <a href="#typography">04 &mdash; Typography</a>
+            <a href="#voice">05 &mdash; Voice &amp; Tone</a>
+            <a href="#imagery">06 &mdash; Imagery &amp; Photography</a>
+            <a href="#programs">07 &mdash; Program Identity</a>
+            <a href="#applications">08 &mdash; Applications</a>
+            <a href="#social">09 &mdash; Digital &amp; Social</a>
+            <a href="#donts">10 &mdash; Brand Misuse</a>
+            <a href="https://res.cloudinary.com/dsbllwpbh/raw/upload/v1772573875/forge-logos-23jan2026_tq2ivq.zip" download style="border-left-color: var(--forge-crimson);">&#8595; Download Logos (.zip)</a>
+        </div>
+    </div>
+</nav>
+
+<!-- ================================================================
+     01 — BRAND ESSENCE
+     ================================================================ -->
+<section id="brand-essence" class="section">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-number">Section 01</span>
+            <h2>Brand Essence</h2>
+        </div>
+
+        <div class="brand-statement">
+            <p>"A unified, community-rooted club with professional standards &mdash; designed to develop players, people, and pathways without forcing families into an all-or-nothing youth-sports lifestyle."</p>
+            <p class="attribution">Fox Valley Forge SC &mdash; Brand Positioning Statement</p>
+        </div>
+
+        <h3>Mission</h3>
+        <p>Fox Valley Forge SC exists to be the premier, community-rooted performance pathway for the entire Fox Valley corridor. We keep the community DNA that built local soccer, while offering a clear, vertically integrated pathway from first kick to college and beyond.</p>
+
+        <h3>Core Brand Idea</h3>
+        <p><strong>One Valley. One Pathway.</strong> &mdash; A unified club that combines heritage and credibility with professionalized coaching and accessible, tiered playing options so families never have to leave the valley to find the right level.</p>
+
+        <hr class="divider">
+
+        <h3>Brand Pillars</h3>
+        <div class="brand-pillars">
+            <div class="pillar-card">
+                <h4>Heritage &amp; Credibility</h4>
+                <p>Decades of serving Batavia, Geneva, St. Charles, and surrounding communities. Hundreds of college players, thousands of local kids shaped by the game.</p>
+            </div>
+            <div class="pillar-card">
+                <h4>Professional Development</h4>
+                <p>Licensed coaching, unified curriculum, age-appropriate training methodology, and a single style of play across all ages and levels.</p>
+            </div>
+            <div class="pillar-card">
+                <h4>Accessible Pathways</h4>
+                <p>Two clear pathways under one roof &mdash; Performance and Community-Competitive &mdash; so every family finds the right fit without compromise.</p>
+            </div>
+            <div class="pillar-card">
+                <h4>Whole-Player Culture</h4>
+                <p>Character, academic support, leadership, and mental health alongside performance. Multi-sport tolerance and flexible expectations for real families.</p>
+            </div>
+        </div>
+
+        <h3>Market Position</h3>
+        <p>Fox Valley Forge SC occupies a strategic position in the suburban Illinois youth soccer landscape: <strong>the elite local choice</strong>. We sit between the national-platform super-clubs (MLS Next, ECNL, Girls Academy) and purely recreational park-district programs.</p>
+
+        <div class="highlight-box">
+            <p><strong>Key Differentiator:</strong> Families no longer need to choose between a community club and an elite one. Fox Valley Forge is both &mdash; high-level soccer without driving into the city three times a week.</p>
+        </div>
+
+        <h3>Taglines</h3>
+        <ul>
+            <li><strong>"One Valley. One Club. One Pathway."</strong> &mdash; Primary</li>
+            <li><strong>"Homegrown players, national ambitions."</strong> &mdash; Recruitment</li>
+            <li><strong>"From first kick to college."</strong> &mdash; Development narrative</li>
+            <li><strong>"Your path, your pace."</strong> &mdash; Inclusivity messaging</li>
+        </ul>
+    </div>
+</section>
+
+<!-- ================================================================
+     02 — LOGO SYSTEM
+     ================================================================ -->
+<section id="logos" class="section">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-number">Section 02</span>
+            <h2>Logo System</h2>
+        </div>
+
+        <p>The Fox Valley Forge SC identity is built on a shield-based crest system featuring the fox &mdash; a symbol of intelligence, agility, and regional identity. The crest conveys strength, tradition, and competitive ambition while the fox grounds the brand in the Fox Valley community.</p>
+
+        <h3>Primary Logo — With Fox Valley</h3>
+        <p>The primary crest features a fox in profile within a layered shield. "Fox Valley" arches above, "Forge" dominates the center in bold display type, and "SC" anchors the base alongside a soccer ball. This is the default logo for all official communications.</p>
+
+        <div class="logo-showcase">
+            <div class="logo-card">
+                <div class="logo-frame bg-white">
+                    <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/v1772573826/forge-logo-w-fox-valley-23jan2026_ojhvif.png" alt="Primary Logo on white background">
+                </div>
+                <p class="label">On White</p>
+                <p class="desc">Default usage for print &amp; digital</p>
+            </div>
+            <div class="logo-card">
+                <div class="logo-frame bg-navy">
+                    <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/v1772573826/forge-logo-w-fox-valley-23jan2026_ojhvif.png" alt="Primary Logo on navy background">
+                </div>
+                <p class="label">On Navy</p>
+                <p class="desc">Preferred dark background</p>
+            </div>
+        </div>
+
+        <h3>Compact Logo — No Fox Valley</h3>
+        <p>The compact crest omits the "Fox Valley" wordmark, making it ideal for small-format applications where legibility is limited &mdash; favicons, app icons, social profile images, embroidery, and tight print placements. The shield, fox, and "Forge SC" remain fully intact.</p>
+
+        <div class="logo-showcase">
+            <div class="logo-card">
+                <div class="logo-frame bg-white">
+                    <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/v1772573827/forge-logo-no-fox-valley-23jan2026_olh5tk.png" alt="Compact Logo on white background">
+                </div>
+                <p class="label">On White</p>
+                <p class="desc">Icons, avatars &amp; tight placements</p>
+            </div>
+            <div class="logo-card">
+                <div class="logo-frame bg-navy">
+                    <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/v1772573827/forge-logo-no-fox-valley-23jan2026_olh5tk.png" alt="Compact Logo on navy background">
+                </div>
+                <p class="label">On Navy</p>
+                <p class="desc">Dark background variant</p>
+            </div>
+        </div>
+
+        <h3>Rec / Kids Logo</h3>
+        <p>The Rec/Kids crest features a forward-facing fox &mdash; more playful and approachable. "Forge" is bolder and more prominent with the "Fox Valley" text arching above. This variant is used for recreational programs, youth camps, and community-first communications aimed at younger players and families.</p>
+
+        <div class="logo-showcase">
+            <div class="logo-card">
+                <div class="logo-frame bg-white">
+                    <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/v1772573826/forge-logo-rec-23jan2026_bifcvt.png" alt="Rec/Kids Logo on white background">
+                </div>
+                <p class="label">On White</p>
+                <p class="desc">Youth programs &amp; community events</p>
+            </div>
+            <div class="logo-card">
+                <div class="logo-frame bg-navy">
+                    <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/v1772573826/forge-logo-rec-23jan2026_bifcvt.png" alt="Rec/Kids Logo on navy background">
+                </div>
+                <p class="label">On Navy</p>
+                <p class="desc">Dark background variant</p>
+            </div>
+        </div>
+
+        <h3>Logo Usage Contexts</h3>
+        <table class="program-table">
+            <thead>
+                <tr>
+                    <th>Context</th>
+                    <th>Logo</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Official documents, letterhead, contracts</td>
+                    <td>Primary Logo (With Fox Valley)</td>
+                    <td>Always full-color on white</td>
+                </tr>
+                <tr>
+                    <td>Performance pathway teams</td>
+                    <td>Primary Logo (With Fox Valley)</td>
+                    <td>Jerseys, training gear, tournament banners</td>
+                </tr>
+                <tr>
+                    <td>Recreational &amp; youth programs</td>
+                    <td>Rec/Kids Logo</td>
+                    <td>Community events, camp flyers, youth gear</td>
+                </tr>
+                <tr>
+                    <td>Website &amp; social media headers</td>
+                    <td>Primary Logo (With Fox Valley)</td>
+                    <td>Headers, watermarks, general brand presence</td>
+                </tr>
+                <tr>
+                    <td>Favicons, app icons, social profile images</td>
+                    <td>Compact Logo (No Fox Valley)</td>
+                    <td>Small-format; "Fox Valley" text becomes illegible</td>
+                </tr>
+                <tr>
+                    <td>Embroidery &amp; tight print placements</td>
+                    <td>Compact Logo (No Fox Valley)</td>
+                    <td>Hats, bags, small patches</td>
+                </tr>
+                <tr>
+                    <td>Youth social content &amp; family outreach</td>
+                    <td>Rec/Kids Logo</td>
+                    <td>Fun, approachable contexts</td>
+                </tr>
+                <tr>
+                    <td>Merchandise &amp; fan gear</td>
+                    <td>Context-dependent</td>
+                    <td>Never mix logo variants on a single item</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Clear Space &amp; Minimum Size</h3>
+        <p>Always maintain a minimum clear space around the logo equal to the height of the "SC" text within the crest. No other graphic elements, text, or imagery should intrude into this zone.</p>
+
+        <div class="text-center">
+            <div class="clear-space-demo" style="display: inline-block;">
+                <span class="clear-space-label top">Clear space</span>
+                <span class="clear-space-label bottom">Clear space</span>
+                <span class="clear-space-label left">Clear space</span>
+                <span class="clear-space-label right">Clear space</span>
+                <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/v1772573826/forge-logo-w-fox-valley-23jan2026_ojhvif.png" alt="Clear space demonstration">
+            </div>
+        </div>
+
+        <div class="highlight-box mt-3">
+            <p><strong>Minimum Size:</strong> The primary logo should never be reproduced smaller than <strong>40px tall</strong> in digital or <strong>0.5 inches</strong> in print to ensure legibility of the fox and type elements.</p>
+        </div>
+
+        <h3>Download Official Logo Files</h3>
+        <p>The official logo package includes all three logo variants in PDF, PNG, and SVG formats &mdash; suitable for print, digital, and embroidery applications.</p>
+
+        <div class="brand-statement" style="display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap;">
+            <div>
+                <p style="font-size: 1rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--forge-gold); margin-bottom: 0.5rem;">Included in the package (9 files):</p>
+                <p style="font-size: 0.9rem; color: var(--navy-30); max-width: 100%; font-family: var(--font-body);">
+                    forge-logo-w-fox-valley-23jan2026 &mdash; PDF, PNG, SVG<br>
+                    forge-logo-no-fox-valley-23jan2026 &mdash; PDF, PNG, SVG<br>
+                    forge-logo-rec-23jan2026 &mdash; PDF, PNG, SVG
+                </p>
+            </div>
+            <a href="https://res.cloudinary.com/dsbllwpbh/raw/upload/v1772573875/forge-logos-23jan2026_tq2ivq.zip"
+               download
+               style="display: inline-flex; align-items: center; gap: 0.6rem; background: var(--forge-gold); color: var(--forge-navy); font-family: var(--font-display); font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; padding: 0.9rem 1.75rem; text-decoration: none; white-space: nowrap; flex-shrink: 0;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download Logo Package (.zip)
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ================================================================
+     03 — COLOR PALETTE
+     ================================================================ -->
+<section id="colors" class="section">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-number">Section 03</span>
+            <h2>Color Palette</h2>
+        </div>
+
+        <p>The Fox Valley Forge SC palette draws from the crest: deep navy for authority and tradition, crimson for competitive fire and energy, and gold for excellence and aspiration. Together, they project a club that is both rooted and ambitious.</p>
+
+        <h3>Primary Colors</h3>
+        <div class="color-grid">
+            <!-- NAVY -->
+            <div class="color-card primary">
+                <div class="color-swatch" style="background-color: #001B44;">
+                    <span class="swatch-name" style="color: #FFFFFF;">Forge Navy</span>
+                </div>
+                <div class="color-info">
+                    <div class="color-row">
+                        <span class="color-label">Hex</span>
+                        <span class="color-value">#001B44</span>
+                    </div>
+                    <div class="color-row">
+                        <span class="color-label">RGB</span>
+                        <span class="color-value">0, 27, 68</span>
+                    </div>
+                    <div class="color-row">
+                        <span class="color-label">CMYK</span>
+                        <span class="color-value">100, 60, 0, 73</span>
+                    </div>
+                    <div class="color-row">
+                        <span class="color-label">Pantone</span>
+                        <span class="color-value">PMS 289 C</span>
+                    </div>
+                    <div class="color-row">
+                        <span class="color-label">Role</span>
+                        <span class="color-value">Primary background, authority, trust</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CRIMSON -->
+            <div class="color-card primary">
+                <div class="color-swatch" style="background-color: #A91335;">
+                    <span class="swatch-name" style="color: #FFFFFF;">Forge Crimson</span>
+                </div>
+                <div class="color-info">
+                    <div class="color-row">
+                        <span class="color-label">Hex</span>
+                        <span class="color-value">#A91335</span>
+                    </div>
+                    <div class="color-row">
+                        <span class="color-label">RGB</span>
+                        <span class="color-value">169, 19, 53</span>
+                    </div>
+                    <div class="color-row">
+                        <span class="color-label">CMYK</span>
+                        <span class="color-value">0, 89, 69, 34</span>
+                    </div>
+                    <div class="color-row">
+                        <span class="color-label">Pantone</span>
+                        <span class="color-value">PMS 201 C</span>
+                    </div>
+                    <div class="color-row">
+                        <span class="color-label">Role</span>
+                        <span class="color-value">Accent, energy, competitive fire</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GOLD -->
+            <div class="color-card primary">
+                <div class="color-swatch" style="background-color: #C5A059;">
+                    <span class="swatch-name" style="color: #001B44;">Forge Gold</span>
+                </div>
+                <div class="color-info">
+                    <div class="color-row">
+                        <span class="color-label">Hex</span>
+                        <span class="color-value">#C5A059</span>
+                    </div>
+                    <div class="color-row">
+                        <span class="color-label">RGB</span>
+                        <span class="color-value">197, 160, 89</span>
+                    </div>
+                    <div class="color-row">
+                        <span class="color-label">CMYK</span>
+                        <span class="color-value">0, 19, 55, 23</span>
+                    </div>
+                    <div class="color-row">
+                        <span class="color-label">Pantone</span>
+                        <span class="color-value">PMS 4015 C</span>
+                    </div>
+                    <div class="color-row">
+                        <span class="color-label">Role</span>
+                        <span class="color-value">Premium accent, borders, highlights</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h3>Supporting Neutrals</h3>
+        <div class="color-grid">
+            <div class="color-card">
+                <div class="color-swatch" style="background-color: #FFFFFF; border: 1px solid #E0E3E8;">
+                    <span class="swatch-name" style="color: #001B44;">White</span>
+                </div>
+                <div class="color-info">
+                    <div class="color-row">
+                        <span class="color-label">Hex</span>
+                        <span class="color-value">#FFFFFF</span>
+                    </div>
+                    <div class="color-row">
+                        <span class="color-label">Role</span>
+                        <span class="color-value">Backgrounds, text on dark</span>
+                    </div>
+                </div>
+            </div>
+            <div class="color-card">
+                <div class="color-swatch" style="background-color: #F4F5F7;">
+                    <span class="swatch-name" style="color: #001B44;">Light Gray</span>
+                </div>
+                <div class="color-info">
+                    <div class="color-row">
+                        <span class="color-label">Hex</span>
+                        <span class="color-value">#F4F5F7</span>
+                    </div>
+                    <div class="color-row">
+                        <span class="color-label">Role</span>
+                        <span class="color-value">Section backgrounds, cards</span>
+                    </div>
+                </div>
+            </div>
+            <div class="color-card">
+                <div class="color-swatch" style="background-color: #0A0E17;">
+                    <span class="swatch-name" style="color: #FFFFFF;">Dark</span>
+                </div>
+                <div class="color-info">
+                    <div class="color-row">
+                        <span class="color-label">Hex</span>
+                        <span class="color-value">#0A0E17</span>
+                    </div>
+                    <div class="color-row">
+                        <span class="color-label">Role</span>
+                        <span class="color-value">Body text, rich black</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tint-section">
+            <h3>Tint System</h3>
+            <p>Use tints to create depth and hierarchy in layouts. Tints are created at 10%, 30%, 50%, 70%, and 90% of the original value.</p>
+
+            <!-- Navy tints -->
+            <div class="tint-strip mt-3">
+                <div class="tint-cell" style="background: #001B44; color: #fff;">
+                    #001B44<span class="tint-label">100%</span>
+                </div>
+                <div class="tint-cell" style="background: #1A2F57; color: #fff;">
+                    #1A2F57<span class="tint-label">90%</span>
+                </div>
+                <div class="tint-cell" style="background: #4D5F7D; color: #fff;">
+                    #4D5F7D<span class="tint-label">70%</span>
+                </div>
+                <div class="tint-cell" style="background: #808FA2; color: #fff;">
+                    #808FA2<span class="tint-label">50%</span>
+                </div>
+                <div class="tint-cell" style="background: #B3BFC8; color: #001B44;">
+                    #B3BFC8<span class="tint-label">30%</span>
+                </div>
+                <div class="tint-cell" style="background: #E6EAF0; color: #001B44;">
+                    #E6EAF0<span class="tint-label">10%</span>
+                </div>
+            </div>
+
+            <!-- Crimson tints -->
+            <div class="tint-strip">
+                <div class="tint-cell" style="background: #A91335; color: #fff;">
+                    #A91335<span class="tint-label">100%</span>
+                </div>
+                <div class="tint-cell" style="background: #B92B4A; color: #fff;">
+                    #B92B4A<span class="tint-label">90%</span>
+                </div>
+                <div class="tint-cell" style="background: #C95A72; color: #fff;">
+                    #C95A72<span class="tint-label">70%</span>
+                </div>
+                <div class="tint-cell" style="background: #D4899A; color: #fff;">
+                    #D4899A<span class="tint-label">50%</span>
+                </div>
+                <div class="tint-cell" style="background: #E4B8C2; color: #A91335;">
+                    #E4B8C2<span class="tint-label">30%</span>
+                </div>
+                <div class="tint-cell" style="background: #F5E7EB; color: #A91335;">
+                    #F5E7EB<span class="tint-label">10%</span>
+                </div>
+            </div>
+
+            <!-- Gold tints -->
+            <div class="tint-strip">
+                <div class="tint-cell" style="background: #C5A059; color: #001B44;">
+                    #C5A059<span class="tint-label">100%</span>
+                </div>
+                <div class="tint-cell" style="background: #CBB06A; color: #001B44;">
+                    #CBB06A<span class="tint-label">90%</span>
+                </div>
+                <div class="tint-cell" style="background: #D4BD83; color: #001B44;">
+                    #D4BD83<span class="tint-label">70%</span>
+                </div>
+                <div class="tint-cell" style="background: #E2D0AC; color: #001B44;">
+                    #E2D0AC<span class="tint-label">50%</span>
+                </div>
+                <div class="tint-cell" style="background: #EDE1CB; color: #001B44;">
+                    #EDE1CB<span class="tint-label">30%</span>
+                </div>
+                <div class="tint-cell" style="background: #F8F3EA; color: #001B44;">
+                    #F8F3EA<span class="tint-label">10%</span>
+                </div>
+            </div>
+        </div>
+
+        <h3>Color Proportions</h3>
+        <p>Follow the 60/25/15 rule for balanced compositions. Navy dominates, crimson accents, gold highlights.</p>
+
+        <div class="usage-bar">
+            <div style="flex: 60; background: #001B44; color: #fff;">Navy 60%</div>
+            <div style="flex: 25; background: #A91335; color: #fff;">Crimson 25%</div>
+            <div style="flex: 15; background: #C5A059; color: #001B44;">Gold 15%</div>
+        </div>
+
+        <div class="highlight-box mt-3">
+            <p><strong>Accessibility Note:</strong> White text on Forge Navy meets WCAG AAA contrast (ratio 16.3:1). White text on Forge Crimson meets WCAG AA (ratio 5.8:1). Always test combinations to ensure minimum 4.5:1 contrast for body text.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ================================================================
+     04 — TYPOGRAPHY
+     ================================================================ -->
+<section id="typography" class="section">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-number">Section 04</span>
+            <h2>Typography</h2>
+        </div>
+
+        <p>The type system pairs a bold, athletic display face with a clean, readable body font. This combination reflects the club's dual identity: competitive strength and community accessibility.</p>
+
+        <h3>Display Font &mdash; Oswald</h3>
+        <p>Used for headlines, titles, navigation, and all-caps display elements. Oswald's condensed, bold character echoes the angular confidence of the shield crest.</p>
+
+        <div class="type-specimen display-font">
+            <div class="specimen-label">Oswald &mdash; Bold / 700</div>
+            <div class="specimen-hero">Fox Valley Forge SC</div>
+            <div class="specimen-alphabet">
+                ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
+                abcdefghijklmnopqrstuvwxyz<br>
+                0123456789 &mdash; !@#$%&amp;*()
+            </div>
+        </div>
+
+        <h3>Body Font &mdash; Source Sans 3</h3>
+        <p>Used for body copy, descriptions, UI elements, and extended reading. Source Sans 3 is highly legible across screen and print, and its humanist design keeps communications warm and approachable.</p>
+
+        <div class="type-specimen body-font">
+            <div class="specimen-label">Source Sans 3 &mdash; Regular / 400</div>
+            <div class="specimen-hero" style="font-size: 2rem; text-transform: none; font-weight: 400;">
+                The quick brown fox jumps over the lazy dog.
+            </div>
+            <div class="specimen-alphabet">
+                ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
+                abcdefghijklmnopqrstuvwxyz<br>
+                0123456789 &mdash; !@#$%&amp;*()
+            </div>
+        </div>
+
+        <h3>Type Scale</h3>
+        <div class="type-scale">
+            <div class="type-scale-row">
+                <div class="type-scale-meta">
+                    H1 &mdash; Hero<br>
+                    Oswald Bold<br>
+                    48px / 3rem
+                </div>
+                <div class="type-scale-example" style="font-family: var(--font-display); font-size: 3rem; font-weight: 700; text-transform: uppercase; line-height: 1.1;">
+                    One Valley. One Pathway.
+                </div>
+            </div>
+            <div class="type-scale-row">
+                <div class="type-scale-meta">
+                    H2 &mdash; Section<br>
+                    Oswald SemiBold<br>
+                    36px / 2.25rem
+                </div>
+                <div class="type-scale-example" style="font-family: var(--font-display); font-size: 2.25rem; font-weight: 600; text-transform: uppercase; line-height: 1.15;">
+                    From First Kick to College
+                </div>
+            </div>
+            <div class="type-scale-row">
+                <div class="type-scale-meta">
+                    H3 &mdash; Subsection<br>
+                    Oswald SemiBold<br>
+                    24px / 1.5rem
+                </div>
+                <div class="type-scale-example" style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; text-transform: uppercase; line-height: 1.2;">
+                    Performance Pathway
+                </div>
+            </div>
+            <div class="type-scale-row">
+                <div class="type-scale-meta">
+                    H4 &mdash; Card Title<br>
+                    Oswald Medium<br>
+                    18px / 1.125rem
+                </div>
+                <div class="type-scale-example" style="font-family: var(--font-display); font-size: 1.125rem; font-weight: 500; text-transform: uppercase; line-height: 1.3;">
+                    Spring Registration Open
+                </div>
+            </div>
+            <div class="type-scale-row">
+                <div class="type-scale-meta">
+                    Body<br>
+                    Source Sans 3 Regular<br>
+                    16px / 1rem
+                </div>
+                <div class="type-scale-example" style="font-family: var(--font-body); font-size: 1rem; font-weight: 400; line-height: 1.6;">
+                    Fox Valley Forge SC is the premier community-rooted soccer club for families across the Fox Valley corridor, offering professional development pathways for players of every level.
+                </div>
+            </div>
+            <div class="type-scale-row">
+                <div class="type-scale-meta">
+                    Small / Caption<br>
+                    Source Sans 3 SemiBold<br>
+                    13px / 0.8125rem
+                </div>
+                <div class="type-scale-example" style="font-family: var(--font-body); font-size: 0.8125rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--navy-70);">
+                    Registration closes March 15
+                </div>
+            </div>
+        </div>
+
+        <h3>Typography Rules</h3>
+        <ul>
+            <li><strong>Headlines:</strong> Always Oswald, uppercase. Use Bold (700) for primary headlines, SemiBold (600) for subheadings.</li>
+            <li><strong>Body text:</strong> Always Source Sans 3, sentence case. Regular (400) for body, SemiBold (600) for emphasis.</li>
+            <li><strong>Never</strong> use Oswald for body paragraphs or Source Sans for display headlines.</li>
+            <li><strong>Letter-spacing:</strong> Add 0.03&ndash;0.08em tracking to uppercase display text. Body text uses default spacing.</li>
+            <li><strong>Line height:</strong> 1.1&ndash;1.2 for display text, 1.5&ndash;1.6 for body text.</li>
+            <li><strong>Fallback stack:</strong> Oswald &rarr; Impact &rarr; sans-serif. Source Sans 3 &rarr; Helvetica Neue &rarr; Arial &rarr; sans-serif.</li>
+        </ul>
+    </div>
+</section>
+
+<!-- ================================================================
+     05 — VOICE & TONE
+     ================================================================ -->
+<section id="voice" class="section">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-number">Section 05</span>
+            <h2>Voice &amp; Tone</h2>
+        </div>
+
+        <p>Fox Valley Forge SC speaks as a confident, welcoming leader &mdash; not a gatekeeper. The voice should feel like a respected coach: clear, encouraging, direct, and invested in each player's individual journey.</p>
+
+        <h3>Voice Attributes</h3>
+        <div class="voice-grid">
+            <div class="voice-card">
+                <h4>Confident, Not Arrogant</h4>
+                <p>We know who we are and what we offer. We state it plainly without needing to tear down competitors or oversell outcomes.</p>
+            </div>
+            <div class="voice-card">
+                <h4>Welcoming, Not Passive</h4>
+                <p>We actively invite families in. We don't just say "all are welcome" &mdash; we design programs, pricing, and language that prove it.</p>
+            </div>
+            <div class="voice-card">
+                <h4>Professional, Not Corporate</h4>
+                <p>We operate at a high standard but talk like real people. No jargon, no buzzwords, no cold institutional tone.</p>
+            </div>
+            <div class="voice-card">
+                <h4>Player-First, Always</h4>
+                <p>Every message centers the player's experience and growth. Results and badges are outcomes of good development, not ends in themselves.</p>
+            </div>
+        </div>
+
+        <h3>Tone by Context</h3>
+        <table class="program-table">
+            <thead>
+                <tr>
+                    <th>Context</th>
+                    <th>Tone</th>
+                    <th>Example</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Recruitment / Marketing</td>
+                    <td>Inspiring, aspirational</td>
+                    <td>"Your player's next chapter starts here."</td>
+                </tr>
+                <tr>
+                    <td>Registration / Admin</td>
+                    <td>Clear, helpful, warm</td>
+                    <td>"Spring registration is open. Here's what you need to know."</td>
+                </tr>
+                <tr>
+                    <td>Game Day / Results</td>
+                    <td>Energetic, proud</td>
+                    <td>"What a battle. Proud of every player who wore the shield tonight."</td>
+                </tr>
+                <tr>
+                    <td>Youth / Rec Programs</td>
+                    <td>Fun, encouraging, playful</td>
+                    <td>"Lace up, bring a friend, and get ready to have a blast."</td>
+                </tr>
+                <tr>
+                    <td>College / Pathway</td>
+                    <td>Credible, supportive, honest</td>
+                    <td>"We prepare players for whatever path fits them best."</td>
+                </tr>
+                <tr>
+                    <td>Internal / Coach Comms</td>
+                    <td>Direct, respectful, unified</td>
+                    <td>"Here's the plan for this weekend. Reach out if you have questions."</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Do / Don't</h3>
+        <div class="do-dont">
+            <div class="do-col">
+                <h4>Do Say</h4>
+                <ul>
+                    <li>"We develop players for whatever path fits them best."</li>
+                    <li>"High-level soccer without driving into the city."</li>
+                    <li>"Your path, your pace."</li>
+                    <li>"Homegrown players, national ambitions."</li>
+                    <li>"Leaving for an elite platform is success, not failure."</li>
+                    <li>"One Valley. One Club. One Pathway."</li>
+                </ul>
+            </div>
+            <div class="dont-col">
+                <h4>Don't Say</h4>
+                <ul>
+                    <li>"We're the best club in the area."</li>
+                    <li>"We compete with ECNL/MLS Next."</li>
+                    <li>"Your kid will get a college scholarship."</li>
+                    <li>"Elite-level training" (without context)</li>
+                    <li>"We merged to survive."</li>
+                    <li>"Better than [competitor name]."</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3>Key Messaging Themes</h3>
+        <ul>
+            <li><strong>Community DNA:</strong> We are a Fox Valley institution with decades of local roots.</li>
+            <li><strong>Development over selection:</strong> We grow players; we don't just collect them.</li>
+            <li><strong>Pathways, not pressure:</strong> Multiple levels under one roof, no all-or-nothing commitment.</li>
+            <li><strong>Whole-player values:</strong> Character, academics, leadership alongside skill.</li>
+            <li><strong>Less travel, more quality:</strong> Professional standards without the lifestyle burden of national-platform travel.</li>
+        </ul>
+    </div>
+</section>
+
+<!-- ================================================================
+     06 — IMAGERY & PHOTOGRAPHY
+     ================================================================ -->
+<section id="imagery" class="section">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-number">Section 06</span>
+            <h2>Imagery &amp; Photography</h2>
+        </div>
+
+        <p>Visual content should reinforce the brand pillars: community, development, and accessible excellence. Photography is the most powerful way to show &mdash; not just tell &mdash; what Fox Valley Forge SC stands for.</p>
+
+        <h3>Photography Style</h3>
+        <div class="brand-pillars">
+            <div class="pillar-card">
+                <h4>Authentic Action</h4>
+                <p>Capture real training, real games, real celebrations. Avoid overly staged or stock-photo-style poses. Movement, effort, and joy should dominate.</p>
+            </div>
+            <div class="pillar-card">
+                <h4>Inclusive Representation</h4>
+                <p>Show the full range of the club: all ages (U4 through U19), all genders, all skill levels. Rec kids and performance players both deserve the spotlight.</p>
+            </div>
+            <div class="pillar-card">
+                <h4>Community Moments</h4>
+                <p>Families on the sideline, coaches mentoring, teams bonding, post-game high-fives. These moments are as important as highlight-reel goals.</p>
+            </div>
+            <div class="pillar-card">
+                <h4>Fox Valley Identity</h4>
+                <p>When possible, feature recognizable local landmarks, fields, and settings that ground the club in its geography and community.</p>
+            </div>
+        </div>
+
+        <h3>Photo Treatment</h3>
+        <div class="photo-grid">
+            <div class="photo-placeholder" style="background: var(--forge-navy);">
+                Navy overlay<br>at 60% opacity<br>for text overlays
+            </div>
+            <div class="photo-placeholder" style="background: linear-gradient(135deg, var(--forge-navy), var(--forge-crimson));">
+                Navy-to-Crimson<br>gradient overlay<br>for hero sections
+            </div>
+            <div class="photo-placeholder" style="background: var(--forge-dark); border: 3px solid var(--forge-gold);">
+                Gold border frame<br>for featured<br>player spotlights
+            </div>
+        </div>
+
+        <h3>Guidelines</h3>
+        <ul>
+            <li><strong>Color grading:</strong> Slightly warm, with boosted contrast. Avoid overly cool or desaturated tones.</li>
+            <li><strong>Overlays:</strong> Use navy at 50&ndash;70% opacity for text placement on photos. Crimson overlays for high-energy moments.</li>
+            <li><strong>Cropping:</strong> Favor tight, dynamic crops that emphasize faces and movement. Avoid centering subjects statically.</li>
+            <li><strong>Logo on photos:</strong> Place logo in lower-right corner with adequate clear space. Use white or gold version over dark areas.</li>
+            <li><strong>Never</strong> use competitor logos, inappropriately branded content, or images that contradict the inclusive, player-first ethos.</li>
+        </ul>
+    </div>
+</section>
+
+<!-- ================================================================
+     07 — PROGRAM IDENTITY
+     ================================================================ -->
+<section id="programs" class="section">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-number">Section 07</span>
+            <h2>Program Identity</h2>
+        </div>
+
+        <p>The club's program tiers form a visible development pyramid. Each tier has a clear identity while sharing the unified Forge brand. Programs should feel distinct in tone but unmistakably connected.</p>
+
+        <h3>Program Tiers</h3>
+        <table class="program-table">
+            <thead>
+                <tr>
+                    <th>Program</th>
+                    <th>Ages</th>
+                    <th>Logo</th>
+                    <th>Color Emphasis</th>
+                    <th>Tone</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Forge Futures</strong><br><span class="text-small">Foundation / First Kick</span></td>
+                    <td>U4 &ndash; U8</td>
+                    <td>Rec/Kids Logo</td>
+                    <td>
+                        <span class="program-color" style="background: #C5A059;"></span>Gold + Navy
+                    </td>
+                    <td>Fun, playful, welcoming</td>
+                </tr>
+                <tr>
+                    <td><strong>Forge Community</strong><br><span class="text-small">Community-Competitive</span></td>
+                    <td>U8 &ndash; U19</td>
+                    <td>Rec/Kids Logo</td>
+                    <td>
+                        <span class="program-color" style="background: #001B44;"></span>Navy + Gold
+                    </td>
+                    <td>Encouraging, team-focused</td>
+                </tr>
+                <tr>
+                    <td><strong>Forge Performance</strong><br><span class="text-small">Performance Pathway</span></td>
+                    <td>U11 &ndash; U19</td>
+                    <td>Primary Logo</td>
+                    <td>
+                        <span class="program-color" style="background: #A91335;"></span>Navy + Crimson
+                    </td>
+                    <td>Competitive, driven, aspirational</td>
+                </tr>
+                <tr>
+                    <td><strong>Forge College Prep</strong><br><span class="text-small">College &amp; Career Support</span></td>
+                    <td>U15 &ndash; U19</td>
+                    <td>Primary Logo</td>
+                    <td>
+                        <span class="program-color" style="background: #001B44;"></span>Navy + Gold
+                    </td>
+                    <td>Credible, supportive, honest</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Naming Convention</h3>
+        <p>All programs and teams lead with the <strong>"Forge"</strong> name to maintain brand unity:</p>
+        <ul>
+            <li><strong>Forge Futures U6 &mdash;</strong> Foundation program</li>
+            <li><strong>Forge Community 2016 Boys Blue &mdash;</strong> Community travel team</li>
+            <li><strong>Forge Performance 2012 Girls &mdash;</strong> Performance pathway team</li>
+            <li><strong>Forge College Prep &mdash;</strong> Recruitment advisory program</li>
+        </ul>
+
+        <div class="highlight-box">
+            <p><strong>Unified Identity Rule:</strong> Never use legacy organization names (Campton United, Strikers Fox Valley) in any new materials. The merger narrative is forward-looking: "We merged to lead, not to survive."</p>
+        </div>
+    </div>
+</section>
+
+<!-- ================================================================
+     08 — APPLICATIONS
+     ================================================================ -->
+<section id="applications" class="section">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-number">Section 08</span>
+            <h2>Applications</h2>
+        </div>
+
+        <p>Consistent application of the brand across all touchpoints builds recognition and trust. Below are guidelines for the most common applications.</p>
+
+        <h3>Apparel &mdash; Kit Concepts</h3>
+        <div class="jersey-preview">
+            <div class="jersey" style="background: var(--forge-navy);">
+                <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/v1770763739/forge-logo-w-fox-valley-23jan2026_d1dlgi.png" alt="Home kit crest">
+                <span class="jersey-label" style="color: var(--forge-gold);">Home &mdash; Navy</span>
+            </div>
+            <div class="jersey" style="background: var(--forge-white); border-color: var(--forge-navy);">
+                <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/v1770763739/forge-logo-w-fox-valley-23jan2026_d1dlgi.png" alt="Away kit crest">
+                <span class="jersey-label" style="color: var(--forge-navy);">Away &mdash; White</span>
+            </div>
+            <div class="jersey" style="background: var(--forge-crimson);">
+                <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/v1770763739/forge-logo-w-fox-valley-23jan2026_d1dlgi.png" alt="Alternate kit crest">
+                <span class="jersey-label" style="color: var(--forge-gold);">Alt &mdash; Crimson</span>
+            </div>
+            <div class="jersey" style="background: var(--forge-gold);">
+                <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/v1770763739/forge-logo-rec-23jan2026_k1dpys.png" alt="Rec kit crest">
+                <span class="jersey-label" style="color: var(--forge-navy);">Rec &mdash; Gold</span>
+            </div>
+        </div>
+
+        <h3>Print Materials</h3>
+        <div class="app-grid">
+            <div class="app-card">
+                <div class="app-card-header" style="background: var(--forge-navy); color: var(--forge-white);">
+                    <div style="font-family: var(--font-display); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--forge-gold); margin-bottom: 0.5rem;">Fox Valley Forge SC</div>
+                    <div style="font-family: var(--font-display); font-size: 1.6rem; text-transform: uppercase; font-weight: 700; line-height: 1.15;">Spring<br>Registration<br>Now Open</div>
+                    <div style="width: 40px; height: 3px; background: var(--forge-crimson); margin: 1rem auto 0;"></div>
+                </div>
+                <div class="app-card-body">
+                    <h4>Flyer / Poster</h4>
+                    <p>Navy background, Oswald headlines, gold accent text, crimson divider. Clean, bold, minimal.</p>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-card-header" style="background: var(--forge-white); border-bottom: 4px solid var(--forge-gold); padding-bottom: 1rem;">
+                    <div style="font-family: var(--font-display); font-size: 1rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--forge-navy); font-weight: 700;">Fox Valley Forge SC</div>
+                    <div style="width: 40px; height: 2px; background: var(--forge-gold); margin: 0.5rem auto;"></div>
+                    <div style="font-family: var(--font-body); font-size: 0.85rem; color: var(--navy-70);">John Smith &mdash; Director of Coaching</div>
+                    <div style="font-family: var(--font-body); font-size: 0.8rem; color: var(--navy-50);">john@foxvalleyforge.com</div>
+                </div>
+                <div class="app-card-body">
+                    <h4>Business Card</h4>
+                    <p>White front with navy type and gold divider. Logo on back over navy background.</p>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-card-header" style="background: linear-gradient(135deg, var(--forge-navy) 0%, #0A2D5C 100%); color: white; text-align: left;">
+                    <div style="font-family: var(--font-body); font-size: 0.75rem; color: var(--forge-gold); text-transform: uppercase; letter-spacing: 0.1em;">Weekly Update</div>
+                    <div style="font-family: var(--font-display); font-size: 1.2rem; text-transform: uppercase; font-weight: 700; margin-top: 0.5rem;">This Week at the Forge</div>
+                    <div style="font-family: var(--font-body); font-size: 0.85rem; color: var(--navy-30); margin-top: 0.5rem;">Results, schedules, and what's ahead&hellip;</div>
+                </div>
+                <div class="app-card-body">
+                    <h4>Email Newsletter</h4>
+                    <p>Navy header with gold category label, Oswald title. Body in Source Sans on white with crimson CTAs.</p>
+                </div>
+            </div>
+        </div>
+
+        <h3>Signage &amp; Banners</h3>
+        <ul>
+            <li><strong>Field banners:</strong> Navy background, full-color logo centered, gold border strip.</li>
+            <li><strong>Pop-up tents:</strong> Navy canopy, logo on all four sides, gold valance trim.</li>
+            <li><strong>Directional signage:</strong> Navy with white text, gold arrow accents.</li>
+            <li><strong>Sponsor integration:</strong> Sponsor logos in designated zones only, never overlapping the crest.</li>
+        </ul>
+    </div>
+</section>
+
+<!-- ================================================================
+     09 — DIGITAL & SOCIAL
+     ================================================================ -->
+<section id="social" class="section">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-number">Section 09</span>
+            <h2>Digital &amp; Social Media</h2>
+        </div>
+
+        <p>Social media is the club's most visible communication channel. Consistency here directly impacts how families perceive Fox Valley Forge SC. Every post should feel like it came from the same club.</p>
+
+        <h3>Social Template Example</h3>
+        <div class="social-example">
+            <div class="social-header">
+                <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/v1770763739/forge-logo-w-fox-valley-23jan2026_d1dlgi.png" alt="Forge logo">
+                <h4>Game Day Announcement</h4>
+                <p style="font-family: var(--font-body); font-size: 0.9rem; margin-top: 0.5rem; color: var(--navy-30);">
+                    Forge Performance 2012 Girls vs. Galaxy SC<br>
+                    Saturday 10:00 AM &mdash; Valley Field Complex
+                </p>
+            </div>
+            <div class="social-footer">
+                <span>foxvalleyforge.com</span>
+                <span>#ForgeForward</span>
+            </div>
+        </div>
+
+        <h3>Social Profile Setup</h3>
+        <table class="program-table">
+            <thead>
+                <tr>
+                    <th>Element</th>
+                    <th>Specification</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Profile Image</td>
+                    <td>Primary logo on navy circle background, tight crop</td>
+                </tr>
+                <tr>
+                    <td>Cover/Banner</td>
+                    <td>Team action photo with navy overlay (60%), logo centered, gold tagline below</td>
+                </tr>
+                <tr>
+                    <td>Bio</td>
+                    <td>"Fox Valley Forge SC &mdash; One Valley. One Club. One Pathway. Youth soccer for the Fox Valley corridor. foxvalleyforge.com"</td>
+                </tr>
+                <tr>
+                    <td>Highlight Covers (IG)</td>
+                    <td>Navy circles with gold icons: Registration, Schedules, Results, Community, Alumni</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Content Pillars</h3>
+        <div class="brand-pillars">
+            <div class="pillar-card">
+                <h4>Training &amp; Development</h4>
+                <p>Weekly training clips, drills, coaching philosophy insights. Shows the "professional standards" pillar in action.</p>
+            </div>
+            <div class="pillar-card">
+                <h4>Player &amp; Alumni Spotlights</h4>
+                <p>College commits, high-school standouts, alumni stories, coach features. Validates the pathway without overpromising.</p>
+            </div>
+            <div class="pillar-card">
+                <h4>Game Day &amp; Results</h4>
+                <p>Match announcements, live updates, post-game recaps. Energetic, proud tone regardless of score.</p>
+            </div>
+            <div class="pillar-card">
+                <h4>Community &amp; Culture</h4>
+                <p>Community service, team bonding, family events, behind-the-scenes. The "community DNA" pillar brought to life.</p>
+            </div>
+        </div>
+
+        <h3>Hashtags</h3>
+        <ul>
+            <li><strong>#ForgeForward</strong> &mdash; Primary brand hashtag for all content</li>
+            <li><strong>#OneValley</strong> &mdash; Community and identity posts</li>
+            <li><strong>#ForgePathway</strong> &mdash; Development and college-related content</li>
+            <li><strong>#ForgeFutures</strong> &mdash; Youth and recreational program content</li>
+            <li><strong>#ForgeGameDay</strong> &mdash; Match day content</li>
+        </ul>
+
+        <h3>Website Guidelines</h3>
+        <ul>
+            <li><strong>Navigation:</strong> Oswald uppercase, navy background, gold active-state underline.</li>
+            <li><strong>Buttons:</strong> Primary = crimson fill with white text. Secondary = navy outline. Tertiary = gold text link.</li>
+            <li><strong>Cards:</strong> White background, subtle shadow, gold top-border for featured items.</li>
+            <li><strong>Visual pathway:</strong> Show a clear visual "ladder" from Futures &rarr; Community &rarr; Performance &rarr; College on the homepage.</li>
+        </ul>
+    </div>
+</section>
+
+<!-- ================================================================
+     10 — BRAND MISUSE
+     ================================================================ -->
+<section id="donts" class="section">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-number">Section 10</span>
+            <h2>Brand Misuse</h2>
+        </div>
+
+        <p>Protecting the brand means being clear about what <em>not</em> to do. The following are common violations that dilute the Fox Valley Forge SC identity.</p>
+
+        <h3>Logo Don'ts</h3>
+        <div class="misuse-grid">
+            <div class="misuse-item">
+                <span class="x-mark">&times;</span>
+                <div style="opacity: 0.4;">
+                    <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/v1770763739/forge-logo-w-fox-valley-23jan2026_d1dlgi.png" alt="Stretched logo" style="max-height: 100px; margin: 0 auto; transform: scaleX(1.4);">
+                </div>
+                <p>Do not stretch or distort the logo proportions</p>
+            </div>
+            <div class="misuse-item">
+                <span class="x-mark">&times;</span>
+                <div style="opacity: 0.4;">
+                    <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/v1770763739/forge-logo-w-fox-valley-23jan2026_d1dlgi.png" alt="Rotated logo" style="max-height: 100px; margin: 0 auto; transform: rotate(15deg);">
+                </div>
+                <p>Do not rotate or tilt the logo</p>
+            </div>
+            <div class="misuse-item">
+                <span class="x-mark">&times;</span>
+                <div style="opacity: 0.15;">
+                    <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/v1770763739/forge-logo-w-fox-valley-23jan2026_d1dlgi.png" alt="Low opacity logo" style="max-height: 100px; margin: 0 auto;">
+                </div>
+                <p>Do not reduce opacity below 80% or use as a watermark</p>
+            </div>
+            <div class="misuse-item">
+                <span class="x-mark">&times;</span>
+                <div style="opacity: 0.4;">
+                    <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/v1770763739/forge-logo-w-fox-valley-23jan2026_d1dlgi.png" alt="Recolored logo" style="max-height: 100px; margin: 0 auto; filter: hue-rotate(120deg);">
+                </div>
+                <p>Do not change the logo colors or apply filters</p>
+            </div>
+            <div class="misuse-item">
+                <span class="x-mark">&times;</span>
+                <div style="background: repeating-linear-gradient(45deg, #ff6b6b, #ff6b6b 10px, #ffd93d 10px, #ffd93d 20px); padding: 1rem; opacity: 0.4;">
+                    <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/v1770763739/forge-logo-w-fox-valley-23jan2026_d1dlgi.png" alt="Logo on busy background" style="max-height: 80px; margin: 0 auto;">
+                </div>
+                <p>Do not place the logo on busy or clashing backgrounds</p>
+            </div>
+            <div class="misuse-item">
+                <span class="x-mark">&times;</span>
+                <div style="opacity: 0.4; display: flex; gap: 4px; justify-content: center; align-items: center;">
+                    <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/v1770763739/forge-logo-w-fox-valley-23jan2026_d1dlgi.png" alt="Logo with extra text" style="max-height: 70px;">
+                    <span style="font-family: 'Comic Sans MS', cursive; font-size: 1.2rem; color: #A91335;">Soccer!</span>
+                </div>
+                <p>Do not add text, shapes, or effects to the logo</p>
+            </div>
+        </div>
+
+        <h3>General Brand Don'ts</h3>
+        <ul>
+            <li><strong>Never</strong> use legacy names (Campton United, Strikers Fox Valley) in new materials.</li>
+            <li><strong>Never</strong> use unapproved fonts as substitutes for Oswald or Source Sans 3.</li>
+            <li><strong>Never</strong> mix the Primary and Rec/Kids logos on the same piece.</li>
+            <li><strong>Never</strong> use brand colors outside the approved palette (including personal "close enough" matches).</li>
+            <li><strong>Never</strong> make promises about college scholarships or professional outcomes in marketing.</li>
+            <li><strong>Never</strong> disparage competitors by name in any communication.</li>
+            <li><strong>Never</strong> use "elite" without qualifying context &mdash; lead with "development" language instead.</li>
+        </ul>
+    </div>
+</section>
+
+<!-- ================================================================
+     FOOTER
+     ================================================================ -->
+<footer class="guide-footer">
+    <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/v1770763739/forge-logo-w-fox-valley-23jan2026_d1dlgi.png" alt="Fox Valley Forge SC">
+    <p>This brand guide is a living document. As Fox Valley Forge SC grows, the brand will evolve &mdash; but the mission stays the same.</p>
+    <p>For brand questions, asset requests, or approval of new materials, contact the Director of Communications.</p>
+    <p class="copyright">&copy; 2026 Fox Valley Forge SC. All rights reserved.<br>One Valley. One Club. One Pathway.</p>
+</footer>
+
+</body>
+</html>
