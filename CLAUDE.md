@@ -5,9 +5,14 @@ Single-page website (`index.html`) for Fox Valley Forge SC, a youth soccer club.
 
 ## Key Files
 - `index.html` — main website (currently ~1891 lines)
-- `assets/fox-valley-forge-brand-guide.html` — full brand guide with color palette
+- `fox-valley-forge-brand-guide.html` — brand guide (root level, NOT in /assets)
+- `pitch-deck.html` — sponsor pitch deck (slide-based, fullscreen, mobile-responsive as of Mar 5)
 - `generated_imgs/` — locally generated images (most now replaced with Cloudinary URLs)
-- `pitch-deck.html` — sponsor pitch deck
+
+## Git & Deployment
+- Repo: `git@github.com:garyricke/foxvalleyforge.git` (SSH configured, pushes auto-deploy to Netlify)
+- Git global user: Gary Ricke / gary.ricke@orbisdesign.com
+- Working directory: `/Users/garyricke/Documents/foxvalley forge`
 
 ## Brand Colors
 - Navy: `#001B44` (primary)
@@ -15,7 +20,29 @@ Single-page website (`index.html`) for Fox Valley Forge SC, a youth soccer club.
 - Gold: `#C5A059`
 - Home jersey: Navy with Gold trim
 
-## Where We Left Off (Feb 27 – Mar 2, 2026)
+## Where We Left Off (Mar 5, 2026)
+
+### Brand Guide (`fox-valley-forge-brand-guide.html`)
+- Added 3 official logos with updated Cloudinary URLs (see Logo System section)
+  - With Fox Valley: `v1772573826/forge-logo-w-fox-valley-23jan2026_ojhvif.png`
+  - No Fox Valley (compact): `v1772573827/forge-logo-no-fox-valley-23jan2026_olh5tk.png`
+  - Rec/Kids: `v1772573826/forge-logo-rec-23jan2026_bifcvt.png`
+- ZIP download (public): `v1772575623/forge-logos-23jan2026_p8wkmz.zip`
+- Download link in both TOC and Logo System section
+
+### index.html Footer — Connect column additions
+- Brand Guide → `fox-valley-forge-brand-guide.html`
+- Pitch Deck → `pitch-deck.html`
+- Pitch Deck Hi Res → Google Drive
+- Pitch Deck Med Res → Cloudinary PDF (`v1772636268/...medres_cav5ci.pdf`)
+
+### pitch-deck.html
+- Full mobile CSS added (`@media max-width: 767px`)
+- Slides scroll vertically, grids collapse, padding reduced, touch-friendly nav
+
+---
+
+## Previous Notes (Feb 27 – Mar 2, 2026)
 
 ### Events Section
 - Default view shows **only "Girls in Sports Day"**
