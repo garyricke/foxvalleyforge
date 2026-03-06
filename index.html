@@ -235,8 +235,7 @@ section{padding:80px 24px}
 #intro-tap.hidden{opacity:0;pointer-events:none}
 #intro-tap-label{font-family:var(--font-h);font-size:.8rem;letter-spacing:.22em;color:rgba(255,255,255,.5);text-transform:uppercase;animation:pulse 2s ease-in-out infinite}
 @keyframes pulse{0%,100%{opacity:.5}50%{opacity:1}}
-#intro-skip{position:fixed;bottom:32px;right:32px;background:transparent;border:1px solid rgba(255,255,255,.35);color:rgba(255,255,255,.55);font-family:var(--font-h);font-size:.75rem;letter-spacing:.14em;padding:8px 18px;cursor:pointer;border-radius:2px;opacity:0;transition:opacity .5s ease,color .2s,border-color .2s;z-index:9999}
-#intro-skip.visible{opacity:1}
+#intro-skip{position:fixed;bottom:32px;right:32px;background:transparent;border:1px solid rgba(255,255,255,.35);color:rgba(255,255,255,.55);font-family:var(--font-h);font-size:.75rem;letter-spacing:.14em;padding:8px 18px;cursor:pointer;border-radius:2px;transition:color .2s,border-color .2s;z-index:9999}
 #intro-skip:hover{color:#fff;border-color:rgba(255,255,255,.8)}
 
 /* ── FOOTER ── */
@@ -323,6 +322,33 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
 @media(max-width:480px){
   .stats-grid{grid-template-columns:1fr}
 }
+
+/* LEADERSHIP */
+#leadership{background:#f7f8fa}
+.leaders-carousel-outer{position:relative;margin-top:40px}
+.leaders-carousel-wrap{overflow:hidden;cursor:grab}
+.leaders-carousel-wrap:active{cursor:grabbing}
+.leaders-track{display:flex;gap:24px;will-change:transform}
+.leader-card{flex:0 0 260px;border-radius:8px;padding:28px 20px 24px;text-align:center;box-shadow:0 4px 16px rgba(0,27,68,.15);user-select:none}
+.leader-card--officer{background:var(--navy)}
+.leader-card--board{background:var(--gold)}
+.leader-avatar{width:88px;height:88px;border-radius:50%;overflow:hidden;margin:0 auto 16px}
+.leader-card--officer .leader-avatar{border:3px solid var(--gold)}
+.leader-card--board .leader-avatar{border:3px solid var(--navy)}
+.leader-avatar img{width:100%;height:100%;object-fit:cover;pointer-events:none}
+.leader-card h3{font-size:1rem;font-weight:700;margin-bottom:4px}
+.leader-card--officer h3{color:#fff}
+.leader-card--board h3{color:var(--navy)}
+.leader-role{font-family:var(--font-h);font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin-bottom:12px}
+.leader-card--officer .leader-role{color:var(--gold)}
+.leader-card--board .leader-role{color:var(--navy)}
+.leader-card p{font-size:.82rem;line-height:1.6;margin:0}
+.leader-card--officer p{color:rgba(255,255,255,.8)}
+.leader-card--board p{color:var(--navy)}
+.carousel-btn{position:absolute;top:50%;transform:translateY(-50%);z-index:10;background:var(--navy);border:2px solid var(--gold);color:var(--gold);width:44px;height:44px;border-radius:50%;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 10px rgba(0,0,0,.2);transition:background .2s,color .2s;flex-shrink:0}
+.carousel-btn:hover{background:var(--gold);color:var(--navy)}
+.carousel-btn--prev{left:-22px}
+.carousel-btn--next{right:-22px}
 </style>
 </head>
 <body>
@@ -866,6 +892,71 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
   </div>
 </section>
 
+<!-- LEADERSHIP -->
+<section id="leadership">
+  <div class="section-inner">
+    <p class="section-label fade-in">The Team</p>
+    <h2 class="section-title fade-in">Meet Your Leadership</h2>
+    <p class="section-sub fade-in">Fox Valley Forge SC is led by experienced professionals with deep roots in the Fox Valley community — committed to building something that lasts.</p>
+    <div class="leaders-carousel-outer">
+      <button class="carousel-btn carousel-btn--prev" id="leadersPrev" aria-label="Previous">&#8592;</button>
+      <button class="carousel-btn carousel-btn--next" id="leadersNext" aria-label="Next">&#8594;</button>
+      <div class="leaders-carousel-wrap" id="leadersCarousel">
+        <div class="leaders-track" id="leadersTrack">
+          <div class="leader-card leader-card--officer">
+            <div class="leader-avatar"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1772032501/profilepic-linkedin-Michael-Weyant-gemini_uetjix.jpg" alt="Mike Weyant"></div>
+            <h3>Mike Weyant</h3>
+            <div class="leader-role">President</div>
+            <p>An experienced business and sales leader, Mike brings strategic leadership and a community-first mindset to the club's long-term vision.</p>
+          </div>
+          <div class="leader-card leader-card--officer">
+            <div class="leader-avatar"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1772032486/profilepic-linkedin-Jeff-Dunaway-gemini_arrmvi.jpg" alt="Jeff Dunaway"></div>
+            <h3>Jeff Dunaway</h3>
+            <div class="leader-role">Vice President</div>
+            <p>CEO of Dunaway Brothers, Inc., Jeff brings operational leadership, deep local relationships, and a strong commitment to community impact.</p>
+          </div>
+          <div class="leader-card leader-card--officer">
+            <div class="leader-avatar"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1772032493/profilepic-linkedin-Katerina-Tsoukalas-Heitkemper-gemini_fa1sfe.jpg" alt="Kathy Heitkemper"></div>
+            <h3>Kathy Heitkemper</h3>
+            <div class="leader-role">Secretary</div>
+            <p>An attorney and law firm partner, Kathy brings structure, professionalism, and trusted governance oversight to the leadership team.</p>
+          </div>
+          <div class="leader-card leader-card--officer">
+            <div class="leader-avatar"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1772032513/profilepic-linkedin-Talia-Jensen-gemini_ecwezt.jpg" alt="Talia Jensen"></div>
+            <h3>Talia Jensen</h3>
+            <div class="leader-role">Treasurer</div>
+            <p>A CPA and accounting advisory professional, Talia ensures Fox Valley Forge SC is built on strong financial stewardship and accountability.</p>
+          </div>
+          <div class="leader-card leader-card--officer">
+            <div class="leader-avatar"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1772032507/profilepic-linkedin-Robert-M-Kuhn-gemini_jwuouz.png" alt="Robert Kuhn"></div>
+            <h3>Robert Kuhn</h3>
+            <div class="leader-role">Director of Partnership</div>
+            <p>A financial advisory and investment leader, Robert brings strategic relationship-building and long-term growth expertise to support the club's mission.</p>
+          </div>
+          <div class="leader-card leader-card--board">
+            <div class="leader-avatar"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1772205710/profile-linkedin-chad-ransom-gemini_aqfa4n.jpg" alt="Chad Ransom"></div>
+            <h3>Chad Ransom</h3>
+            <div class="leader-role">Board Member</div>
+            <p>A Senior Account Executive at RingCentral, Chad brings a relationship-driven, growth mindset and expertise in enterprise solutions to support the club's mission.</p>
+          </div>
+          <div class="leader-card leader-card--board">
+            <div class="leader-avatar"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1772205957/profile-linkedin-trevor-b-gemini_a9umn3.jpg" alt="Trevor Bauer"></div>
+            <h3>Trevor Bauer</h3>
+            <div class="leader-role">Board Member</div>
+            <p>Lead Operations Director at DemandWorks Media, Trevor brings operational leadership and deep local Fox Valley ties to the board.</p>
+          </div>
+          <div class="leader-card leader-card--board">
+            <div class="leader-avatar"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1772205951/profile-linkedin-trae-manny-gemini_pj7ahw.jpg" alt="Trae Manny"></div>
+            <h3>Trae Manny</h3>
+            <div class="leader-role">Board Member</div>
+            <p>A sales leader at Stryker whose journey began in coaching, Trae brings a coach's perspective and strong community connection from Geneva to the board.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- YOUR PATH -->
 <section id="yourpath">
   <div class="section-inner">
@@ -950,6 +1041,7 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
           <li><a href="#" onclick="openModal('modal-coaching');return false">Our Coaching</a></li>
           <li><a href="#" onclick="openModal('modal-facilities');return false">Facilities</a></li>
           <li><a href="#" onclick="openModal('modal-story');return false">Our Story</a></li>
+          <li><a href="#leadership">Leadership</a></li>
           <li><a href="#" onclick="openModal('modal-tryouts');return false">Tryout Process</a></li>
         </ul>
       </div>
@@ -1714,16 +1806,13 @@ function startIntro() {
 
   function beginPlayback() {
     tap.classList.add('hidden');
-    setTimeout(function() { skip.classList.add('visible'); }, 2000);
     audio.play().catch(function() {});
   }
 
   // Tap anywhere on overlay to begin
   tap.addEventListener('click', beginPlayback);
 
-  audio.play().catch(function() {
-    // Autoplay blocked — skip button already visible after 2s
-  });
+  audio.play().catch(function() {});
 }
 
 // Generic Netlify form handler
@@ -1870,7 +1959,15 @@ if (collegeVideo) {
   videoObserver.observe(collegeVideo);
 }
 
-startIntro();
+// Only show intro once per calendar day
+(function() {
+  var today = new Date().toDateString();
+  var key = 'fvf_intro_seen';
+  if (localStorage.getItem(key) !== today) {
+    localStorage.setItem(key, today);
+    startIntro();
+  }
+})();
 
 // ── HIGH-RES FOR PRINT ──
 var WEB_PARAMS = 'f_auto,q_auto';
@@ -1889,6 +1986,129 @@ function swapCloudinaryParams(param) {
 
 window.addEventListener('beforeprint', function() { swapCloudinaryParams(PRINT_PARAMS); });
 window.addEventListener('afterprint',  function() { swapCloudinaryParams(WEB_PARAMS); });
+
+// LEADERSHIP CAROUSEL
+(function() {
+  var wrap = document.getElementById('leadersCarousel');
+  var track = document.getElementById('leadersTrack');
+  var btnPrev = document.getElementById('leadersPrev');
+  var btnNext = document.getElementById('leadersNext');
+  if (!wrap || !track) return;
+
+  // Build infinite loop: [clones-of-end] + [originals] + [clones-of-start]
+  var originals = Array.from(track.children);
+  var N = originals.length;
+  // Append clones of originals at end
+  originals.forEach(function(c) { track.appendChild(c.cloneNode(true)); });
+  // Prepend clones of originals at start (insert before first child)
+  var prependClones = originals.slice().reverse();
+  prependClones.forEach(function(c) {
+    track.insertBefore(c.cloneNode(true), track.firstChild);
+  });
+  // DOM layout: N prepended clones | N originals | N appended clones
+  // current = index into total 3N array; originals start at index N
+  var current = N;
+  var cardW = 0;
+  var paused = false;
+  var isTransitioning = false;
+  var isDragging = false;
+  var dragStartX = 0;
+  var dragStartOffset = 0;
+
+  function getCardW() {
+    var c = track.children[0];
+    if (!c) return 284;
+    var style = window.getComputedStyle(track);
+    var gap = parseFloat(style.gap || style.columnGap) || 24;
+    return c.offsetWidth + gap;
+  }
+
+  function setOffset(px, animated) {
+    track.style.transition = animated ? 'transform .5s cubic-bezier(.4,0,.2,1)' : 'none';
+    if (!animated) track.offsetHeight; // force reflow
+    track.style.transform = 'translateX(-' + px + 'px)';
+  }
+
+  function normalise() {
+    // Silently jump: if in the appended clones, wrap to originals; if in prepended clones, wrap to originals
+    if (current >= N * 2) {
+      current -= N;
+      setOffset(current * cardW, false);
+    } else if (current < N) {
+      current += N;
+      setOffset(current * cardW, false);
+    }
+  }
+
+  function go(idx) {
+    if (isTransitioning) return;
+    isTransitioning = true;
+    current = idx;
+    cardW = getCardW();
+    setOffset(current * cardW, true);
+    setTimeout(function() {
+      normalise();
+      isTransitioning = false;
+    }, 520);
+  }
+
+  // Init position without animation
+  window.addEventListener('load', function() {
+    cardW = getCardW();
+    setOffset(current * cardW, false);
+  });
+
+  // Auto-advance
+  setInterval(function() {
+    if (!paused && !isDragging && !isTransitioning) go(current + 1);
+  }, 3200);
+
+  // Arrow buttons
+  if (btnPrev) btnPrev.addEventListener('click', function() { go(current - 1); });
+  if (btnNext) btnNext.addEventListener('click', function() { go(current + 1); });
+
+  // Pause on hover
+  wrap.addEventListener('mouseenter', function() { paused = true; });
+  wrap.addEventListener('mouseleave', function() { paused = false; });
+
+  // Mouse drag
+  wrap.addEventListener('mousedown', function(e) {
+    if (e.target.closest && e.target.closest('.carousel-btn')) return;
+    isDragging = true;
+    dragStartX = e.clientX;
+    cardW = getCardW();
+    dragStartOffset = current * cardW;
+    track.style.transition = 'none';
+    e.preventDefault();
+  });
+  document.addEventListener('mousemove', function(e) {
+    if (!isDragging) return;
+    track.style.transform = 'translateX(-' + (dragStartOffset + dragStartX - e.clientX) + 'px)';
+  });
+  document.addEventListener('mouseup', function(e) {
+    if (!isDragging) return;
+    isDragging = false;
+    var moved = Math.round((dragStartX - e.clientX) / cardW);
+    go(current + moved);
+    paused = false;
+  });
+
+  // Touch drag
+  wrap.addEventListener('touchstart', function(e) {
+    paused = true;
+    dragStartX = e.touches[0].clientX;
+    cardW = getCardW();
+    dragStartOffset = current * cardW;
+    track.style.transition = 'none';
+  }, {passive: true});
+  wrap.addEventListener('touchmove', function(e) {
+    track.style.transform = 'translateX(-' + (dragStartOffset + dragStartX - e.touches[0].clientX) + 'px)';
+  }, {passive: true});
+  wrap.addEventListener('touchend', function(e) {
+    var moved = Math.round((dragStartX - e.changedTouches[0].clientX) / cardW);
+    go(current + moved);
+  });
+})();
 </script>
 </body>
 </html>
