@@ -2136,6 +2136,7 @@ window.addEventListener('afterprint',  function() { swapCloudinaryParams(WEB_PAR
   var current = N;
   var cardW = 0;
   var paused = false;
+  var frozen = false; // modal open — hover events cannot override
   var isTransitioning = false;
   var isDragging = false;
   var dragStartX = 0;
@@ -2186,7 +2187,7 @@ window.addEventListener('afterprint',  function() { swapCloudinaryParams(WEB_PAR
 
   // Auto-advance
   setInterval(function() {
-    if (!paused && !isDragging && !isTransitioning) go(current + 1);
+    if (!paused && !frozen && !isDragging && !isTransitioning) go(current + 1);
   }, 3200);
 
   // Arrow buttons
@@ -2237,8 +2238,8 @@ window.addEventListener('afterprint',  function() { swapCloudinaryParams(WEB_PAR
 
   // Expose pause/resume for external callers (e.g. modals)
   window.leaderCarousel = {
-    pause:  function() { paused = true; },
-    resume: function() { paused = false; }
+    pause:  function() { frozen = true; },
+    resume: function() { frozen = false; }
   };
 })();
 </script>
