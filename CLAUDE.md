@@ -4,9 +4,10 @@
 Single-page website (`index.html`) for Fox Valley Forge SC, a youth soccer club. All styles and JS are inline in `index.html`. Images hosted on Cloudinary (`res.cloudinary.com/dsbllwpbh`).
 
 ## Key Files
-- `index.html` — main website (currently ~1891 lines)
+- `index.html` — main website (currently ~2100+ lines)
 - `fox-valley-forge-brand-guide.html` — brand guide (root level, NOT in /assets)
 - `pitch-deck.html` — sponsor pitch deck (slide-based, fullscreen, mobile-responsive as of Mar 5)
+- `assets/Fox Valley Forge Soccer Club Board Briefs.docx` — full bios for all 8 leaders
 - `generated_imgs/` — locally generated images (most now replaced with Cloudinary URLs)
 
 ## Git & Deployment
@@ -19,6 +20,34 @@ Single-page website (`index.html`) for Fox Valley Forge SC, a youth soccer club.
 - Crimson: `#A91335`
 - Gold: `#C5A059`
 - Home jersey: Navy with Gold trim
+
+## Where We Left Off (Mar 7, 2026)
+
+### Leadership Section (`#leadership` in index.html)
+- New section between **Our Story** and **Your Path**
+- 8 leader cards in a horizontal infinite carousel (3-set clone strategy)
+- **Officer cards** (navy): Mike Weyant (President), Jeff Dunaway (VP), Kathy Heitkemper (Secretary), Talia Jensen (Treasurer), Robert Kuhn (Board Member)
+- **Board member cards** (gold): Chad Ransom, Trevor Bauer, Trae Manny
+- Carousel: auto-advances every 3.2s, left/right arrows, drag/swipe, hover-pauses
+- `frozen` flag prevents `mouseleave` from resuming while modal is open
+- `window.leaderCarousel = { pause, resume }` exposed for external control
+- Footer "Learn More" column: `Leadership → #leadership`
+
+### Leader Bio Modal (`#modal-leader`)
+- Single dynamic modal, populated by `openLeaderModal(key)` from `leaderBios` JS object
+- Bios sourced from `assets/Fox Valley Forge Soccer Club Board Briefs.docx`
+- Card shows 1-sentence teaser + "Full bio →" button
+- Modal header: 120px circular photo + name + role IN the header bar
+- Header color matches card type: navy (`leader-head--officer`) or gold (`leader-head--board`)
+- All close paths (×, overlay click, ESC) call `closeLeaderModal()` which also resumes carousel
+
+### Intro Animation
+- Skip button always visible immediately (no delay)
+- Shows only once per calendar day via `localStorage` key `fvf_intro_seen`
+
+### Last git commit: `2f89e88` — Fix carousel continuing to scroll while leader modal is open
+
+---
 
 ## Where We Left Off (Mar 5, 2026)
 
