@@ -345,6 +345,15 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
 .leader-card p{font-size:.82rem;line-height:1.6;margin:0}
 .leader-card--officer p{color:rgba(255,255,255,.8)}
 .leader-card--board p{color:var(--navy)}
+.leader-bio-btn{display:inline-block;margin-top:14px;font-family:var(--font-h);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;border:none;background:transparent;cursor:pointer;padding:0;text-decoration:underline;text-underline-offset:3px}
+.leader-card--officer .leader-bio-btn{color:rgba(255,255,255,.55)}
+.leader-card--officer .leader-bio-btn:hover{color:#fff}
+.leader-card--board .leader-bio-btn{color:rgba(0,27,68,.55)}
+.leader-card--board .leader-bio-btn:hover{color:var(--navy)}
+.modal-leader-hd{display:flex;align-items:center;gap:20px;padding:24px 28px 0}
+.modal-leader-hd img{width:72px;height:72px;border-radius:50%;object-fit:cover;border:3px solid var(--gold);flex-shrink:0}
+.modal-leader-hd-info h3{font-size:1.15rem;font-weight:700;color:var(--navy);margin:0 0 4px}
+.modal-leader-hd-info p{font-family:var(--font-h);font-size:.72rem;letter-spacing:.13em;color:var(--crimson);text-transform:uppercase;margin:0}
 .carousel-btn{position:absolute;top:50%;transform:translateY(-50%);z-index:10;background:var(--navy);border:2px solid var(--gold);color:var(--gold);width:44px;height:44px;border-radius:50%;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 10px rgba(0,0,0,.2);transition:background .2s,color .2s;flex-shrink:0}
 .carousel-btn:hover{background:var(--gold);color:var(--navy)}
 .carousel-btn--prev{left:-22px}
@@ -907,49 +916,57 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
             <div class="leader-avatar"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1772032501/profilepic-linkedin-Michael-Weyant-gemini_uetjix.jpg" alt="Mike Weyant"></div>
             <h3>Mike Weyant</h3>
             <div class="leader-role">President</div>
-            <p>An experienced business and sales leader, Mike brings strategic leadership and a community-first mindset to the club's long-term vision.</p>
+            <p>A senior technology executive and current CUSC President, Mike brings Fortune 100 organizational leadership and a community-first mindset to building Fox Valley Forge.</p>
+            <button class="leader-bio-btn" onclick="openLeaderModal('mike-weyant')">Full bio →</button>
           </div>
           <div class="leader-card leader-card--officer">
             <div class="leader-avatar"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1772032486/profilepic-linkedin-Jeff-Dunaway-gemini_arrmvi.jpg" alt="Jeff Dunaway"></div>
             <h3>Jeff Dunaway</h3>
             <div class="leader-role">Vice President</div>
-            <p>CEO of Dunaway Brothers, Inc., Jeff brings operational leadership, deep local relationships, and a strong commitment to community impact.</p>
+            <p>Co-founder and 20-year CEO of Dunaway Brothers Inc., Jeff brings executive and athletic sector leadership with deep Fox Valley roots.</p>
+            <button class="leader-bio-btn" onclick="openLeaderModal('jeff-dunaway')">Full bio →</button>
           </div>
           <div class="leader-card leader-card--officer">
             <div class="leader-avatar"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1772032493/profilepic-linkedin-Katerina-Tsoukalas-Heitkemper-gemini_fa1sfe.jpg" alt="Kathy Heitkemper"></div>
             <h3>Kathy Heitkemper</h3>
             <div class="leader-role">Secretary</div>
-            <p>An attorney and law firm partner, Kathy brings structure, professionalism, and trusted governance oversight to the leadership team.</p>
+            <p>A 20+ year attorney representing hundreds of non-profit boards, Kathy pairs legal and governance expertise with 15 years as a soccer parent.</p>
+            <button class="leader-bio-btn" onclick="openLeaderModal('kathy-heitkemper')">Full bio →</button>
           </div>
           <div class="leader-card leader-card--officer">
             <div class="leader-avatar"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1772032513/profilepic-linkedin-Talia-Jensen-gemini_ecwezt.jpg" alt="Talia Jensen"></div>
             <h3>Talia Jensen</h3>
             <div class="leader-role">Treasurer</div>
-            <p>A CPA and accounting advisory professional, Talia ensures Fox Valley Forge SC is built on strong financial stewardship and accountability.</p>
+            <p>A CPA, CGMA, and former collegiate soccer player, Talia brings hands-on financial advisory expertise and a player's passion to the club's fiscal stewardship.</p>
+            <button class="leader-bio-btn" onclick="openLeaderModal('talia-jensen')">Full bio →</button>
           </div>
           <div class="leader-card leader-card--officer">
             <div class="leader-avatar"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1772032507/profilepic-linkedin-Robert-M-Kuhn-gemini_jwuouz.png" alt="Robert Kuhn"></div>
             <h3>Robert Kuhn</h3>
-            <div class="leader-role">Director of Partnership</div>
-            <p>A financial advisory and investment leader, Robert brings strategic relationship-building and long-term growth expertise to support the club's mission.</p>
+            <div class="leader-role">Board Member</div>
+            <p>Founder of Kuhn Capital Partners — advising nearly $200M in assets — Robert brings institutional-grade financial strategy and a passion for athletics to the board.</p>
+            <button class="leader-bio-btn" onclick="openLeaderModal('robert-kuhn')">Full bio →</button>
           </div>
           <div class="leader-card leader-card--board">
             <div class="leader-avatar"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1772205710/profile-linkedin-chad-ransom-gemini_aqfa4n.jpg" alt="Chad Ransom"></div>
             <h3>Chad Ransom</h3>
             <div class="leader-role">Board Member</div>
-            <p>A Senior Account Executive at RingCentral, Chad brings a relationship-driven, growth mindset and expertise in enterprise solutions to support the club's mission.</p>
+            <p>A lifelong Fox Valley soccer player who coached Strikers' high school boys program for 17 years, Chad now leads Strikers FVSC as President through the transition to Forge.</p>
+            <button class="leader-bio-btn" onclick="openLeaderModal('chad-ransom')">Full bio →</button>
           </div>
           <div class="leader-card leader-card--board">
             <div class="leader-avatar"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1772205957/profile-linkedin-trevor-b-gemini_a9umn3.jpg" alt="Trevor Bauer"></div>
             <h3>Trevor Bauer</h3>
             <div class="leader-role">Board Member</div>
-            <p>Lead Operations Director at DemandWorks Media, Trevor brings operational leadership and deep local Fox Valley ties to the board.</p>
+            <p>A former Strikers player, Aurora University alum, and decade-long club coach, Trevor brings a coach's eye and a parent's perspective to the board.</p>
+            <button class="leader-bio-btn" onclick="openLeaderModal('trevor-bauer')">Full bio →</button>
           </div>
           <div class="leader-card leader-card--board">
             <div class="leader-avatar"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1772205951/profile-linkedin-trae-manny-gemini_pj7ahw.jpg" alt="Trae Manny"></div>
             <h3>Trae Manny</h3>
             <div class="leader-role">Board Member</div>
-            <p>A sales leader at Stryker whose journey began in coaching, Trae brings a coach's perspective and strong community connection from Geneva to the board.</p>
+            <p>Born and raised in St. Charles, Trae played at U of L and returned to coach across the Fox Valley — a lifelong community member with four daughters already in the game.</p>
+            <button class="leader-bio-btn" onclick="openLeaderModal('trae-manny')">Full bio →</button>
           </div>
         </div>
       </div>
@@ -1739,6 +1756,24 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
   </div>
 </div>
 
+<!-- MODAL: LEADER BIO -->
+<div id="modal-leader" class="modal-overlay" role="dialog" aria-modal="true">
+  <div class="modal">
+    <div class="modal-head">
+      <h2 id="modal-leader-name"></h2>
+      <button class="modal-close" onclick="closeModal('modal-leader')" aria-label="Close">×</button>
+    </div>
+    <div class="modal-leader-hd">
+      <img id="modal-leader-photo" src="" alt="">
+      <div class="modal-leader-hd-info">
+        <h3 id="modal-leader-name2"></h3>
+        <p id="modal-leader-role"></p>
+      </div>
+    </div>
+    <div class="modal-body" id="modal-leader-body"></div>
+  </div>
+</div>
+
 <!-- ═══════════════════ JAVASCRIPT ═══════════════════ -->
 <script>
 // ── HIDDEN EVENTS ──
@@ -1750,6 +1785,70 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
     });
   }
 })();
+
+// ── LEADER BIOS ──
+var leaderBios = {
+  'mike-weyant': {
+    name: 'Mike Weyant',
+    role: 'President',
+    photo: 'https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1772032501/profilepic-linkedin-Michael-Weyant-gemini_uetjix.jpg',
+    bio: '<p>Mike serves as President of Fox Valley Forge SC and is the current President of Campton United Soccer Club (CUSC). A longtime Fox Valley resident, parent, and community leader, Mike has extensive experience building and leading high-performing organizations.</p><p>Professionally, Mike serves in senior leadership in the technology sector, working with large Fortune 100 organizations to design sustainable, long-term solutions that balance innovation, fiscal responsibility, and people-first culture.</p><p>Mike has been actively involved in youth sports as a player, parent, coach, volunteer, and board leader throughout his life. His most recent focus has been the stabilization and restructuring of CUSC while developing the community partnerships that laid the foundation for Fox Valley Forge.</p><p>Mike\'s leadership philosophy centers on setting clear expectations, accountability, consistency, and empowering individuals to achieve more than they believe they are capable of.</p>'
+  },
+  'jeff-dunaway': {
+    name: 'Jeff Dunaway',
+    role: 'Vice President',
+    photo: 'https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1772032486/profilepic-linkedin-Jeff-Dunaway-gemini_arrmvi.jpg',
+    bio: '<p>Jeff is a Fox Valley native, parent, and long-standing community leader with two decades of executive experience in the construction and athletic sectors. Born and raised in St. Charles, he graduated from St. Charles East High School in 2001, competed in collegiate baseball, and earned his Bachelor of Arts degree from Northern Illinois University in 2005.</p><p>Jeff co-founded Dunaway Brothers Inc., a construction contracting company he has led as CEO for 20 years. His leadership has built an operational structure that supports long-term stability, workforce development, and responsible project execution.</p><p>Jeff is deeply committed to youth athletics. He served as a board member of Batavia Wrestling Club (501c3) from 2015–2020, then as Vice President of St. Charles Wrestling Club from 2021–2024. In 2022 he co-founded State Champions Lady Saints Wrestling, a girls program built to expand opportunity and championship-level development for young female athletes.</p>'
+  },
+  'kathy-heitkemper': {
+    name: 'Kathy Heitkemper',
+    role: 'Secretary',
+    photo: 'https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1772032493/profilepic-linkedin-Katerina-Tsoukalas-Heitkemper-gemini_fa1sfe.jpg',
+    bio: '<p>Kathy serves as Secretary of Fox Valley Forge SC and has been a member of the CUSC Executive Committee for the past five years. As a 20+ year attorney by profession, she represents hundreds of non-profit corporation boards, guiding them through day-to-day business operations and ensuring legal compliance.</p><p>While Kathy may not have played soccer herself, her two sons — now 21 and 15 — both played with CUSC, giving her more than 15 years of experience as a soccer parent across multiple clubs. That lived experience, combined with her deep legal expertise in the non-profit sector, makes her an invaluable resource for ensuring Fox Valley Forge operates with integrity, transparency, and full legal compliance.</p>'
+  },
+  'talia-jensen': {
+    name: 'Talia Jensen, CPA, CGMA',
+    role: 'Treasurer',
+    photo: 'https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1772032513/profilepic-linkedin-Talia-Jensen-gemini_ecwezt.jpg',
+    bio: '<p>Talia serves as Treasurer of Fox Valley Forge SC and is the current Treasurer of Campton United Soccer Club. A CPA and CGMA, she is a former collegiate soccer player whose love for the game has carried forward through her children, who currently compete at CUSC.</p><p>As a Client Accounting Advisory professional, Talia has extensive experience in day-to-day bookkeeping, budgeting, financial forecasting, and strategic planning. She specializes in helping organizations streamline financial operations, optimize cash flow, and make data-driven decisions to drive long-term growth.</p><p>Her dual perspective — as a financial professional and a soccer parent — gives her a uniquely grounded view of what it takes to build a club that is both ambitious and fiscally responsible.</p>'
+  },
+  'robert-kuhn': {
+    name: 'Robert Kuhn',
+    role: 'Board Member',
+    photo: 'https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1772032507/profilepic-linkedin-Robert-M-Kuhn-gemini_jwuouz.png',
+    bio: '<p>Robert is a driven entrepreneur, investor, and financial strategist who has built a reputation for bringing institutional-grade solutions to individual investors. As President and Founder of Kuhn Capital Partners (KCP), Robert has overseen one of the fastest-growing independent Registered Investment Advisory firms in the region, guiding it through 10x growth over the past five years.</p><p>Today, KCP advises on nearly $200 million in assets on the custodial platform of Charles Schwab.</p><p>Outside of work, Robert is a member of Stonebridge Country Club, an avid golfer, and a passionate sports enthusiast — his daughter competes at Campton United. He brings to the board the same qualities that fuel his professional success: a belief in competition, camaraderie, and the discipline of athletics.</p>'
+  },
+  'chad-ransom': {
+    name: 'Chad Ransom',
+    role: 'Board Member',
+    photo: 'https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1772205710/profile-linkedin-chad-ransom-gemini_aqfa4n.jpg',
+    bio: '<p>Chad has recently taken on the role of President of the Strikers FVSC board of directors, guiding the club through its transition into Fox Valley Forge SC.</p><p>Chad\'s story with Fox Valley soccer goes back to age 10, when his family relocated from the Bay Area to St. Charles. He quickly joined Strikers and played for the club through U15, then moved to St. Charles Soccer Club (now CUSC) in high school to play alongside his teammates. After high school, he attended and played soccer at Gustavus Adolphus College.</p><p>Returning to the area after college, Chad joined the Strikers coaching staff and led the high school boys program for 17 years. He and his wife Sarah have two children currently in club soccer — a daughter who has played for both Strikers and CUSC, and a son on the U9 boys team at Strikers.</p>'
+  },
+  'trevor-bauer': {
+    name: 'Trevor Bauer',
+    role: 'Board Member',
+    photo: 'https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1772205957/profile-linkedin-trevor-b-gemini_a9umn3.jpg',
+    bio: '<p>Trevor serves as Vice President of the Strikers FVSC board and has a long history with the club. His connection to Strikers began as a player at age 15, playing up through the U-23 program while attending Aurora University, where he also played college soccer.</p><p>Trevor joined the Strikers coaching staff in 2012 and held that role for 10 years. When he and his wife Amy had their second child in 2022, Trevor stepped back from coaching to join the board as Vice President.</p><p>He has recently returned to coaching as his oldest child, Carter, has taken an interest in playing at Strikers — a full-circle moment that reflects exactly the kind of multi-generational community Fox Valley Forge is built to nurture.</p>'
+  },
+  'trae-manny': {
+    name: 'Trae Manny',
+    role: 'Board Member',
+    photo: 'https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1772205951/profile-linkedin-trae-manny-gemini_pj7ahw.jpg',
+    bio: '<p>Born and raised in St. Charles, Trae is a current Strikers FVSC board member with deep ties to the Fox Valley soccer community. Like many kids who grew up playing soccer here, Trae started with TCSA before making the jump to club soccer at Strikers, playing under Coach Pat Fuelner. He later played at Campton United to play alongside his high school teammates from St. Charles East.</p><p>After attending and playing soccer at the University of Louisville, Trae returned to the area and pursued a coaching career, working at Strikers and other clubs throughout Chicagoland.</p><p>Trae and his wife Jackie continue to live in the community and have four daughters under the age of 10 — two of whom have already begun their club soccer careers at Strikers. His perspective as a player, coach, and parent of future Forge players gives him a uniquely personal stake in getting this right.</p>'
+  }
+};
+
+function openLeaderModal(key) {
+  var data = leaderBios[key];
+  if (!data) return;
+  document.getElementById('modal-leader-name').textContent = data.name;
+  document.getElementById('modal-leader-name2').textContent = data.name;
+  document.getElementById('modal-leader-role').textContent = data.role;
+  document.getElementById('modal-leader-photo').src = data.photo;
+  document.getElementById('modal-leader-photo').alt = data.name;
+  document.getElementById('modal-leader-body').innerHTML = data.bio;
+  openModal('modal-leader');
+}
 
 // ── INTRO ANIMATION ──
 function startIntro() {
