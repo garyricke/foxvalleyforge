@@ -355,7 +355,7 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
 #modal-leader .modal-head.leader-head--board .modal-close{color:rgba(0,27,68,.55)}
 #modal-leader .modal-head.leader-head--board .modal-close:hover{color:var(--navy)}
 .modal-leader-hd-inner{display:flex;align-items:center;gap:20px;flex:1}
-.modal-leader-hd-inner img{width:90px;height:90px;border-radius:50%;object-fit:cover;flex-shrink:0}
+.modal-leader-hd-inner img{width:120px;height:120px;border-radius:50%;object-fit:cover;flex-shrink:0}
 .leader-head--officer .modal-leader-hd-inner img{border:3px solid var(--gold)}
 .leader-head--board .modal-leader-hd-inner img{border:3px solid var(--navy)}
 #modal-leader .modal-head h2{font-size:1.45rem;margin:0 0 6px;letter-spacing:.04em}
@@ -1776,7 +1776,7 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
           <p class="modal-leader-role-tag" id="modal-leader-role"></p>
         </div>
       </div>
-      <button class="modal-close" onclick="closeModal('modal-leader')" aria-label="Close">×</button>
+      <button class="modal-close" onclick="closeLeaderModal()" aria-label="Close">×</button>
     </div>
     <div class="modal-body" id="modal-leader-body"></div>
   </div>
@@ -1865,7 +1865,12 @@ function openLeaderModal(key) {
   document.getElementById('modal-leader-photo').src = data.photo;
   document.getElementById('modal-leader-photo').alt = data.name;
   document.getElementById('modal-leader-body').innerHTML = data.bio;
+  if (window.leaderCarousel) window.leaderCarousel.pause();
   openModal('modal-leader');
+}
+function closeLeaderModal() {
+  closeModal('modal-leader');
+  if (window.leaderCarousel) window.leaderCarousel.resume();
 }
 
 // ── INTRO ANIMATION ──
@@ -1991,13 +1996,17 @@ function closeModal(id) {
 // Close on overlay click
 document.querySelectorAll('.modal-overlay').forEach(overlay => {
   overlay.addEventListener('click', e => {
-    if (e.target === overlay) closeModal(overlay.id);
+    if (e.target === overlay) {
+      if (overlay.id === 'modal-leader') { closeLeaderModal(); } else { closeModal(overlay.id); }
+    }
   });
 });
 // ESC key
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') {
-    document.querySelectorAll('.modal-overlay.open').forEach(m => closeModal(m.id));
+    document.querySelectorAll('.modal-overlay.open').forEach(m => {
+      if (m.id === 'modal-leader') { closeLeaderModal(); } else { closeModal(m.id); }
+    });
   }
 });
 
@@ -2225,6 +2234,12 @@ window.addEventListener('afterprint',  function() { swapCloudinaryParams(WEB_PAR
     var moved = Math.round((dragStartX - e.changedTouches[0].clientX) / cardW);
     go(current + moved);
   });
+
+  // Expose pause/resume for external callers (e.g. modals)
+  window.leaderCarousel = {
+    pause:  function() { paused = true; },
+    resume: function() { paused = false; }
+  };
 })();
 </script>
 </body>
