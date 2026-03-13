@@ -9,6 +9,56 @@
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <style>
         /* ================================================================
+           PASSWORD GATE
+           ================================================================ */
+        #pw-gate {
+            position: fixed; inset: 0; z-index: 99999;
+            display: flex; align-items: center; justify-content: center;
+            background: #001B44;
+            font-family: 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif;
+        }
+        #pw-gate.unlocked { display: none; }
+        .pw-box {
+            background: #fff;
+            border-radius: 12px;
+            padding: 48px 40px 40px;
+            width: min(420px, 92vw);
+            text-align: center;
+            box-shadow: 0 24px 64px rgba(0,0,0,.45);
+        }
+        .pw-box img { height: 72px; margin-bottom: 28px; }
+        .pw-box h2 {
+            font-family: 'Oswald', 'Impact', sans-serif;
+            font-size: 1.5rem; font-weight: 700; letter-spacing: .05em;
+            color: #001B44; margin-bottom: 8px;
+        }
+        .pw-box p { font-size: .95rem; color: #555; margin-bottom: 28px; }
+        .pw-field {
+            width: 100%; padding: 12px 16px; font-size: 1.1rem;
+            border: 2px solid #ccd0da; border-radius: 8px;
+            outline: none; transition: border-color .2s;
+            font-family: inherit; letter-spacing: .12em;
+        }
+        .pw-field:focus { border-color: #C5A059; }
+        .pw-field.error { border-color: #A91335; }
+        .pw-error {
+            display: none; color: #A91335;
+            font-size: .88rem; margin-top: 10px; min-height: 1.2em;
+        }
+        .pw-error.visible { display: block; }
+        .pw-btn {
+            margin-top: 20px; width: 100%;
+            background: #001B44; color: #fff;
+            border: none; border-radius: 8px;
+            padding: 13px; font-size: 1rem; font-weight: 700;
+            letter-spacing: .1em; cursor: pointer;
+            font-family: 'Oswald', sans-serif;
+            transition: background .2s;
+        }
+        .pw-btn:hover { background: #C5A059; }
+    </style>
+    <style>
+        /* ================================================================
            CSS CUSTOM PROPERTIES
            ================================================================ */
         :root {
@@ -2047,6 +2097,72 @@
     <p>For brand questions, asset requests, or approval of new materials, contact the Director of Communications.</p>
     <p class="copyright">&copy; 2026 Fox Valley Forge SC. All rights reserved.<br>One Valley. One Club. One Pathway.</p>
 </footer>
+
+<!-- ================================================================
+     PASSWORD GATE OVERLAY
+     ================================================================ -->
+<div id="pw-gate" role="dialog" aria-modal="true" aria-label="Brand guide password">
+  <div class="pw-box">
+    <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/v1772573827/forge-logo-no-fox-valley-23jan2026_olh5tk.png" alt="Fox Valley Forge SC">
+    <h2>Brand Guide Access</h2>
+    <p>Enter the password to view the Fox Valley Forge brand guide.</p>
+    <form id="pw-form" autocomplete="off">
+      <input id="pw-input" class="pw-field" type="password"
+             placeholder="Password" aria-label="Password" autofocus>
+      <div id="pw-error" class="pw-error" aria-live="polite">Incorrect password — please try again.</div>
+      <button type="submit" class="pw-btn">ENTER</button>
+    </form>
+  </div>
+</div>
+
+<script>
+(function () {
+  /* SHA-256 hash of the access password (plaintext never stored here) */
+  var HASH = '8e484aece8ea37afd67cd15d4f13fb2ef4ca78b2f5d5904400aa4bb1a2aad3a3';
+  var SESSION_KEY = 'fvf_brand_unlocked';
+
+  function hexOf(buffer) {
+    return Array.from(new Uint8Array(buffer))
+      .map(function (b) { return b.toString(16).padStart(2, '0'); })
+      .join('');
+  }
+
+  function unlock() {
+    document.getElementById('pw-gate').classList.add('unlocked');
+    sessionStorage.setItem(SESSION_KEY, '1');
+  }
+
+  /* Already unlocked this session? Skip the gate immediately. */
+  if (sessionStorage.getItem(SESSION_KEY) === '1') {
+    document.getElementById('pw-gate').classList.add('unlocked');
+  }
+
+  document.getElementById('pw-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var input = document.getElementById('pw-input');
+    var errEl = document.getElementById('pw-error');
+    var val   = input.value;
+    var enc   = new TextEncoder().encode(val);
+
+    crypto.subtle.digest('SHA-256', enc).then(function (buf) {
+      if (hexOf(buf) === HASH) {
+        unlock();
+      } else {
+        input.classList.add('error');
+        errEl.classList.add('visible');
+        input.value = '';
+        input.focus();
+      }
+    });
+  });
+
+  /* Clear error state on new input */
+  document.getElementById('pw-input').addEventListener('input', function () {
+    this.classList.remove('error');
+    document.getElementById('pw-error').classList.remove('visible');
+  });
+})();
+</script>
 
 </body>
 </html>
