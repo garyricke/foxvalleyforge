@@ -369,7 +369,6 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
 .carousel-btn--prev{left:-22px}
 .carousel-btn--next{right:-22px}
 /* CLINICS */
-[data-hidden-clinics]{display:none}
 #clinics{background:#fff}
 .clinic-location-tag{font-family:var(--font-h);font-size:.72rem;letter-spacing:.1em;color:#999;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:5px}
 .clinic-location-tag a{color:inherit;text-decoration:underline;text-underline-offset:2px}
@@ -383,6 +382,8 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
 .clinic-slot-btn:hover{color:var(--navy)}
 .clinic-note{font-size:.78rem;color:#888;font-style:italic;margin-top:4px}
 #clinics .event-card-title{font-size:clamp(1.4rem,3vw,2rem)}
+.gender-btn{border:2px solid #ddd;border-radius:8px;padding:12px;text-align:center;font-family:var(--font-h);font-size:1.1rem;letter-spacing:.06em;color:#666;transition:all .2s;background:#fff;user-select:none}
+.gender-btn.selected{border-color:var(--navy);background:var(--navy);color:#fff}
 </style>
 </head>
 <body>
@@ -429,18 +430,20 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
 </form>
 <form name="clinic-register" data-netlify="true" hidden>
   <input type="hidden" name="form-name" value="clinic-register">
-  <select name="session"><option value=""></option></select>
+  <input type="hidden" name="gender">
+  <input type="hidden" name="age-group">
+  <input type="hidden" name="sessions-registered">
   <input type="text" name="player-first-name">
   <input type="text" name="player-last-name">
   <input type="date" name="player-birthdate">
   <input type="text" name="current-club">
   <input type="text" name="positions">
-  <input type="text" name="hs-grad-year">
   <input type="text" name="years-experience">
   <input type="text" name="emergency-contact-name">
   <input type="tel" name="emergency-contact-phone">
   <input type="email" name="emergency-contact-email">
   <textarea name="allergies-conditions"></textarea>
+  <input type="checkbox" name="waiver-accepted" value="Accepted">
 </form>
 
 <!-- NAV -->
@@ -533,6 +536,150 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
         <p>Character, academics, leadership, and mental resilience alongside performance. Multi-sport tolerance. Flexible expectations for real families.</p>
         <span class="link-more" onclick="openModal('modal-philosophy')">Deep Dive</span>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLINICS -->
+<section id="clinics">
+  <div class="section-inner">
+    <p class="section-label fade-in">Free — Open to All Players</p>
+    <h2 class="section-title fade-in">ID Sessions &amp; Open House Days</h2>
+    <p class="section-sub fade-in">Experience Forge firsthand — coached sessions led by our professional staff in a relaxed, low-pressure environment. Come meet our coaches, explore our facilities, and see if our program is the right fit for your player. <strong>Free to attend. Pre-registration required.</strong></p>
+    <div class="events-grid">
+
+      <!-- GIRLS DAY 1 -->
+      <div class="event-card fade-in">
+        <div class="event-card-img" style="background-image:url('generated_imgs/generated-2026-03-12T11-40-13-953Z-9bnffh.png')">
+          <div class="event-eyebrow">ID Session · Day 1: Girls</div>
+          <h3 class="event-card-title">Day 1: Girls</h3>
+          <div class="event-card-date">Saturday, March 21st</div>
+        </div>
+        <div class="event-card-body">
+          <div>
+            <p class="clinic-location-tag"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Forge West · <a href="https://www.google.com/maps/search/?api=1&query=3N800+Peck+Rd+Saint+Charles+IL+60174" target="_blank" rel="noopener">3N800 Peck Rd, St. Charles</a></p>
+            <h4>Sessions</h4>
+            <div class="clinic-slots">
+              <div class="clinic-slot">
+                <span class="clinic-slot-time">3:00–4:00pm</span>
+                <span class="clinic-slot-ages">U8, U9, U10</span>
+                <button class="clinic-slot-btn" onclick="openClinicRegister('Day 1: Girls — Sat. Mar 21 | 3:00–4:00pm (U8, U9, U10)')">Register →</button>
+              </div>
+              <div class="clinic-slot">
+                <span class="clinic-slot-time">4:15–5:15pm</span>
+                <span class="clinic-slot-ages">U11, U12</span>
+                <button class="clinic-slot-btn" onclick="openClinicRegister('Day 1: Girls — Sat. Mar 21 | 4:15–5:15pm (U11, U12)')">Register →</button>
+              </div>
+              <div class="clinic-slot">
+                <span class="clinic-slot-time">5:30–6:30pm</span>
+                <span class="clinic-slot-ages">U13, U14</span>
+                <button class="clinic-slot-btn" onclick="openClinicRegister('Day 1: Girls — Sat. Mar 21 | 5:30–6:30pm (U13, U14)')">Register →</button>
+              </div>
+            </div>
+          </div>
+          <p class="clinic-note">Pre-registration required. Free to all players — members and non-members welcome.</p>
+        </div>
+      </div>
+
+      <!-- BOYS DAY 2 -->
+      <div class="event-card fade-in">
+        <div class="event-card-img" style="background-image:url('generated_imgs/generated-2026-03-12T11-40-44-801Z-84wkx8.png')">
+          <div class="event-eyebrow">ID Session · Day 2: Boys</div>
+          <h3 class="event-card-title">Day 2: Boys</h3>
+          <div class="event-card-date">Thursday, March 26th</div>
+        </div>
+        <div class="event-card-body">
+          <div>
+            <p class="clinic-location-tag"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Forge West · <a href="https://www.google.com/maps/search/?api=1&query=3N800+Peck+Rd+Saint+Charles+IL+60174" target="_blank" rel="noopener">3N800 Peck Rd, St. Charles</a></p>
+            <h4>Sessions</h4>
+            <div class="clinic-slots">
+              <div class="clinic-slot">
+                <span class="clinic-slot-time">4:30–5:30pm</span>
+                <span class="clinic-slot-ages">U8, U9, U10</span>
+                <button class="clinic-slot-btn" onclick="openClinicRegister('Day 2: Boys — Thu. Mar 26 | 4:30–5:30pm (U8, U9, U10)')">Register →</button>
+              </div>
+              <div class="clinic-slot">
+                <span class="clinic-slot-time">5:45–6:45pm</span>
+                <span class="clinic-slot-ages">U11, U12</span>
+                <button class="clinic-slot-btn" onclick="openClinicRegister('Day 2: Boys — Thu. Mar 26 | 5:45–6:45pm (U11, U12)')">Register →</button>
+              </div>
+              <div class="clinic-slot">
+                <span class="clinic-slot-time">7:00–8:00pm</span>
+                <span class="clinic-slot-ages">U13, U14</span>
+                <button class="clinic-slot-btn" onclick="openClinicRegister('Day 2: Boys — Thu. Mar 26 | 7:00–8:00pm (U13, U14)')">Register →</button>
+              </div>
+            </div>
+          </div>
+          <p class="clinic-note">Pre-registration required. Free to all players — members and non-members welcome.</p>
+        </div>
+      </div>
+
+      <!-- GIRLS DAY 3 -->
+      <div class="event-card fade-in">
+        <div class="event-card-img" style="background-image:url('generated_imgs/generated-2026-03-12T11-40-13-953Z-9bnffh.png')">
+          <div class="event-eyebrow">ID Session · Day 3: Girls</div>
+          <h3 class="event-card-title">Day 3: Girls</h3>
+          <div class="event-card-date">Saturday, April 4th</div>
+        </div>
+        <div class="event-card-body">
+          <div>
+            <p class="clinic-location-tag"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Forge East · <a href="https://www.google.com/maps/search/?api=1&query=1000+S+Kirk+Rd+Geneva+IL+60134" target="_blank" rel="noopener">1000 S Kirk Rd, Geneva</a></p>
+            <h4>Sessions</h4>
+            <div class="clinic-slots">
+              <div class="clinic-slot">
+                <span class="clinic-slot-time">3:00–4:00pm</span>
+                <span class="clinic-slot-ages">U8, U9, U10</span>
+                <button class="clinic-slot-btn" onclick="openClinicRegister('Day 3: Girls — Sat. Apr 4 | 3:00–4:00pm (U8, U9, U10)')">Register →</button>
+              </div>
+              <div class="clinic-slot">
+                <span class="clinic-slot-time">4:15–5:15pm</span>
+                <span class="clinic-slot-ages">U11, U12</span>
+                <button class="clinic-slot-btn" onclick="openClinicRegister('Day 3: Girls — Sat. Apr 4 | 4:15–5:15pm (U11, U12)')">Register →</button>
+              </div>
+              <div class="clinic-slot">
+                <span class="clinic-slot-time">5:30–6:30pm</span>
+                <span class="clinic-slot-ages">U13, U14</span>
+                <button class="clinic-slot-btn" onclick="openClinicRegister('Day 3: Girls — Sat. Apr 4 | 5:30–6:30pm (U13, U14)')">Register →</button>
+              </div>
+            </div>
+          </div>
+          <p class="clinic-note">Pre-registration required. Free to all players — members and non-members welcome.</p>
+        </div>
+      </div>
+
+      <!-- BOYS DAY 4 -->
+      <div class="event-card fade-in">
+        <div class="event-card-img" style="background-image:url('generated_imgs/generated-2026-03-12T11-40-44-801Z-84wkx8.png')">
+          <div class="event-eyebrow">ID Session · Day 4: Boys</div>
+          <h3 class="event-card-title">Day 4: Boys</h3>
+          <div class="event-card-date">Friday, April 10th</div>
+        </div>
+        <div class="event-card-body">
+          <div>
+            <p class="clinic-location-tag"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Forge West · <a href="https://www.google.com/maps/search/?api=1&query=3N800+Peck+Rd+Saint+Charles+IL+60174" target="_blank" rel="noopener">3N800 Peck Rd, St. Charles</a></p>
+            <h4>Sessions</h4>
+            <div class="clinic-slots">
+              <div class="clinic-slot">
+                <span class="clinic-slot-time">4:30–5:30pm</span>
+                <span class="clinic-slot-ages">U8, U9, U10</span>
+                <button class="clinic-slot-btn" onclick="openClinicRegister('Day 4: Boys — Fri. Apr 10 | 4:30–5:30pm (U8, U9, U10)')">Register →</button>
+              </div>
+              <div class="clinic-slot">
+                <span class="clinic-slot-time">5:45–6:45pm</span>
+                <span class="clinic-slot-ages">U11, U12</span>
+                <button class="clinic-slot-btn" onclick="openClinicRegister('Day 4: Boys — Fri. Apr 10 | 5:45–6:45pm (U11, U12)')">Register →</button>
+              </div>
+              <div class="clinic-slot">
+                <span class="clinic-slot-time">7:00–8:00pm</span>
+                <span class="clinic-slot-ages">U13, U14</span>
+                <button class="clinic-slot-btn" onclick="openClinicRegister('Day 4: Boys — Fri. Apr 10 | 7:00–8:00pm (U13, U14)')">Register →</button>
+              </div>
+            </div>
+          </div>
+          <p class="clinic-note">Pre-registration required. Free to all players — members and non-members welcome.</p>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -788,55 +935,71 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
         </div>
       </div>
 
-      <div class="event-card fade-in" data-hidden-event>
+      <div class="event-card fade-in">
         <div class="event-card-img" style="background-image:url('https://res.cloudinary.com/dsbllwpbh/image/upload/v1772211945/open-gyms_jtvx1c.jpg')">
-          <div class="event-eyebrow">Free Play</div>
+          <div class="event-eyebrow">Free ID Session</div>
           <h3 class="event-card-title">March ID Sessions</h3>
-          <div class="event-card-date">Dates Coming Soon</div>
+          <div class="event-card-date">March 21 &amp; 26</div>
         </div>
         <div class="event-card-body">
           <div>
             <h4>About the Event</h4>
-            <p>Hit the turf on your own schedule. March ID Sessions give players free, unstructured time on the indoor field to play, practice, and develop at their own pace.</p>
+            <p>We're excited to welcome new players and families to our <strong>Fox Valley Forge Identification and Open House Days</strong>! Designed for players interested in experiencing our program for the first time in an engaging, professional, and low-pressure environment.</p>
           </div>
           <div>
-            <h4>What to Expect</h4>
+            <h4>What Players Can Expect</h4>
             <ul class="event-activities">
-              <li>Open to all registered players</li>
-              <li>Drop-in format — no reservation required</li>
-              <li>Full indoor turf access</li>
-              <li>Coaches present to guide and encourage</li>
+              <li>Age-appropriate training led by our coaching staff</li>
+              <li>Technical activities, small-sided games, and a match phase</li>
+              <li>Opportunities to meet coaches and current players</li>
+              <li>A chance to showcase abilities — not a formal tryout</li>
             </ul>
           </div>
-          <p class="event-coming-soon">Specific dates TBD — check back soon for the schedule!</p>
+          <div>
+            <h4>What Families Can Expect</h4>
+            <ul class="event-activities">
+              <li>Open house access to our new facilities</li>
+              <li>Time to meet coaches and program leadership</li>
+              <li>Information about teams, training, and player pathways</li>
+            </ul>
+          </div>
+          <button class="btn btn-navy" style="margin-top:8px" onclick="openModal('modal-clinic-register')">Reserve a Spot →</button>
         </div>
       </div>
 
-      <div class="event-card fade-in" data-hidden-event>
+      <div class="event-card fade-in">
         <div class="event-card-img" style="background-image:url('https://res.cloudinary.com/dsbllwpbh/image/upload/v1772211945/open-gyms_jtvx1c.jpg')">
-          <div class="event-eyebrow">Free Play</div>
+          <div class="event-eyebrow">Free ID Session</div>
           <h3 class="event-card-title">April ID Sessions</h3>
-          <div class="event-card-date">Dates Coming Soon</div>
+          <div class="event-card-date">April 4 &amp; 10</div>
         </div>
         <div class="event-card-body">
           <div>
             <h4>About the Event</h4>
-            <p>Spring is here and the doors are open. April ID Sessions are a great way to stay sharp, build confidence, and connect with teammates before the summer season kicks off.</p>
+            <p>We're excited to welcome new players and families to our <strong>Fox Valley Forge Identification and Open House Days</strong>! Designed for players interested in experiencing our program for the first time in an engaging, professional, and low-pressure environment.</p>
           </div>
           <div>
-            <h4>What to Expect</h4>
+            <h4>What Players Can Expect</h4>
             <ul class="event-activities">
-              <li>Open to all registered players</li>
-              <li>Drop-in format — no reservation required</li>
-              <li>Full indoor turf access</li>
-              <li>Coaches present to guide and encourage</li>
+              <li>Age-appropriate training led by our coaching staff</li>
+              <li>Technical activities, small-sided games, and a match phase</li>
+              <li>Opportunities to meet coaches and current players</li>
+              <li>A chance to showcase abilities — not a formal tryout</li>
             </ul>
           </div>
-          <p class="event-coming-soon">Specific dates TBD — check back soon for the schedule!</p>
+          <div>
+            <h4>What Families Can Expect</h4>
+            <ul class="event-activities">
+              <li>Open house access to our new facilities</li>
+              <li>Time to meet coaches and program leadership</li>
+              <li>Information about teams, training, and player pathways</li>
+            </ul>
+          </div>
+          <button class="btn btn-navy" style="margin-top:8px" onclick="openModal('modal-clinic-register')">Reserve a Spot →</button>
         </div>
       </div>
 
-      <div class="event-card fade-in" data-hidden-event>
+      <div class="event-card fade-in">
         <div class="event-card-img" style="background-image:url('https://res.cloudinary.com/dsbllwpbh/image/upload/v1772211945/team-tryouts_v47xti.jpg')">
           <div class="event-eyebrow">Join the Team</div>
           <h3 class="event-card-title">Team Selections &amp; Tryouts</h3>
@@ -845,22 +1008,22 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
         <div class="event-card-body">
           <div>
             <h4>About the Event</h4>
-            <p>Your chance to earn a spot on a Fox Valley Forge SC team. Our evaluation process is fair, supportive, and designed to find the right fit for every player across all age groups.</p>
+            <p>Your chance to earn a spot on a Fox Valley Forge SC team. Our evaluation process is professional, supportive, and designed to find the right fit for every player across all age groups.</p>
           </div>
           <div>
             <h4>What to Expect</h4>
             <ul class="event-activities">
               <li>Skill evaluations by certified coaches</li>
-              <li>Position-specific training assessments</li>
-              <li>Small-sided game evaluation</li>
+              <li>Decision Making &amp; Character trait assessments</li>
+              <li>Small-sided &amp; full-format game evaluations</li>
               <li>Placement across all age groups and levels</li>
             </ul>
           </div>
-          <p class="event-coming-soon">Registration details coming soon — all skill levels welcome!</p>
+          <p class="event-coming-soon">Sprocket registration coming soon — all skill levels welcome!</p>
         </div>
       </div>
 
-      <div class="event-card fade-in" data-hidden-event>
+      <div class="event-card fade-in">
         <div class="event-card-img" style="background-image:url('https://res.cloudinary.com/dsbllwpbh/image/upload/v1772211945/3v3-tournament_oc6m62.jpg')">
           <div class="event-eyebrow">Summer Competition</div>
           <h3 class="event-card-title">3v3 Live Tournament</h3>
@@ -869,7 +1032,7 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
         <div class="event-card-body">
           <div>
             <h4>About the Event</h4>
-            <p>Fast, fun, and competitive — our 3v3 Live Tournament is one of the most exciting events of the summer. Small-sided soccer at its best, open to all ages.</p>
+            <p>Fast, fun, and competitive — our 3v3 Live Tournament is one of the most exciting events of the summer. Small-sided soccer at its best! Open to all ages.</p>
           </div>
           <div>
             <h4>What to Expect</h4>
@@ -880,7 +1043,7 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
               <li>Prizes and recognition for top finishers</li>
             </ul>
           </div>
-          <p class="event-coming-soon">Team registration opening soon — start building your squad!</p>
+          <p class="event-coming-soon">Sprocket registration coming soon — start building your squad!</p>
         </div>
       </div>
 
@@ -907,150 +1070,6 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
           <p class="event-coming-soon">Team rosters and travel details coming soon — get ready!</p>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- CLINICS -->
-<section id="clinics" data-hidden-clinics>
-  <div class="section-inner">
-    <p class="section-label fade-in">Free ID Sessions</p>
-    <h2 class="section-title fade-in">Forge Clinics — Free to Attend</h2>
-    <p class="section-sub fade-in">Open to all players, members and non-members alike. Come experience Forge firsthand — coached sessions, real training, zero commitment required. <strong>Pre-registration required.</strong></p>
-    <div class="events-grid">
-
-      <!-- GIRLS DAY 1 -->
-      <div class="event-card fade-in">
-        <div class="event-card-img" style="background-image:url('generated_imgs/generated-2026-03-12T11-40-13-953Z-9bnffh.png')">
-          <div class="event-eyebrow">Girls ID Clinic · Day 1</div>
-          <h3 class="event-card-title">Girls Day 1</h3>
-          <div class="event-card-date">Saturday, March 21st</div>
-        </div>
-        <div class="event-card-body">
-          <div>
-            <p class="clinic-location-tag"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Forge West · <a href="https://www.google.com/maps/search/?api=1&query=3N800+Peck+Rd+Saint+Charles+IL+60174" target="_blank" rel="noopener">3N800 Peck Rd, St. Charles</a></p>
-            <h4>Sessions</h4>
-            <div class="clinic-slots">
-              <div class="clinic-slot">
-                <span class="clinic-slot-time">3:00–4:00pm</span>
-                <span class="clinic-slot-ages">U8, U9, U10</span>
-                <button class="clinic-slot-btn" onclick="openClinicRegister('Girls Day 1 — Sat. Mar 21 | 3:00–4:00pm (U8, U9, U10)')">Register →</button>
-              </div>
-              <div class="clinic-slot">
-                <span class="clinic-slot-time">4:15–5:15pm</span>
-                <span class="clinic-slot-ages">U11, U12</span>
-                <button class="clinic-slot-btn" onclick="openClinicRegister('Girls Day 1 — Sat. Mar 21 | 4:15–5:15pm (U11, U12)')">Register →</button>
-              </div>
-              <div class="clinic-slot">
-                <span class="clinic-slot-time">5:30–6:30pm</span>
-                <span class="clinic-slot-ages">U13, U14</span>
-                <button class="clinic-slot-btn" onclick="openClinicRegister('Girls Day 1 — Sat. Mar 21 | 5:30–6:30pm (U13, U14)')">Register →</button>
-              </div>
-            </div>
-          </div>
-          <p class="clinic-note">Pre-registration required. Free to all players — members and non-members welcome.</p>
-        </div>
-      </div>
-
-      <!-- BOYS DAY 1 -->
-      <div class="event-card fade-in">
-        <div class="event-card-img" style="background-image:url('generated_imgs/generated-2026-03-12T11-40-44-801Z-84wkx8.png')">
-          <div class="event-eyebrow">Boys ID Clinic · Day 1</div>
-          <h3 class="event-card-title">Boys Day 1</h3>
-          <div class="event-card-date">Thursday, March 26th</div>
-        </div>
-        <div class="event-card-body">
-          <div>
-            <p class="clinic-location-tag"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Forge West · <a href="https://www.google.com/maps/search/?api=1&query=3N800+Peck+Rd+Saint+Charles+IL+60174" target="_blank" rel="noopener">3N800 Peck Rd, St. Charles</a></p>
-            <h4>Sessions</h4>
-            <div class="clinic-slots">
-              <div class="clinic-slot">
-                <span class="clinic-slot-time">4:30–5:30pm</span>
-                <span class="clinic-slot-ages">U8, U9, U10</span>
-                <button class="clinic-slot-btn" onclick="openClinicRegister('Boys Day 1 — Thu. Mar 26 | 4:30–5:30pm (U8, U9, U10)')">Register →</button>
-              </div>
-              <div class="clinic-slot">
-                <span class="clinic-slot-time">5:45–6:45pm</span>
-                <span class="clinic-slot-ages">U11, U12</span>
-                <button class="clinic-slot-btn" onclick="openClinicRegister('Boys Day 1 — Thu. Mar 26 | 5:45–6:45pm (U11, U12)')">Register →</button>
-              </div>
-              <div class="clinic-slot">
-                <span class="clinic-slot-time">7:00–8:00pm</span>
-                <span class="clinic-slot-ages">U13, U14</span>
-                <button class="clinic-slot-btn" onclick="openClinicRegister('Boys Day 1 — Thu. Mar 26 | 7:00–8:00pm (U13, U14)')">Register →</button>
-              </div>
-            </div>
-          </div>
-          <p class="clinic-note">Pre-registration required. Free to all players — members and non-members welcome.</p>
-        </div>
-      </div>
-
-      <!-- GIRLS DAY 2 -->
-      <div class="event-card fade-in">
-        <div class="event-card-img" style="background-image:url('generated_imgs/generated-2026-03-12T11-40-13-953Z-9bnffh.png')">
-          <div class="event-eyebrow">Girls ID Clinic · Day 2</div>
-          <h3 class="event-card-title">Girls Day 2</h3>
-          <div class="event-card-date">Saturday, April 4th</div>
-        </div>
-        <div class="event-card-body">
-          <div>
-            <p class="clinic-location-tag"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Forge East · <a href="https://www.google.com/maps/search/?api=1&query=1000+S+Kirk+Rd+Geneva+IL+60134" target="_blank" rel="noopener">1000 S Kirk Rd, Geneva</a></p>
-            <h4>Sessions</h4>
-            <div class="clinic-slots">
-              <div class="clinic-slot">
-                <span class="clinic-slot-time">3:00–4:00pm</span>
-                <span class="clinic-slot-ages">U8, U9, U10</span>
-                <button class="clinic-slot-btn" onclick="openClinicRegister('Girls Day 2 — Sat. Apr 4 | 3:00–4:00pm (U8, U9, U10)')">Register →</button>
-              </div>
-              <div class="clinic-slot">
-                <span class="clinic-slot-time">4:15–5:15pm</span>
-                <span class="clinic-slot-ages">U11, U12</span>
-                <button class="clinic-slot-btn" onclick="openClinicRegister('Girls Day 2 — Sat. Apr 4 | 4:15–5:15pm (U11, U12)')">Register →</button>
-              </div>
-              <div class="clinic-slot">
-                <span class="clinic-slot-time">5:30–6:30pm</span>
-                <span class="clinic-slot-ages">U13, U14</span>
-                <button class="clinic-slot-btn" onclick="openClinicRegister('Girls Day 2 — Sat. Apr 4 | 5:30–6:30pm (U13, U14)')">Register →</button>
-              </div>
-            </div>
-          </div>
-          <p class="clinic-note">Pre-registration required. Free to all players — members and non-members welcome.</p>
-        </div>
-      </div>
-
-      <!-- BOYS DAY 2 -->
-      <div class="event-card fade-in">
-        <div class="event-card-img" style="background-image:url('generated_imgs/generated-2026-03-12T11-40-44-801Z-84wkx8.png')">
-          <div class="event-eyebrow">Boys ID Clinic · Day 2</div>
-          <h3 class="event-card-title">Boys Day 2</h3>
-          <div class="event-card-date">Friday, April 10th</div>
-        </div>
-        <div class="event-card-body">
-          <div>
-            <p class="clinic-location-tag"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Forge West · <a href="https://www.google.com/maps/search/?api=1&query=3N800+Peck+Rd+Saint+Charles+IL+60174" target="_blank" rel="noopener">3N800 Peck Rd, St. Charles</a></p>
-            <h4>Sessions</h4>
-            <div class="clinic-slots">
-              <div class="clinic-slot">
-                <span class="clinic-slot-time">4:30–5:30pm</span>
-                <span class="clinic-slot-ages">U8, U9, U10</span>
-                <button class="clinic-slot-btn" onclick="openClinicRegister('Boys Day 2 — Fri. Apr 10 | 4:30–5:30pm (U8, U9, U10)')">Register →</button>
-              </div>
-              <div class="clinic-slot">
-                <span class="clinic-slot-time">5:45–6:45pm</span>
-                <span class="clinic-slot-ages">U11, U12</span>
-                <button class="clinic-slot-btn" onclick="openClinicRegister('Boys Day 2 — Fri. Apr 10 | 5:45–6:45pm (U11, U12)')">Register →</button>
-              </div>
-              <div class="clinic-slot">
-                <span class="clinic-slot-time">7:00–8:00pm</span>
-                <span class="clinic-slot-ages">U13, U14</span>
-                <button class="clinic-slot-btn" onclick="openClinicRegister('Boys Day 2 — Fri. Apr 10 | 7:00–8:00pm (U13, U14)')">Register →</button>
-              </div>
-            </div>
-          </div>
-          <p class="clinic-note">Pre-registration required. Free to all players — members and non-members welcome.</p>
-        </div>
-      </div>
-
     </div>
   </div>
 </section>
@@ -2022,40 +2041,31 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
       <button class="modal-close" onclick="closeModal('modal-clinic-register')" aria-label="Close">×</button>
     </div>
     <div class="modal-body" id="clinic-register-wrap">
-      <p style="color:#555;margin-bottom:4px">Complete this form to reserve your player's spot. All fields marked * are required.</p>
+      <p style="color:#555;margin-bottom:16px">Register your player for one or both ID sessions. Based on their birthday, we'll automatically match them to the right age group and time slot.</p>
+
+      <!-- STEP 1: GENDER -->
+      <div class="reg-field">
+        <label style="font-weight:700;color:var(--navy)">Step 1 — Is your player a girl or a boy? *</label>
+        <div style="display:flex;gap:12px;margin-top:8px">
+          <label style="flex:1;cursor:pointer">
+            <input type="radio" name="clinic-gender-pick" value="Girl" id="gender-girl" style="display:none" onchange="clinicGenderChange()">
+            <div class="gender-btn" id="gender-btn-girl">&#9792; Girl</div>
+          </label>
+          <label style="flex:1;cursor:pointer">
+            <input type="radio" name="clinic-gender-pick" value="Boy" id="gender-boy" style="display:none" onchange="clinicGenderChange()">
+            <div class="gender-btn" id="gender-btn-boy">&#9794; Boy</div>
+          </label>
+        </div>
+      </div>
+
       <form name="clinic-register" method="POST" data-netlify="true" id="clinic-register-form" class="reg-form">
         <input type="hidden" name="form-name" value="clinic-register">
-
-        <!-- SESSION -->
-        <div class="reg-field">
-          <label for="clinic-session">Session *</label>
-          <select id="clinic-session" name="session" required>
-            <option value="">Select your session…</option>
-            <optgroup label="Girls Day 1 — Saturday, March 21st (Forge West)">
-              <option value="Girls Day 1 — Sat. Mar 21 | 3:00–4:00pm (U8, U9, U10)">3:00–4:00pm — U8, U9, U10</option>
-              <option value="Girls Day 1 — Sat. Mar 21 | 4:15–5:15pm (U11, U12)">4:15–5:15pm — U11, U12</option>
-              <option value="Girls Day 1 — Sat. Mar 21 | 5:30–6:30pm (U13, U14)">5:30–6:30pm — U13, U14</option>
-            </optgroup>
-            <optgroup label="Boys Day 1 — Thursday, March 26th (Forge West)">
-              <option value="Boys Day 1 — Thu. Mar 26 | 4:30–5:30pm (U8, U9, U10)">4:30–5:30pm — U8, U9, U10</option>
-              <option value="Boys Day 1 — Thu. Mar 26 | 5:45–6:45pm (U11, U12)">5:45–6:45pm — U11, U12</option>
-              <option value="Boys Day 1 — Thu. Mar 26 | 7:00–8:00pm (U13, U14)">7:00–8:00pm — U13, U14</option>
-            </optgroup>
-            <optgroup label="Girls Day 2 — Saturday, April 4th (Forge East)">
-              <option value="Girls Day 2 — Sat. Apr 4 | 3:00–4:00pm (U8, U9, U10)">3:00–4:00pm — U8, U9, U10</option>
-              <option value="Girls Day 2 — Sat. Apr 4 | 4:15–5:15pm (U11, U12)">4:15–5:15pm — U11, U12</option>
-              <option value="Girls Day 2 — Sat. Apr 4 | 5:30–6:30pm (U13, U14)">5:30–6:30pm — U13, U14</option>
-            </optgroup>
-            <optgroup label="Boys Day 2 — Friday, April 10th (Forge West)">
-              <option value="Boys Day 2 — Fri. Apr 10 | 4:30–5:30pm (U8, U9, U10)">4:30–5:30pm — U8, U9, U10</option>
-              <option value="Boys Day 2 — Fri. Apr 10 | 5:45–6:45pm (U11, U12)">5:45–6:45pm — U11, U12</option>
-              <option value="Boys Day 2 — Fri. Apr 10 | 7:00–8:00pm (U13, U14)">7:00–8:00pm — U13, U14</option>
-            </optgroup>
-          </select>
-        </div>
+        <input type="hidden" id="clinic-gender-hidden" name="gender" value="">
+        <input type="hidden" id="clinic-agegroup-hidden" name="age-group" value="">
+        <input type="hidden" id="clinic-sessions-hidden" name="sessions-registered" value="">
 
         <!-- PLAYER INFO -->
-        <h3 style="font-family:var(--font-h);font-size:.8rem;letter-spacing:.14em;color:var(--crimson);margin:8px 0 0;text-transform:uppercase">Player Information</h3>
+        <h3 style="font-family:var(--font-h);font-size:.8rem;letter-spacing:.14em;color:var(--crimson);margin:16px 0 8px;text-transform:uppercase">Step 2 — Player Information</h3>
         <div class="reg-row">
           <div class="reg-field">
             <label for="clinic-pfirst">Player First Name *</label>
@@ -2068,25 +2078,24 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
         </div>
         <div class="reg-row">
           <div class="reg-field">
-            <label for="clinic-dob">Date of Birth *</label>
-            <input type="date" id="clinic-dob" name="player-birthdate" required>
+            <label for="clinic-dob">Date of Birth * <span style="font-weight:400;color:#888;font-size:.85em">(used to assign age group)</span></label>
+            <input type="date" id="clinic-dob" name="player-birthdate" required onchange="clinicDobChange()">
           </div>
-          <div class="reg-field">
-            <label for="clinic-grad">HS Graduation Year</label>
-            <select id="clinic-grad" name="hs-grad-year">
-              <option value="">Select year…</option>
-              <option>2025</option><option>2026</option><option>2027</option><option>2028</option>
-              <option>2029</option><option>2030</option><option>2031</option><option>2032</option>
-              <option>2033</option><option>2034</option><option>2035</option><option>2036</option>
-              <option>N/A</option>
-            </select>
-          </div>
-        </div>
-        <div class="reg-row">
           <div class="reg-field">
             <label for="clinic-club">Current Club</label>
             <input type="text" id="clinic-club" name="current-club" placeholder="Club name or 'None'">
           </div>
+        </div>
+
+        <!-- AGE GROUP RESULT -->
+        <div id="clinic-age-result" style="display:none;background:var(--gold-light,#F8F3EA);border-left:4px solid var(--gold);border-radius:6px;padding:14px 16px;margin:8px 0 16px">
+          <p style="font-family:var(--font-h);font-size:.85rem;letter-spacing:.08em;color:var(--navy);text-transform:uppercase;margin-bottom:6px">Your player is: <strong id="clinic-agegroup-display"></strong></p>
+          <p style="font-size:.9rem;color:#555;margin-bottom:12px">They qualify for the following session(s). Select one or both:</p>
+          <div id="clinic-session-checks" style="display:flex;flex-direction:column;gap:8px"></div>
+          <p id="clinic-age-err" style="display:none;color:var(--crimson);font-size:.88rem;margin-top:8px">Sorry — this age group is outside the range for our current ID sessions (U8–U14).</p>
+        </div>
+
+        <div class="reg-row">
           <div class="reg-field">
             <label for="clinic-exp">Years of Experience</label>
             <select id="clinic-exp" name="years-experience">
@@ -2096,25 +2105,25 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
               <option>6 years</option><option>7 years</option><option>8+ years</option>
             </select>
           </div>
-        </div>
-        <div class="reg-field">
-          <label for="clinic-positions">Soccer Position(s)</label>
-          <input type="text" id="clinic-positions" name="positions" placeholder="e.g. Forward, Midfielder, Goalkeeper">
+          <div class="reg-field">
+            <label for="clinic-positions">Soccer Position(s)</label>
+            <input type="text" id="clinic-positions" name="positions" placeholder="e.g. Forward, Midfielder">
+          </div>
         </div>
 
         <!-- EMERGENCY CONTACT -->
-        <h3 style="font-family:var(--font-h);font-size:.8rem;letter-spacing:.14em;color:var(--crimson);margin:8px 0 0;text-transform:uppercase">Emergency Contact</h3>
+        <h3 style="font-family:var(--font-h);font-size:.8rem;letter-spacing:.14em;color:var(--crimson);margin:8px 0 8px;text-transform:uppercase">Emergency Contact</h3>
         <div class="reg-field">
           <label for="clinic-ecname">Emergency Contact Name *</label>
           <input type="text" id="clinic-ecname" name="emergency-contact-name" required placeholder="Full name">
         </div>
         <div class="reg-row">
           <div class="reg-field">
-            <label for="clinic-ecphone">Emergency Contact Phone *</label>
+            <label for="clinic-ecphone">Phone *</label>
             <input type="tel" id="clinic-ecphone" name="emergency-contact-phone" required placeholder="(630) 555-0100">
           </div>
           <div class="reg-field">
-            <label for="clinic-ecemail">Emergency Contact Email *</label>
+            <label for="clinic-ecemail">Email *</label>
             <input type="email" id="clinic-ecemail" name="emergency-contact-email" required placeholder="email@example.com">
           </div>
         </div>
@@ -2125,8 +2134,18 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
           <textarea id="clinic-allergies" name="allergies-conditions" placeholder="List any allergies, medical conditions, or anything our staff should be aware of. Enter 'None' if not applicable."></textarea>
         </div>
 
-        <button type="submit" class="reg-submit" data-label="RESERVE MY SPOT">RESERVE MY SPOT</button>
-        <p style="font-size:.8rem;color:#888;text-align:center">You will receive a confirmation email. Questions? Contact us at <a href="mailto:info@foxvalleyforge.com" style="color:var(--crimson)">info@foxvalleyforge.com</a></p>
+        <!-- WAIVER -->
+        <h3 style="font-family:var(--font-h);font-size:.8rem;letter-spacing:.14em;color:var(--crimson);margin:16px 0 8px;text-transform:uppercase">Liability Waiver *</h3>
+        <div style="max-height:160px;overflow-y:auto;border:1px solid #ddd;border-radius:6px;padding:12px 14px;font-size:.82rem;color:#555;line-height:1.55;margin-bottom:10px">
+          I, the undersigned (print name of participant) and/or Parent/Guardian (if participant is 18 years or younger) acknowledge and fully understand that each participant will be engaging in activities that involve: risk of injury, including permanent disability or death, and severe social and economic losses which might result not only from their own actions, inactions or negligence, but action, inaction or negligence of others, the rules of play, or the condition of the premises or any equipment used and further, that there may be other unknown risks not reasonably foreseeable at this time, assume all the foregoing risk and accept personal responsibility for the damages following such injury, permanent disability or death, hereby release, discharge, covenants not to sue and/or otherwise indemnify the Fox Valley Forge SC Directors, agents, including owners and leasers of premises used to conduct the event, all of which are hereinafter referred to as "releases," from any and all liability to each of the undersigned, his/her heirs or next of kin for any and all claims against any claim by or on behalf of the applicant as a result of the applicant's participation in the Program and/or being transported to or from the same, which transportation I hereby authorize. The participant has received a physical examination by a physician and has been found physically capable of participating in the program. I hereby give my consent to have an athletic trainer, coach and/or doctor of medicine or dentistry or associated personnel to provide the participant with medical assistance and/or treatment and also agree to be financially responsible for the cost of such assistance and/or treatment. I also agree to save and hold harmless and indemnify each and all parties herein referred to above as releases from all liability, loss, cost, claim, or damage whatsoever, including death or damage to property, which may be imposed upon said releases. I have read the above waiver/release and understand that I am giving up substantial rights by signing/submitting this form.
+        </div>
+        <label style="display:flex;align-items:flex-start;gap:10px;cursor:pointer;font-size:.92rem;line-height:1.45">
+          <input type="checkbox" id="clinic-waiver" name="waiver-accepted" value="Accepted" required style="margin-top:3px;flex-shrink:0;accent-color:var(--navy)">
+          <span>I have read and agree to the Liability Waiver above on behalf of the participant. <strong>*</strong></span>
+        </label>
+
+        <button type="submit" class="reg-submit" data-label="RESERVE MY SPOT" style="margin-top:20px">RESERVE MY SPOT</button>
+        <p style="font-size:.8rem;color:#888;text-align:center;margin-top:8px">You will receive a confirmation email. Questions? Contact us at <a href="mailto:info@foxvalleyforge.com" style="color:var(--crimson)">info@foxvalleyforge.com</a></p>
       </form>
     </div>
     <div id="clinic-register-success" class="reg-success" style="display:none">
@@ -2150,14 +2169,133 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
   }
 })();
 
-// ── HIDDEN CLINICS ──
-(function(){
-  var params = new URLSearchParams(window.location.search);
-  if(params.get('show') === 'clinics'){
-    var el = document.querySelector('[data-hidden-clinics]');
-    if(el) el.style.display = 'block';
+// ── CLINIC REGISTRATION SMART FORM ──
+var clinicAgeGroups = [
+  { label:'U8',  start:new Date(2018,7,1), end:new Date(2019,6,31) },
+  { label:'U9',  start:new Date(2017,7,1), end:new Date(2018,6,31) },
+  { label:'U10', start:new Date(2016,7,1), end:new Date(2017,6,31) },
+  { label:'U11', start:new Date(2015,7,1), end:new Date(2016,6,31) },
+  { label:'U12', start:new Date(2014,7,1), end:new Date(2015,6,31) },
+  { label:'U13', start:new Date(2013,7,1), end:new Date(2014,6,31) },
+  { label:'U14', start:new Date(2012,7,1), end:new Date(2013,6,31) }
+];
+var clinicSessions = {
+  Girl: {
+    'U8,U9,U10': [
+      { label:'Day 1: Girls — Sat. Mar 21 · 3:00–4:00pm · Forge West, 3N800 Peck Rd, St. Charles', value:'Day 1: Girls — Sat. Mar 21 | 3:00–4:00pm (U8, U9, U10)' },
+      { label:'Day 3: Girls — Sat. Apr 4 · 3:00–4:00pm · Forge East, 1000 S Kirk Rd, Geneva', value:'Day 3: Girls — Sat. Apr 4 | 3:00–4:00pm (U8, U9, U10)' }
+    ],
+    'U11,U12': [
+      { label:'Day 1: Girls — Sat. Mar 21 · 4:15–5:15pm · Forge West, 3N800 Peck Rd, St. Charles', value:'Day 1: Girls — Sat. Mar 21 | 4:15–5:15pm (U11, U12)' },
+      { label:'Day 3: Girls — Sat. Apr 4 · 4:15–5:15pm · Forge East, 1000 S Kirk Rd, Geneva', value:'Day 3: Girls — Sat. Apr 4 | 4:15–5:15pm (U11, U12)' }
+    ],
+    'U13,U14': [
+      { label:'Day 1: Girls — Sat. Mar 21 · 5:30–6:30pm · Forge West, 3N800 Peck Rd, St. Charles', value:'Day 1: Girls — Sat. Mar 21 | 5:30–6:30pm (U13, U14)' },
+      { label:'Day 3: Girls — Sat. Apr 4 · 5:30–6:30pm · Forge East, 1000 S Kirk Rd, Geneva', value:'Day 3: Girls — Sat. Apr 4 | 5:30–6:30pm (U13, U14)' }
+    ]
+  },
+  Boy: {
+    'U8,U9,U10': [
+      { label:'Day 2: Boys — Thu. Mar 26 · 4:30–5:30pm · Forge West, 3N800 Peck Rd, St. Charles', value:'Day 2: Boys — Thu. Mar 26 | 4:30–5:30pm (U8, U9, U10)' },
+      { label:'Day 4: Boys — Fri. Apr 10 · 4:30–5:30pm · Forge West, 3N800 Peck Rd, St. Charles', value:'Day 4: Boys — Fri. Apr 10 | 4:30–5:30pm (U8, U9, U10)' }
+    ],
+    'U11,U12': [
+      { label:'Day 2: Boys — Thu. Mar 26 · 5:45–6:45pm · Forge West, 3N800 Peck Rd, St. Charles', value:'Day 2: Boys — Thu. Mar 26 | 5:45–6:45pm (U11, U12)' },
+      { label:'Day 4: Boys — Fri. Apr 10 · 5:45–6:45pm · Forge West, 3N800 Peck Rd, St. Charles', value:'Day 4: Boys — Fri. Apr 10 | 5:45–6:45pm (U11, U12)' }
+    ],
+    'U13,U14': [
+      { label:'Day 2: Boys — Thu. Mar 26 · 7:00–8:00pm · Forge West, 3N800 Peck Rd, St. Charles', value:'Day 2: Boys — Thu. Mar 26 | 7:00–8:00pm (U13, U14)' },
+      { label:'Day 4: Boys — Fri. Apr 10 · 7:00–8:00pm · Forge West, 3N800 Peck Rd, St. Charles', value:'Day 4: Boys — Fri. Apr 10 | 7:00–8:00pm (U13, U14)' }
+    ]
   }
-})();
+};
+
+function clinicGetAgeGroup(dob) {
+  for (var i=0; i<clinicAgeGroups.length; i++) {
+    var ag = clinicAgeGroups[i];
+    if (dob >= ag.start && dob <= ag.end) return ag.label;
+  }
+  return null;
+}
+
+function clinicGetSlotKey(ageLabel) {
+  if (['U8','U9','U10'].indexOf(ageLabel) > -1) return 'U8,U9,U10';
+  if (['U11','U12'].indexOf(ageLabel) > -1) return 'U11,U12';
+  if (['U13','U14'].indexOf(ageLabel) > -1) return 'U13,U14';
+  return null;
+}
+
+function clinicGenderChange() {
+  var girl = document.getElementById('gender-girl').checked;
+  var boy  = document.getElementById('gender-boy').checked;
+  document.getElementById('gender-btn-girl').className = 'gender-btn' + (girl ? ' selected' : '');
+  document.getElementById('gender-btn-boy').className  = 'gender-btn' + (boy  ? ' selected' : '');
+  document.getElementById('clinic-gender-hidden').value = girl ? 'Girl' : (boy ? 'Boy' : '');
+  clinicDobChange();
+}
+
+function clinicDobChange() {
+  var dobVal = document.getElementById('clinic-dob').value;
+  var gender = document.getElementById('clinic-gender-hidden').value;
+  var resultEl = document.getElementById('clinic-age-result');
+  var errEl    = document.getElementById('clinic-age-err');
+  var checksEl = document.getElementById('clinic-session-checks');
+  var agDisp   = document.getElementById('clinic-agegroup-display');
+  var agHidden = document.getElementById('clinic-agegroup-hidden');
+
+  if (!dobVal || !gender) { resultEl.style.display='none'; return; }
+
+  var dob = new Date(dobVal + 'T12:00:00');
+  var ageGroup = clinicGetAgeGroup(dob);
+  var slotKey  = ageGroup ? clinicGetSlotKey(ageGroup) : null;
+  var sessions = (slotKey && clinicSessions[gender]) ? clinicSessions[gender][slotKey] : null;
+
+  agHidden.value = ageGroup || '';
+  resultEl.style.display = 'block';
+  checksEl.innerHTML = '';
+
+  if (!ageGroup || !sessions) {
+    agDisp.textContent = ageGroup ? ageGroup + ' (out of range)' : 'Unknown';
+    errEl.style.display = 'block';
+    return;
+  }
+
+  agDisp.textContent = ageGroup;
+  errEl.style.display = 'none';
+
+  sessions.forEach(function(s, idx) {
+    var id = 'clinic-sess-check-' + idx;
+    var row = document.createElement('label');
+    row.style.cssText = 'display:flex;align-items:flex-start;gap:10px;cursor:pointer;font-size:.9rem;line-height:1.4;padding:8px 10px;border:1px solid #dde;border-radius:6px;background:#fff';
+    var cb = document.createElement('input');
+    cb.type = 'checkbox'; cb.id = id; cb.value = s.value;
+    cb.style.cssText = 'margin-top:2px;flex-shrink:0;accent-color:var(--navy)';
+    cb.addEventListener('change', clinicUpdateSessionsHidden);
+    var span = document.createElement('span');
+    span.textContent = s.label;
+    row.appendChild(cb); row.appendChild(span);
+    checksEl.appendChild(row);
+  });
+}
+
+function clinicUpdateSessionsHidden() {
+  var checks = document.querySelectorAll('#clinic-session-checks input[type=checkbox]:checked');
+  var vals = [];
+  checks.forEach(function(c){ vals.push(c.value); });
+  document.getElementById('clinic-sessions-hidden').value = vals.join(' | ');
+}
+
+function openClinicRegister(session) {
+  openModal('modal-clinic-register');
+  // Pre-select gender from session string
+  if (session) {
+    var isGirl = session.indexOf('Girls') > -1 || session.indexOf('Girl') > -1;
+    var isBoy  = session.indexOf('Boys') > -1 || session.indexOf('Boy') > -1;
+    if (isGirl) { document.getElementById('gender-girl').checked = true; }
+    if (isBoy)  { document.getElementById('gender-boy').checked  = true; }
+    clinicGenderChange();
+  }
+}
 
 // ── LEADER BIOS ──
 var leaderBios = {
@@ -2340,14 +2478,27 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Netlify clinic registration form
 document.addEventListener('DOMContentLoaded', function() {
+  var form = document.getElementById('clinic-register-form');
+  if (!form) return;
+  form.addEventListener('submit', function(e) {
+    // Validate: at least one session selected
+    var checks = document.querySelectorAll('#clinic-session-checks input[type=checkbox]:checked');
+    var gender  = document.getElementById('clinic-gender-hidden').value;
+    var ageGrp  = document.getElementById('clinic-agegroup-hidden').value;
+    if (!gender) {
+      e.preventDefault();
+      alert('Please select Girl or Boy before submitting.');
+      return;
+    }
+    if (ageGrp && checks.length === 0) {
+      e.preventDefault();
+      alert('Please select at least one session to register for.');
+      return;
+    }
+    clinicUpdateSessionsHidden();
+  });
   netlifyForm('clinic-register-form', 'clinic-register-wrap', 'clinic-register-success');
 });
-
-function openClinicRegister(session) {
-  openModal('modal-clinic-register');
-  var sel = document.getElementById('clinic-session');
-  if (sel && session) sel.value = session;
-}
 
 // Modal system
 function openRegisterWithProgram(program) {
