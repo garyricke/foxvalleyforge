@@ -572,8 +572,8 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
               </div>
               <div class="clinic-slot">
                 <span class="clinic-slot-time">5:30–6:30pm</span>
-                <span class="clinic-slot-ages">U13, U14</span>
-                <button class="clinic-slot-btn" onclick="openClinicRegister('Day 1: Girls — Sat. Mar 21 | 5:30–6:30pm (U13, U14)')">Register →</button>
+                <span class="clinic-slot-ages">U13, U14, U15</span>
+                <button class="clinic-slot-btn" onclick="openClinicRegister('Day 1: Girls — Sat. Mar 21 | 5:30–6:30pm (U13, U14, U15)')">Register →</button>
               </div>
             </div>
           </div>
@@ -638,8 +638,8 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
               </div>
               <div class="clinic-slot">
                 <span class="clinic-slot-time">5:30–6:30pm</span>
-                <span class="clinic-slot-ages">U13, U14</span>
-                <button class="clinic-slot-btn" onclick="openClinicRegister('Day 3: Girls — Sat. Apr 4 | 5:30–6:30pm (U13, U14)')">Register →</button>
+                <span class="clinic-slot-ages">U13, U14, U15</span>
+                <button class="clinic-slot-btn" onclick="openClinicRegister('Day 3: Girls — Sat. Apr 4 | 5:30–6:30pm (U13, U14, U15)')">Register →</button>
               </div>
             </div>
           </div>
@@ -2092,7 +2092,7 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
           <p style="font-family:var(--font-h);font-size:.85rem;letter-spacing:.08em;color:var(--navy);text-transform:uppercase;margin-bottom:6px">Your player is: <strong id="clinic-agegroup-display"></strong></p>
           <p style="font-size:.9rem;color:#555;margin-bottom:12px">They qualify for the following session(s). Select one or both:</p>
           <div id="clinic-session-checks" style="display:flex;flex-direction:column;gap:8px"></div>
-          <p id="clinic-age-err" style="display:none;color:var(--crimson);font-size:.88rem;margin-top:8px">Sorry — this age group is outside the range for our current ID sessions (U8–U14).</p>
+          <p id="clinic-age-err" style="display:none;color:var(--crimson);font-size:.88rem;margin-top:8px">Sorry — this age group is outside the range for our current ID sessions (Girls: U8–U15 · Boys: U8–U14).</p>
         </div>
 
         <div class="reg-row">
@@ -2177,7 +2177,8 @@ var clinicAgeGroups = [
   { label:'U11', start:new Date(2015,7,1), end:new Date(2016,6,31) },
   { label:'U12', start:new Date(2014,7,1), end:new Date(2015,6,31) },
   { label:'U13', start:new Date(2013,7,1), end:new Date(2014,6,31) },
-  { label:'U14', start:new Date(2012,7,1), end:new Date(2013,6,31) }
+  { label:'U14', start:new Date(2012,7,1), end:new Date(2013,6,31) },
+  { label:'U15', start:new Date(2011,7,1), end:new Date(2012,6,31) }
 ];
 var clinicSessions = {
   Girl: {
@@ -2189,9 +2190,9 @@ var clinicSessions = {
       { label:'Day 1: Girls — Sat. Mar 21 · 4:15–5:15pm · Forge West, 3N800 Peck Rd, St. Charles', value:'Day 1: Girls — Sat. Mar 21 | 4:15–5:15pm (U11, U12)' },
       { label:'Day 3: Girls — Sat. Apr 4 · 4:15–5:15pm · Forge East, 1000 S Kirk Rd, Geneva', value:'Day 3: Girls — Sat. Apr 4 | 4:15–5:15pm (U11, U12)' }
     ],
-    'U13,U14': [
-      { label:'Day 1: Girls — Sat. Mar 21 · 5:30–6:30pm · Forge West, 3N800 Peck Rd, St. Charles', value:'Day 1: Girls — Sat. Mar 21 | 5:30–6:30pm (U13, U14)' },
-      { label:'Day 3: Girls — Sat. Apr 4 · 5:30–6:30pm · Forge East, 1000 S Kirk Rd, Geneva', value:'Day 3: Girls — Sat. Apr 4 | 5:30–6:30pm (U13, U14)' }
+    'U13,U14,U15': [
+      { label:'Day 1: Girls — Sat. Mar 21 · 5:30–6:30pm · Forge West, 3N800 Peck Rd, St. Charles', value:'Day 1: Girls — Sat. Mar 21 | 5:30–6:30pm (U13, U14, U15)' },
+      { label:'Day 3: Girls — Sat. Apr 4 · 5:30–6:30pm · Forge East, 1000 S Kirk Rd, Geneva', value:'Day 3: Girls — Sat. Apr 4 | 5:30–6:30pm (U13, U14, U15)' }
     ]
   },
   Boy: {
@@ -2218,10 +2219,11 @@ function clinicGetAgeGroup(dob) {
   return null;
 }
 
-function clinicGetSlotKey(ageLabel) {
+function clinicGetSlotKey(ageLabel, gender) {
   if (['U8','U9','U10'].indexOf(ageLabel) > -1) return 'U8,U9,U10';
   if (['U11','U12'].indexOf(ageLabel) > -1) return 'U11,U12';
-  if (['U13','U14'].indexOf(ageLabel) > -1) return 'U13,U14';
+  if (['U13','U14'].indexOf(ageLabel) > -1) return gender === 'Girl' ? 'U13,U14,U15' : 'U13,U14';
+  if (ageLabel === 'U15' && gender === 'Girl') return 'U13,U14,U15';
   return null;
 }
 
@@ -2247,7 +2249,7 @@ function clinicDobChange() {
 
   var dob = new Date(dobVal + 'T12:00:00');
   var ageGroup = clinicGetAgeGroup(dob);
-  var slotKey  = ageGroup ? clinicGetSlotKey(ageGroup) : null;
+  var slotKey  = ageGroup ? clinicGetSlotKey(ageGroup, gender) : null;
   var sessions = (slotKey && clinicSessions[gender]) ? clinicSessions[gender][slotKey] : null;
 
   agHidden.value = ageGroup || '';
