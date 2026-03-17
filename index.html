@@ -1082,7 +1082,7 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
 
       <div class="reel-card fade-in" onclick="openReel(0)">
         <div class="reel-thumb">
-          <video class="reel-video" src="https://player.vimeo.com/progressive_redirect/playback/1173865236/rendition/720p/file.mp4%20%28720p%29.mp4?loc=external&amp;log_user=0&amp;signature=336a83821f8739eb75eec39c3bc05f975d913e6285880cd25d33dd87a68632c9" muted playsinline preload="metadata" loop onmouseenter="this.play()" onmouseleave="this.pause();this.currentTime=0"></video>
+          <video class="reel-video" src="https://player.vimeo.com/progressive_redirect/playback/1173865236/rendition/720p/file.mp4%20%28720p%29.mp4?loc=external&amp;log_user=0&amp;signature=336a83821f8739eb75eec39c3bc05f975d913e6285880cd25d33dd87a68632c9" poster="https://i.vimeocdn.com/video/2134291866-758111d5cc49fb8d0649aa12817d55b8293cdbe45ab74b6e2f92f75353d18419-d_360x640?region=us" muted playsinline preload="metadata" loop onmouseenter="this.play()" onmouseleave="this.pause();this.currentTime=0"></video>
           <div class="reel-play-btn">&#9654;</div>
         </div>
         <div class="reel-caption">For the first time, Campton United and Strikers marched together as one. Fox Valley Forge. ⚽🦊</div>
@@ -1090,7 +1090,7 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
 
       <div class="reel-card fade-in" onclick="openReel(1)">
         <div class="reel-thumb">
-          <video class="reel-video" src="https://player.vimeo.com/progressive_redirect/playback/1174401925/rendition/720p/file.mp4%20%28720p%29.mp4?loc=external&amp;log_user=0&amp;signature=6597c1219be17bfd92cafbe1df92c737c886267a622a4185aeaad64375f6282f" muted playsinline preload="metadata" loop onmouseenter="this.play()" onmouseleave="this.pause();this.currentTime=0"></video>
+          <video class="reel-video" src="https://player.vimeo.com/progressive_redirect/playback/1174401925/rendition/720p/file.mp4%20%28720p%29.mp4?loc=external&amp;log_user=0&amp;signature=6597c1219be17bfd92cafbe1df92c737c886267a622a4185aeaad64375f6282f" poster="https://i.vimeocdn.com/video/2134967004-302bd5724d6149b470d962a12590683731bd442a14a3cef02e481659af6962d9-d_360x640?region=us" muted playsinline preload="metadata" loop onmouseenter="this.play()" onmouseleave="this.pause();this.currentTime=0"></video>
           <div class="reel-play-btn">&#9654;</div>
         </div>
         <div class="reel-caption">Today marked a truly special moment — players and coaches wore the Forge shirts together as one club for the very first time. ⚽🦊</div>
@@ -2504,12 +2504,13 @@ function openRegisterWithProgram(program) {
 
 // ── SOCIAL REEL ──
 var reelSrcs = [
-  'https://player.vimeo.com/progressive_redirect/playback/1173865236/rendition/720p/file.mp4%20%28720p%29.mp4?loc=external&log_user=0&signature=336a83821f8739eb75eec39c3bc05f975d913e6285880cd25d33dd87a68632c9',
-  'https://player.vimeo.com/progressive_redirect/playback/1174401925/rendition/720p/file.mp4%20%28720p%29.mp4?loc=external&log_user=0&signature=6597c1219be17bfd92cafbe1df92c737c886267a622a4185aeaad64375f6282f'
+  { src: 'https://player.vimeo.com/progressive_redirect/playback/1173865236/rendition/720p/file.mp4%20%28720p%29.mp4?loc=external&log_user=0&signature=336a83821f8739eb75eec39c3bc05f975d913e6285880cd25d33dd87a68632c9', poster: 'https://i.vimeocdn.com/video/2134291866-758111d5cc49fb8d0649aa12817d55b8293cdbe45ab74b6e2f92f75353d18419-d_360x640?region=us' },
+  { src: 'https://player.vimeo.com/progressive_redirect/playback/1174401925/rendition/720p/file.mp4%20%28720p%29.mp4?loc=external&log_user=0&signature=6597c1219be17bfd92cafbe1df92c737c886267a622a4185aeaad64375f6282f', poster: 'https://i.vimeocdn.com/video/2134967004-302bd5724d6149b470d962a12590683731bd442a14a3cef02e481659af6962d9-d_360x640?region=us' }
 ];
 function openReel(idx) {
   var v = document.getElementById('reel-modal-video');
-  v.src = reelSrcs[idx];
+  v.src = reelSrcs[idx].src;
+  v.poster = reelSrcs[idx].poster;
   v.play();
   document.getElementById('modal-reel').classList.add('open');
   document.body.style.overflow = 'hidden';
