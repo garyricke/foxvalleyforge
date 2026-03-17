@@ -384,6 +384,28 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
 #clinics .event-card-title{font-size:clamp(1.4rem,3vw,2rem)}
 .gender-btn{border:2px solid #ddd;border-radius:8px;padding:12px;text-align:center;font-family:var(--font-h);font-size:1.1rem;letter-spacing:.06em;color:#666;transition:all .2s;background:#fff;user-select:none}
 .gender-btn.selected{border-color:var(--navy);background:var(--navy);color:#fff}
+
+/* ── SOCIAL REEL ── */
+#social-reel{background:#f4f4f2;border-top:4px solid var(--navy)}
+.reel-grid{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;margin-top:40px}
+.reel-card{width:260px;border-radius:14px;overflow:hidden;cursor:pointer;background:#000;box-shadow:0 4px 24px rgba(0,0,0,.18);transition:transform .2s,box-shadow .2s}
+.reel-card:hover{transform:translateY(-4px);box-shadow:0 10px 36px rgba(0,0,0,.28)}
+.reel-thumb{position:relative;width:100%;aspect-ratio:9/16;overflow:hidden;background:#111}
+.reel-video{width:100%;height:100%;object-fit:cover;display:block}
+.reel-play-btn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:54px;height:54px;background:rgba(255,255,255,.85);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.3rem;color:var(--navy);pointer-events:none;transition:opacity .2s;padding-left:4px}
+.reel-card:hover .reel-play-btn{opacity:0}
+.reel-caption{padding:14px 16px;background:#fff;font-size:.88rem;line-height:1.55;color:#444;border-top:3px solid var(--gold)}
+/* Reel fullscreen overlay */
+.reel-overlay{display:none;position:fixed;inset:0;z-index:9000;background:rgba(0,0,0,.93);align-items:center;justify-content:center}
+.reel-overlay.open{display:flex}
+.reel-modal-inner{position:relative;height:90vh;aspect-ratio:9/16;max-width:calc(90vh * 9 / 16);border-radius:12px;overflow:hidden;background:#000}
+.reel-modal-inner video{width:100%;height:100%;object-fit:contain;display:block}
+.reel-close-btn{position:absolute;top:10px;right:10px;z-index:10;background:rgba(0,0,0,.55);color:#fff;border:none;border-radius:50%;width:38px;height:38px;font-size:1.5rem;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1}
+@media(max-width:640px){
+  .reel-grid{gap:14px}
+  .reel-card{width:calc(50vw - 21px)}
+  .reel-modal-inner{height:100vh;width:100vw;max-width:100vw;border-radius:0;aspect-ratio:auto}
+}
 </style>
 </head>
 <body>
@@ -1046,6 +1068,34 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
           <p class="event-coming-soon">Team rosters and travel details coming soon — get ready!</p>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL REEL -->
+<section id="social-reel">
+  <div class="section-inner">
+    <p class="section-label fade-in">In the Wild</p>
+    <h2 class="section-title fade-in">Forge Moments</h2>
+    <p class="section-sub fade-in">Real moments. Real community. Hover to preview — click to watch.</p>
+    <div class="reel-grid">
+
+      <div class="reel-card fade-in" onclick="openReel(0)">
+        <div class="reel-thumb">
+          <video class="reel-video" src="https://player.vimeo.com/progressive_redirect/playback/1173865236/rendition/720p/file.mp4%20%28720p%29.mp4?loc=external&amp;log_user=0&amp;signature=336a83821f8739eb75eec39c3bc05f975d913e6285880cd25d33dd87a68632c9" muted playsinline preload="metadata" loop onmouseenter="this.play()" onmouseleave="this.pause();this.currentTime=0"></video>
+          <div class="reel-play-btn">&#9654;</div>
+        </div>
+        <div class="reel-caption">For the first time, Campton United and Strikers marched together as one. Fox Valley Forge. ⚽🦊</div>
+      </div>
+
+      <div class="reel-card fade-in" onclick="openReel(1)">
+        <div class="reel-thumb">
+          <video class="reel-video" src="https://player.vimeo.com/progressive_redirect/playback/1174401925/rendition/720p/file.mp4%20%28720p%29.mp4?loc=external&amp;log_user=0&amp;signature=6597c1219be17bfd92cafbe1df92c737c886267a622a4185aeaad64375f6282f" muted playsinline preload="metadata" loop onmouseenter="this.play()" onmouseleave="this.pause();this.currentTime=0"></video>
+          <div class="reel-play-btn">&#9654;</div>
+        </div>
+        <div class="reel-caption">Today marked a truly special moment — players and coaches wore the Forge shirts together as one club for the very first time. ⚽🦊</div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1968,6 +2018,14 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
 </div>
 
 
+<!-- MODAL: REEL FULLSCREEN -->
+<div id="modal-reel" class="reel-overlay" role="dialog" aria-modal="true" onclick="closeReel()">
+  <div class="reel-modal-inner" onclick="event.stopPropagation()">
+    <button class="reel-close-btn" onclick="closeReel()" aria-label="Close">×</button>
+    <video id="reel-modal-video" playsinline controls></video>
+  </div>
+</div>
+
 <!-- MODAL: CLINIC REGISTRATION -->
 <div id="modal-clinic-register" class="modal-overlay" role="dialog" aria-modal="true">
   <div class="modal">
@@ -2443,6 +2501,29 @@ function openRegisterWithProgram(program) {
   var sel = document.getElementById('reg-age');
   if (sel && program) sel.value = program;
 }
+
+// ── SOCIAL REEL ──
+var reelSrcs = [
+  'https://player.vimeo.com/progressive_redirect/playback/1173865236/rendition/720p/file.mp4%20%28720p%29.mp4?loc=external&log_user=0&signature=336a83821f8739eb75eec39c3bc05f975d913e6285880cd25d33dd87a68632c9',
+  'https://player.vimeo.com/progressive_redirect/playback/1174401925/rendition/720p/file.mp4%20%28720p%29.mp4?loc=external&log_user=0&signature=6597c1219be17bfd92cafbe1df92c737c886267a622a4185aeaad64375f6282f'
+];
+function openReel(idx) {
+  var v = document.getElementById('reel-modal-video');
+  v.src = reelSrcs[idx];
+  v.play();
+  document.getElementById('modal-reel').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeReel() {
+  var v = document.getElementById('reel-modal-video');
+  v.pause();
+  v.src = '';
+  document.getElementById('modal-reel').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape' && document.getElementById('modal-reel').classList.contains('open')) closeReel();
+});
 
 function openModal(id) {
   const m = document.getElementById(id);
