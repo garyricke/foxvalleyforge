@@ -395,6 +395,53 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
 .reel-play-btn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:54px;height:54px;background:rgba(255,255,255,.85);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.3rem;color:var(--navy);pointer-events:none;transition:opacity .2s;padding-left:4px}
 .reel-card:hover .reel-play-btn{opacity:0}
 .reel-caption{padding:14px 16px;background:#fff;font-size:.88rem;line-height:1.55;color:#444;border-top:3px solid var(--gold)}
+
+/* ── TRYOUTS ── */
+#tryouts{background:var(--navy);padding:80px 24px}
+.tryouts-intro{margin-bottom:40px}
+.tryouts-intro .section-label{color:var(--gold);opacity:.85}
+.tryouts-intro .section-title{color:#fff}
+.tryouts-intro .section-sub{color:rgba(255,255,255,.72)}
+.tryout-cta-bar{background:var(--crimson);border-radius:6px;padding:24px 32px;display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:44px;flex-wrap:wrap}
+.tryout-cta-bar h3{font-family:var(--font-h);font-size:1.25rem;color:#fff;letter-spacing:.04em;margin-bottom:4px}
+.tryout-cta-bar p{font-size:.875rem;color:rgba(255,255,255,.8)}
+.tryout-filters{display:flex;align-items:center;gap:6px;margin-bottom:28px;flex-wrap:wrap}
+.tf-group{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.tf-label{font-family:var(--font-h);font-size:.68rem;letter-spacing:.15em;color:rgba(255,255,255,.4);margin-right:2px;white-space:nowrap}
+.tf-sep{width:1px;height:28px;background:rgba(255,255,255,.2);margin:0 8px;flex-shrink:0}
+.tf-btn{font-family:var(--font-h);font-size:.75rem;letter-spacing:.08em;padding:7px 16px;border-radius:3px;border:1px solid rgba(255,255,255,.25);background:transparent;color:rgba(255,255,255,.6);cursor:pointer;transition:all .2s;text-transform:uppercase}
+.tf-btn:hover{border-color:rgba(255,255,255,.5);color:#fff}
+.tf-btn.active{background:var(--gold);border-color:var(--gold);color:var(--navy)}
+.tryout-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:28px}
+.tryout-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:8px;overflow:hidden;transition:transform .25s,border-color .25s,background .25s}
+.tryout-card:hover{transform:translateY(-4px);border-color:var(--gold);background:rgba(255,255,255,.08)}
+.tc-head{padding:18px 18px 14px;border-bottom:1px solid rgba(255,255,255,.08)}
+.tc-meta{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:8px}
+.tc-num{font-family:var(--font-h);font-size:.65rem;letter-spacing:.12em;color:rgba(255,255,255,.32)}
+.tc-gender-icon{font-size:.95rem;color:rgba(255,255,255,.45)}
+.tc-date-line{font-family:var(--font-h);font-size:1.05rem;font-weight:600;color:#fff;margin-bottom:8px;line-height:1.2}
+.tc-date-line span{display:block;font-size:.78rem;font-weight:400;color:rgba(255,255,255,.5);margin-top:2px;letter-spacing:.02em;font-family:var(--font-b);text-transform:none}
+.tc-badges{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:8px}
+.badge{font-family:var(--font-h);font-size:.62rem;letter-spacing:.1em;padding:3px 8px;border-radius:2px}
+.badge-east{background:var(--crimson);color:#fff}
+.badge-west{background:var(--gold);color:var(--navy)}
+.badge-hs{background:rgba(255,255,255,.12);color:rgba(255,255,255,.8)}
+.badge-youth{background:rgba(197,160,89,.15);color:var(--gold);border:1px solid rgba(197,160,89,.3)}
+.tc-loc{font-size:.75rem;color:rgba(255,255,255,.38);line-height:1.45}
+.tc-body{padding:14px 18px}
+.tc-slot{margin-bottom:12px}
+.tc-slot:last-child{margin-bottom:0}
+.tc-time{font-family:var(--font-h);font-size:.75rem;color:var(--gold);letter-spacing:.05em;margin-bottom:6px}
+.tc-ages{display:flex;flex-wrap:wrap;gap:4px}
+.age-chip{font-size:.72rem;padding:3px 9px;border-radius:10px;background:rgba(255,255,255,.08);color:rgba(255,255,255,.75);line-height:1.6}
+.age-chip small{display:block;font-size:.6rem;color:rgba(255,255,255,.36);line-height:1.3}
+.tryout-supp{background:rgba(197,160,89,.08);border:1px solid rgba(197,160,89,.25);border-radius:6px;padding:18px 22px;display:flex;gap:14px;align-items:flex-start}
+.tryout-supp-icon{font-size:1.3rem;flex-shrink:0;margin-top:1px}
+.tryout-supp-text{font-size:.875rem;color:rgba(255,255,255,.72);line-height:1.65}
+.tryout-supp-text strong{color:var(--gold)}
+@media(max-width:1024px){.tryout-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.tryout-grid{grid-template-columns:1fr}.tryout-cta-bar{flex-direction:column;text-align:center}.tf-sep{display:none}.tf-label{display:none}}
+
 /* Reel fullscreen overlay */
 .reel-overlay{display:none;position:fixed;inset:0;z-index:9000;background:rgba(0,0,0,.93);align-items:center;justify-content:center}
 .reel-overlay.open{display:flex}
@@ -460,6 +507,7 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
       <li><a href="#coaching">Coaching</a></li>
       <li><a href="#college">College Pathway</a></li>
       <li><a href="#events">Events</a></li>
+      <li><a href="#tryouts">Tryouts</a></li>
       <li><a href="#community">Our Story</a></li>
       <li><a href="#" onclick="openModal('modal-faq');return false">FAQ</a></li>
     </ul>
@@ -474,6 +522,7 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
   <a href="#coaching" onclick="closeMobile()">Coaching</a>
   <a href="#college" onclick="closeMobile()">College Pathway</a>
   <a href="#events" onclick="closeMobile()">Events</a>
+  <a href="#tryouts" onclick="closeMobile()">Tryouts</a>
   <a href="#community" onclick="closeMobile()">Our Story</a>
   <a href="#" onclick="openModal('modal-faq');closeMobile();return false">FAQ</a>
   <a href="#" onclick="closeMobile();openModal('modal-register');return false" class="btn btn-crimson" style="text-align:center;margin-top:8px">Request Information</a>
@@ -493,6 +542,7 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
     <p class="hero-tagline">From First Kick to College &nbsp;·&nbsp; Your Path, Your Pace</p>
     <div class="hero-btns">
       <a href="#programs" class="btn btn-crimson">Find Your Program</a>
+      <a href="#tryouts" class="btn btn-gold">Tryouts</a>
       <button class="btn btn-outline" onclick="openModal('modal-story')">Our Story</button>
     </div>
   </div>
@@ -552,72 +602,6 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
     <h2 class="section-title fade-in">ID Sessions &amp; Open House Days</h2>
     <p class="section-sub fade-in">Experience Forge firsthand — coached sessions led by our professional staff in a relaxed, low-pressure environment. Come meet our coaches, explore our facilities, and see if our program is the right fit for your player. <strong>Free to attend. Pre-registration required.</strong></p>
     <div class="events-grid">
-
-      <!-- GIRLS DAY 1 -->
-      <div class="event-card fade-in">
-        <div class="event-card-img" style="background-image:url('generated_imgs/generated-2026-03-12T11-40-13-953Z-9bnffh.png')">
-          <div class="event-eyebrow">ID Session · Day 1: Girls</div>
-          <h3 class="event-card-title">Day 1: Girls</h3>
-          <div class="event-card-date">Saturday, March 21st</div>
-        </div>
-        <div class="event-card-body">
-          <div>
-            <p class="clinic-location-tag"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Forge West · <a href="https://www.google.com/maps/search/?api=1&query=3N800+Peck+Rd+Saint+Charles+IL+60174" target="_blank" rel="noopener">3N800 Peck Rd, St. Charles</a></p>
-            <h4>Sessions</h4>
-            <div class="clinic-slots">
-              <div class="clinic-slot">
-                <span class="clinic-slot-time">3:00–4:00pm</span>
-                <span class="clinic-slot-ages">U8, U9, U10</span>
-                <button class="clinic-slot-btn" onclick="openClinicRegister('Day 1: Girls — Sat. Mar 21 | 3:00–4:00pm (U8, U9, U10)')">Register →</button>
-              </div>
-              <div class="clinic-slot">
-                <span class="clinic-slot-time">4:15–5:15pm</span>
-                <span class="clinic-slot-ages">U11, U12</span>
-                <button class="clinic-slot-btn" onclick="openClinicRegister('Day 1: Girls — Sat. Mar 21 | 4:15–5:15pm (U11, U12)')">Register →</button>
-              </div>
-              <div class="clinic-slot">
-                <span class="clinic-slot-time">5:30–6:30pm</span>
-                <span class="clinic-slot-ages">U13, U14, U15</span>
-                <button class="clinic-slot-btn" onclick="openClinicRegister('Day 1: Girls — Sat. Mar 21 | 5:30–6:30pm (U13, U14, U15)')">Register →</button>
-              </div>
-            </div>
-          </div>
-          <p class="clinic-note">Pre-registration required. Free to all players — members and non-members welcome.</p>
-        </div>
-      </div>
-
-      <!-- BOYS DAY 2 -->
-      <div class="event-card fade-in">
-        <div class="event-card-img" style="background-image:url('generated_imgs/generated-2026-03-12T11-40-44-801Z-84wkx8.png')">
-          <div class="event-eyebrow">ID Session · Day 2: Boys</div>
-          <h3 class="event-card-title">Day 2: Boys</h3>
-          <div class="event-card-date">Thursday, March 26th</div>
-        </div>
-        <div class="event-card-body">
-          <div>
-            <p class="clinic-location-tag"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Forge West · <a href="https://www.google.com/maps/search/?api=1&query=3N800+Peck+Rd+Saint+Charles+IL+60174" target="_blank" rel="noopener">3N800 Peck Rd, St. Charles</a></p>
-            <h4>Sessions</h4>
-            <div class="clinic-slots">
-              <div class="clinic-slot">
-                <span class="clinic-slot-time">4:30–5:30pm</span>
-                <span class="clinic-slot-ages">U8, U9, U10</span>
-                <button class="clinic-slot-btn" onclick="openClinicRegister('Day 2: Boys — Thu. Mar 26 | 4:30–5:30pm (U8, U9, U10)')">Register →</button>
-              </div>
-              <div class="clinic-slot">
-                <span class="clinic-slot-time">5:45–6:45pm</span>
-                <span class="clinic-slot-ages">U11, U12</span>
-                <button class="clinic-slot-btn" onclick="openClinicRegister('Day 2: Boys — Thu. Mar 26 | 5:45–6:45pm (U11, U12)')">Register →</button>
-              </div>
-              <div class="clinic-slot">
-                <span class="clinic-slot-time">7:00–8:00pm</span>
-                <span class="clinic-slot-ages">U13, U14</span>
-                <button class="clinic-slot-btn" onclick="openClinicRegister('Day 2: Boys — Thu. Mar 26 | 7:00–8:00pm (U13, U14)')">Register →</button>
-              </div>
-            </div>
-          </div>
-          <p class="clinic-note">Pre-registration required. Free to all players — members and non-members welcome.</p>
-        </div>
-      </div>
 
       <!-- GIRLS DAY 3 -->
       <div class="event-card fade-in">
@@ -893,62 +877,6 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
     <div class="events-grid">
 
       <div class="event-card fade-in">
-        <div class="event-card-img" style="background-image:url('https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1771432370/pitch-slide-14-chatgpt_msscmv.png')">
-          <div class="event-eyebrow">Save the Date</div>
-          <h3 class="event-card-title">Girls in Sports Day</h3>
-          <div class="event-card-date">Sunday, March 22nd</div>
-        </div>
-        <div class="event-card-body">
-          <div>
-            <h4>About the Event</h4>
-            <p>Join us as we celebrate the strength, confidence, and passion of our incredible female athletes — a fun, empowering day dedicated to uplifting the girls in our club.</p>
-          </div>
-          <div>
-            <h4>The Day Includes</h4>
-            <ul class="event-activities">
-              <li>Soccer challenges to showcase skills</li>
-              <li>Speed and agility training</li>
-              <li>Yoga for recovery, relaxation, and balance</li>
-              <li>A special panel of high school &amp; college players and coaches</li>
-            </ul>
-          </div>
-          <p class="event-coming-soon">Registration details coming soon — stay tuned for more information!</p>
-        </div>
-      </div>
-
-      <div class="event-card fade-in">
-        <div class="event-card-img" style="background-image:url('https://res.cloudinary.com/dsbllwpbh/image/upload/v1772211945/open-gyms_jtvx1c.jpg')">
-          <div class="event-eyebrow">Free ID Session</div>
-          <h3 class="event-card-title">March ID Sessions</h3>
-          <div class="event-card-date">March 21 &amp; 26</div>
-        </div>
-        <div class="event-card-body">
-          <div>
-            <h4>About the Event</h4>
-            <p>We're excited to welcome new players and families to our <strong>Fox Valley Forge Identification and Open House Days</strong>! Designed for players interested in experiencing our program for the first time in an engaging, professional, and low-pressure environment.</p>
-          </div>
-          <div>
-            <h4>What Players Can Expect</h4>
-            <ul class="event-activities">
-              <li>Age-appropriate training led by our coaching staff</li>
-              <li>Technical activities, small-sided games, and a match phase</li>
-              <li>Opportunities to meet coaches and current players</li>
-              <li>A chance to showcase abilities — not a formal tryout</li>
-            </ul>
-          </div>
-          <div>
-            <h4>What Families Can Expect</h4>
-            <ul class="event-activities">
-              <li>Open house access to our new facilities</li>
-              <li>Time to meet coaches and program leadership</li>
-              <li>Information about teams, training, and player pathways</li>
-            </ul>
-          </div>
-          <button class="btn btn-navy" style="margin-top:8px" onclick="openModal('modal-clinic-register')">Reserve a Spot →</button>
-        </div>
-      </div>
-
-      <div class="event-card fade-in">
         <div class="event-card-img" style="background-image:url('https://res.cloudinary.com/dsbllwpbh/image/upload/v1772211945/open-gyms_jtvx1c.jpg')">
           <div class="event-eyebrow">Free ID Session</div>
           <h3 class="event-card-title">April ID Sessions</h3>
@@ -1000,7 +928,10 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
               <li>Placement across all age groups and levels</li>
             </ul>
           </div>
-          <p class="event-coming-soon">Sprocket registration coming soon — all skill levels welcome!</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px">
+            <a href="#tryouts" class="btn btn-navy">View All Dates →</a>
+            <a href="https://forgesoccerclub.sprocketsports.com/program-details/20199" target="_blank" rel="noopener" class="btn btn-gold">Register on Sprocket →</a>
+          </div>
         </div>
       </div>
 
@@ -1052,6 +983,331 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- TRYOUTS -->
+<section id="tryouts">
+  <div class="section-inner">
+
+    <div class="tryouts-intro fade-in">
+      <p class="section-label">Team Selection Days · May 2026</p>
+      <h2 class="section-title">May Tryouts — 2026/27 Season</h2>
+      <p class="section-sub">Registration is now open for new and returning players. Nine evaluation days across two Fox Valley locations — find your date and secure your spot for the upcoming Forge season.</p>
+    </div>
+
+    <div class="tryout-cta-bar fade-in">
+      <div>
+        <h3>2026/27 Registration Is Now Live</h3>
+        <p>Both new &amp; returning members register through the Sprocket Sports portal.</p>
+      </div>
+      <a href="https://forgesoccerclub.sprocketsports.com/program-details/20199" target="_blank" rel="noopener" class="btn btn-gold" style="font-size:.95rem;padding:13px 28px;white-space:nowrap">Register on Sprocket →</a>
+    </div>
+
+    <div class="tryout-filters fade-in">
+      <div class="tf-group">
+        <span class="tf-label">Gender</span>
+        <button class="tf-btn active" onclick="setTryoutFilter('gender','all',this)">All</button>
+        <button class="tf-btn" onclick="setTryoutFilter('gender','boys',this)">Boys</button>
+        <button class="tf-btn" onclick="setTryoutFilter('gender','girls',this)">Girls</button>
+      </div>
+      <div class="tf-sep"></div>
+      <div class="tf-group">
+        <span class="tf-label">Age Group</span>
+        <button class="tf-btn active" onclick="setTryoutFilter('level','all',this)">All Ages</button>
+        <button class="tf-btn" onclick="setTryoutFilter('level','youth',this)">Youth (U6–U14)</button>
+        <button class="tf-btn" onclick="setTryoutFilter('level','hs',this)">High School (U15–U19)</button>
+      </div>
+    </div>
+
+    <div class="tryout-grid" id="tryoutGrid">
+
+      <!-- Session 1: HS Boys — Mon May 11, EAST -->
+      <div class="tryout-card fade-in" data-gender="boys" data-level="hs">
+        <div class="tc-head">
+          <div class="tc-meta"><span class="tc-num">Session 1 of 9</span><span class="tc-gender-icon">♂</span></div>
+          <div class="tc-date-line">Monday, May 11th<span>6:00 pm – 7:30 pm</span></div>
+          <div class="tc-badges">
+            <span class="badge badge-east">Forge East</span>
+            <span class="badge badge-hs">High School</span>
+          </div>
+          <div class="tc-loc">East Side Sports Complex · 3565 Legacy Blvd, St. Charles, IL</div>
+        </div>
+        <div class="tc-body">
+          <div class="tc-slot">
+            <div class="tc-time">6:00 PM – 7:30 PM</div>
+            <div class="tc-ages">
+              <div class="age-chip">U15<small>Aug 1, 2011 – Jul 31, 2012</small></div>
+              <div class="age-chip">U16<small>Aug 1, 2010 – Jul 31, 2011</small></div>
+              <div class="age-chip">U17<small>Aug 1, 2009 – Jul 31, 2010</small></div>
+              <div class="age-chip">U18/19<small>Aug 1, 2007 – Jul 31, 2009</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Session 2: HS Boys — Wed May 13, WEST -->
+      <div class="tryout-card fade-in" data-gender="boys" data-level="hs">
+        <div class="tc-head">
+          <div class="tc-meta"><span class="tc-num">Session 2 of 9</span><span class="tc-gender-icon">♂</span></div>
+          <div class="tc-date-line">Wednesday, May 13th<span>6:00 pm – 7:30 pm</span></div>
+          <div class="tc-badges">
+            <span class="badge badge-west">Forge West</span>
+            <span class="badge badge-hs">High School</span>
+          </div>
+          <div class="tc-loc">James O. Breen Community Park · 3625 Campton Hills Rd, St. Charles, IL</div>
+        </div>
+        <div class="tc-body">
+          <div class="tc-slot">
+            <div class="tc-time">6:00 PM – 7:30 PM</div>
+            <div class="tc-ages">
+              <div class="age-chip">U15<small>Aug 1, 2011 – Jul 31, 2012</small></div>
+              <div class="age-chip">U16<small>Aug 1, 2010 – Jul 31, 2011</small></div>
+              <div class="age-chip">U17<small>Aug 1, 2009 – Jul 31, 2010</small></div>
+              <div class="age-chip">U18/19<small>Aug 1, 2007 – Jul 31, 2009</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Session 3: Youth Boys — Mon May 18, WEST -->
+      <div class="tryout-card fade-in" data-gender="boys" data-level="youth">
+        <div class="tc-head">
+          <div class="tc-meta"><span class="tc-num">Session 3 of 9</span><span class="tc-gender-icon">♂</span></div>
+          <div class="tc-date-line">Monday, May 18th<span>Multiple time slots</span></div>
+          <div class="tc-badges">
+            <span class="badge badge-west">Forge West</span>
+            <span class="badge badge-youth">Youth</span>
+          </div>
+          <div class="tc-loc">James O. Breen Community Park · 3625 Campton Hills Rd, St. Charles, IL</div>
+        </div>
+        <div class="tc-body">
+          <div class="tc-slot">
+            <div class="tc-time">4:45 PM – 5:45 PM</div>
+            <div class="tc-ages">
+              <div class="age-chip">U6<small>Aug 1, 2020 – Jul 31, 2021</small></div>
+              <div class="age-chip">U7<small>Aug 1, 2019 – Jul 31, 2020</small></div>
+              <div class="age-chip">U8<small>Aug 1, 2018 – Jul 31, 2019</small></div>
+            </div>
+          </div>
+          <div class="tc-slot">
+            <div class="tc-time">4:45 PM – 6:00 PM</div>
+            <div class="tc-ages">
+              <div class="age-chip">U9<small>Aug 1, 2017 – Jul 31, 2018</small></div>
+              <div class="age-chip">U10<small>Aug 1, 2016 – Jul 31, 2017</small></div>
+            </div>
+          </div>
+          <div class="tc-slot">
+            <div class="tc-time">6:30 PM – 7:45 PM</div>
+            <div class="tc-ages">
+              <div class="age-chip">U13<small>Aug 1, 2013 – Jul 31, 2014</small></div>
+              <div class="age-chip">U14<small>Aug 1, 2012 – Jul 31, 2013</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Session 4: Youth Girls — Tue May 19, WEST -->
+      <div class="tryout-card fade-in" data-gender="girls" data-level="youth">
+        <div class="tc-head">
+          <div class="tc-meta"><span class="tc-num">Session 4 of 9</span><span class="tc-gender-icon">♀</span></div>
+          <div class="tc-date-line">Tuesday, May 19th<span>Multiple time slots</span></div>
+          <div class="tc-badges">
+            <span class="badge badge-west">Forge West</span>
+            <span class="badge badge-youth">Youth</span>
+          </div>
+          <div class="tc-loc">James O. Breen Community Park · 3625 Campton Hills Rd, St. Charles, IL</div>
+        </div>
+        <div class="tc-body">
+          <div class="tc-slot">
+            <div class="tc-time">4:45 PM – 5:45 PM</div>
+            <div class="tc-ages">
+              <div class="age-chip">U6<small>Aug 1, 2020 – Jul 31, 2021</small></div>
+              <div class="age-chip">U7<small>Aug 1, 2019 – Jul 31, 2020</small></div>
+              <div class="age-chip">U8<small>Aug 1, 2018 – Jul 31, 2019</small></div>
+            </div>
+          </div>
+          <div class="tc-slot">
+            <div class="tc-time">4:45 PM – 6:00 PM</div>
+            <div class="tc-ages">
+              <div class="age-chip">U9<small>Aug 1, 2017 – Jul 31, 2018</small></div>
+              <div class="age-chip">U10<small>Aug 1, 2016 – Jul 31, 2017</small></div>
+              <div class="age-chip">U14<small>Aug 1, 2012 – Jul 31, 2013</small></div>
+            </div>
+          </div>
+          <div class="tc-slot">
+            <div class="tc-time">6:30 PM – 7:45 PM</div>
+            <div class="tc-ages">
+              <div class="age-chip">U11<small>Aug 1, 2015 – Jul 31, 2016</small></div>
+              <div class="age-chip">U12<small>Aug 1, 2014 – Jul 31, 2015</small></div>
+              <div class="age-chip">U13<small>Aug 1, 2013 – Jul 31, 2014</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Session 5: Youth Boys — Wed May 20, EAST -->
+      <div class="tryout-card fade-in" data-gender="boys" data-level="youth">
+        <div class="tc-head">
+          <div class="tc-meta"><span class="tc-num">Session 5 of 9</span><span class="tc-gender-icon">♂</span></div>
+          <div class="tc-date-line">Wednesday, May 20th<span>Multiple time slots</span></div>
+          <div class="tc-badges">
+            <span class="badge badge-east">Forge East</span>
+            <span class="badge badge-youth">Youth</span>
+          </div>
+          <div class="tc-loc">East Side Sports Complex · 3565 Legacy Blvd, St. Charles, IL</div>
+        </div>
+        <div class="tc-body">
+          <div class="tc-slot">
+            <div class="tc-time">4:45 PM – 5:45 PM</div>
+            <div class="tc-ages">
+              <div class="age-chip">U6<small>Aug 1, 2020 – Jul 31, 2021</small></div>
+              <div class="age-chip">U7<small>Aug 1, 2019 – Jul 31, 2020</small></div>
+              <div class="age-chip">U8<small>Aug 1, 2018 – Jul 31, 2019</small></div>
+            </div>
+          </div>
+          <div class="tc-slot">
+            <div class="tc-time">4:45 PM – 6:00 PM</div>
+            <div class="tc-ages">
+              <div class="age-chip">U9<small>Aug 1, 2017 – Jul 31, 2018</small></div>
+              <div class="age-chip">U10<small>Aug 1, 2016 – Jul 31, 2017</small></div>
+            </div>
+          </div>
+          <div class="tc-slot">
+            <div class="tc-time">6:30 PM – 7:45 PM</div>
+            <div class="tc-ages">
+              <div class="age-chip">U11<small>Aug 1, 2015 – Jul 31, 2016</small></div>
+              <div class="age-chip">U12<small>Aug 1, 2014 – Jul 31, 2015</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Session 6: Youth Girls — Thu May 21, EAST -->
+      <div class="tryout-card fade-in" data-gender="girls" data-level="youth">
+        <div class="tc-head">
+          <div class="tc-meta"><span class="tc-num">Session 6 of 9</span><span class="tc-gender-icon">♀</span></div>
+          <div class="tc-date-line">Thursday, May 21st<span>Multiple time slots</span></div>
+          <div class="tc-badges">
+            <span class="badge badge-east">Forge East</span>
+            <span class="badge badge-youth">Youth</span>
+          </div>
+          <div class="tc-loc">East Side Sports Complex · 3565 Legacy Blvd, St. Charles, IL</div>
+        </div>
+        <div class="tc-body">
+          <div class="tc-slot">
+            <div class="tc-time">4:45 PM – 5:45 PM</div>
+            <div class="tc-ages">
+              <div class="age-chip">U6<small>Aug 1, 2020 – Jul 31, 2021</small></div>
+              <div class="age-chip">U7<small>Aug 1, 2019 – Jul 31, 2020</small></div>
+              <div class="age-chip">U8<small>Aug 1, 2018 – Jul 31, 2019</small></div>
+            </div>
+          </div>
+          <div class="tc-slot">
+            <div class="tc-time">4:45 PM – 6:00 PM</div>
+            <div class="tc-ages">
+              <div class="age-chip">U9<small>Aug 1, 2017 – Jul 31, 2018</small></div>
+              <div class="age-chip">U10<small>Aug 1, 2016 – Jul 31, 2017</small></div>
+              <div class="age-chip">U14<small>Aug 1, 2012 – Jul 31, 2013</small></div>
+            </div>
+          </div>
+          <div class="tc-slot">
+            <div class="tc-time">6:30 PM – 7:45 PM</div>
+            <div class="tc-ages">
+              <div class="age-chip">U11<small>Aug 1, 2015 – Jul 31, 2016</small></div>
+              <div class="age-chip">U12<small>Aug 1, 2014 – Jul 31, 2015</small></div>
+              <div class="age-chip">U13<small>Aug 1, 2013 – Jul 31, 2014</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Session 7: Youth Boys — Fri May 22, WEST -->
+      <div class="tryout-card fade-in" data-gender="boys" data-level="youth">
+        <div class="tc-head">
+          <div class="tc-meta"><span class="tc-num">Session 7 of 9</span><span class="tc-gender-icon">♂</span></div>
+          <div class="tc-date-line">Friday, May 22nd<span>Multiple time slots</span></div>
+          <div class="tc-badges">
+            <span class="badge badge-west">Forge West</span>
+            <span class="badge badge-youth">Youth</span>
+          </div>
+          <div class="tc-loc">James O. Breen Community Park · 3625 Campton Hills Rd, St. Charles, IL</div>
+        </div>
+        <div class="tc-body">
+          <div class="tc-slot">
+            <div class="tc-time">4:45 PM – 6:00 PM</div>
+            <div class="tc-ages">
+              <div class="age-chip">U11<small>Aug 1, 2015 – Jul 31, 2016</small></div>
+              <div class="age-chip">U12<small>Aug 1, 2014 – Jul 31, 2015</small></div>
+            </div>
+          </div>
+          <div class="tc-slot">
+            <div class="tc-time">6:30 PM – 7:45 PM</div>
+            <div class="tc-ages">
+              <div class="age-chip">U13<small>Aug 1, 2013 – Jul 31, 2014</small></div>
+              <div class="age-chip">U14<small>Aug 1, 2012 – Jul 31, 2013</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Session 8: HS Girls — Wed May 27, EAST -->
+      <div class="tryout-card fade-in" data-gender="girls" data-level="hs">
+        <div class="tc-head">
+          <div class="tc-meta"><span class="tc-num">Session 8 of 9</span><span class="tc-gender-icon">♀</span></div>
+          <div class="tc-date-line">Wednesday, May 27th<span>6:00 pm – 7:30 pm</span></div>
+          <div class="tc-badges">
+            <span class="badge badge-east">Forge East</span>
+            <span class="badge badge-hs">High School</span>
+          </div>
+          <div class="tc-loc">East Side Sports Complex · 3565 Legacy Blvd, St. Charles, IL</div>
+        </div>
+        <div class="tc-body">
+          <div class="tc-slot">
+            <div class="tc-time">6:00 PM – 7:30 PM</div>
+            <div class="tc-ages">
+              <div class="age-chip">U15<small>Aug 1, 2011 – Jul 31, 2012</small></div>
+              <div class="age-chip">U16<small>Aug 1, 2010 – Jul 31, 2011</small></div>
+              <div class="age-chip">U17<small>Aug 1, 2009 – Jul 31, 2010</small></div>
+              <div class="age-chip">U18/19<small>Aug 1, 2007 – Jul 31, 2009</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Session 9: HS Girls — Thu May 28, WEST -->
+      <div class="tryout-card fade-in" data-gender="girls" data-level="hs">
+        <div class="tc-head">
+          <div class="tc-meta"><span class="tc-num">Session 9 of 9</span><span class="tc-gender-icon">♀</span></div>
+          <div class="tc-date-line">Thursday, May 28th<span>6:00 pm – 7:30 pm</span></div>
+          <div class="tc-badges">
+            <span class="badge badge-west">Forge West</span>
+            <span class="badge badge-hs">High School</span>
+          </div>
+          <div class="tc-loc">James O. Breen Community Park · 3625 Campton Hills Rd, St. Charles, IL</div>
+        </div>
+        <div class="tc-body">
+          <div class="tc-slot">
+            <div class="tc-time">6:00 PM – 7:30 PM</div>
+            <div class="tc-ages">
+              <div class="age-chip">U15<small>Aug 1, 2011 – Jul 31, 2012</small></div>
+              <div class="age-chip">U16<small>Aug 1, 2010 – Jul 31, 2011</small></div>
+              <div class="age-chip">U17<small>Aug 1, 2009 – Jul 31, 2010</small></div>
+              <div class="age-chip">U18/19<small>Aug 1, 2007 – Jul 31, 2009</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /tryout-grid -->
+
+    <div class="tryout-supp fade-in">
+      <div class="tryout-supp-icon">📅</div>
+      <div class="tryout-supp-text">
+        <strong>Supplemental High School Boys Dates (U15–U19):</strong> Additional evaluation days for players unable to attend the May sessions — <strong>Tuesday, October 27</strong> and <strong>Thursday, October 29, 2026.</strong> Registration details coming soon.
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -1282,6 +1538,7 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
           <li><a href="#" onclick="openModal('modal-faq');return false">FAQ</a></li>
           <li><a href="#" onclick="openModal('modal-alumni');return false">Alumni Network</a></li>
           <li><a href="#events">Upcoming Events</a></li>
+          <li><a href="#tryouts">May Tryouts</a></li>
           <li><a href="#" onclick="openModal('modal-compare');return false">Compare Programs</a></li>
           <li><a href="fox-valley-forge-brand-guide.html">Brand Guide</a></li>
           <li><a href="pitch-deck.html">Pitch Deck</a></li>
@@ -2517,6 +2774,19 @@ window.addEventListener('afterprint',  function() { swapCloudinaryParams(WEB_PAR
     resume: function() { frozen = false; }
   };
 })();
+
+// ── TRYOUTS FILTER ──
+var tryoutState = { gender: 'all', level: 'all' };
+function setTryoutFilter(type, val, btn) {
+  tryoutState[type] = val;
+  btn.closest('.tf-group').querySelectorAll('.tf-btn').forEach(function(b){ b.classList.remove('active'); });
+  btn.classList.add('active');
+  document.querySelectorAll('#tryoutGrid .tryout-card').forEach(function(card) {
+    var showG = tryoutState.gender === 'all' || card.dataset.gender === tryoutState.gender;
+    var showL = tryoutState.level === 'all' || card.dataset.level === tryoutState.level;
+    card.style.display = (showG && showL) ? '' : 'none';
+  });
+}
 </script>
 </body>
 </html>
