@@ -163,6 +163,20 @@ section{padding:80px 24px}
 @media(max-width:600px){.events-grid{grid-template-columns:1fr}}
 [data-hidden-event]{display:none}
 
+/* ── ANNOUNCEMENT STRIP ── */
+.promo-strip{margin-top:72px;background:var(--gold);color:var(--navy);text-decoration:none;display:block;transition:filter .2s}
+.promo-strip:hover{filter:brightness(1.05)}
+.promo-strip-inner{max-width:1200px;margin:0 auto;padding:11px 24px;display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;text-align:center}
+.promo-strip-eyebrow{font-family:var(--font-h);font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;background:var(--navy);color:var(--gold);padding:4px 10px;border-radius:3px;white-space:nowrap}
+.promo-strip-msg{font-family:var(--font-h);font-size:.95rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+.promo-strip-cta{font-family:var(--font-h);font-size:.82rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--crimson);text-decoration:underline;text-underline-offset:3px;white-space:nowrap}
+@media(max-width:720px){
+  .promo-strip-inner{padding:10px 16px;gap:10px}
+  .promo-strip-msg{font-size:.82rem}
+  .promo-strip-eyebrow{font-size:.65rem;padding:3px 8px}
+  .promo-strip-cta{font-size:.75rem}
+}
+
 /* ── COMMUNITY ── */
 #community{background:var(--gray)}
 .community-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
@@ -528,6 +542,15 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
   <a href="#" onclick="closeMobile();openModal('modal-register');return false" class="btn btn-crimson" style="text-align:center;margin-top:8px">Request Information</a>
 </div>
 
+<!-- ANNOUNCEMENT STRIP -->
+<a href="#event-summer-camp" class="promo-strip" data-event-end="2026-07-23">
+  <div class="promo-strip-inner">
+    <span class="promo-strip-eyebrow">New</span>
+    <span class="promo-strip-msg">Summer Camp · June 16 – July 23 · In partnership with Advantage Soccer Academy</span>
+    <span class="promo-strip-cta">Register Now →</span>
+  </div>
+</a>
+
 <!-- HERO -->
 <section id="hero">
   <video class="hero-video" autoplay muted loop playsinline poster="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1771377808/crowd-cheers-forge-players_vwip1x.jpg">
@@ -604,7 +627,7 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
     <div class="events-grid">
 
       <!-- GIRLS DAY 3 -->
-      <div class="event-card fade-in">
+      <div class="event-card fade-in" data-event-end="2026-04-04">
         <div class="event-card-img" style="background-image:url('generated_imgs/generated-2026-03-12T11-40-13-953Z-9bnffh.png')">
           <div class="event-eyebrow">ID Session · Day 3: Girls</div>
           <h3 class="event-card-title">Day 3: Girls</h3>
@@ -637,7 +660,7 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
       </div>
 
       <!-- BOYS DAY 4 -->
-      <div class="event-card fade-in">
+      <div class="event-card fade-in" data-event-end="2026-04-10">
         <div class="event-card-img" style="background-image:url('generated_imgs/generated-2026-03-12T11-40-44-801Z-84wkx8.png')">
           <div class="event-eyebrow">ID Session · Day 4: Boys</div>
           <h3 class="event-card-title">Day 4: Boys</h3>
@@ -876,7 +899,7 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
     <p class="section-sub fade-in">More than training. Forge brings the community together.</p>
     <div class="events-grid">
 
-      <div class="event-card fade-in">
+      <div class="event-card fade-in" data-event-end="2026-04-10">
         <div class="event-card-img" style="background-image:url('https://res.cloudinary.com/dsbllwpbh/image/upload/v1772211945/open-gyms_jtvx1c.jpg')">
           <div class="event-eyebrow">Free ID Session</div>
           <h3 class="event-card-title">April ID Sessions</h3>
@@ -908,7 +931,7 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
         </div>
       </div>
 
-      <div class="event-card fade-in">
+      <div class="event-card fade-in" data-event-end="2026-05-28">
         <div class="event-card-img" style="background-image:url('https://res.cloudinary.com/dsbllwpbh/image/upload/v1772211945/team-tryouts_v47xti.jpg')">
           <div class="event-eyebrow">Join the Team</div>
           <h3 class="event-card-title">Team Selections &amp; Tryouts</h3>
@@ -935,7 +958,34 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
         </div>
       </div>
 
-      <div class="event-card fade-in">
+      <div id="event-summer-camp" class="event-card fade-in" data-event-end="2026-07-23" style="scroll-margin-top:96px">
+        <div class="event-card-img" style="background-image:url('generated_imgs/summer-camp-advantage-2026.png')">
+          <div class="event-eyebrow">Summer Camp · In Partnership</div>
+          <h3 class="event-card-title">Advantage Soccer Academy Summer Camp</h3>
+          <div class="event-card-date">June 16 – July 23</div>
+        </div>
+        <div class="event-card-body">
+          <div>
+            <h4>About the Camp</h4>
+            <p>Six weeks of high-quality summer training presented by <strong>Advantage Soccer Academy in partnership with Forge Soccer Club</strong>. Three sessions per week (Tuesday – Thursday) on turf at our Forge West building in St. Charles.</p>
+          </div>
+          <div>
+            <h4>What's Included</h4>
+            <ul class="event-activities">
+              <li>18 training sessions over 6 weeks</li>
+              <li>Open to all players U7 – U19 (grouped by age &amp; level)</li>
+              <li>Player insurance</li>
+              <li>Advantage Nike Dri-FIT training tee</li>
+            </ul>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px">
+            <button class="btn btn-navy" onclick="openModal('modal-summer-camp')">Full Details →</button>
+            <a href="https://form.jotform.com/AdvantageSoccer/summer-camp-2026-registration-form" target="_blank" rel="noopener" class="btn btn-gold">Register →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="event-card fade-in" data-event-end="2026-06-27">
         <div class="event-card-img" style="background-image:url('https://res.cloudinary.com/dsbllwpbh/image/upload/v1772211945/3v3-tournament_oc6m62.jpg')">
           <div class="event-eyebrow">Summer Competition</div>
           <h3 class="event-card-title">3v3 Live Tournament</h3>
@@ -959,7 +1009,7 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
         </div>
       </div>
 
-      <div class="event-card fade-in" data-hidden-event>
+      <div class="event-card fade-in" data-hidden-event data-event-end="2026-07-18">
         <div class="event-card-img" style="background-image:url('https://res.cloudinary.com/dsbllwpbh/image/upload/v1772211945/usa-cup_exkhct.jpg')">
           <div class="event-eyebrow">Elite Competition</div>
           <h3 class="event-card-title">USA Cup</h3>
@@ -2266,6 +2316,67 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
   </div>
 </div>
 
+<!-- MODAL: SUMMER CAMP -->
+<div id="modal-summer-camp" class="modal-overlay" role="dialog" aria-modal="true">
+  <div class="modal">
+    <div class="modal-head">
+      <h2>Advantage Soccer Academy Summer Camp</h2>
+      <button class="modal-close" onclick="closeModal('modal-summer-camp')" aria-label="Close">×</button>
+    </div>
+    <div class="modal-body">
+      <p style="font-size:1rem;font-weight:600;color:var(--navy);margin-bottom:6px">In partnership with Forge Soccer Club</p>
+      <p style="margin-bottom:24px;color:#555">Six weeks of focused summer training for field players and keepers ages U7 – U19. Players train together and are divided into groups by age and ability for age-appropriate coaching and competitive play.</p>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px">
+        <div>
+          <h4 style="font-family:var(--font-h);color:var(--crimson);font-size:.85rem;letter-spacing:.1em;margin-bottom:12px">SCHEDULE</h4>
+          <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:8px;font-size:.92rem;color:#333">
+            <li><strong>Dates:</strong> Tuesday, June 16 – Thursday, July 23</li>
+            <li><strong>Days:</strong> Tuesday / Wednesday / Thursday</li>
+            <li><strong>Length:</strong> 6 weeks · 18 sessions</li>
+            <li><strong>Ages:</strong> U7 – U19 (all train together, grouped by age &amp; level)</li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="font-family:var(--font-h);color:var(--crimson);font-size:.85rem;letter-spacing:.1em;margin-bottom:12px">LOCATION</h4>
+          <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:8px;font-size:.92rem;color:#333">
+            <li><strong>Forge West Building</strong></li>
+            <li>3N800 Peck Rd<br>St. Charles, IL 60175</li>
+            <li><strong>Surface:</strong> Turf</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="background:var(--gold-light);border-left:4px solid var(--gold);padding:16px 20px;border-radius:3px;margin-bottom:24px">
+        <h4 style="font-family:var(--font-h);color:var(--navy);font-size:.85rem;letter-spacing:.1em;margin-bottom:10px">SUMMER PASS — WHAT'S INCLUDED</h4>
+        <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:6px;font-size:.92rem;color:var(--navy)">
+            <li>✅ All 18 training sessions</li>
+            <li>✅ Player insurance</li>
+            <li>✅ Advantage Nike Dri-FIT training tee</li>
+        </ul>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px">
+        <div style="border:2px solid var(--navy);border-radius:8px;padding:20px;text-align:center">
+          <p style="font-family:var(--font-h);font-size:.75rem;letter-spacing:.1em;color:#777;margin-bottom:6px">ONLINE PAYMENT</p>
+          <p style="font-family:var(--font-h);font-size:2rem;color:var(--navy);font-weight:800;margin:0">$625</p>
+        </div>
+        <div style="border:2px solid var(--gold);border-radius:8px;padding:20px;text-align:center;background:var(--gold-light)">
+          <p style="font-family:var(--font-h);font-size:.75rem;letter-spacing:.1em;color:#777;margin-bottom:6px">CASH PAYMENT</p>
+          <p style="font-family:var(--font-h);font-size:2rem;color:var(--navy);font-weight:800;margin:0">$595</p>
+        </div>
+      </div>
+
+      <p style="font-size:.82rem;color:#888;font-style:italic;margin-bottom:8px">Registration and payment are handled directly by Advantage Soccer Academy through JotForm.</p>
+      <p style="font-size:.82rem;color:#b14">No refunds or proration will be honored for late starts or missed dates.</p>
+    </div>
+    <div class="modal-foot">
+      <a href="#" class="btn btn-navy" onclick="closeModal('modal-summer-camp');openModal('modal-contact');return false">Ask Us a Question</a>
+      <a href="https://form.jotform.com/AdvantageSoccer/summer-camp-2026-registration-form" target="_blank" rel="noopener" class="btn btn-crimson">Register →</a>
+    </div>
+  </div>
+</div>
+
 <!-- MODAL: CLINIC REGISTRATION -->
 <div id="modal-clinic-register" class="modal-overlay" role="dialog" aria-modal="true">
   <div class="modal" style="max-width:480px">
@@ -2294,6 +2405,34 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
       el.style.display = 'grid';
     });
   }
+})();
+
+// ── AUTO-EXPIRE EVENTS ──
+// Any .event-card with data-event-end="YYYY-MM-DD" is hidden once that date has passed.
+// If an entire .events-grid has no visible cards left, its enclosing <section> is hidden too.
+(function(){
+  var params = new URLSearchParams(window.location.search);
+  if(params.get('show') === 'allevents') return; // dev override: show expired events
+  var t = new Date();
+  var todayStr = t.getFullYear() + '-' +
+    String(t.getMonth()+1).padStart(2,'0') + '-' +
+    String(t.getDate()).padStart(2,'0');
+  document.querySelectorAll('[data-event-end]').forEach(function(el){
+    if(el.getAttribute('data-event-end') < todayStr){
+      el.style.display = 'none';
+      el.setAttribute('data-expired','');
+    }
+  });
+  document.querySelectorAll('.events-grid').forEach(function(grid){
+    var cards = grid.querySelectorAll('.event-card');
+    var anyVisible = Array.prototype.some.call(cards, function(c){
+      return c.style.display !== 'none' && !c.hasAttribute('data-hidden-event');
+    });
+    if(!anyVisible){
+      var section = grid.closest('section');
+      if(section) section.style.display = 'none';
+    }
+  });
 })();
 
 // ── CLINIC REGISTRATION ──
