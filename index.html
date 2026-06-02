@@ -456,6 +456,32 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
 @media(max-width:1024px){.tryout-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:640px){.tryout-grid{grid-template-columns:1fr}.tryout-cta-bar{flex-direction:column;text-align:center}.tf-sep{display:none}.tf-label{display:none}}
 
+/* ── SUMMER PROGRAMS ── */
+#summer{background:var(--gold-light);border-top:4px solid var(--gold);padding:80px 24px}
+.summer-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:8px}
+.summer-prog{background:#fff;border:1px solid #ececec;border-radius:10px;overflow:hidden;box-shadow:0 3px 14px rgba(0,27,68,.06)}
+.summer-prog-head{padding:22px 26px}
+.summer-prog-head.navy{background:var(--navy);color:#fff}
+.summer-prog-head.gold{background:var(--gold);color:var(--navy)}
+.summer-prog-eyebrow{font-family:var(--font-h);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;opacity:.8;margin-bottom:6px}
+.summer-prog-title{font-family:var(--font-h);font-size:1.5rem;margin:0;color:inherit}
+.summer-prog-body{padding:24px 26px}
+.summer-prog-desc{font-size:.92rem;color:#444;line-height:1.6;margin-bottom:22px}
+.summer-loc{margin-bottom:24px}
+.summer-loc:last-child{margin-bottom:0}
+.summer-loc-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;border-bottom:2px solid var(--gold);padding-bottom:8px;margin-bottom:6px;flex-wrap:wrap}
+.summer-loc-days{font-family:var(--font-h);font-size:1.05rem;color:var(--navy);letter-spacing:.02em}
+.summer-loc-place{font-size:.8rem;color:#777;text-align:right}
+.summer-row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid #f0f0f0;flex-wrap:wrap}
+.summer-row:last-child{border-bottom:none}
+.summer-row-info{display:flex;flex-direction:column;gap:2px}
+.summer-row-age{font-weight:600;color:var(--navy);font-size:.95rem}
+.summer-row-time{font-size:.82rem;color:#777}
+.summer-reg{flex-shrink:0;background:var(--crimson);color:#fff;font-family:var(--font-h);font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:9px 18px;border-radius:5px;text-decoration:none;white-space:nowrap;transition:background .2s}
+.summer-reg:hover{background:var(--crimson-90)}
+.summer-cost{margin-top:12px;font-size:.84rem;color:#555;font-weight:600}
+@media(max-width:880px){.summer-grid{grid-template-columns:1fr}}
+
 /* Reel fullscreen overlay */
 .reel-overlay{display:none;position:fixed;inset:0;z-index:9000;background:rgba(0,0,0,.93);align-items:center;justify-content:center}
 .reel-overlay.open{display:flex}
@@ -521,7 +547,8 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
       <li><a href="#coaching">Coaching</a></li>
       <li><a href="#college">College Pathway</a></li>
       <li><a href="#events">Events</a></li>
-      <li><a href="#tryouts">Tryouts</a></li>
+      <li><a href="#summer">Summer</a></li>
+      <!-- Hidden until 2027: <li><a href="#tryouts">Tryouts</a></li> -->
       <li><a href="#community">Our Story</a></li>
       <li><a href="#" onclick="openModal('modal-faq');return false">FAQ</a></li>
     </ul>
@@ -536,7 +563,8 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
   <a href="#coaching" onclick="closeMobile()">Coaching</a>
   <a href="#college" onclick="closeMobile()">College Pathway</a>
   <a href="#events" onclick="closeMobile()">Events</a>
-  <a href="#tryouts" onclick="closeMobile()">Tryouts</a>
+  <a href="#summer" onclick="closeMobile()">Summer</a>
+  <!-- Hidden until 2027: <a href="#tryouts" onclick="closeMobile()">Tryouts</a> -->
   <a href="#community" onclick="closeMobile()">Our Story</a>
   <a href="#" onclick="openModal('modal-faq');closeMobile();return false">FAQ</a>
   <a href="#" onclick="closeMobile();openModal('modal-register');return false" class="btn btn-crimson" style="text-align:center;margin-top:8px">Request Information</a>
@@ -565,7 +593,8 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
     <p class="hero-tagline">From First Kick to College &nbsp;·&nbsp; Your Path, Your Pace</p>
     <div class="hero-btns">
       <a href="#programs" class="btn btn-crimson">Find Your Program</a>
-      <a href="#tryouts" class="btn btn-gold">Tryouts</a>
+      <a href="#summer" class="btn btn-gold">Summer Programs</a>
+      <!-- Hidden until 2027: <a href="#tryouts" class="btn btn-gold">Tryouts</a> -->
       <button class="btn btn-outline" onclick="openModal('modal-story')">Our Story</button>
     </div>
   </div>
@@ -1070,8 +1099,112 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
   </div>
 </section>
 
-<!-- TRYOUTS -->
-<section id="tryouts">
+<!-- SUMMER PROGRAMS -->
+<section id="summer">
+  <div class="section-inner">
+    <p class="section-label fade-in">Summer 2026 · Now Registering</p>
+    <h2 class="section-title fade-in">Summer Programs</h2>
+    <p class="section-sub fade-in">Six-week summer sessions for our youngest players. Register directly online — open to members and new families alike.</p>
+    <div class="summer-grid">
+
+      <!-- Forge Community -->
+      <div class="summer-prog fade-in">
+        <div class="summer-prog-head navy">
+          <div class="summer-prog-eyebrow">Ages U6–U12 · For All Levels</div>
+          <h3 class="summer-prog-title">Forge Community</h3>
+        </div>
+        <div class="summer-prog-body">
+          <p class="summer-prog-desc">We strive to create well-rounded players who not only master the technical aspects of the game but also grow as autonomous decision-makers on the field. Through skill development and tactical education, we lay the foundation for future success — on and off the pitch.</p>
+
+          <div class="summer-loc">
+            <div class="summer-loc-head">
+              <span class="summer-loc-days">Tuesdays &amp; Saturdays</span>
+              <span class="summer-loc-place">Dean &amp; Peck Park</span>
+            </div>
+            <div class="summer-row">
+              <div class="summer-row-info"><span class="summer-row-age">U6–U8</span><span class="summer-row-time">4:30–5:30 PM</span></div>
+              <a class="summer-reg" href="https://forgesoccerclub.sprocketsports.com/registrations/142654" target="_blank" rel="noopener">Register →</a>
+            </div>
+            <div class="summer-row">
+              <div class="summer-row-info"><span class="summer-row-age">U9–U10</span><span class="summer-row-time">6:00–7:00 PM</span></div>
+              <a class="summer-reg" href="https://forgesoccerclub.sprocketsports.com/registrations/144634" target="_blank" rel="noopener">Register →</a>
+            </div>
+            <div class="summer-row">
+              <div class="summer-row-info"><span class="summer-row-age">U11–U12</span><span class="summer-row-time">6:00–7:00 PM</span></div>
+              <a class="summer-reg" href="https://forgesoccerclub.sprocketsports.com/registrations/144638" target="_blank" rel="noopener">Register →</a>
+            </div>
+            <p class="summer-cost">$160 / 6-week session</p>
+          </div>
+
+          <div class="summer-loc">
+            <div class="summer-loc-head">
+              <span class="summer-loc-days">Thursdays &amp; Saturdays</span>
+              <span class="summer-loc-place">Forge East · East Side Sports Complex</span>
+            </div>
+            <div class="summer-row">
+              <div class="summer-row-info"><span class="summer-row-age">U6–U8</span><span class="summer-row-time">4:30–5:30 PM</span></div>
+              <a class="summer-reg" href="https://forgesoccerclub.sprocketsports.com/registrations/144648" target="_blank" rel="noopener">Register →</a>
+            </div>
+            <div class="summer-row">
+              <div class="summer-row-info"><span class="summer-row-age">U9–U10</span><span class="summer-row-time">6:00–7:00 PM</span></div>
+              <a class="summer-reg" href="https://forgesoccerclub.sprocketsports.com/registrations/144676" target="_blank" rel="noopener">Register →</a>
+            </div>
+            <div class="summer-row">
+              <div class="summer-row-info"><span class="summer-row-age">U11–U12</span><span class="summer-row-time">6:00–7:00 PM</span></div>
+              <a class="summer-reg" href="https://forgesoccerclub.sprocketsports.com/registrations/144678" target="_blank" rel="noopener">Register →</a>
+            </div>
+            <p class="summer-cost">$160 / 6-week session</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Forge Foxes -->
+      <div class="summer-prog fade-in">
+        <div class="summer-prog-head gold">
+          <div class="summer-prog-eyebrow">Ages 3–5 · Introductory</div>
+          <h3 class="summer-prog-title">Forge Foxes</h3>
+        </div>
+        <div class="summer-prog-body">
+          <p class="summer-prog-desc">An introductory program for the beginner soccer player ages 3–5. Our Foxes are introduced to basic soccer skills through fun games and activities, developing balance, coordination, agility, technical and social skills, and self-confidence.</p>
+
+          <div class="summer-loc">
+            <div class="summer-loc-head">
+              <span class="summer-loc-days">Mondays</span>
+              <span class="summer-loc-place">Dean &amp; Peck Park</span>
+            </div>
+            <div class="summer-row">
+              <div class="summer-row-info"><span class="summer-row-age">3 Year Olds</span><span class="summer-row-time">4:30–5:15 PM</span></div>
+              <a class="summer-reg" href="https://forgesoccerclub.sprocketsports.com/registrations/138698" target="_blank" rel="noopener">Register →</a>
+            </div>
+            <div class="summer-row">
+              <div class="summer-row-info"><span class="summer-row-age">4–5 Year Olds</span><span class="summer-row-time">5:15–6:30 PM</span></div>
+              <a class="summer-reg" href="https://forgesoccerclub.sprocketsports.com/registrations/140909" target="_blank" rel="noopener">Register →</a>
+            </div>
+          </div>
+
+          <div class="summer-loc">
+            <div class="summer-loc-head">
+              <span class="summer-loc-days">Wednesdays</span>
+              <span class="summer-loc-place">Forge East · East Side Sports Complex</span>
+            </div>
+            <div class="summer-row">
+              <div class="summer-row-info"><span class="summer-row-age">3 Year Olds</span><span class="summer-row-time">4:30–5:15 PM</span></div>
+              <a class="summer-reg" href="https://forgesoccerclub.sprocketsports.com/registrations/140920" target="_blank" rel="noopener">Register →</a>
+            </div>
+            <div class="summer-row">
+              <div class="summer-row-info"><span class="summer-row-age">4–5 Year Olds</span><span class="summer-row-time">5:15–6:30 PM</span></div>
+              <a class="summer-reg" href="https://forgesoccerclub.sprocketsports.com/registrations/140939" target="_blank" rel="noopener">Register →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TRYOUTS — HIDDEN: 2026 May tryouts are past. To re-enable for 2027, remove style="display:none" below and uncomment the Tryouts nav/hero/footer links (search "Hidden until 2027"). -->
+<section id="tryouts" style="display:none">
   <div class="section-inner">
 
     <div class="tryouts-intro fade-in">
@@ -1623,7 +1756,8 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
           <li><a href="#" onclick="openModal('modal-faq');return false">FAQ</a></li>
           <li><a href="#" onclick="openModal('modal-alumni');return false">Alumni Network</a></li>
           <li><a href="#events">Upcoming Events</a></li>
-          <li><a href="#tryouts">May Tryouts</a></li>
+          <li><a href="#summer">Summer Programs</a></li>
+          <!-- Hidden until 2027: <li><a href="#tryouts">May Tryouts</a></li> -->
           <li><a href="#" onclick="openModal('modal-compare');return false">Compare Programs</a></li>
           <li><a href="fox-valley-forge-brand-guide.html">Brand Guide</a></li>
           <li><a href="pitch-deck.html">Pitch Deck</a></li>
@@ -1701,6 +1835,23 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
       <div class="highlight">"Multi-sport participation is actively encouraged at this age. We want your child to be an athlete first."</div>
       <h3>No Tryouts. Everyone Welcome.</h3>
       <p>Forge Futures has no tryouts and no cuts. This program is open to every child in the Fox Valley corridor. Our most affordable option — starting well under $200 per season. Financial assistance is always available.</p>
+
+      <div style="background:var(--gold-light);border-radius:8px;padding:20px 22px;margin-top:24px">
+        <h3 style="margin-bottom:4px">Summer 2026 Sessions — Now Registering</h3>
+        <p style="font-size:.9rem;color:#555;margin-bottom:16px">Six-week sessions · $160 each · register directly online.</p>
+        <div class="summer-loc">
+          <div class="summer-loc-head"><span class="summer-loc-days">Tuesdays &amp; Saturdays</span><span class="summer-loc-place">Dean &amp; Peck Park</span></div>
+          <div class="summer-row"><div class="summer-row-info"><span class="summer-row-age">U6–U8</span><span class="summer-row-time">4:30–5:30 PM</span></div><a class="summer-reg" href="https://forgesoccerclub.sprocketsports.com/registrations/142654" target="_blank" rel="noopener">Register →</a></div>
+          <div class="summer-row"><div class="summer-row-info"><span class="summer-row-age">U9–U10</span><span class="summer-row-time">6:00–7:00 PM</span></div><a class="summer-reg" href="https://forgesoccerclub.sprocketsports.com/registrations/144634" target="_blank" rel="noopener">Register →</a></div>
+          <div class="summer-row"><div class="summer-row-info"><span class="summer-row-age">U11–U12</span><span class="summer-row-time">6:00–7:00 PM</span></div><a class="summer-reg" href="https://forgesoccerclub.sprocketsports.com/registrations/144638" target="_blank" rel="noopener">Register →</a></div>
+        </div>
+        <div class="summer-loc" style="margin-top:18px">
+          <div class="summer-loc-head"><span class="summer-loc-days">Thursdays &amp; Saturdays</span><span class="summer-loc-place">Forge East · East Side Sports Complex</span></div>
+          <div class="summer-row"><div class="summer-row-info"><span class="summer-row-age">U6–U8</span><span class="summer-row-time">4:30–5:30 PM</span></div><a class="summer-reg" href="https://forgesoccerclub.sprocketsports.com/registrations/144648" target="_blank" rel="noopener">Register →</a></div>
+          <div class="summer-row"><div class="summer-row-info"><span class="summer-row-age">U9–U10</span><span class="summer-row-time">6:00–7:00 PM</span></div><a class="summer-reg" href="https://forgesoccerclub.sprocketsports.com/registrations/144676" target="_blank" rel="noopener">Register →</a></div>
+          <div class="summer-row"><div class="summer-row-info"><span class="summer-row-age">U11–U12</span><span class="summer-row-time">6:00–7:00 PM</span></div><a class="summer-reg" href="https://forgesoccerclub.sprocketsports.com/registrations/144678" target="_blank" rel="noopener">Register →</a></div>
+        </div>
+      </div>
     </div>
     <div class="modal-foot">
       <button class="btn btn-gold" onclick="closeModal('modal-futures')">Got It</button>
@@ -2253,6 +2404,21 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
         <p style="font-style:italic;color:var(--navy);font-size:.95rem">"Fun, movement, and smiles — with a soccer ball." No tryouts. No cuts. Everyone welcome.</p>
       </div>
       <p style="font-size:.9rem;color:#555">Forge Foxes is the natural on-ramp to our Forge Community program as players grow. When your child is ready for the next step, the pathway is already here.</p>
+
+      <div style="background:var(--gold-light);border-radius:8px;padding:20px 22px;margin-top:24px">
+        <h3 style="margin-bottom:4px">Summer 2026 Sessions — Now Registering</h3>
+        <p style="font-size:.9rem;color:#555;margin-bottom:16px">Ages 3–5 · register directly online.</p>
+        <div class="summer-loc">
+          <div class="summer-loc-head"><span class="summer-loc-days">Mondays</span><span class="summer-loc-place">Dean &amp; Peck Park</span></div>
+          <div class="summer-row"><div class="summer-row-info"><span class="summer-row-age">3 Year Olds</span><span class="summer-row-time">4:30–5:15 PM</span></div><a class="summer-reg" href="https://forgesoccerclub.sprocketsports.com/registrations/138698" target="_blank" rel="noopener">Register →</a></div>
+          <div class="summer-row"><div class="summer-row-info"><span class="summer-row-age">4–5 Year Olds</span><span class="summer-row-time">5:15–6:30 PM</span></div><a class="summer-reg" href="https://forgesoccerclub.sprocketsports.com/registrations/140909" target="_blank" rel="noopener">Register →</a></div>
+        </div>
+        <div class="summer-loc" style="margin-top:18px">
+          <div class="summer-loc-head"><span class="summer-loc-days">Wednesdays</span><span class="summer-loc-place">Forge East · East Side Sports Complex</span></div>
+          <div class="summer-row"><div class="summer-row-info"><span class="summer-row-age">3 Year Olds</span><span class="summer-row-time">4:30–5:15 PM</span></div><a class="summer-reg" href="https://forgesoccerclub.sprocketsports.com/registrations/140920" target="_blank" rel="noopener">Register →</a></div>
+          <div class="summer-row"><div class="summer-row-info"><span class="summer-row-age">4–5 Year Olds</span><span class="summer-row-time">5:15–6:30 PM</span></div><a class="summer-reg" href="https://forgesoccerclub.sprocketsports.com/registrations/140939" target="_blank" rel="noopener">Register →</a></div>
+        </div>
+      </div>
     </div>
     <div class="modal-foot">
       <a href="#" class="btn btn-navy" onclick="closeModal('modal-foxes');openModal('modal-contact');return false">Ask Us Anything</a>
