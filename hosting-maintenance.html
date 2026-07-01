@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fox Valley Forge SC — Website Hosting & Maintenance</title>
+<link rel="icon" href="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1771377451/favicon-forge-1_r6l4ax.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#001B44; --navy-90:#1A2F57; --navy-70:#4D5F7D; --navy-10:#E6EAF0;
+  --crimson:#A91335; --crimson-90:#B92B4A;
+  --gold:#C5A059; --gold-light:#F8F3EA;
+  --white:#FFFFFF; --gray:#F4F5F7; --dark:#0A0E17;
+  --font-h:'Oswald',Impact,sans-serif;
+  --font-b:'Source Sans 3','Helvetica Neue',Arial,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-b);color:var(--navy);background:var(--white);line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:var(--font-h);text-transform:uppercase;line-height:1.08}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+.eyebrow{font-family:var(--font-h);font-size:.78rem;letter-spacing:.22em;color:var(--gold);text-transform:uppercase;margin-bottom:14px}
+.gold{color:var(--gold)} .crimson{color:var(--crimson)}
+
+/* ── TOP BAR ── */
+.topbar{position:sticky;top:0;z-index:50;background:rgba(0,27,68,.96);backdrop-filter:blur(8px);border-bottom:1px solid rgba(197,160,89,.25)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.topbar img{height:38px}
+.topbar a.back{font-family:var(--font-h);font-size:.8rem;letter-spacing:.12em;color:rgba(255,255,255,.75);text-decoration:none;text-transform:uppercase;transition:color .2s}
+.topbar a.back:hover{color:var(--gold)}
+
+/* ── HERO ── */
+.hero{background:linear-gradient(135deg,#000d22 0%,var(--navy) 58%,#1a0a1e 100%);color:#fff;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 25% 40%,rgba(169,19,53,.22) 0%,transparent 60%),radial-gradient(ellipse at 80% 60%,rgba(197,160,89,.14) 0%,transparent 60%)}
+.hero .wrap{position:relative;z-index:1;padding:84px 24px 76px;text-align:center}
+.hero h1{font-size:clamp(2.1rem,5.5vw,3.4rem);font-weight:700;letter-spacing:.01em;margin-bottom:20px}
+.hero h1 span{color:var(--gold)}
+.hero p{font-size:clamp(1rem,1.8vw,1.2rem);max-width:720px;margin:0 auto;color:rgba(255,255,255,.82)}
+.hero .divider{width:64px;height:3px;background:var(--gold);margin:26px auto 0}
+
+/* ── SECTION SHELL ── */
+section{padding:72px 0}
+.sec-head{text-align:center;max-width:760px;margin:0 auto 44px}
+.sec-head h2{font-size:clamp(1.6rem,3.6vw,2.4rem);font-weight:700;margin-bottom:14px}
+.sec-head p{color:var(--navy-70);font-size:1.05rem}
+.bg-gray{background:var(--gray)}
+.bg-navy{background:var(--navy);color:#fff}
+.bg-navy .sec-head p{color:rgba(255,255,255,.72)}
+
+/* ── HOSTING CARD ── */
+.host-layout{display:grid;grid-template-columns:1.15fr .85fr;gap:32px;align-items:stretch}
+.host-price{background:var(--navy);color:#fff;border-radius:14px;padding:40px 36px;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:center}
+.host-price::after{content:'';position:absolute;top:0;left:0;width:100%;height:4px;background:linear-gradient(90deg,var(--gold),var(--crimson))}
+.host-price .tag{display:inline-block;font-family:var(--font-h);font-size:.7rem;letter-spacing:.14em;background:var(--gold);color:var(--navy);padding:5px 12px;border-radius:3px;margin-bottom:20px;align-self:flex-start}
+.host-price .amount{display:flex;align-items:baseline;gap:6px;margin-bottom:6px}
+.host-price .amount .big{font-family:var(--font-h);font-size:4rem;font-weight:700;line-height:1;color:var(--gold)}
+.host-price .amount .per{font-size:1.05rem;color:rgba(255,255,255,.7)}
+.host-price .alt{font-size:.95rem;color:rgba(255,255,255,.65);margin-bottom:22px}
+.host-price .alt strong{color:#fff}
+.host-price .compare{border-top:1px solid rgba(255,255,255,.14);padding-top:18px;font-size:.9rem;color:rgba(255,255,255,.7);line-height:1.5}
+.host-incl{background:#fff;border:1px solid var(--navy-10);border-radius:14px;padding:34px 34px}
+.host-incl h3{font-size:1.05rem;letter-spacing:.05em;margin-bottom:18px;color:var(--navy)}
+.host-incl ul{list-style:none;display:flex;flex-direction:column;gap:12px}
+.host-incl li{display:flex;gap:12px;align-items:flex-start;font-size:.94rem;color:var(--navy-90)}
+.host-incl li svg{flex-shrink:0;width:20px;height:20px;color:var(--gold);margin-top:2px}
+.host-note{margin-top:26px;background:var(--gold-light);border-left:3px solid var(--gold);border-radius:0 8px 8px 0;padding:18px 22px;font-size:.95rem;color:var(--navy-90)}
+.host-note strong{font-family:var(--font-h);letter-spacing:.03em}
+
+/* ── SPEED COMPARISON ── */
+.speed{margin-top:26px;background:var(--navy);color:#fff;border-radius:14px;padding:34px 34px;position:relative;overflow:hidden}
+.speed::after{content:'';position:absolute;top:0;left:0;width:100%;height:4px;background:linear-gradient(90deg,var(--gold),var(--crimson))}
+.speed-head{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.speed-head svg{width:26px;height:26px;color:var(--gold);flex:none}
+.speed-head h3{font-size:1.3rem;letter-spacing:.03em}
+.speed-lead{color:rgba(255,255,255,.8);font-size:.98rem;max-width:760px;margin-bottom:24px}
+.speed-lead strong{color:var(--gold);font-weight:600}
+.speed-cols{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.speed-col{border-radius:10px;padding:22px 22px}
+.speed-col.ours{background:rgba(197,160,89,.1);border:1px solid rgba(197,160,89,.4)}
+.speed-col.theirs{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12)}
+.speed-tag{display:inline-block;font-family:var(--font-h);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;padding:5px 12px;border-radius:3px;margin-bottom:14px;background:rgba(255,255,255,.1);color:rgba(255,255,255,.7)}
+.speed-tag.good{background:var(--gold);color:var(--navy)}
+.speed-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.speed-col li{position:relative;padding-left:22px;font-size:.9rem;line-height:1.45}
+.speed-col.ours li{color:rgba(255,255,255,.9)}
+.speed-col.theirs li{color:rgba(255,255,255,.62)}
+.speed-col li::before{position:absolute;left:0;top:0;font-family:var(--font-h)}
+.speed-col.ours li::before{content:"✓";color:var(--gold);font-weight:700}
+.speed-col.theirs li::before{content:"•";color:rgba(255,255,255,.4)}
+.speed-foot{margin-top:22px;padding-top:18px;border-top:1px solid rgba(255,255,255,.14);font-size:.9rem;color:rgba(255,255,255,.7);font-style:italic}
+@media(max-width:640px){.speed-cols{grid-template-columns:1fr}}
+
+/* ── HOW MAINTENANCE WORKS ── */
+.how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.how-card{background:#fff;border:1px solid var(--navy-10);border-radius:12px;padding:30px 26px;text-align:center}
+.how-card .ic{width:52px;height:52px;margin:0 auto 16px;border-radius:50%;background:rgba(197,160,89,.14);display:flex;align-items:center;justify-content:center;color:var(--gold)}
+.how-card .ic svg{width:26px;height:26px}
+.how-card h3{font-size:1rem;margin-bottom:10px}
+.how-card p{font-size:.92rem;color:var(--navy-70)}
+
+/* ── LADDER TABLE ── */
+.ladder{max-width:900px;margin:0 auto}
+.ladder-row{display:grid;grid-template-columns:1.1fr .9fr 1fr auto;align-items:center;gap:16px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:18px 24px;margin-bottom:12px;transition:transform .15s,border-color .15s}
+.ladder-row:hover{transform:translateY(-2px);border-color:rgba(197,160,89,.5)}
+.ladder-row.rec{background:rgba(197,160,89,.1);border-color:var(--gold)}
+.ladder-row.best{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold)}
+.ladder-row .block{font-family:var(--font-h);font-size:1.6rem;font-weight:700;color:#fff}
+.ladder-row.rec .block{color:var(--gold)}
+.ladder-row .rate{font-size:.95rem;color:rgba(255,255,255,.7)}
+.ladder-row .rate strong{font-family:var(--font-h);color:#fff;font-size:1.15rem;font-weight:600}
+.ladder-row .hrs{font-size:.95rem;color:rgba(255,255,255,.85)}
+.ladder-row .hrs b{color:var(--gold)}
+.ladder-row .badge{font-family:var(--font-h);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;padding:5px 11px;border-radius:20px;white-space:nowrap}
+.ladder-row .badge.g{background:var(--gold);color:var(--navy)}
+.ladder-row .badge.c{background:var(--crimson);color:#fff}
+.ladder-row .badge.blank{visibility:hidden}
+.ladder-note{max-width:900px;margin:14px auto 0;font-size:.82rem;color:rgba(255,255,255,.5);text-align:center}
+.consult{max-width:900px;margin:26px auto 0;display:flex;align-items:center;justify-content:space-between;gap:20px;background:rgba(169,19,53,.14);border:1px solid rgba(169,19,53,.4);border-radius:10px;padding:22px 26px}
+.consult .l h3{font-size:1.15rem;color:#fff;margin-bottom:4px}
+.consult .l p{font-size:.9rem;color:rgba(255,255,255,.72)}
+.consult .r{font-family:var(--font-h);font-size:2.2rem;font-weight:700;color:var(--gold);white-space:nowrap}
+
+/* ── CADENCE ── */
+.cadence-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.cadence-stats{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.stat{background:#fff;border:1px solid var(--navy-10);border-radius:12px;padding:26px 22px;text-align:center}
+.stat .n{font-family:var(--font-h);font-size:2.4rem;font-weight:700;color:var(--crimson);line-height:1}
+.stat .l{font-size:.85rem;color:var(--navy-70);margin-top:8px}
+.cadence-copy h2{font-size:clamp(1.5rem,3.2vw,2.1rem);font-weight:700;margin-bottom:16px}
+.cadence-copy p{color:var(--navy-70);margin-bottom:14px;font-size:1rem}
+.cadence-copy ul{list-style:none;display:flex;flex-direction:column;gap:8px;margin-top:6px}
+.cadence-copy li{position:relative;padding-left:22px;font-size:.95rem;color:var(--navy-90)}
+.cadence-copy li::before{content:"";position:absolute;left:0;top:9px;width:8px;height:8px;background:var(--gold);border-radius:50%}
+
+/* ── CTA / FOOTER ── */
+.cta{background:linear-gradient(135deg,var(--navy) 0%,#1a0a1e 100%);color:#fff;text-align:center}
+.cta .wrap{padding:72px 24px}
+.cta h2{font-size:clamp(1.7rem,3.6vw,2.4rem);margin-bottom:16px}
+.cta p{max-width:600px;margin:0 auto 12px;color:rgba(255,255,255,.8)}
+.cta .contact{font-family:var(--font-h);letter-spacing:.05em;margin-top:22px;font-size:1.05rem}
+.cta .contact a{color:var(--gold);text-decoration:none}
+.footer{background:var(--dark);color:rgba(255,255,255,.45);text-align:center;padding:26px 24px;font-size:.8rem}
+.footer img{height:26px;opacity:.7;margin-bottom:10px;display:block;margin-left:auto;margin-right:auto}
+
+/* ── RESPONSIVE ── */
+@media(max-width:860px){
+  .host-layout{grid-template-columns:1fr}
+  .how-grid{grid-template-columns:1fr}
+  .cadence-grid{grid-template-columns:1fr;gap:28px}
+  .ladder-row{grid-template-columns:1fr 1fr;gap:10px 16px}
+  .ladder-row .hrs{text-align:left}
+  .ladder-row .badge{grid-column:1/-1;justify-self:start}
+  .ladder-row .badge.blank{display:none}
+  .consult{flex-direction:column;text-align:center}
+}
+@media(max-width:520px){
+  .cadence-stats{grid-template-columns:1fr}
+  .host-price .amount .big{font-size:3.2rem}
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="wrap">
+    <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1770763739/forge-logo-w-fox-valley-23jan2026_d1dlgi.png" alt="Fox Valley Forge SC">
+    <a class="back" href="index.html">← Back to Site</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Website Care Plan · 2026–2027</div>
+    <h1>Hosting &amp; <span>Maintenance</span></h1>
+    <p>Keeping the Fox Valley Forge website fast, secure, and current — with predictable hosting and flexible, pay-as-you-grow maintenance.</p>
+    <div class="divider"></div>
+  </div>
+</header>
+
+<!-- HOSTING -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Step 1 · Keep it Online</div>
+      <h2>Annual Hosting</h2>
+      <p>A flat, predictable fee to keep the site live, fast, and secure — comparable to what you'd pay a platform like Squarespace, with a hand-built site instead of a template.</p>
+    </div>
+
+    <div class="host-layout">
+      <div class="host-price">
+        <span class="tag">Hosting &amp; Platform</span>
+        <div class="amount"><span class="big">$300</span><span class="per">/ year</span></div>
+        <div class="alt">or <strong>$25 / month</strong> · billed annually or monthly</div>
+        <div class="compare">Squarespace's small-business plan (Core) runs <strong>$23/mo&nbsp;($276/yr)</strong> for a template site. Your plan is priced right alongside it — for a fully custom, hand-coded website.</div>
+      </div>
+
+      <div class="host-incl">
+        <h3>What Hosting Covers</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Managed hosting on a fast global CDN</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>SSL security certificate &amp; HTTPS</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>No CMS or plugins to hack — inherently more secure</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Full version history — any prior version restorable</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Contact form handling &amp; spam filtering</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="host-note">
+      <strong>Please note:</strong> Hosting keeps the site running — it does not include content changes, new sections, or design updates. Any hands-on work to the site is handled through a Pre-pay Maintenance block below, so you only ever pay for the work you actually use.
+    </div>
+
+    <!-- SPEED COMPARISON -->
+    <div class="speed">
+      <div class="speed-head">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7z"/></svg>
+        <h3>Built to Load Faster</h3>
+      </div>
+      <p class="speed-lead">Both platforms run on world-class global networks — so the speed edge isn't the network, it's <strong>how the page is built</strong>. A hand-coded site paints sooner and responds instantly — in a head-to-head mobile speed test, the Forge site scored higher than a comparable Squarespace club.</p>
+      <div class="speed-cols">
+        <div class="speed-col ours">
+          <div class="speed-tag good">This Site · Netlify</div>
+          <ul>
+            <li>Pre-built static HTML, served ready-to-paint from the edge</li>
+            <li>No template engine or plugins running on every visit</li>
+            <li>Images &amp; video auto-optimized (WebP/AVIF, sized to fit) via Cloudinary</li>
+            <li>Instant response — 0&nbsp;ms input delay in testing</li>
+          </ul>
+        </div>
+        <div class="speed-col theirs">
+          <div class="speed-tag">Typical Squarespace</div>
+          <ul>
+            <li>Pages assembled from a template on each request</li>
+            <li>Heavier JavaScript &amp; third-party script overhead</li>
+            <li>Platform defaults you can't fully trim</li>
+            <li>Scripts block interaction — 120&nbsp;ms input delay in testing</li>
+          </ul>
+        </div>
+      </div>
+      <p class="speed-foot">Measured on mobile Lighthouse against a comparable Squarespace club: overall speed score <strong>67 vs 57</strong>, first paint <strong>3.2&nbsp;s vs 7.1&nbsp;s</strong>, tap response <strong>0&nbsp;ms vs 120&nbsp;ms</strong>. Faster paint and instant response also mean stronger Core Web Vitals — the speed signals Google uses for search ranking.</p>
+    </div>
+  </div>
+</section>
+
+<!-- HOW MAINTENANCE WORKS -->
+<section class="bg-gray">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Step 2 · Keep it Current</div>
+      <h2>How Pre-pay Maintenance Works</h2>
+      <p>Buy a block of hours up front. Draw them down as the season demands — new events, tryout cards, registration links, program updates. No monthly commitment, no wasted spend.</p>
+    </div>
+    <div class="how-grid">
+      <div class="how-card">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <h3>Hours Never Expire</h3>
+        <p>Your block carries over season to season. Unused time is never lost — draw it down whenever you need it.</p>
+      </div>
+      <div class="how-card">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-4 4"/></svg></div>
+        <h3>Live Status Page</h3>
+        <p>A private, always-current log shows every edit by date and how many hours remain in your block — check it anytime, no waiting for a monthly report.</p>
+      </div>
+      <div class="how-card">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 17 6-6 4 4 8-8"/><path d="M17 7h4v4"/></svg></div>
+        <h3>Buy More, Save More</h3>
+        <p>The larger the block, the lower the hourly rate — from $150/hr down to $75/hr. Bigger blocks stretch further.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LADDER -->
+<section class="bg-navy">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Pre-pay Maintenance</div>
+      <h2>Choose Your Block</h2>
+      <p>Every tier buys the same great work — larger blocks simply earn a lower hourly rate. Based on the club's first season, most clubs your size land in the highlighted <span class="gold">27–50 hour</span> range for a full year.</p>
+    </div>
+
+    <div class="ladder">
+      <div class="ladder-row"><div class="block">$5,000</div><div class="rate"><strong>$75</strong> / hr</div><div class="hrs"><b>67</b> hours</div><div class="badge blank">—</div></div>
+      <div class="ladder-row rec"><div class="block">$4,000</div><div class="rate"><strong>$80</strong> / hr</div><div class="hrs"><b>50</b> hours</div><div class="badge g">Active Year</div></div>
+      <div class="ladder-row rec best"><div class="block">$3,000</div><div class="rate"><strong>$88</strong> / hr</div><div class="hrs"><b>34</b> hours</div><div class="badge c">Best Fit</div></div>
+      <div class="ladder-row rec"><div class="block">$2,500</div><div class="rate"><strong>$93</strong> / hr</div><div class="hrs"><b>27</b> hours</div><div class="badge g">Light Year</div></div>
+      <div class="ladder-row"><div class="block">$2,000</div><div class="rate"><strong>$100</strong> / hr</div><div class="hrs"><b>20</b> hours</div><div class="badge blank">—</div></div>
+      <div class="ladder-row"><div class="block">$1,500</div><div class="rate"><strong>$115</strong> / hr</div><div class="hrs"><b>13</b> hours</div><div class="badge blank">—</div></div>
+      <div class="ladder-row"><div class="block">$1,000</div><div class="rate"><strong>$125</strong> / hr</div><div class="hrs"><b>8</b> hours</div><div class="badge blank">—</div></div>
+      <div class="ladder-row"><div class="block">$600</div><div class="rate"><strong>$150</strong> / hr</div><div class="hrs"><b>4</b> hours</div><div class="badge blank">—</div></div>
+    </div>
+    <div class="ladder-note">All blocks include no expiration and a live internal status page. Rates shown are per hour of hands-on work.</div>
+
+    <div class="consult">
+      <div class="l">
+        <h3>Just Need a Quick Session?</h3>
+        <p>One-time, 2-hour working session — training, a walkthrough, or a batch of small edits. Zoom or local in-person.</p>
+      </div>
+      <div class="r">$250</div>
+    </div>
+  </div>
+</section>
+
+<!-- CADENCE / WHY THIS BAND -->
+<section>
+  <div class="wrap">
+    <div class="cadence-grid">
+      <div class="cadence-copy">
+        <div class="eyebrow">Based on Real Usage</div>
+        <h2>Why 27–50 Hours a Year</h2>
+        <p>Over the Forge site's first four months live, updates came in <strong>2–4 small batches a month</strong>, each tied to the club's calendar — never a big rebuild, just steady seasonal upkeep.</p>
+        <p>Those updates looked like:</p>
+        <ul>
+          <li>New event &amp; tournament cards (3v3, USA Cup, camps)</li>
+          <li>Tryout &amp; ID session schedules each season</li>
+          <li>Wiring up live registration links</li>
+          <li>Program, pricing &amp; roster/leadership updates</li>
+          <li>Retiring past events automatically</li>
+        </ul>
+      </div>
+      <div class="cadence-stats">
+        <div class="stat"><div class="n">26</div><div class="l">work sessions in the first 4 months</div></div>
+        <div class="stat"><div class="n">2–4</div><div class="l">updates per month, seasonally</div></div>
+        <div class="stat"><div class="n">~40–65</div><div class="l">hours of upkeep in a typical year</div></div>
+        <div class="stat"><div class="n">$88/hr</div><div class="l">effective rate at the Best Fit tier</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="wrap">
+    <div class="eyebrow" style="color:var(--gold)">Ready When You Are</div>
+    <h2>Let's Lock In the Season</h2>
+    <p>Choose a hosting term and a maintenance block that fits the year ahead. We'll handle the rest — and you'll always know exactly where your hours stand.</p>
+    <div class="contact">Questions? <a href="mailto:info@forgesoccerclub.com">info@forgesoccerclub.com</a> · 630-377-9292</div>
+  </div>
+</section>
+
+<footer class="footer">
+  <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_120/v1772573827/forge-logo-no-fox-valley-23jan2026_olh5tk.png" alt="Fox Valley Forge SC">
+  Fox Valley Forge Soccer Club · Website Hosting &amp; Maintenance Plan
+</footer>
+
+</body>
+</html>
