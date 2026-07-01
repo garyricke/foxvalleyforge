@@ -151,6 +151,16 @@ table.opt td.rec{background:rgba(197,160,89,.08)}
   .phase{grid-template-columns:1fr;gap:4px}
   table.opt{font-size:.82rem}
 }
+/* DEMO CTA */
+.demo-cta-wrap{text-align:center;margin-top:40px}
+.demo-cta{display:inline-flex;flex-direction:column;align-items:center;gap:5px;text-decoration:none;background:linear-gradient(135deg,var(--navy),#0a2a5c);border:1px solid rgba(197,160,89,.5);border-radius:16px;padding:26px 48px;box-shadow:0 16px 40px rgba(0,27,68,.22);transition:transform .16s,box-shadow .16s,border-color .16s}
+.demo-cta:hover{transform:translateY(-3px);box-shadow:0 22px 54px rgba(0,27,68,.3);border-color:var(--gold)}
+.demo-cta-eyebrow{font-family:var(--font-h);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.demo-cta-main{font-family:var(--font-h);font-size:clamp(1.4rem,3vw,1.9rem);font-weight:700;text-transform:uppercase;color:#fff;letter-spacing:.02em;display:inline-flex;align-items:center;gap:12px}
+.demo-cta-main svg{width:26px;height:26px;color:var(--gold);transition:transform .16s}
+.demo-cta:hover .demo-cta-main svg{transform:translateX(5px)}
+.demo-cta-sub{font-size:.9rem;color:rgba(255,255,255,.72);font-family:var(--font-b);text-transform:none;letter-spacing:0}
+
 /* OUTREACH EMAIL */
 .email-tool{max-width:700px;margin:0 auto}
 .email-bar{display:flex;align-items:center;justify-content:space-between;gap:14px;background:var(--navy);border-radius:12px 12px 0 0;padding:14px 18px}
@@ -292,6 +302,16 @@ table.opt td.rec{background:rgba(197,160,89,.08)}
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>Store details + an embedded map</b> — address, hours, and phone.</span></li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>Action buttons</b> — Visit Website, Directions, and Call — one tap each.</span></li>
       </ul>
+    </div>
+
+    <div class="demo-cta-wrap">
+      <a class="demo-cta" href="sponsor-demo.html">
+        <span class="demo-cta-eyebrow">See It Live</span>
+        <span class="demo-cta-main">Open the Working Demo
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </span>
+        <span class="demo-cta-sub">Click a real sponsor logo and open its mini home page</span>
+      </a>
     </div>
   </div>
 </section>

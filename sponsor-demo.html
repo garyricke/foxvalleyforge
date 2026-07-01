@@ -54,17 +54,17 @@ section{padding:58px 0}
 .ba .cap{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;border-bottom:1px solid var(--navy-10)}
 .ba .cap span{font-family:var(--font-h);font-size:.74rem;letter-spacing:.1em;text-transform:uppercase}
 .ba .before .cap span{color:var(--navy-70)} .ba .after .cap span{color:var(--gold)}
-.ba .tagpill{font-family:var(--font-h);font-size:.62rem;letter-spacing:.06em;padding:3px 9px;border-radius:20px}
-.ba .before .tagpill{background:var(--navy-10);color:var(--navy-70)}
-.ba .after .tagpill{background:var(--gold);color:var(--navy)}
+.ba .tagpill{font-family:var(--font-h);font-size:.62rem;letter-spacing:.06em;padding:4px 11px;border-radius:20px;white-space:nowrap;flex:none}
+.ba .before .cap span.tagpill{background:var(--navy-10);color:var(--navy-70)}
+.ba .after .cap span.tagpill{background:var(--gold);color:var(--navy)}
 .ba .imgbox{padding:22px;display:flex;align-items:center;justify-content:center;background:#fff}
 .ba .imgbox img{width:100%;max-width:330px;height:auto;display:block}
 .ba-note{text-align:center;font-size:.9rem;color:var(--navy-70);margin-top:18px}
 .ba-note b{color:var(--navy)}
 
 /* SPONSOR GRID (no tiers — one simple grid) */
-.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
-.tile{background:#fff;border:1px solid var(--navy-10);border-radius:12px;padding:16px 14px 14px;cursor:pointer;transition:transform .16s,box-shadow .16s,border-color .16s;display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center}
+.grid{display:flex;flex-wrap:wrap;justify-content:center;gap:18px}
+.tile{flex:0 0 calc(25% - 14px);background:#fff;border:1px solid var(--navy-10);border-radius:12px;padding:18px 16px 15px;cursor:pointer;transition:transform .16s,box-shadow .16s,border-color .16s;display:flex;flex-direction:column;align-items:center;gap:7px;text-align:center}
 .tile:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(0,27,68,.14);border-color:var(--gold)}
 .tile:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 .tile .logo{width:100%;aspect-ratio:24/10;border-radius:8px;overflow:hidden;display:flex;align-items:center;justify-content:center;margin-bottom:2px}
@@ -127,17 +127,23 @@ section{padding:58px 0}
 .mh-actions a svg{width:16px;height:16px}
 .mh-actions a.primary{background:var(--gold);color:var(--navy);border-color:var(--gold)}
 .mh-actions a.primary:hover{background:var(--gold-hover)}
+.mh-social{display:flex;align-items:center;gap:10px;margin-top:18px;padding-top:18px;border-top:1px solid var(--navy-10)}
+.mh-social-lbl{font-family:var(--font-h);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--navy-70);margin-right:2px}
+.mh-social a{width:38px;height:38px;border-radius:9px;display:flex;align-items:center;justify-content:center;background:var(--gold-light);border:1px solid rgba(197,160,89,.35);color:var(--navy);transition:background .15s,color .15s,transform .15s}
+.mh-social a:hover{background:var(--navy);color:#fff;border-color:var(--navy);transform:translateY(-2px)}
+.mh-social a svg{width:19px;height:19px}
 
 .foot{background:var(--dark);color:rgba(255,255,255,.45);text-align:center;padding:26px 24px;font-size:.8rem}
 .foot img{height:26px;opacity:.7;margin:0 auto 10px;display:block}
 
-@media(max-width:900px){ .grid{grid-template-columns:repeat(4,1fr)} }
+@media(max-width:900px){ .tile{flex-basis:calc(33.333% - 12px)} }
 @media(max-width:680px){
   .ba{grid-template-columns:1fr}
-  .grid{grid-template-columns:repeat(2,1fr)}
+  .tile{flex-basis:calc(50% - 9px)}
   .info{grid-template-columns:1fr}
   .mh-hero{height:200px}
 }
+@media(max-width:420px){ .tile{flex-basis:100%} }
 </style>
 </head>
 <body>
@@ -241,7 +247,19 @@ var SPONSOR = {
   address: '618 Commons Dr, Geneva, IL 60134',
   phone: '(630) 943-4100',
   hours: 'Mon–Sat 9am–9pm · Sun 10am–7pm',
-  website: 'https://www.dickssportinggoods.com'
+  website: 'https://www.dickssportinggoods.com',
+  social: {
+    facebook: 'https://www.facebook.com/dickssportinggoods',
+    instagram: 'https://www.instagram.com/dicks',
+    x: 'https://x.com/dicks',
+    youtube: 'https://www.youtube.com/@DICKS'
+  }
+};
+var SOCIAL_ICONS = {
+  facebook: '<path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>',
+  instagram: '<rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/>',
+  x: '<path d="M4 3h4l4.2 5.9L17.5 3H21l-6.6 7.6L21.5 21h-4l-4.6-6.4L7 21H3.5l7-8.1z"/>',
+  youtube: '<rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10.5 9.2l5 2.8-5 2.8z" fill="currentColor" stroke="none"/>'
 };
 var COUNT = 10;
 
@@ -269,6 +287,16 @@ function esc(s){ return String(s).replace(/[<>"]/g,function(c){return {'<':'&lt;
 
 // SPOTLIGHT — mini home page
 var ov=document.getElementById('ov'), sheet=document.getElementById('sheet');
+function socialRow(social){
+  if(!social) return '';
+  var order=['facebook','instagram','x','youtube'];
+  var links=order.filter(function(k){return social[k];}).map(function(k){
+    return '<a href="'+social[k]+'" target="_blank" rel="noopener" aria-label="'+k+'">'
+      + '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">'+SOCIAL_ICONS[k]+'</svg></a>';
+  }).join('');
+  if(!links) return '';
+  return '<div class="mh-social"><span class="mh-social-lbl">Follow</span>'+links+'</div>';
+}
 function openSpotlight(){
   var s=SPONSOR;
   var cats=s.categories.map(function(c){
@@ -301,6 +329,7 @@ function openSpotlight(){
     +     '<a href="https://maps.google.com/?q='+encodeURIComponent(s.address)+'" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>Directions</a>'
     +     '<a href="tel:'+s.phone.replace(/[^0-9]/g,'')+'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>Call</a>'
     +   '</div>'
+    +   socialRow(s.social)
     + '</div>';
   ov.classList.add('open'); ov.scrollTop=0; document.body.style.overflow='hidden';
 }
