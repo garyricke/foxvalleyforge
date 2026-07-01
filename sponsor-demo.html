@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fox Valley Forge SC — Sponsor Page Demo</title>
+<link rel="icon" href="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1771377451/favicon-forge-1_r6l4ax.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#001B44; --navy-90:#1A2F57; --navy-70:#4D5F7D; --navy-10:#E6EAF0;
+  --crimson:#A91335; --gold:#C5A059; --gold-hover:#d4b06a; --gold-light:#F8F3EA;
+  --white:#FFFFFF; --gray:#F4F5F7; --dark:#0A0E17;
+  --font-h:'Oswald',Impact,sans-serif;
+  --font-b:'Source Sans 3','Helvetica Neue',Arial,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-b);color:var(--navy);background:var(--white);line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:var(--font-h);text-transform:uppercase;line-height:1.08}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+.eyebrow{font-family:var(--font-h);font-size:.78rem;letter-spacing:.22em;color:var(--gold);text-transform:uppercase;margin-bottom:12px}
+.gold{color:var(--gold)} .crimson{color:var(--crimson)}
+
+.topbar{position:sticky;top:0;z-index:50;background:rgba(0,27,68,.96);backdrop-filter:blur(8px);border-bottom:1px solid rgba(197,160,89,.25)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.topbar img{height:38px}
+.topbar a.back{font-family:var(--font-h);font-size:.8rem;letter-spacing:.12em;color:rgba(255,255,255,.75);text-decoration:none;text-transform:uppercase;transition:color .2s}
+.topbar a.back:hover{color:var(--gold)}
+
+.hero{background:linear-gradient(135deg,#000d22 0%,var(--navy) 58%,#1a0a1e 100%);color:#fff;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 22% 40%,rgba(169,19,53,.22) 0%,transparent 60%),radial-gradient(ellipse at 82% 60%,rgba(197,160,89,.14) 0%,transparent 60%)}
+.hero .wrap{position:relative;z-index:1;padding:60px 24px 50px;text-align:center}
+.hero h1{font-size:clamp(2rem,5vw,3rem);font-weight:700;margin-bottom:16px}
+.hero h1 span{color:var(--gold)}
+.hero p{font-size:clamp(1rem,1.7vw,1.15rem);max-width:640px;margin:0 auto;color:rgba(255,255,255,.82)}
+
+.demo-note{background:var(--gold-light);border-bottom:1px solid rgba(197,160,89,.4)}
+.demo-note .wrap{padding:14px 24px;display:flex;gap:12px;align-items:center;justify-content:center;text-align:center;font-size:.9rem;color:var(--navy-90)}
+.demo-note svg{width:20px;height:20px;color:var(--gold);flex:none}
+.demo-note b{font-family:var(--font-h);letter-spacing:.03em}
+
+section{padding:58px 0}
+.bg-gray{background:var(--gray)}
+.sec-head{text-align:center;max-width:720px;margin:0 auto 38px}
+.sec-head h2{font-size:clamp(1.5rem,3.2vw,2.2rem);font-weight:700;margin-bottom:12px}
+.sec-head p{color:var(--navy-70);font-size:1.02rem}
+
+/* BEFORE / AFTER LOGO */
+.ba{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:880px;margin:0 auto}
+.ba figure{background:#fff;border:1px solid var(--navy-10);border-radius:12px;overflow:hidden}
+.ba .cap{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;border-bottom:1px solid var(--navy-10)}
+.ba .cap span{font-family:var(--font-h);font-size:.74rem;letter-spacing:.1em;text-transform:uppercase}
+.ba .before .cap span{color:var(--navy-70)} .ba .after .cap span{color:var(--gold)}
+.ba .tagpill{font-family:var(--font-h);font-size:.62rem;letter-spacing:.06em;padding:3px 9px;border-radius:20px}
+.ba .before .tagpill{background:var(--navy-10);color:var(--navy-70)}
+.ba .after .tagpill{background:var(--gold);color:var(--navy)}
+.ba .imgbox{padding:22px;display:flex;align-items:center;justify-content:center;background:#fff}
+.ba .imgbox img{width:100%;max-width:330px;height:auto;display:block}
+.ba-note{text-align:center;font-size:.9rem;color:var(--navy-70);margin-top:18px}
+.ba-note b{color:var(--navy)}
+
+/* SPONSOR GRID (no tiers — one simple grid) */
+.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.tile{background:#fff;border:1px solid var(--navy-10);border-radius:12px;padding:16px 14px 14px;cursor:pointer;transition:transform .16s,box-shadow .16s,border-color .16s;display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center}
+.tile:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(0,27,68,.14);border-color:var(--gold)}
+.tile:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.tile .logo{width:100%;aspect-ratio:24/10;border-radius:8px;overflow:hidden;display:flex;align-items:center;justify-content:center;margin-bottom:2px}
+.tile .logo img{width:100%;height:100%;object-fit:contain}
+.tile .name{font-family:var(--font-h);font-size:.8rem;letter-spacing:.02em;color:var(--navy);line-height:1.12}
+.tile .loc{font-size:.72rem;color:var(--navy-70);line-height:1.2}
+.tile .more{font-family:var(--font-h);font-size:.62rem;letter-spacing:.09em;color:var(--gold);text-transform:uppercase;display:inline-flex;align-items:center;gap:5px;margin-top:4px;padding-top:8px;border-top:1px solid var(--navy-10);width:100%;justify-content:center}
+.tile .more svg{width:12px;height:12px;transition:transform .16s}
+.tile:hover .more{color:var(--gold-hover)}
+.tile:hover .more svg{transform:translateX(3px)}
+
+/* SCROLLING BANNER */
+.banner-sec{background:var(--navy);color:#fff;padding:44px 0}
+.banner-sec .sec-head h2{color:#fff} .banner-sec .sec-head p{color:rgba(255,255,255,.7)}
+.marquee{overflow:hidden;position:relative;padding:8px 0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.marquee-track{display:flex;gap:26px;width:max-content;animation:scroll 34s linear infinite}
+.marquee:hover .marquee-track{animation-play-state:paused}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.m-logo{flex:none;height:74px;width:176px;background:#fff;border-radius:10px;display:flex;align-items:center;justify-content:center;padding:12px;cursor:pointer;transition:transform .16s}
+.m-logo:hover{transform:scale(1.05)}
+.m-logo img{max-width:100%;max-height:100%;object-fit:contain}
+@media (prefers-reduced-motion:reduce){.marquee-track{animation:none;flex-wrap:wrap;justify-content:center}}
+
+/* SPOTLIGHT = MINI HOME PAGE */
+.ov{position:fixed;inset:0;z-index:1000;background:rgba(2,12,26,.7);backdrop-filter:blur(4px);display:none;align-items:flex-start;justify-content:center;padding:28px 16px;overflow-y:auto}
+.ov.open{display:flex}
+.sheet{background:#fff;width:min(680px,100%);border-radius:18px;overflow:hidden;box-shadow:0 30px 90px rgba(0,0,0,.5);position:relative;animation:pop .25s ease}
+@keyframes pop{from{transform:translateY(16px);opacity:0}to{transform:none;opacity:1}}
+.sheet .close{position:absolute;top:14px;right:14px;z-index:3;width:38px;height:38px;border-radius:50%;background:rgba(0,0,0,.45);backdrop-filter:blur(4px);border:0;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#fff}
+.sheet .close svg{width:18px;height:18px}
+/* hero */
+.mh-hero{position:relative;height:230px}
+.mh-hero img{width:100%;height:100%;object-fit:cover;display:block}
+.mh-hero .scrim{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,27,68,.92) 0%,rgba(0,27,68,.25) 55%,rgba(0,0,0,.12) 100%)}
+.mh-hero .id{position:absolute;left:24px;right:24px;bottom:16px;display:flex;align-items:flex-end;gap:16px}
+.mh-hero .chip{width:96px;height:52px;background:#fff;border-radius:10px;flex:none;display:flex;align-items:center;justify-content:center;padding:7px;box-shadow:0 6px 18px rgba(0,0,0,.28)}
+.mh-hero .chip img{width:100%;height:100%;object-fit:contain}
+.mh-hero .id h3{color:#fff;font-size:1.5rem;line-height:1;margin-bottom:5px}
+.mh-hero .id .loc{color:rgba(255,255,255,.85);font-size:.85rem;display:flex;align-items:center;gap:6px}
+.mh-hero .id .loc svg{width:14px;height:14px}
+/* facts strip */
+.mh-facts{display:flex;flex-wrap:wrap;gap:8px;padding:16px 24px 4px}
+.fact{font-family:var(--font-h);font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;color:var(--navy-70);background:var(--gray);border:1px solid var(--navy-10);border-radius:20px;padding:5px 11px}
+.fact b{color:var(--navy)}
+/* body */
+.mh-body{padding:14px 24px 26px}
+.mh-body h4{font-size:.78rem;letter-spacing:.12em;color:var(--gold);margin:18px 0 9px}
+.mh-body p{font-size:.97rem;color:var(--navy-90);margin-bottom:4px}
+.cats{display:flex;flex-wrap:wrap;gap:8px}
+.cat{display:inline-flex;align-items:center;gap:7px;font-size:.86rem;color:var(--navy-90);background:var(--gold-light);border:1px solid rgba(197,160,89,.35);border-radius:8px;padding:7px 12px}
+.cat svg{width:15px;height:15px;color:var(--gold)}
+.info{display:grid;grid-template-columns:1fr 1fr;gap:10px 20px;margin-top:6px}
+.info div{display:flex;gap:10px;font-size:.92rem;color:var(--navy-90)}
+.info svg{width:17px;height:17px;color:var(--gold);flex:none;margin-top:3px}
+.info b{display:block;font-family:var(--font-h);font-size:.66rem;letter-spacing:.08em;color:var(--navy-70);text-transform:uppercase;margin-bottom:1px}
+.mh-map{margin-top:14px;border-radius:10px;overflow:hidden;border:1px solid var(--navy-10);line-height:0}
+.mh-map iframe{width:100%;height:200px;border:0;display:block}
+.mh-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.mh-actions a{font-family:var(--font-h);font-size:.8rem;letter-spacing:.05em;padding:12px 18px;border-radius:8px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;border:1px solid var(--navy-10);color:var(--navy);background:#fff}
+.mh-actions a svg{width:16px;height:16px}
+.mh-actions a.primary{background:var(--gold);color:var(--navy);border-color:var(--gold)}
+.mh-actions a.primary:hover{background:var(--gold-hover)}
+
+.foot{background:var(--dark);color:rgba(255,255,255,.45);text-align:center;padding:26px 24px;font-size:.8rem}
+.foot img{height:26px;opacity:.7;margin:0 auto 10px;display:block}
+
+@media(max-width:900px){ .grid{grid-template-columns:repeat(4,1fr)} }
+@media(max-width:680px){
+  .ba{grid-template-columns:1fr}
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .info{grid-template-columns:1fr}
+  .mh-hero{height:200px}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1770763739/forge-logo-w-fox-valley-23jan2026_d1dlgi.png" alt="Fox Valley Forge SC">
+    <a class="back" href="sponsor-page-plan.html">← Back to Plan</a>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Working Demo</div>
+    <h1>The Sponsor Page, <span>Brought to Life</span></h1>
+    <p>A simple, low-maintenance version — a clean logo grid where any logo opens a rich "mini home page" for that sponsor.</p>
+  </div>
+</header>
+
+<div class="demo-note">
+  <div class="wrap">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+    <span><b>Demo:</b> all 10 tiles reuse one sponsor (Dick's) to show the layout. All content here was built from public info — no offers, videos, or forms to chase from the sponsor.</span>
+  </div>
+</div>
+
+<!-- BEFORE / AFTER LOGO -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">The Logo Standard</div>
+      <h2>Blurry In, Crisp Out</h2>
+      <p>The logo the club provided — soft and low-res — cleaned up to razor-sharp, flat, on-brand color. Every sponsor logo gets this treatment.</p>
+    </div>
+    <div class="ba">
+      <figure class="before">
+        <div class="cap"><span>Before</span><span class="tagpill">As provided</span></div>
+        <div class="imgbox"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_680/v1782923114/forge/sponsor-dicks-orig.png" alt="Original blurry sponsor logo"></div>
+      </figure>
+      <figure class="after">
+        <div class="cap"><span>After</span><span class="tagpill">Cleaned &amp; sharpened</span></div>
+        <div class="imgbox"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_680/v1782923087/forge/sponsor-dicks-demo.jpg" alt="Cleaned sharp sponsor logo"></div>
+      </figure>
+    </div>
+    <p class="ba-note">In production we deliver this as true <b>vector (SVG)</b> — flawless from favicon to banner.</p>
+  </div>
+</section>
+
+<!-- SPONSOR GRID -->
+<section class="bg-gray">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Our Partners</div>
+      <h2>Proudly Supported By</h2>
+      <p>Every logo crisp and evenly sized. Click any sponsor to open their spotlight.</p>
+    </div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<!-- SCROLLING BANNER -->
+<section class="banner-sec">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow" style="color:var(--gold)">Homepage Banner</div>
+      <h2>Always-On Visibility</h2>
+      <p>This auto-scrolling strip runs along the bottom of the homepage. It pauses on hover; each logo opens the spotlight.</p>
+    </div>
+  </div>
+  <div class="marquee"><div class="marquee-track" id="marquee"></div></div>
+</section>
+
+<!-- SPOTLIGHT MODAL (mini home page) -->
+<div class="ov" id="ov" role="dialog" aria-modal="true" aria-label="Sponsor spotlight">
+  <div class="sheet" id="sheet"></div>
+</div>
+
+<footer class="foot">
+  <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_120/v1772573827/forge-logo-no-fox-valley-23jan2026_olh5tk.png" alt="Fox Valley Forge SC">
+  Fox Valley Forge Soccer Club · Sponsor Page — Working Demo
+</footer>
+
+<script>
+// ── ONE DATA SOURCE ── (real sponsor built from public info; no sponsor-supplied assets beyond a logo)
+var SPONSOR = {
+  name: "DICK'S Sporting Goods",
+  logo: 'https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_600/v1782923087/forge/sponsor-dicks-demo.jpg',
+  storefront: 'https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_1400/v1782929809/forge/sponsor-dicks-storefront.jpg',
+  location: 'Geneva Commons · Geneva, IL',
+  founded: '1948',
+  type: 'Sporting Goods Retailer',
+  hq: 'Pittsburgh, PA',
+  about: "Founded in 1948 as a small bait-and-tackle shop in Binghamton, New York, DICK'S Sporting Goods has grown into the largest sporting goods retailer in the United States. The Geneva Commons store is a full-service, two-level location carrying gear, footwear, and apparel for team sports, fitness, and the outdoors — a convenient local stop for Forge families gearing up each season.",
+  categories: [
+    { label: 'Team Sports &amp; Soccer', icon: '<circle cx="12" cy="12" r="9"/><path d="M12 7.4l3.8 2.8-1.45 4.5H9.65L8.2 10.2z"/><path d="M12 3v4.4M4.3 8.8l3.9 1.4M19.7 8.8l-3.9 1.4M7.1 19.4l2.1-4.7M16.9 19.4l-2.1-4.7"/>' },
+    { label: 'Cleats &amp; Footwear', icon: '<path d="M3 15V8.5l3-1L7.4 10 11 11l6 1.6c2.2.6 4 1.8 4 3.9V19a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><path d="M10.5 10.8 9.6 14M14 12.3l-.9 2.9"/>' },
+    { label: 'Athletic Apparel', icon: '<path d="M9 3 4 6l2.2 3.1L8 7.9V20a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V7.9l1.8 1.2L20 6l-5-3a3 3 0 0 1-6 0z"/>' },
+    { label: 'Fitness &amp; Training', icon: '<path d="M6.5 6.5v11M17.5 6.5v11M3.5 9v6M20.5 9v6M6.5 12h11"/>' },
+    { label: 'Outdoor &amp; Camping', icon: '<path d="m2 20 6-9.5 3.4 5.4"/><path d="m10.8 20 5.7-9L22 20z"/><path d="M2 20h20"/><circle cx="6.5" cy="6" r="1.7"/>' }
+  ],
+  address: '618 Commons Dr, Geneva, IL 60134',
+  phone: '(630) 943-4100',
+  hours: 'Mon–Sat 9am–9pm · Sun 10am–7pm',
+  website: 'https://www.dickssportinggoods.com'
+};
+var COUNT = 10;
+
+function esc(s){ return String(s).replace(/[<>"]/g,function(c){return {'<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
+
+// GRID
+(function(){
+  var g=document.getElementById('grid'), h='';
+  for(var i=0;i<COUNT;i++){
+    h+='<button class="tile" onclick="openSpotlight()" aria-label="View '+esc(SPONSOR.name)+' spotlight">'
+      +'<span class="logo"><img loading="lazy" src="'+SPONSOR.logo+'" alt="'+esc(SPONSOR.name)+' logo"></span>'
+      +'<span class="name">'+esc(SPONSOR.name)+'</span>'
+      +'<span class="loc">'+esc(SPONSOR.location)+'</span>'
+      +'<span class="more">View Spotlight <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>';
+  }
+  g.innerHTML=h;
+})();
+
+// MARQUEE
+(function(){
+  var t=document.getElementById('marquee'), h='';
+  for(var i=0;i<COUNT*2;i++){ h+='<div class="m-logo" onclick="openSpotlight()"><img loading="lazy" src="'+SPONSOR.logo+'" alt="'+esc(SPONSOR.name)+'"></div>'; }
+  t.innerHTML=h;
+})();
+
+// SPOTLIGHT — mini home page
+var ov=document.getElementById('ov'), sheet=document.getElementById('sheet');
+function openSpotlight(){
+  var s=SPONSOR;
+  var cats=s.categories.map(function(c){
+    return '<span class="cat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">'+c.icon+'</svg>'+c.label+'</span>';
+  }).join('');
+  sheet.innerHTML =
+    '<button class="close" onclick="closeSpotlight()" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>'
+    + '<div class="mh-hero"><img src="'+s.storefront+'" alt="'+esc(s.name)+' storefront"><div class="scrim"></div>'
+    +   '<div class="id"><span class="chip"><img src="'+s.logo+'" alt="'+esc(s.name)+' logo"></span>'
+    +     '<div><h3>'+esc(s.name)+'</h3><div class="loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>'+esc(s.location)+'</div></div>'
+    +   '</div>'
+    + '</div>'
+    + '<div class="mh-facts">'
+    +   '<span class="fact">Est. <b>'+esc(s.founded)+'</b></span>'
+    +   '<span class="fact">'+esc(s.type)+'</span>'
+    +   '<span class="fact">HQ <b>'+esc(s.hq)+'</b></span>'
+    + '</div>'
+    + '<div class="mh-body">'
+    +   '<h4>About</h4><p>'+s.about+'</p>'
+    +   '<h4>What You\'ll Find</h4><div class="cats">'+cats+'</div>'
+    +   '<h4>Visit the Store</h4>'
+    +   '<div class="info">'
+    +     '<div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span><b>Address</b>'+esc(s.address)+'</span></div>'
+    +     '<div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span><b>Hours</b>'+esc(s.hours)+'</span></div>'
+    +     '<div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg><span><b>Phone</b>'+esc(s.phone)+'</span></div>'
+    +   '</div>'
+    +   '<div class="mh-map"><iframe loading="lazy" title="Map to '+esc(s.name)+'" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q='+encodeURIComponent(s.address)+'&amp;output=embed"></iframe></div>'
+    +   '<div class="mh-actions">'
+    +     '<a class="primary" href="'+s.website+'" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20z"/></svg>Visit Website</a>'
+    +     '<a href="https://maps.google.com/?q='+encodeURIComponent(s.address)+'" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>Directions</a>'
+    +     '<a href="tel:'+s.phone.replace(/[^0-9]/g,'')+'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>Call</a>'
+    +   '</div>'
+    + '</div>';
+  ov.classList.add('open'); ov.scrollTop=0; document.body.style.overflow='hidden';
+}
+function closeSpotlight(){ ov.classList.remove('open'); document.body.style.overflow=''; }
+ov.addEventListener('click', function(e){ if(e.target===ov) closeSpotlight(); });
+document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeSpotlight(); });
+</script>
+</body>
+</html>
