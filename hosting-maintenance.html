@@ -123,6 +123,17 @@ section{padding:72px 0}
 .consult .l h3{font-size:1.15rem;color:#fff;margin-bottom:4px}
 .consult .l p{font-size:.9rem;color:rgba(255,255,255,.72)}
 .consult .r{font-family:var(--font-h);font-size:2.2rem;font-weight:700;color:var(--gold);white-space:nowrap}
+.sponsor-note{max-width:900px;margin:26px auto 0;display:flex;gap:18px;align-items:flex-start;background:rgba(197,160,89,.1);border:1px solid rgba(197,160,89,.4);border-radius:12px;padding:24px 26px}
+.sponsor-note .sn-ic{flex:none;width:44px;height:44px;border-radius:11px;background:rgba(197,160,89,.16);color:var(--gold);display:flex;align-items:center;justify-content:center}
+.sponsor-note .sn-ic svg{width:24px;height:24px}
+.sponsor-note h4{font-family:var(--font-h);font-size:1.05rem;color:#fff;letter-spacing:.03em;margin-bottom:8px}
+.sponsor-note p{font-size:.94rem;color:rgba(255,255,255,.82);line-height:1.6;margin-bottom:14px}
+.sponsor-note p strong{color:var(--gold);font-weight:600}
+.sponsor-note .sn-link{display:inline-flex;align-items:center;gap:7px;font-family:var(--font-h);font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--navy);background:var(--gold);border-radius:8px;padding:10px 16px;text-decoration:none;transition:background .15s}
+.sponsor-note .sn-link:hover{background:var(--gold-hover)}
+.sponsor-note .sn-link svg{width:14px;height:14px;transition:transform .15s}
+.sponsor-note .sn-link:hover svg{transform:translateX(3px)}
+@media(max-width:640px){.sponsor-note{flex-direction:column;gap:14px}}
 
 /* ── CADENCE ── */
 .cadence-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
@@ -197,7 +208,7 @@ section{padding:72px 0}
         <span class="tag">Hosting &amp; Platform</span>
         <div class="amount"><span class="big">$300</span><span class="per">/ year</span></div>
         <div class="alt">or <strong>$25 / month</strong> · billed annually or monthly</div>
-        <div class="compare">Squarespace's small-business plan (Core) runs <strong>$23/mo&nbsp;($276/yr)</strong> for a template site. Your plan is priced right alongside it — for a fully custom, hand-coded website.</div>
+        <div class="compare">For comparison: Squarespace runs <strong>$23–39/mo</strong> for a template site, and a maintained WordPress site runs <strong>$20–50/mo</strong> in hosting <em>plus</em> constant plugin &amp; security updates. Your plan is priced right alongside them — for a fully custom, hand-built site with none of the platform bloat.</div>
       </div>
 
       <div class="host-incl">
@@ -205,7 +216,7 @@ section{padding:72px 0}
         <ul>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Managed hosting on a fast global CDN</span></li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>SSL security certificate &amp; HTTPS</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>No CMS or plugins to hack — inherently more secure</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>No CMS, plugins, or database to hack or patch — safer than Squarespace or WordPress</span></li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Full version history — any prior version restorable</span></li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Contact form handling &amp; spam filtering</span></li>
         </ul>
@@ -222,28 +233,28 @@ section{padding:72px 0}
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7z"/></svg>
         <h3>Built to Load Faster</h3>
       </div>
-      <p class="speed-lead">Both platforms run on world-class global networks — so the speed edge isn't the network, it's <strong>how the page is built</strong>. A hand-coded site paints sooner and responds instantly — in a head-to-head mobile speed test, the Forge site scored higher than a comparable Squarespace club.</p>
+      <p class="speed-lead">Squarespace, WordPress, and this site can all sit on fast networks — so the real edge is <strong>how the page is built</strong>. A hand-built site has no template engine, plugins, or database doing work on every visit, so it responds instantly. In a head-to-head mobile speed test, the Forge site scored higher than both a Squarespace club and a WordPress soccer site.</p>
       <div class="speed-cols">
         <div class="speed-col ours">
           <div class="speed-tag good">This Site · Netlify</div>
           <ul>
-            <li>Pre-built static HTML, served ready-to-paint from the edge</li>
-            <li>No template engine or plugins running on every visit</li>
-            <li>Images &amp; video auto-optimized (WebP/AVIF, sized to fit) via Cloudinary</li>
+            <li>Pre-built static pages, served ready-to-paint from the edge</li>
+            <li>No template engine, plugins, or database on every visit</li>
+            <li>Images auto-optimized and sized to fit each screen</li>
             <li>Instant response — 0&nbsp;ms input delay in testing</li>
           </ul>
         </div>
         <div class="speed-col theirs">
-          <div class="speed-tag">Typical Squarespace</div>
+          <div class="speed-tag">Typical Squarespace / WordPress</div>
           <ul>
-            <li>Pages assembled from a template on each request</li>
-            <li>Heavier JavaScript &amp; third-party script overhead</li>
+            <li>Pages assembled from a template or database on each request</li>
+            <li>Heavier scripts and (on WordPress) plugins to load</li>
             <li>Platform defaults you can't fully trim</li>
-            <li>Scripts block interaction — 120&nbsp;ms input delay in testing</li>
+            <li>Scripts block interaction — 120–130&nbsp;ms input delay in testing</li>
           </ul>
         </div>
       </div>
-      <p class="speed-foot">Measured on mobile Lighthouse against a comparable Squarespace club: overall speed score <strong>67 vs 57</strong>, first paint <strong>3.2&nbsp;s vs 7.1&nbsp;s</strong>, tap response <strong>0&nbsp;ms vs 120&nbsp;ms</strong>. Faster paint and instant response also mean stronger Core Web Vitals — the speed signals Google uses for search ranking.</p>
+      <p class="speed-foot">Measured on mobile Lighthouse: overall speed score <strong>67 (Forge)</strong> vs <strong>62 (a WordPress soccer site)</strong> and <strong>57 (a Squarespace club)</strong> — with an instant <strong>0&nbsp;ms</strong> tap response vs their <strong>120–130&nbsp;ms</strong>. A snappier page also means stronger Core Web Vitals — the speed signals Google uses for search ranking.</p>
     </div>
   </div>
 </section>
@@ -282,13 +293,13 @@ section{padding:72px 0}
     <div class="sec-head">
       <div class="eyebrow">Pre-pay Maintenance</div>
       <h2>Choose Your Block</h2>
-      <p>Every tier buys the same great work — larger blocks simply earn a lower hourly rate. Based on the club's first season, most clubs your size land in the highlighted <span class="gold">27–50 hour</span> range for a full year.</p>
+      <p>Every tier buys the same great work — larger blocks simply earn a lower hourly rate. Most clubs your size land in the highlighted <span class="gold">27–50 hour</span> range for a full year. A bigger one-time project — like building the new sponsor page — pushes toward the top of that band, so the <span class="gold">$4,000 · 50-hour</span> block is the best fit for the year ahead.</p>
     </div>
 
     <div class="ladder">
       <div class="ladder-row"><div class="block">$5,000</div><div class="rate"><strong>$75</strong> / hr</div><div class="hrs"><b>67</b> hours</div><div class="badge blank">—</div></div>
-      <div class="ladder-row rec"><div class="block">$4,000</div><div class="rate"><strong>$80</strong> / hr</div><div class="hrs"><b>50</b> hours</div><div class="badge g">Active Year</div></div>
-      <div class="ladder-row rec best"><div class="block">$3,000</div><div class="rate"><strong>$88</strong> / hr</div><div class="hrs"><b>34</b> hours</div><div class="badge c">Best Fit</div></div>
+      <div class="ladder-row rec best"><div class="block">$4,000</div><div class="rate"><strong>$80</strong> / hr</div><div class="hrs"><b>50</b> hours</div><div class="badge c">Best Fit</div></div>
+      <div class="ladder-row rec"><div class="block">$3,000</div><div class="rate"><strong>$88</strong> / hr</div><div class="hrs"><b>34</b> hours</div><div class="badge g">Great Value</div></div>
       <div class="ladder-row rec"><div class="block">$2,500</div><div class="rate"><strong>$93</strong> / hr</div><div class="hrs"><b>27</b> hours</div><div class="badge g">Light Year</div></div>
       <div class="ladder-row"><div class="block">$2,000</div><div class="rate"><strong>$100</strong> / hr</div><div class="hrs"><b>20</b> hours</div><div class="badge blank">—</div></div>
       <div class="ladder-row"><div class="block">$1,500</div><div class="rate"><strong>$115</strong> / hr</div><div class="hrs"><b>13</b> hours</div><div class="badge blank">—</div></div>
@@ -303,6 +314,17 @@ section{padding:72px 0}
         <p>One-time, 2-hour working session — training, a walkthrough, or a batch of small edits. Zoom or local in-person.</p>
       </div>
       <div class="r">$250</div>
+    </div>
+
+    <div class="sponsor-note">
+      <div class="sn-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7h-9M14 17H5M17 3l3 3-3 3M7 21l-3-3 3-3"/></svg></div>
+      <div class="sn-body">
+        <h4>Planning the New Sponsor Page?</h4>
+        <p>The sponsor &amp; partner page is a larger, one-time project on top of normal upkeep — the full build plus per-sponsor work runs roughly <strong>30–50 hours</strong> depending on how many sponsors are featured. That's why the <strong>$4,000 · 50-hour</strong> block is the recommended fit: it covers the sponsor build <em>and</em> a season of regular maintenance. If the sponsor list is large, the <strong>$5,000 · 67-hour</strong> block adds headroom at the lowest rate.</p>
+        <a class="sn-link" href="sponsor-page-plan.html">See the full Sponsor Page plan
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
     </div>
   </div>
 </section>
@@ -328,7 +350,7 @@ section{padding:72px 0}
         <div class="stat"><div class="n">26</div><div class="l">work sessions in the first 4 months</div></div>
         <div class="stat"><div class="n">2–4</div><div class="l">updates per month, seasonally</div></div>
         <div class="stat"><div class="n">~40–65</div><div class="l">hours of upkeep in a typical year</div></div>
-        <div class="stat"><div class="n">$88/hr</div><div class="l">effective rate at the Best Fit tier</div></div>
+        <div class="stat"><div class="n">$80/hr</div><div class="l">effective rate at the Best Fit tier</div></div>
       </div>
     </div>
   </div>
