@@ -493,6 +493,57 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
   .reel-card{width:calc(50vw - 21px)}
   .reel-modal-inner{height:100vh;width:100vw;max-width:100vw;border-radius:0;aspect-ratio:auto}
 }
+
+/* ============================================================
+   Admin entry — discreet badge → password modal → slide-in panel
+   ============================================================ */
+:root {
+  --adm-accent:#C5A059; --adm-accent-hover:#d4b06a; --adm-ink:#ecf1f8;
+  --adm-panel-bg:linear-gradient(165deg,#012a55 0%,#001B44 45%,#0a0e17 100%);
+  --adm-modal-bg:rgba(0,17,42,0.96); --adm-modal-ink:#001B44;
+  --adm-font-display:'Oswald',Impact,sans-serif; --adm-font-body:'Source Sans 3','Helvetica Neue',Arial,sans-serif;
+}
+#adm{position:fixed;bottom:24px;right:24px;z-index:900;font-family:var(--adm-font-display)}
+#adm-btn{width:32px;height:32px;border-radius:50%;border:1px solid color-mix(in srgb,var(--adm-accent) 35%,transparent);background:rgba(0,27,68,0.4);color:color-mix(in srgb,var(--adm-accent) 55%,transparent);font-size:.95rem;cursor:pointer;opacity:.35;padding:0;line-height:1;display:flex;align-items:center;justify-content:center;transition:opacity .25s,color .25s,border-color .25s,background .25s}
+#adm-btn:hover,#adm-btn:focus-visible,#adm[aria-expanded="true"] #adm-btn{opacity:1;color:var(--adm-accent);border-color:var(--adm-accent);background:rgba(0,27,68,0.9);outline:none}
+#adm-lock{position:fixed;inset:0;z-index:1200;display:flex;align-items:center;justify-content:center;background:rgba(2,12,26,0.72);backdrop-filter:blur(6px);font-family:var(--adm-font-body);animation:admFade .2s ease-out}
+#adm-lock[hidden]{display:none}
+#adm-lock-box{position:relative;background:var(--adm-modal-bg);border:1px solid color-mix(in srgb,var(--adm-accent) 30%,transparent);border-radius:16px;padding:40px 36px;width:min(380px,90vw);text-align:center;box-shadow:0 24px 80px rgba(0,0,0,0.55)}
+#adm-lock-box img{height:44px;margin:0 auto 20px;display:block}
+#adm-lock-box h2{font-family:var(--adm-font-display);font-size:1.9rem;color:var(--adm-accent);letter-spacing:.06em;margin:0 0 6px}
+#adm-lock-box .adm-lock-sub{font-size:.82rem;color:color-mix(in srgb,var(--adm-ink) 55%,transparent);margin:0 0 24px}
+#adm-lock-input{width:100%;padding:12px 16px;background:rgba(0,0,0,0.3);border:1px solid color-mix(in srgb,var(--adm-accent) 30%,transparent);border-radius:8px;color:#fff;font-size:.95rem;font-family:inherit;outline:none;transition:border-color .2s}
+#adm-lock-input:focus{border-color:var(--adm-accent)}
+#adm-lock-btn{margin-top:14px;width:100%;padding:12px;background:var(--adm-accent);color:var(--adm-modal-ink);border:0;border-radius:8px;font-family:var(--adm-font-display);font-size:1.1rem;letter-spacing:.1em;cursor:pointer;transition:background .2s}
+#adm-lock-btn:hover{background:var(--adm-accent-hover)}
+#adm-lock-error{font-size:.78rem;color:#ff7a7a;margin:12px 0 0;min-height:1.1em}
+.adm-shake{animation:admShake .35s}
+@keyframes admShake{0%,100%{transform:translateX(0)}20%,60%{transform:translateX(-7px)}40%,80%{transform:translateX(7px)}}
+@keyframes admFade{from{opacity:0}to{opacity:1}}
+#adm-scrim{position:fixed;inset:0;z-index:1100;background:rgba(2,12,26,0.55);backdrop-filter:blur(2px);animation:admFade .25s ease-out}
+#adm-scrim[hidden]{display:none}
+#adm-panel{position:fixed;top:0;right:0;z-index:1110;width:min(340px,88vw);height:100%;background:var(--adm-panel-bg);border-left:1px solid color-mix(in srgb,var(--adm-accent) 30%,transparent);box-shadow:-24px 0 70px rgba(0,0,0,0.5);transform:translateX(100%);transition:transform .34s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;font-family:var(--adm-font-body)}
+#adm-panel.open{transform:translateX(0)}
+.adm-panel-head{display:flex;align-items:flex-end;justify-content:space-between;padding:26px 24px 18px;border-bottom:1px solid color-mix(in srgb,var(--adm-accent) 18%,transparent)}
+.adm-eyebrow{display:block;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:color-mix(in srgb,var(--adm-accent) 85%,transparent);margin-bottom:4px}
+.adm-panel-brand h3{font-family:var(--adm-font-display);font-size:1.7rem;color:#fff;letter-spacing:.05em;margin:0;line-height:1}
+#adm-panel-close{background:transparent;border:0;cursor:pointer;color:color-mix(in srgb,var(--adm-ink) 60%,transparent);width:32px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:6px;transition:color .15s,background .15s}
+#adm-panel-close svg{width:20px;height:20px}
+#adm-panel-close:hover{color:var(--adm-accent);background:color-mix(in srgb,var(--adm-accent) 12%,transparent)}
+.adm-links{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:4px}
+.adm-links a{display:flex;align-items:flex-start;gap:13px;padding:13px 14px;border-radius:10px;text-decoration:none;color:var(--adm-ink);border:1px solid transparent;transition:background .15s,border-color .15s,transform .15s}
+.adm-links a:hover{background:color-mix(in srgb,var(--adm-accent) 10%,transparent);border-color:color-mix(in srgb,var(--adm-accent) 28%,transparent);transform:translateX(-2px)}
+.adm-ic{flex:none;width:38px;height:38px;border-radius:9px;display:flex;align-items:center;justify-content:center;background:color-mix(in srgb,var(--adm-accent) 14%,transparent);color:var(--adm-accent);border:1px solid color-mix(in srgb,var(--adm-accent) 22%,transparent)}
+.adm-ic svg{width:20px;height:20px}
+.adm-links a:hover .adm-ic{background:color-mix(in srgb,var(--adm-accent) 22%,transparent)}
+.adm-txt{display:flex;flex-direction:column;gap:2px;padding-top:1px}
+.adm-txt b{font-weight:600;font-size:.92rem;color:#fff;letter-spacing:.01em}
+.adm-txt small{font-size:.72rem;line-height:1.4;color:color-mix(in srgb,var(--adm-ink) 62%,transparent);font-weight:300}
+.adm-panel-foot{padding:14px 18px 20px;border-top:1px solid rgba(255,255,255,0.08)}
+#adm-lock-out{display:flex;align-items:center;gap:9px;width:100%;padding:11px 14px;background:transparent;border:1px solid rgba(255,255,255,0.14);border-radius:9px;color:color-mix(in srgb,var(--adm-ink) 60%,transparent);font-family:var(--adm-font-body);font-size:.8rem;letter-spacing:.02em;cursor:pointer;transition:color .15s,border-color .15s,background .15s}
+#adm-lock-out svg{width:16px;height:16px}
+#adm-lock-out:hover{color:var(--adm-accent);border-color:color-mix(in srgb,var(--adm-accent) 40%,transparent);background:color-mix(in srgb,var(--adm-accent) 8%,transparent)}
+@media (prefers-reduced-motion:reduce){#adm-panel{transition:none}#adm-lock,#adm-scrim{animation:none}.adm-shake{animation:none}}
 </style>
 </head>
 <body>
@@ -582,7 +633,7 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
 <!-- HERO -->
 <section id="hero">
   <video class="hero-video" autoplay muted loop playsinline poster="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1771377808/crowd-cheers-forge-players_vwip1x.jpg">
-    <source src="https://player.vimeo.com/progressive_redirect/playback/1165855603/rendition/1080p/file.mp4%20%281080p%29.mp4?loc=external&log_user=0&signature=84faaab9ae99913630d1e92da6794f0d1ba4223e3b49e7296ce335ec21f0d3f3" type="video/mp4">
+    <source src="https://res.cloudinary.com/dsbllwpbh/video/upload/q_auto:low,w_1280/f_mp4/forge/hero-loop.mp4" type="video/mp4">
   </video>
   <div class="hero-overlay"></div>
   <div class="hero-content">
@@ -657,7 +708,7 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
 
       <!-- GIRLS DAY 3 -->
       <div class="event-card fade-in" data-event-end="2026-04-04">
-        <div class="event-card-img" style="background-image:url('generated_imgs/generated-2026-03-12T11-40-13-953Z-9bnffh.png')">
+        <div class="event-card-img" style="background-image:url('https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_1200/v1782919913/forge/clinic-girls-2026.jpg')">
           <div class="event-eyebrow">ID Session · Day 3: Girls</div>
           <h3 class="event-card-title">Day 3: Girls</h3>
           <div class="event-card-date">Saturday, April 4th</div>
@@ -690,7 +741,7 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
 
       <!-- BOYS DAY 4 -->
       <div class="event-card fade-in" data-event-end="2026-04-10">
-        <div class="event-card-img" style="background-image:url('generated_imgs/generated-2026-03-12T11-40-44-801Z-84wkx8.png')">
+        <div class="event-card-img" style="background-image:url('https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_1200/v1782919914/forge/clinic-boys-2026.jpg')">
           <div class="event-eyebrow">ID Session · Day 4: Boys</div>
           <h3 class="event-card-title">Day 4: Boys</h3>
           <div class="event-card-date">Friday, April 10th</div>
@@ -908,7 +959,7 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
       </div>
       <div>
         <div class="college-video-wrap fade-in">
-          <video id="college-video" src="https://player.vimeo.com/progressive_redirect/playback/1166662971/rendition/540p/file.mp4%20%28540p%29.mp4?loc=external&log_user=0&signature=7b6125e2128e486e81cc13169db37ed29c36d901c285d013567ad627dee62cee" muted playsinline loop preload="metadata"></video>
+          <video id="college-video" data-src="https://player.vimeo.com/progressive_redirect/playback/1166662971/rendition/540p/file.mp4%20%28540p%29.mp4?loc=external&log_user=0&signature=7b6125e2128e486e81cc13169db37ed29c36d901c285d013567ad627dee62cee" muted playsinline loop preload="none"></video>
           <div class="college-video-overlay">
             <p class="ov-label">ALUMNI OUTCOMES</p>
             <p>Hundreds of Fox Valley players now compete at colleges across the country — D1, D2, D3, NAIA, and junior college. <strong style="color:#fff">All players finding their right fit through our multiple pathways.</strong></p>
@@ -929,7 +980,7 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
     <div class="events-grid">
 
       <div class="event-card fade-in" data-event-end="2026-08-31">
-        <div class="event-card-img" style="background-image:url('https://res.cloudinary.com/dsbllwpbh/image/upload/v1772211945/team-tryouts_v47xti.jpg')">
+        <div class="event-card-img" style="background-image:url('https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1772211945/team-tryouts_v47xti.jpg')">
           <div class="event-eyebrow">Now Open · Boys &amp; Girls U7–U19</div>
           <h3 class="event-card-title">Supplemental Tryouts</h3>
           <div class="event-card-date">Open Now · By Appointment</div>
@@ -955,7 +1006,7 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
       </div>
 
       <div class="event-card fade-in" data-event-end="2026-04-10">
-        <div class="event-card-img" style="background-image:url('https://res.cloudinary.com/dsbllwpbh/image/upload/v1772211945/open-gyms_jtvx1c.jpg')">
+        <div class="event-card-img" style="background-image:url('https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1772211945/open-gyms_jtvx1c.jpg')">
           <div class="event-eyebrow">Free ID Session</div>
           <h3 class="event-card-title">April ID Sessions</h3>
           <div class="event-card-date">April 4 &amp; 10</div>
@@ -987,7 +1038,7 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
       </div>
 
       <div class="event-card fade-in" data-event-end="2026-05-28">
-        <div class="event-card-img" style="background-image:url('https://res.cloudinary.com/dsbllwpbh/image/upload/v1772211945/team-tryouts_v47xti.jpg')">
+        <div class="event-card-img" style="background-image:url('https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1772211945/team-tryouts_v47xti.jpg')">
           <div class="event-eyebrow">Join the Team</div>
           <h3 class="event-card-title">Team Selections &amp; Tryouts</h3>
           <div class="event-card-date">May 18th – 21st</div>
@@ -1014,7 +1065,7 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
       </div>
 
       <div class="event-card fade-in" data-event-end="2026-05-16">
-        <div class="event-card-img" style="background-image:url('generated_imgs/campton-futbol-foundations-2026.png')">
+        <div class="event-card-img" style="background-image:url('https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_1200/v1782919911/forge/campton-futbol-foundations-2026.jpg')">
           <div class="event-eyebrow">Partner Program · Campton United</div>
           <h3 class="event-card-title">Campton Futbol Foundations</h3>
           <div class="event-card-date">Saturdays · May 9 – June 13</div>
@@ -1045,7 +1096,7 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
       </div>
 
       <div id="event-summer-camp" class="event-card fade-in" data-event-end="2026-07-23" style="scroll-margin-top:96px">
-        <div class="event-card-img" style="background-image:url('generated_imgs/summer-camp-advantage-2026.png')">
+        <div class="event-card-img" style="background-image:url('https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_1200/v1782919910/forge/summer-camp-advantage-2026.png')">
           <div class="event-eyebrow">Summer Camp · In Partnership</div>
           <h3 class="event-card-title">Advantage Soccer Academy Summer Camp</h3>
           <div class="event-card-date">June 16 – July 23</div>
@@ -1072,7 +1123,7 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
       </div>
 
       <div id="event-summer-camp-series" class="event-card fade-in" data-event-end="2026-08-06" style="scroll-margin-top:96px">
-        <div class="event-card-img" style="background-image:url('generated_imgs/forge-summer-camp-series-2026.jpg')">
+        <div class="event-card-img" style="background-image:url('https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_1200/v1782919912/forge/forge-summer-camp-series-2026.jpg')">
           <div class="event-eyebrow">Summer Camp · Forge SC</div>
           <h3 class="event-card-title">Forge Summer Camp Series 2026</h3>
           <div class="event-card-date">June 30 – August 6</div>
@@ -1100,7 +1151,7 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
       </div>
 
       <div class="event-card fade-in" data-event-end="2026-06-27">
-        <div class="event-card-img" style="background-image:url('https://res.cloudinary.com/dsbllwpbh/image/upload/v1772211945/3v3-tournament_oc6m62.jpg')">
+        <div class="event-card-img" style="background-image:url('https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1772211945/3v3-tournament_oc6m62.jpg')">
           <div class="event-eyebrow">Summer Competition</div>
           <h3 class="event-card-title">3v3 Live Tournament</h3>
           <div class="event-card-date">Saturday, June 27th · 9 AM</div>
@@ -1127,7 +1178,7 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
       </div>
 
       <div class="event-card fade-in" data-hidden-event data-event-end="2026-07-18">
-        <div class="event-card-img" style="background-image:url('https://res.cloudinary.com/dsbllwpbh/image/upload/v1772211945/usa-cup_exkhct.jpg')">
+        <div class="event-card-img" style="background-image:url('https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1772211945/usa-cup_exkhct.jpg')">
           <div class="event-eyebrow">Elite Competition</div>
           <h3 class="event-card-title">USA Cup</h3>
           <div class="event-card-date">July 10th – 18th</div>
@@ -1592,7 +1643,7 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
 
       <div class="reel-card fade-in" onclick="openReel(0)">
         <div class="reel-thumb">
-          <video class="reel-video" src="https://player.vimeo.com/progressive_redirect/playback/1173865236/rendition/720p/file.mp4%20%28720p%29.mp4?loc=external&amp;log_user=0&amp;signature=336a83821f8739eb75eec39c3bc05f975d913e6285880cd25d33dd87a68632c9" poster="https://i.vimeocdn.com/video/2134291866-758111d5cc49fb8d0649aa12817d55b8293cdbe45ab74b6e2f92f75353d18419-d_360x640?region=us" muted playsinline preload="metadata" loop onmouseenter="this.play()" onmouseleave="this.pause();this.currentTime=0"></video>
+          <video class="reel-video" data-src="https://player.vimeo.com/progressive_redirect/playback/1173865236/rendition/720p/file.mp4%20%28720p%29.mp4?loc=external&amp;log_user=0&amp;signature=336a83821f8739eb75eec39c3bc05f975d913e6285880cd25d33dd87a68632c9" poster="https://i.vimeocdn.com/video/2134291866-758111d5cc49fb8d0649aa12817d55b8293cdbe45ab74b6e2f92f75353d18419-d_360x640?region=us" muted playsinline preload="none" loop onmouseenter="if(!this.src){this.src=this.dataset.src;}this.play()" onmouseleave="this.pause();this.currentTime=0"></video>
           <div class="reel-play-btn">&#9654;</div>
         </div>
         <div class="reel-caption">For the first time, Campton United and Strikers marched together as one. Fox Valley Forge. ⚽🦊</div>
@@ -1600,7 +1651,7 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
 
       <div class="reel-card fade-in" onclick="openReel(1)">
         <div class="reel-thumb">
-          <video class="reel-video" src="https://player.vimeo.com/progressive_redirect/playback/1174401925/rendition/720p/file.mp4%20%28720p%29.mp4?loc=external&amp;log_user=0&amp;signature=6597c1219be17bfd92cafbe1df92c737c886267a622a4185aeaad64375f6282f" poster="https://i.vimeocdn.com/video/2134967004-302bd5724d6149b470d962a12590683731bd442a14a3cef02e481659af6962d9-d_360x640?region=us" muted playsinline preload="metadata" loop onmouseenter="this.play()" onmouseleave="this.pause();this.currentTime=0"></video>
+          <video class="reel-video" data-src="https://player.vimeo.com/progressive_redirect/playback/1174401925/rendition/720p/file.mp4%20%28720p%29.mp4?loc=external&amp;log_user=0&amp;signature=6597c1219be17bfd92cafbe1df92c737c886267a622a4185aeaad64375f6282f" poster="https://i.vimeocdn.com/video/2134967004-302bd5724d6149b470d962a12590683731bd442a14a3cef02e481659af6962d9-d_360x640?region=us" muted playsinline preload="none" loop onmouseenter="if(!this.src){this.src=this.dataset.src;}this.play()" onmouseleave="this.pause();this.currentTime=0"></video>
           <div class="reel-play-btn">&#9654;</div>
         </div>
         <div class="reel-caption">Today marked a truly special moment — players and coaches wore the Forge shirts together as one club for the very first time. ⚽🦊</div>
@@ -3176,7 +3227,7 @@ var collegeVideo = document.getElementById('college-video');
 if (collegeVideo) {
   var videoObserver = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry) {
-      if (entry.isIntersecting) { entry.target.play(); }
+      if (entry.isIntersecting) { if (!entry.target.src) { entry.target.src = entry.target.dataset.src; } entry.target.play(); }
       else { entry.target.pause(); }
     });
   }, { threshold: 0.3 });
@@ -3353,6 +3404,108 @@ function setTryoutFilter(type, val, btn) {
     card.style.display = (showG && showL) ? '' : 'none';
   });
 }
+</script>
+
+<!-- ============================================================
+     Admin entry — discreet badge → password gate → slide-in panel
+     Password verified via SHA-256; plaintext never stored here.
+     Shares session key 'fvf_admin' with gated internal pages.
+     ============================================================ -->
+<div id="adm">
+  <button id="adm-btn" type="button" aria-label="Admin access" aria-haspopup="dialog" aria-expanded="false">A</button>
+</div>
+
+<div id="adm-lock" hidden>
+  <div id="adm-lock-box" role="dialog" aria-modal="true" aria-labelledby="adm-lock-title">
+    <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1770763739/forge-logo-w-fox-valley-23jan2026_d1dlgi.png" alt="Fox Valley Forge SC" onerror="this.style.display='none'">
+    <h2 id="adm-lock-title">Admin Access</h2>
+    <p class="adm-lock-sub">Internal area · enter the password to continue.</p>
+    <input id="adm-lock-input" type="password" placeholder="Enter password" autocomplete="current-password">
+    <button id="adm-lock-btn" type="button">Enter</button>
+    <p id="adm-lock-error" role="alert"></p>
+  </div>
+</div>
+
+<div id="adm-scrim" hidden></div>
+<aside id="adm-panel" role="dialog" aria-modal="true" aria-label="Admin links" aria-hidden="true">
+  <div class="adm-panel-head">
+    <div class="adm-panel-brand">
+      <span class="adm-eyebrow">Fox Valley Forge SC</span>
+      <h3>Admin</h3>
+    </div>
+    <button id="adm-panel-close" type="button" aria-label="Close admin panel">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+  </div>
+
+  <nav class="adm-links">
+    <a href="status.html">
+      <span class="adm-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-4 4"/></svg></span>
+      <span class="adm-txt"><b>Build &amp; Maintenance Log</b><small>Dated history of every edit</small></span>
+    </a>
+    <a href="hosting-maintenance.html">
+      <span class="adm-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18v14H3z"/><path d="M8 21h8M12 17v4"/><path d="M7 8h4M7 12h7"/></svg></span>
+      <span class="adm-txt"><b>Hosting &amp; Maintenance</b><small>Care plan &amp; pricing</small></span>
+    </a>
+    <a href="fox-valley-forge-brand-guide.html">
+      <span class="adm-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r="2.5"/><circle cx="6.5" cy="12" r="2.5"/><circle cx="17" cy="14" r="2.5"/><path d="M12 22a10 10 0 1 1 10-10 3 3 0 0 1-3 3h-2a2 2 0 0 0-2 2 3 3 0 0 1-3 3z"/></svg></span>
+      <span class="adm-txt"><b>Brand Guide</b><small>Logos, colors &amp; downloads</small></span>
+    </a>
+    <a href="pitch-deck.html">
+      <span class="adm-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span>
+      <span class="adm-txt"><b>Partner Pitch Deck</b><small>Sponsor presentation</small></span>
+    </a>
+  </nav>
+
+  <div class="adm-panel-foot">
+    <button id="adm-lock-out" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg>
+      Lock &amp; sign out
+    </button>
+  </div>
+</aside>
+
+<script>
+(function(){
+  var KEY='fvf_admin';
+  /* SHA-256 hash of the access password (plaintext never stored here) */
+  var HASH='8e484aece8ea37afd67cd15d4f13fb2ef4ca78b2f5d5904400aa4bb1a2aad3a3';
+  var btn=document.getElementById('adm-btn');
+  if(!btn) return;
+  var lock=document.getElementById('adm-lock'),
+      lockInput=document.getElementById('adm-lock-input'),
+      lockBtn=document.getElementById('adm-lock-btn'),
+      lockBox=document.getElementById('adm-lock-box'),
+      lockErr=document.getElementById('adm-lock-error'),
+      panel=document.getElementById('adm-panel'),
+      scrim=document.getElementById('adm-scrim'),
+      panelClose=document.getElementById('adm-panel-close'),
+      signOut=document.getElementById('adm-lock-out');
+
+  function authed(){ try{return sessionStorage.getItem(KEY)==='1';}catch(e){return false;} }
+  function openPanel(){ scrim.hidden=false; panel.classList.add('open'); panel.setAttribute('aria-hidden','false'); btn.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; }
+  function closePanel(){ panel.classList.remove('open'); scrim.hidden=true; panel.setAttribute('aria-hidden','true'); btn.setAttribute('aria-expanded','false'); document.body.style.overflow=''; }
+  function openLock(){ lock.hidden=false; lockErr.textContent=''; lockInput.value=''; setTimeout(function(){lockInput.focus();},30); }
+  function closeLock(){ lock.hidden=true; }
+  function fail(){ lockErr.textContent='Incorrect password. Try again.'; lockBox.classList.remove('adm-shake'); void lockBox.offsetWidth; lockBox.classList.add('adm-shake'); lockInput.select(); }
+  function tryPass(){
+    var enc=new TextEncoder().encode(lockInput.value);
+    crypto.subtle.digest('SHA-256',enc).then(function(buf){
+      var hex=Array.prototype.map.call(new Uint8Array(buf),function(b){return b.toString(16).padStart(2,'0');}).join('');
+      if(hex===HASH){ try{sessionStorage.setItem(KEY,'1');}catch(e){} closeLock(); openPanel(); }
+      else{ fail(); }
+    });
+  }
+
+  btn.addEventListener('click',function(e){ e.stopPropagation(); if(authed()) openPanel(); else openLock(); });
+  lockBtn.addEventListener('click',tryPass);
+  lockInput.addEventListener('keydown',function(e){if(e.key==='Enter')tryPass();});
+  panelClose.addEventListener('click',closePanel);
+  scrim.addEventListener('click',closePanel);
+  signOut.addEventListener('click',function(){ try{sessionStorage.removeItem(KEY);}catch(e){} closePanel(); });
+  lock.addEventListener('click',function(e){ if(e.target===lock) closeLock(); });
+  document.addEventListener('keydown',function(e){ if(e.key!=='Escape') return; if(!lock.hidden) closeLock(); else if(panel.classList.contains('open')) closePanel(); });
+})();
 </script>
 </body>
 </html>
