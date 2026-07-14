@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forge — Next Steps Meeting · Jul 15, 2026</title>
+<link rel="icon" href="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1771377451/favicon-forge-1_r6l4ax.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#001B44; --navy-90:#1A2F57; --navy-70:#4D5F7D; --navy-10:#E6EAF0;
+  --crimson:#A91335; --gold:#C5A059; --gold-light:#F8F3EA;
+  --white:#fff; --gray:#F4F5F7; --dark:#0A0E17;
+  --font-h:'Oswald',Impact,sans-serif;
+  --font-b:'Source Sans 3','Helvetica Neue',Arial,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-b);color:var(--navy);background:var(--gray);line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:var(--font-h);text-transform:uppercase;line-height:1.15}
+.wrap{max-width:860px;margin:0 auto;padding:0 24px}
+.eyebrow{font-family:var(--font-h);font-size:.72rem;letter-spacing:.24em;color:var(--gold);text-transform:uppercase}
+svg{width:24px;height:24px;flex:none;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* ── HEADER ── */
+.top{background:linear-gradient(135deg,#000d22 0%,var(--navy) 60%,#1a0a1e 100%);color:#fff;position:relative;overflow:hidden}
+.top::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 40%,rgba(169,19,53,.2) 0%,transparent 60%),radial-gradient(ellipse at 85% 60%,rgba(197,160,89,.14) 0%,transparent 60%)}
+.top .wrap{position:relative;z-index:1;padding:38px 24px 34px}
+.top .bar{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px}
+.top .bar img{height:36px}
+.top h1{font-size:clamp(1.7rem,4vw,2.5rem);font-weight:700;margin:8px 0 6px}
+.top .who{color:rgba(255,255,255,.75);font-size:1.02rem}
+.top .stamp{color:rgba(255,255,255,.5);font-size:.86rem;margin-top:3px}
+.flag{display:inline-flex;align-items:center;gap:7px;font-family:var(--font-h);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;background:var(--crimson);color:#fff;padding:5px 12px;border-radius:20px}
+.flag svg{width:13px;height:13px}
+
+/* deal strip */
+.deal{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:26px}
+.deal div{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.13);border-radius:10px;padding:15px 16px}
+.deal b{display:block;font-family:var(--font-h);font-size:1.45rem;color:var(--gold);line-height:1.1}
+.deal span{display:block;font-size:.74rem;color:rgba(255,255,255,.6);margin-top:5px}
+
+/* ── SECTIONS ── */
+main{padding:14px 0 60px}
+.sec{background:var(--white);border:1px solid var(--navy-10);border-radius:12px;padding:26px 28px;margin-top:18px}
+.sec-h{display:flex;align-items:center;gap:13px;padding-bottom:13px;margin-bottom:16px;border-bottom:2px solid var(--navy-10)}
+.sec-h .ico{color:var(--crimson)}
+.sec-h h2{font-size:1.22rem;flex:1}
+.sec-h .mins{font-family:var(--font-h);font-size:.72rem;letter-spacing:.1em;color:var(--navy-70);white-space:nowrap}
+.sec p{margin-bottom:12px}
+.sec p:last-child{margin-bottom:0}
+.lead{color:var(--navy-90)}
+.muted{color:var(--navy-70);font-size:.93rem}
+
+/* the one section that must not be skipped */
+.sec.hot{border-color:color-mix(in srgb,var(--crimson) 35%,transparent);border-left:5px solid var(--crimson)}
+.sec.hot .sec-h .ico{color:var(--crimson)}
+
+ul.q{list-style:none;display:flex;flex-direction:column;gap:10px;margin:14px 0}
+ul.q li{position:relative;padding-left:22px;color:var(--navy-90)}
+ul.q li::before{content:'';position:absolute;left:0;top:9px;width:8px;height:8px;border-radius:2px;background:var(--gold)}
+
+ol.paths{list-style:none;counter-reset:p;display:flex;flex-direction:column;gap:10px;margin:14px 0 0}
+ol.paths li{counter-increment:p;position:relative;padding:12px 14px 12px 46px;background:var(--gray);border-radius:8px;font-size:.95rem}
+ol.paths li::before{content:counter(p);position:absolute;left:13px;top:11px;width:22px;height:22px;border-radius:50%;background:var(--navy);color:#fff;font-family:var(--font-h);font-size:.8rem;display:flex;align-items:center;justify-content:center}
+ol.paths li.rec{background:var(--gold-light);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--gold) 45%,transparent)}
+ol.paths li.rec::before{background:var(--gold);color:var(--navy)}
+.tag-rec{font-family:var(--font-h);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:#8a6d2f;background:rgba(197,160,89,.28);padding:2px 7px;border-radius:20px;margin-left:6px;white-space:nowrap}
+
+.callout{display:flex;gap:12px;background:var(--gold-light);border-left:4px solid var(--gold);border-radius:0 8px 8px 0;padding:14px 16px;margin:14px 0;font-size:.95rem;color:var(--navy-90)}
+.callout svg{width:20px;height:20px;color:var(--gold);margin-top:2px}
+.callout b{color:var(--navy)}
+
+.stack{display:flex;flex-direction:column;gap:9px;margin:12px 0}
+.stack .row{display:flex;align-items:baseline;gap:10px;padding:11px 14px;background:var(--gray);border-radius:8px;font-size:.95rem}
+.stack .row b{font-family:var(--font-h);color:var(--crimson);font-size:.9rem;letter-spacing:.04em;white-space:nowrap}
+.stack .row.spent{background:#fdeef1}
+
+/* leave-with checklist */
+.out{background:var(--navy);color:#fff;border-radius:12px;padding:26px 28px;margin-top:22px}
+.out h2{font-size:1.18rem;color:var(--gold);display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.out ul{list-style:none;display:flex;flex-direction:column;gap:11px}
+.out li{display:flex;align-items:flex-start;gap:12px;font-size:1rem;color:rgba(255,255,255,.9)}
+.out li .box{width:19px;height:19px;border:2px solid var(--gold);border-radius:4px;flex:none;margin-top:3px}
+
+.foot{background:var(--dark);color:rgba(255,255,255,.42);text-align:center;padding:22px;font-size:.78rem}
+.foot img{height:24px;opacity:.7;display:block;margin:0 auto 8px}
+
+@media(max-width:640px){
+  .deal{grid-template-columns:1fr}
+  .sec,.out{padding:20px 18px}
+  .sec-h{flex-wrap:wrap}
+}
+@media print{
+  body{background:#fff}
+  .sec,.out{break-inside:avoid;box-shadow:none}
+  .top{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <div class="bar">
+      <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1770763739/forge-logo-w-fox-valley-23jan2026_d1dlgi.png" alt="Fox Valley Forge SC">
+      <span class="flag">
+        <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        Internal · Prep Notes
+      </span>
+    </div>
+    <span class="eyebrow">Next Steps Meeting</span>
+    <h1>Hosting, Maintenance &amp; What's Next</h1>
+    <p class="who">Mike Weyant · Wednesday, July 15, 2026</p>
+    <p class="stamp">Approval received Jul 1 · Invoice sent Jul 14</p>
+
+    <div class="deal">
+      <div><b>$4,000</b><span>50 hours · $80/hr · never expire</span></div>
+      <div><b>$300<small>/yr</small></b><span>Hosting (~$25/mo)</span></div>
+      <div><b>Live</b><span>Hours burn-down on status page</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+<main>
+
+  <!-- 1 -->
+  <section class="sec">
+    <div class="sec-h">
+      <span class="ico"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span>
+      <h2>1 · Confirm What's Bought</h2>
+      <span class="mins">2 min</span>
+    </div>
+    <p class="lead">Quick reset on the package so there's no ambiguity later: <b>50 hours at $80/hr</b>, hours never expire, plus hosting at <b>$300/yr</b>.</p>
+    <div class="callout">
+      <svg viewBox="0 0 24 24"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+      <span><b>Pull up the status page and show him the meter.</b> A live hours burn-down was the promise in the sales email — it's now real, and leading with it sets the tone for the whole engagement.</span>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section class="sec">
+    <div class="sec-h">
+      <span class="ico"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 15h6"/><path d="M9 11h2"/></svg></span>
+      <h2>2 · The Update List — <em>the main event</em></h2>
+      <span class="mins">20 min</span>
+    </div>
+    <p class="lead">Mike wrote: <em>"We have several updates that need to occur on the website."</em> He never said what they are.</p>
+    <p><b>Leave this meeting with that list written down and roughly sized</b> — otherwise the block gets spent reactively, an hour here and an hour there, with nothing to show for it.</p>
+    <p class="muted">For each item, ask three things: what is it, who is it for, and does it need to be live before the Aug 22 kickoff?</p>
+  </section>
+
+  <!-- 3 -->
+  <section class="sec hot">
+    <div class="sec-h">
+      <span class="ico"><svg viewBox="0 0 24 24"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></span>
+      <h2>3 · The Scope Reality Check</h2>
+      <span class="mins">don't skip</span>
+    </div>
+    <p class="lead">The 50 hours are <b>already spoken for</b> by the very math that justified them:</p>
+    <div class="stack">
+      <div class="row spent"><b>~20 hrs</b><span>Sponsor &amp; partner page build (AI-assisted; 40–50 otherwise)</span></div>
+      <div class="row spent"><b>27–50 hrs</b><span>Normal season upkeep for a club this size</span></div>
+    </div>
+    <p>That is the entire block — before a single one of Mike's "several updates," and <b>before trading cards.</b></p>
+    <div class="callout">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+      <span><b>Say it plainly and early, while it's still a friendly scoping conversation.</b> Trading cards were not in the estimate. Far better to frame that now than to burn 30 hours and have an awkward conversation in October.</span>
+    </div>
+    <p class="muted">Three honest paths — bring all three, recommend the first:</p>
+    <ol class="paths">
+      <li class="rec">Cards as a <b>separate project</b> — own quote, own budget. Cleanest.<span class="tag-rec">Recommended</span></li>
+      <li>Cards <b>inside the block</b> — then something else gives. Decide <em>now</em> what drops.</li>
+      <li><b>Top up the block</b> — another pre-pay tier at the same $80/hr.</li>
+    </ol>
+  </section>
+
+  <!-- 4 -->
+  <section class="sec">
+    <div class="sec-h">
+      <span class="ico"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><circle cx="8" cy="10" r="2"/><path d="M2 18l5-4 3 2 4-4 8 6"/></svg></span>
+      <h2>4 · Trading Cards — Discovery</h2>
+      <span class="mins">15 min</span>
+    </div>
+    <p class="lead"><b>Don't quote in the room.</b> Ask, then send a number.</p>
+    <ul class="q">
+      <li><b>Physical print, digital, or both?</b> Print pulls in a vendor, proofs, shipping, and a real budget.</li>
+      <li><b>How many players and teams?</b> Cards scale linearly — this is the single biggest cost driver.</li>
+      <li><b>Photos:</b> is there a photo day? Who shoots it? Do usable player photos already exist?</li>
+      <li><b>Design:</b> front and back? Stats, bio, sponsor logo on the reverse?</li>
+      <li><b>Sponsor tie-in:</b> are cards a sponsor-revenue vehicle? If so they connect to the sponsor page — real efficiencies there, worth flagging.</li>
+      <li><b>Deadline:</b> are these meant to be in players' hands for Aug 22?</li>
+    </ul>
+    <div class="callout">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      <span>If he wants <b>physical cards for kickoff</b> — that's photos, design, proofs, and a print run in five and a half weeks. <b>Very tight. Say so in the room.</b></span>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section class="sec">
+    <div class="sec-h">
+      <span class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg></span>
+      <h2>5 · Sequencing Against Aug 22</h2>
+      <span class="mins">10 min</span>
+    </div>
+    <p class="lead">Kickoff is <b>five and a half weeks out.</b> Work backward: what genuinely has to be live for kickoff, and what can land in the fall?</p>
+    <p class="muted">Proposed priority — confirm it with him:</p>
+    <ol class="paths">
+      <li>Kickoff-critical site updates (whatever comes out of §2)</li>
+      <li><b>Sponsor &amp; partner page</b> — it earns revenue, and sponsors will want to see themselves live</li>
+      <li><b>Trading cards</b> — likely a fall deliverable unless he insists on kickoff</li>
+    </ol>
+  </section>
+
+  <!-- 6 -->
+  <section class="sec">
+    <div class="sec-h">
+      <span class="ico"><svg viewBox="0 0 24 24"><path d="M12.2 2h-.4a2 2 0 0 0-2 2v.2a2 2 0 0 1-1 1.7l-.4.2a2 2 0 0 1-2 0l-.2-.1a2 2 0 0 0-2.7.7l-.2.4a2 2 0 0 0 .7 2.7l.2.1a2 2 0 0 1 1 1.7v.5a2 2 0 0 1-1 1.7l-.2.1a2 2 0 0 0-.7 2.7l.2.4a2 2 0 0 0 2.7.7l.2-.1a2 2 0 0 1 2 0l.4.2a2 2 0 0 1 1 1.7v.2a2 2 0 0 0 2 2h.4a2 2 0 0 0 2-2v-.2a2 2 0 0 1 1-1.7l.4-.2a2 2 0 0 1 2 0l.2.1a2 2 0 0 0 2.7-.7l.2-.4a2 2 0 0 0-.7-2.7l-.2-.1a2 2 0 0 1-1-1.7v-.5a2 2 0 0 1 1-1.7l.2-.1a2 2 0 0 0 .7-2.7l-.2-.4a2 2 0 0 0-2.7-.7l-.2.1a2 2 0 0 1-2 0l-.4-.2a2 2 0 0 1-1-1.7V4a2 2 0 0 0-2-2Z"/><circle cx="12" cy="12" r="3"/></svg></span>
+      <h2>6 · Housekeeping</h2>
+      <span class="mins">5 min</span>
+    </div>
+    <ul class="q">
+      <li><b>Hosting setup</b> — confirm domain/DNS, get it formally under the maintenance umbrella.</li>
+      <li><b>Sponsor page</b> — he still needs to approve the demo (Dick's stand-in) and hand over real sponsor logos + copy. <b>Logos are always the bottleneck — ask for them now.</b></li>
+      <li><b>Swag</b> — he offered. Take him up on it.</li>
+      <li><b>Invoice</b> — confirm it landed, and who actually processes it.</li>
+    </ul>
+  </section>
+
+  <!-- OUTCOMES -->
+  <section class="out">
+    <h2>
+      <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+      Leave the Meeting With
+    </h2>
+    <ul>
+      <li><span class="box"></span>The written list of "several updates"</li>
+      <li><span class="box"></span>A decision on <b>how trading cards get paid for</b></li>
+      <li><span class="box"></span>What must be live by <b>Aug 22</b></li>
+      <li><span class="box"></span>Real sponsor logos + copy, or a firm date for them</li>
+    </ul>
+  </section>
+
+</main>
+</div>
+
+<footer class="foot">
+  <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_120/v1772573827/forge-logo-no-fox-valley-23jan2026_olh5tk.png" alt="Fox Valley Forge SC">
+  Fox Valley Forge Soccer Club · Internal Meeting Prep · Jul 15, 2026
+</footer>
+
+</body>
+</html>
