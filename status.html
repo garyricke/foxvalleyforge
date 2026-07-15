@@ -58,6 +58,21 @@ h1,h2,h3,h4{font-family:var(--font-h);text-transform:uppercase;line-height:1.1}
 .stat .n{font-family:var(--font-h);font-size:1.9rem;font-weight:700;color:var(--gold);line-height:1}
 .stat .l{font-size:.72rem;color:rgba(255,255,255,.6);margin-top:6px;letter-spacing:.02em}
 
+/* ── MAINTENANCE BLOCK BURN-DOWN ── */
+.block{margin-top:16px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:20px 22px}
+.block-h{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:14px}
+.block-h h3{font-size:1.15rem;color:#fff;margin-top:5px;letter-spacing:.02em}
+.block-bal{text-align:right;line-height:1;flex:none}
+.block-bal b{font-family:var(--font-h);font-size:2.4rem;font-weight:700;color:var(--gold);display:block}
+.block-bal small{font-size:.68rem;color:rgba(255,255,255,.55);letter-spacing:.12em;text-transform:uppercase}
+.meter{height:10px;border-radius:6px;background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.08);overflow:hidden}
+.meter i{display:block;height:100%;width:0;border-radius:6px;background:linear-gradient(90deg,var(--gold),var(--crimson));transition:width .9s cubic-bezier(.2,.8,.2,1)}
+.block-meta{display:flex;flex-wrap:wrap;gap:20px;margin-top:12px;font-size:.8rem;color:rgba(255,255,255,.58)}
+.block-meta b{color:#fff;font-family:var(--font-h);font-size:.95rem;letter-spacing:.03em}
+
+/* hours pill on a logged entry (injected from data-hrs) */
+.hrs{display:inline-block;font-family:var(--font-h);font-size:.68rem;letter-spacing:.06em;color:#8a6d2f;background:var(--gold-light);border:1px solid color-mix(in srgb,var(--gold) 45%,transparent);padding:2px 8px;border-radius:20px;white-space:nowrap}
+
 /* ── LEGEND ── */
 .legend{display:flex;flex-wrap:wrap;gap:16px;padding:20px 0 4px}
 .legend span{display:inline-flex;align-items:center;gap:7px;font-size:.8rem;color:var(--navy-70)}
@@ -73,7 +88,7 @@ h1,h2,h3,h4{font-family:var(--font-h);text-transform:uppercase;line-height:1.1}
 .month-h .tag{font-family:var(--font-h);font-size:.72rem;letter-spacing:.1em;color:var(--gold);text-transform:uppercase}
 .entry{display:grid;grid-template-columns:110px 1fr;gap:18px;padding:14px 0;border-bottom:1px solid var(--navy-10)}
 .entry:last-child{border-bottom:0}
-.entry .date{font-family:var(--font-h);font-size:.82rem;letter-spacing:.04em;color:var(--navy-70);padding-top:2px;white-space:nowrap}
+.entry .date{display:flex;flex-direction:column;align-items:flex-start;gap:6px;font-family:var(--font-h);font-size:.82rem;letter-spacing:.04em;color:var(--navy-70);padding-top:2px;white-space:nowrap}
 .entry .body{display:flex;flex-direction:column;gap:6px}
 .entry ul{list-style:none;display:flex;flex-direction:column;gap:7px}
 .entry li{position:relative;padding-left:20px;font-size:.94rem;color:var(--navy-90)}
@@ -87,7 +102,9 @@ h1,h2,h3,h4{font-family:var(--font-h);text-transform:uppercase;line-height:1.1}
 @media(max-width:640px){
   .stats{grid-template-columns:1fr 1fr}
   .entry{grid-template-columns:1fr;gap:6px}
-  .entry .date{color:var(--gold)}
+  .entry .date{flex-direction:row;align-items:center;gap:10px;color:var(--gold)}
+  .block-h{align-items:flex-start}
+  .block-bal{text-align:left}
 }
 </style>
 </head>
@@ -156,6 +173,28 @@ h1,h2,h3,h4{font-family:var(--font-h);text-transform:uppercase;line-height:1.1}
       <div class="stat"><div class="n">26</div><div class="l">work sessions</div></div>
       <div class="stat"><div class="n">Live</div><div class="l">on forgesoccerclub.com</div></div>
     </div>
+
+    <!-- Maintenance block burn-down. Totals are computed from the data-hrs
+         attribute on each .entry below — never hand-edit the numbers here. -->
+    <div class="block">
+      <div class="block-h">
+        <div>
+          <span class="eyebrow">Maintenance Block</span>
+          <h3>50-Hour Pre-Pay · $4,000</h3>
+        </div>
+        <div class="block-bal">
+          <b id="hrs-left">50.0</b>
+          <small>Hours Remaining</small>
+        </div>
+      </div>
+      <div class="meter"><i id="meter-fill"></i></div>
+      <div class="block-meta">
+        <span><b id="hrs-used">0.0</b> hours used (<span id="hrs-pct">0%</span>)</span>
+        <span><b>50</b> hours purchased</span>
+        <span><b>$80</b>/hr · hours never expire</span>
+        <span>Block opened <b>Jul 14, 2026</b></span>
+      </div>
+    </div>
   </div>
 </header>
 
@@ -170,9 +209,31 @@ h1,h2,h3,h4{font-family:var(--font-h);text-transform:uppercase;line-height:1.1}
 
   <div class="log">
 
+    <!-- ============================================================
+         RETAINER ERA — entries from Jul 14, 2026 onward carry a
+         data-hrs attribute and draw down the 50-hour block.
+         Entries above (Feb–Jun) are the original build: no data-hrs,
+         so they contribute 0 and the block starts clean at 50.
+         To log new work: add an .entry with data-hrs="1.5" — the pill
+         and every header total render themselves.
+         ============================================================ -->
+
+    <!-- JULY -->
+    <div class="month">
+      <div class="month-h"><h2>July 2026</h2><span class="tag">Maintenance Block · Year 1</span></div>
+
+      <div class="entry" data-hrs="0">
+        <div class="date">Jul 14</div>
+        <div class="body"><ul>
+          <li><span class="k build"></span>50-hour maintenance block opened · hosting &amp; maintenance active</li>
+          <li><span class="k feature"></span>Live hours burn-down added to this log — every entry below now shows the time it took</li>
+        </ul></div>
+      </div>
+    </div>
+
     <!-- JUNE -->
     <div class="month">
-      <div class="month-h"><h2>June 2026</h2><span class="tag">Seasonal Upkeep</span></div>
+      <div class="month-h"><h2>June 2026</h2><span class="tag">Initial Build · Not billed to block</span></div>
 
       <div class="entry">
         <div class="date">Jun 19–22</div>
@@ -336,6 +397,40 @@ h1,h2,h3,h4{font-family:var(--font-h);text-transform:uppercase;line-height:1.1}
   <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_120/v1772573827/forge-logo-no-fox-valley-23jan2026_olh5tk.png" alt="Fox Valley Forge SC">
   Fox Valley Forge Soccer Club · Internal Build &amp; Maintenance Log
 </footer>
+
+<!-- ============================================================
+     BURN-DOWN — single source of truth is the data-hrs attribute
+     on each .entry. Sums them, renders the header totals, and
+     injects the hours pill so nothing is tracked in two places.
+     ============================================================ -->
+<script>
+(function(){
+  var BLOCK_HOURS = 50;
+
+  var used = 0;
+  document.querySelectorAll('.entry[data-hrs]').forEach(function(entry){
+    var hrs = parseFloat(entry.getAttribute('data-hrs'));
+    if (!isFinite(hrs) || hrs <= 0) return;
+    used += hrs;
+
+    var pill = document.createElement('span');
+    pill.className = 'hrs';
+    pill.textContent = (Number.isInteger(hrs) ? hrs : hrs.toFixed(1)) + (hrs === 1 ? ' hr' : ' hrs');
+    entry.querySelector('.date').appendChild(pill);
+  });
+
+  var left = Math.max(0, BLOCK_HOURS - used);
+  var pct  = Math.min(100, (used / BLOCK_HOURS) * 100);
+
+  document.getElementById('hrs-used').textContent = used.toFixed(1);
+  document.getElementById('hrs-left').textContent = left.toFixed(1);
+  document.getElementById('hrs-pct').textContent  = Math.round(pct) + '%';
+
+  requestAnimationFrame(function(){
+    document.getElementById('meter-fill').style.width = pct.toFixed(1) + '%';
+  });
+})();
+</script>
 
 </body>
 </html>
