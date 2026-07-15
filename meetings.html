@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fox Valley Forge SC — Meeting Notes</title>
+<link rel="icon" href="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1771377451/favicon-forge-1_r6l4ax.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#001B44; --navy-90:#1A2F57; --navy-70:#4D5F7D; --navy-10:#E6EAF0;
+  --crimson:#A91335; --gold:#C5A059; --gold-hover:#d4b06a; --gold-light:#F8F3EA;
+  --white:#FFFFFF; --gray:#F4F5F7; --dark:#0A0E17;
+  --font-h:'Oswald',Impact,sans-serif;
+  --font-b:'Source Sans 3','Helvetica Neue',Arial,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-b);color:var(--navy);background:var(--gray);line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:var(--font-h);text-transform:uppercase;line-height:1.15}
+.wrap{max-width:920px;margin:0 auto;padding:0 24px}
+.eyebrow{font-family:var(--font-h);font-size:.72rem;letter-spacing:.24em;color:var(--gold);text-transform:uppercase}
+.gold{color:var(--gold)}
+svg{flex:none}
+
+/* ── PASSWORD GATE (SHA-256, plaintext never in source) ── */
+#pw-gate{position:fixed;inset:0;z-index:9999;background:linear-gradient(135deg,#000d22 0%,var(--navy) 60%,#1a0a1e 100%);display:flex;align-items:center;justify-content:center;font-family:var(--font-b)}
+#pw-gate::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(197,160,89,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(197,160,89,.06) 1px,transparent 1px);background-size:40px 40px;pointer-events:none}
+#pw-box{position:relative;background:rgba(255,255,255,.04);border:1px solid color-mix(in srgb, var(--gold) 25%, transparent);border-radius:16px;padding:48px 40px;text-align:center;width:min(400px,90vw);box-shadow:0 24px 80px rgba(0,0,0,.5)}
+#pw-box img{height:52px;margin-bottom:24px;display:block;margin-inline:auto}
+#pw-box h2{font-family:var(--font-h);font-size:1.9rem;color:var(--gold);letter-spacing:.06em;margin:0 0 8px}
+#pw-box .sub{font-size:.85rem;color:rgba(236,244,249,.55);margin:0 0 28px}
+#pw-input{width:100%;padding:12px 16px;background:rgba(0,0,0,.3);border:1px solid color-mix(in srgb, var(--gold) 30%, transparent);border-radius:8px;color:#fff;font-size:.95rem;font-family:inherit;outline:none;transition:border-color .2s}
+#pw-input:focus{border-color:var(--gold)}
+#pw-btn{margin-top:14px;width:100%;padding:12px;background:var(--gold);color:var(--navy);border:0;border-radius:8px;font-family:var(--font-h);font-size:1.1rem;letter-spacing:.1em;cursor:pointer;transition:background .2s}
+#pw-btn:hover{background:var(--gold-hover)}
+#pw-error{font-size:.8rem;color:#ff7a7a;margin:12px 0 0;min-height:1.2em}
+.pw-shake{animation:pwShake .35s}
+@keyframes pwShake{0%,100%{transform:translateX(0)}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+
+/* ── HEADER ── */
+.top{background:linear-gradient(135deg,#000d22 0%,var(--navy) 60%,#1a0a1e 100%);color:#fff;position:relative;overflow:hidden}
+.top::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 40%,rgba(169,19,53,.2) 0%,transparent 60%),radial-gradient(ellipse at 85% 60%,rgba(197,160,89,.14) 0%,transparent 60%)}
+.top .wrap{position:relative;z-index:1;padding:40px 24px 34px}
+.top .bar{display:flex;align-items:center;justify-content:space-between;margin-bottom:26px}
+.top .bar img{height:36px}
+.top .bar a{font-family:var(--font-h);font-size:.78rem;letter-spacing:.12em;color:rgba(255,255,255,.7);text-decoration:none;text-transform:uppercase;transition:color .2s}
+.top .bar a:hover{color:var(--gold)}
+.top h1{font-size:clamp(1.7rem,4vw,2.6rem);font-weight:700;margin:6px 0 8px}
+.top p{color:rgba(255,255,255,.72);max-width:640px;font-size:.98rem}
+.internal-flag{display:inline-flex;align-items:center;gap:7px;font-family:var(--font-h);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;background:var(--crimson);color:#fff;padding:5px 12px;border-radius:20px;margin-bottom:14px}
+.internal-flag svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+
+/* ── MEETING FEED ── */
+.feed{padding:26px 0 64px}
+.meeting{background:var(--white);border:1px solid var(--navy-10);border-radius:14px;overflow:hidden;margin-top:24px;box-shadow:0 1px 3px rgba(0,27,68,.05)}
+
+.m-head{background:linear-gradient(135deg,var(--navy) 0%,#012a55 100%);color:#fff;padding:22px 28px}
+.m-head .kicker{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.m-date{font-family:var(--font-h);font-size:.82rem;letter-spacing:.08em;color:var(--gold);text-transform:uppercase}
+.m-type{font-size:.72rem;letter-spacing:.04em;color:rgba(255,255,255,.55);border-left:1px solid rgba(255,255,255,.25);padding-left:10px}
+.m-head h2{font-size:1.5rem;color:#fff;letter-spacing:.01em}
+.m-who{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.who-chip{display:inline-flex;align-items:center;gap:7px;font-size:.8rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:20px;padding:5px 12px;color:rgba(255,255,255,.9)}
+.who-chip b{font-weight:600;color:#fff}
+.who-chip span{color:rgba(255,255,255,.55)}
+
+.m-body{padding:8px 28px 28px}
+
+/* section within a meeting */
+.blk{padding:22px 0;border-bottom:1px solid var(--navy-10)}
+.blk:last-child{border-bottom:0}
+.blk-h{display:flex;align-items:center;gap:11px;margin-bottom:14px}
+.blk-h .ic{width:34px;height:34px;border-radius:9px;background:var(--gold-light);color:var(--crimson);display:flex;align-items:center;justify-content:center;flex:none}
+.blk-h .ic svg{width:19px;height:19px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.blk-h h3{font-size:1.12rem;color:var(--navy);flex:1}
+.blk-h .meta{font-size:.74rem;font-family:var(--font-h);letter-spacing:.06em;color:var(--crimson);white-space:nowrap;text-transform:uppercase}
+.blk p{margin-bottom:10px;color:var(--navy-90)}
+.blk p:last-child{margin-bottom:0}
+.blk .lead{font-size:.98rem}
+.blk .fine{font-size:.9rem;color:var(--navy-70)}
+
+/* bullet lists */
+ul.pts{list-style:none;display:flex;flex-direction:column;gap:9px;margin:4px 0 0}
+ul.pts li{position:relative;padding-left:20px;font-size:.95rem;color:var(--navy-90)}
+ul.pts li::before{content:'';position:absolute;left:0;top:9px;width:7px;height:7px;border-radius:2px;background:var(--gold)}
+ul.pts li b{color:var(--navy)}
+
+/* action items with owner tags */
+ul.todo{list-style:none;display:flex;flex-direction:column;gap:8px;margin:4px 0 0}
+ul.todo li{display:flex;align-items:flex-start;gap:11px;font-size:.95rem;color:var(--navy-90);padding:9px 12px;background:var(--gray);border-radius:8px}
+ul.todo li .box{width:17px;height:17px;border:2px solid var(--navy-70);border-radius:4px;flex:none;margin-top:2px}
+.owner{font-family:var(--font-h);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;padding:2px 8px;border-radius:20px;white-space:nowrap;flex:none;margin-top:1px}
+.owner.gary{background:#e7edf6;color:var(--navy)}
+.owner.mike{background:#f7e5ea;color:var(--crimson)}
+.owner.both{background:var(--gold-light);color:#8a6d2f}
+.todo-txt{flex:1}
+
+/* pricing / structured rows */
+.rows{display:flex;flex-direction:column;gap:7px;margin-top:6px}
+.rows .r{display:flex;align-items:baseline;gap:12px;padding:9px 13px;background:var(--gray);border-radius:8px;font-size:.92rem}
+.rows .r b{font-family:var(--font-h);color:var(--crimson);font-size:.92rem;letter-spacing:.02em;white-space:nowrap;min-width:96px}
+
+/* key dates timeline */
+.dates{background:var(--navy);border-radius:12px;padding:22px 26px;margin-top:24px}
+.dates h3{color:var(--gold);font-size:1.05rem;display:flex;align-items:center;gap:11px;margin-bottom:16px}
+.dates h3 svg{width:19px;height:19px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.dline{display:grid;grid-template-columns:120px 1fr;gap:16px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.09);font-size:.93rem}
+.dline:last-child{border-bottom:0}
+.dline .d{font-family:var(--font-h);font-size:.82rem;letter-spacing:.04em;color:var(--gold);white-space:nowrap;padding-top:1px}
+.dline .e{color:rgba(255,255,255,.85)}
+.dline .e b{color:#fff}
+.dline.hot .d{color:#ff9db0}
+
+.note{display:flex;gap:11px;background:var(--gold-light);border-left:4px solid var(--gold);border-radius:0 8px 8px 0;padding:13px 15px;margin-top:12px;font-size:.92rem;color:var(--navy-90)}
+.note svg{width:18px;height:18px;stroke:var(--gold);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;margin-top:2px}
+.note b{color:var(--navy)}
+
+.foot{background:var(--dark);color:rgba(255,255,255,.42);text-align:center;padding:24px;font-size:.78rem}
+.foot img{height:24px;opacity:.7;display:block;margin:0 auto 8px}
+
+@media(max-width:640px){
+  .m-head,.m-body{padding-left:18px;padding-right:18px}
+  .dates{padding:18px}
+  .dline{grid-template-columns:1fr;gap:2px}
+  .dline .d{color:var(--gold)}
+  .rows .r{flex-direction:column;gap:2px}
+  .rows .r b{min-width:0}
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     PER-PAGE PASSWORD GATE — shares session key 'fvf_admin' with
+     the admin panel + other gated pages. SHA-256; plaintext never
+     stored here.
+     ============================================================ -->
+<div id="pw-gate">
+  <div id="pw-box">
+    <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1770763739/forge-logo-w-fox-valley-23jan2026_d1dlgi.png" alt="Fox Valley Forge SC" onerror="this.style.display='none'">
+    <h2>Meeting Notes</h2>
+    <p class="sub">This page is password protected.</p>
+    <input id="pw-input" type="password" placeholder="Enter password" autocomplete="current-password">
+    <button id="pw-btn">Enter</button>
+    <p id="pw-error"></p>
+  </div>
+</div>
+<script>
+(function(){
+  var KEY='fvf_admin';
+  /* SHA-256 hash of the access password (plaintext never stored here) */
+  var HASH='8e484aece8ea37afd67cd15d4f13fb2ef4ca78b2f5d5904400aa4bb1a2aad3a3';
+  var gate=document.getElementById('pw-gate');
+  if(sessionStorage.getItem(KEY)==='1'){gate.style.display='none';return;}
+  document.body.style.overflow='hidden';
+  function unlock(){ sessionStorage.setItem(KEY,'1'); document.body.style.overflow=''; gate.style.display='none'; }
+  function fail(){
+    document.getElementById('pw-error').textContent='Incorrect password. Try again.';
+    var box=document.getElementById('pw-box');
+    box.classList.remove('pw-shake'); void box.offsetWidth; box.classList.add('pw-shake');
+    var i=document.getElementById('pw-input'); i.select();
+  }
+  function attempt(){
+    var val=document.getElementById('pw-input').value;
+    var enc=new TextEncoder().encode(val);
+    crypto.subtle.digest('SHA-256',enc).then(function(buf){
+      var hex=Array.prototype.map.call(new Uint8Array(buf),function(b){return b.toString(16).padStart(2,'0');}).join('');
+      if(hex===HASH){ unlock(); } else { fail(); }
+    });
+  }
+  document.getElementById('pw-btn').addEventListener('click',attempt);
+  document.getElementById('pw-input').addEventListener('keydown',function(e){if(e.key==='Enter')attempt();});
+  document.getElementById('pw-input').focus();
+})();
+</script>
+
+<!-- HEADER -->
+<header class="top">
+  <div class="wrap">
+    <div class="bar">
+      <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1770763739/forge-logo-w-fox-valley-23jan2026_d1dlgi.png" alt="Fox Valley Forge SC">
+      <a href="index.html">← Back to Site</a>
+    </div>
+    <div class="internal-flag">
+      <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      Internal · For the Board
+    </div>
+    <h1>Client Meeting Notes</h1>
+    <p>A running record of Forge check-ins — decisions, action items, and dates captured from each conversation. Newest first.</p>
+  </div>
+</header>
+
+<div class="wrap">
+<div class="feed">
+
+  <!-- ============================================================
+       MEETING · July 15, 2026 — Forge Check-in
+       ============================================================ -->
+  <article class="meeting">
+    <div class="m-head">
+      <div class="kicker">
+        <span class="m-date">July 15, 2026</span>
+        <span class="m-type">Check-in · Video call · ~42 min</span>
+      </div>
+      <h2>Forge Summer Check-in &amp; Fall Roadmap</h2>
+      <div class="m-who">
+        <span class="who-chip"><b>Mike Weyant</b><span>President, Fox Valley Forge</span></span>
+        <span class="who-chip"><b>Gary Ricke</b><span>Orbis Design</span></span>
+      </div>
+    </div>
+
+    <div class="m-body">
+
+      <!-- OVERVIEW -->
+      <p style="padding:18px 0 2px;color:var(--navy-90);font-size:.98rem">
+        Wide-ranging planning call. Mike walked through website updates and three big pushes for the next six weeks:
+        <b>player trading cards</b>, the <b>Forge Fest</b> kickoff event (Aug 22), and the inaugural <b>Forge Classic</b> golf
+        fundraiser (Aug 31). Also covered: getting the sponsor page live, a "Meet the Coaching Staff" section, and coach photography.
+      </p>
+
+      <!-- KEY DATES -->
+      <div class="dates">
+        <h3><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg> Key Dates</h3>
+        <div class="dline"><span class="d">~Jul 16–17</span><span class="e">Gary builds the <b>player-card survey form</b> (1–2 days), then blast out via Sprocket</span></div>
+        <div class="dline"><span class="d">~Jul 20 (Mon)</span><span class="e">Target <b>coach photo session</b> at the mandatory in-person staff meeting</span></div>
+        <div class="dline"><span class="d">Jul 23</span><span class="e">Academy Soccer Camp ends (leave event up until then)</span></div>
+        <div class="dline"><span class="d">Aug 6</span><span class="e">Summer Camp Series ends (leave event up until then)</span></div>
+        <div class="dline hot"><span class="d">Aug 22</span><span class="e"><b>Forge Fest</b> — kickoff event; player cards exchanged here</span></div>
+        <div class="dline"><span class="d">Aug 28</span><span class="e">Gary moving daughter to college in Tampa (may miss the golf outing)</span></div>
+        <div class="dline hot"><span class="d">Aug 31</span><span class="e"><b>Forge Classic</b> golf outing — Eagle Brook Country Club</span></div>
+      </div>
+
+      <!-- 1 · INVOICES -->
+      <div class="blk">
+        <div class="blk-h">
+          <span class="ic"><svg viewBox="0 0 24 24"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+          <h3>Invoices &amp; Package</h3>
+        </div>
+        <p class="lead">Package approved and working well for the club. Invoices sent but <b>not yet paid</b>.</p>
+        <ul class="todo">
+          <li><span class="box"></span><span class="owner mike">Mike</span><span class="todo-txt">Follow up with Talia (Treasurer) to get the invoices paid.</span></li>
+        </ul>
+      </div>
+
+      <!-- 2 · TRADING CARDS -->
+      <div class="blk">
+        <div class="blk-h">
+          <span class="ic"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><circle cx="8" cy="10" r="2"/><path d="M2 18l5-4 3 2 4-4 8 6"/></svg></span>
+          <h3>Player Trading Cards</h3>
+          <span class="meta">Up against the wall</span>
+        </div>
+        <p class="lead">The marquee project — Mike's most excited about it, and nobody else is doing anything like it. Target is to have cards in hand to exchange at Forge Fest (Aug 22), so it has to move fast. Illustrative / AI-stylized art direction confirmed.</p>
+        <ul class="pts">
+          <li><b>Volume:</b> ~525 kids + ~15–20 coaches + ~8–10 board ≈ <b>550 people × 20 cards each ≈ 11,000 cards</b>.</li>
+          <li><b>Photos:</b> kids already shot at media night (player-pass headshots). <b>Coaches &amp; board still need photos</b> — pro photographer, or Gary shoots + AI-enhances.</li>
+          <li><b>Card fields:</b> name, photo, team label (e.g. "2026 · 11U" — signals age range without asking age directly), top two preferred positions, favorite pro team, favorite player, favorite food, favorite thing outside soccer, years played.</li>
+          <li><b>Privacy:</b> keep it fun/authentic; <b>no direct age, no siblings</b> — parents are sensitive about what goes on a distributed card.</li>
+          <li><b>Survey mechanics:</b> form collects the fun facts; player name maps to the photo filename so cards auto-assemble.</li>
+        </ul>
+        <ul class="todo">
+          <li><span class="box"></span><span class="owner gary">Gary</span><span class="todo-txt">Start experimenting with card concepts / illustrative style right away.</span></li>
+          <li><span class="box"></span><span class="owner gary">Gary</span><span class="todo-txt">Build the player survey/data form within 1–2 days; prep the blast-out.</span></li>
+          <li><span class="box"></span><span class="owner mike">Mike</span><span class="todo-txt">Get with Bridget on player photos + the email/survey solution (send via Sprocket).</span></li>
+          <li><span class="box"></span><span class="owner mike">Mike</span><span class="todo-txt">Arrange coach &amp; board photos (staged shoot — see Coaching section).</span></li>
+        </ul>
+      </div>
+
+      <!-- 3 · FORGE FEST -->
+      <div class="blk">
+        <div class="blk-h">
+          <span class="ic"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6 4.4 2.3 7.2-6.3-4.6L5.7 21l2.3-7.2-6-4.4h7.6z"/></svg></span>
+          <h3>Forge Fest — Aug 22</h3>
+          <span class="meta">Kickoff event</span>
+        </div>
+        <p class="lead">The legacy "Bash," rebranded <b>Forge Fest</b> and moved to the club's east-side facility (free, rain-or-shine). Live music, bounce houses, food &amp; beverage, dunk tanks, games and contests. Not a fundraiser — the goal is getting the kids together to start the year. This is where the player cards get exchanged.</p>
+        <ul class="todo">
+          <li><span class="box"></span><span class="owner gary">Gary</span><span class="todo-txt">Design a full-page flyer / marketing slick (Instagram + Facebook + email; no Drop Cap needed).</span></li>
+          <li><span class="box"></span><span class="owner gary">Gary</span><span class="todo-txt">Build a media page with all downloadable assets (social sizes, email, Sprocket banner).</span></li>
+          <li><span class="box"></span><span class="owner gary">Gary</span><span class="todo-txt">Remove the passed <b>Supplemental Tryouts</b> event from the site; add Forge Fest. (Academy camp + Summer Camp Series stay until their end dates.)</span></li>
+          <li><span class="box"></span><span class="owner mike">Mike</span><span class="todo-txt">Send date, time, location, and the full activity list; get Sprocket banner dimensions from Bridget.</span></li>
+        </ul>
+        <div class="note">
+          <svg viewBox="0 0 24 24"><path d="m22 8-6 4 6 4V8z"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg>
+          <span><b>Hero video refresh — on the shelf for now.</b> Mike wants to replace the background video with real Forge kids, but wants to wait until the new kits arrive. Plan: encourage kids to wear uniforms to the Fest to capture footage, then swap the video later.</span>
+        </div>
+      </div>
+
+      <!-- 4 · FORGE CLASSIC -->
+      <div class="blk">
+        <div class="blk-h">
+          <span class="ic"><svg viewBox="0 0 24 24"><path d="M12 18V5l7-2v4"/><circle cx="6" cy="19" r="3"/><path d="M9 19h9"/></svg></span>
+          <h3>Forge Classic — Golf Outing · Aug 31</h3>
+          <span class="meta">Inaugural fundraiser</span>
+        </div>
+        <p class="lead">First annual charity golf outing at <b>Eagle Brook Country Club</b> (Mike is a member). Payment runs through Sprocket; Eagle Brook bills the club afterward. Break-even is 15 teams; Mike's target is 30–40.</p>
+        <p class="fine" style="margin-top:12px"><b>Sponsorship structure (draft):</b></p>
+        <div class="rows">
+          <div class="r"><b>Title · $10K</b><span>"Forge Classic presented by [sponsor]", 2-year term, prominent signage everywhere</span></div>
+          <div class="r"><b>Hole · $1,500</b><span>Name on the hole, tent on the tee box, direct member engagement</span></div>
+          <div class="r"><b>Cart sign · ~$1,000</b><span>Signage on carts / beverage cart — presence, no on-site engagement</span></div>
+          <div class="r"><b>F&amp;B · $2–5K</b><span>Food &amp; beverage sponsor — logo on napkins, covers, at the bar</span></div>
+          <div class="r"><b>Foursome · $1,000</b><span>$250 per player — a round of golf for a good cause</span></div>
+        </div>
+        <ul class="todo" style="margin-top:14px">
+          <li><span class="box"></span><span class="owner gary">Gary</span><span class="todo-txt">Build the event landing page + Sprocket registration link/form (reuse the "incubator" event template that performed so well).</span></li>
+          <li><span class="box"></span><span class="owner gary">Gary</span><span class="todo-txt">Design the sponsorship slick — consolidated 1–2 page digital PDF.</span></li>
+          <li><span class="box"></span><span class="owner gary">Gary</span><span class="todo-txt">Create the golf-outing outreach email (same template as the sponsor email).</span></li>
+          <li><span class="box"></span><span class="owner both">Both</span><span class="todo-txt">Schedule a ~30-min photo visit to Eagle Brook for real, staged sponsor-concept photos.</span></li>
+          <li><span class="box"></span><span class="owner mike">Mike</span><span class="todo-txt">Send full sponsorship details/pricing; build the sponsor email list (partners, Be Local group, Geneva community chests, board + friends/family).</span></li>
+          <li><span class="box"></span><span class="owner mike">Mike</span><span class="todo-txt">Getting an assigned Eagle Brook event coordinator (today/tomorrow) to confirm payment logistics.</span></li>
+        </ul>
+      </div>
+
+      <!-- 5 · SPONSOR PAGE -->
+      <div class="blk">
+        <div class="blk-h">
+          <span class="ic"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>
+          <h3>Sponsor &amp; Partner Page</h3>
+        </div>
+        <p class="lead">Mike finally saw the demo and plan (already built, in this admin panel) — reaction was "fantastic." The concept: more than a logo wall. Every logo cleaned / redrawn razor-sharp; each clicks through to a mini landing page with a photo story, hours, and map. Sponsors do minimal work — Gary researches and assembles the rest.</p>
+        <ul class="todo">
+          <li><span class="box"></span><span class="owner gary">Gary</span><span class="todo-txt">Update the outreach email + build a form so sponsors can submit their info easily.</span></li>
+          <li><span class="box"></span><span class="owner gary">Gary</span><span class="todo-txt">Clean/redraw sponsor logos; manage the whole pipeline (collect assets, build pages, send for approval).</span></li>
+          <li><span class="box"></span><span class="owner mike">Mike</span><span class="todo-txt">Send the sponsor/partner list with levels. (Today: mostly one tier — uniform sponsors — plus partners like Nike &amp; European Sports; sponsors like Fox Valley Orthopedics &amp; B&amp;E Foods. Levels still developing.)</span></li>
+        </ul>
+      </div>
+
+      <!-- 6 · WEBSITE / COACHING -->
+      <div class="blk">
+        <div class="blk-h">
+          <span class="ic"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+          <h3>Website &amp; Coaching Announcements</h3>
+        </div>
+        <ul class="pts">
+          <li><b>"Meet the Coaching Staff" section</b> — mirror the leadership section. ~5 director-level coaches recently signed; announce via social drops + on the site. (Coming soon.)</li>
+          <li><b>Remove Trevor Bauer from the board</b> — stepped down for family reasons.</li>
+          <li><b>Coach photos:</b> a team photographer is already coming (Jeff's connection) for team pictures. Gary to shoot coach headshots — natural "on the sideline" look, staged at the facility, AI-enhanced from real shots. Capture ~90% at one Monday staff meeting; catch the rest at an event.</li>
+        </ul>
+        <ul class="todo" style="margin-top:14px">
+          <li><span class="box"></span><span class="owner gary">Gary</span><span class="todo-txt">Remove Trevor Bauer from the leadership section; build "Meet the Coaching Staff."</span></li>
+          <li><span class="box"></span><span class="owner gary">Gary</span><span class="todo-txt">Send Mike these meeting notes.</span></li>
+          <li><span class="box"></span><span class="owner mike">Mike</span><span class="todo-txt">Set up the staged coach photo session at a Monday in-person staff meeting (target next Monday); supply new-coach names/details.</span></li>
+        </ul>
+      </div>
+
+      <!-- 7 · CONTEXT -->
+      <div class="blk">
+        <div class="blk-h">
+          <span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></span>
+          <h3>Context &amp; Big Picture</h3>
+          <span class="meta">FYI — not action items</span>
+        </div>
+        <ul class="pts">
+          <li><b>Forge Athletics vision</b> — consolidating multiple sports orgs under one brand. <b>Forge Flag Football</b> (Davey &amp; Mitchell / G7 / Athlete's Mentor, ~600 kids) agreement sent this morning — phase two. A <b>baseball</b> org (→ Forge Baseball) is in negotiation.</li>
+          <li><b>Athletes' Table</b> nutrition partnership signed — on-site nutrition education across the season plus optional family meal plans (pre-game / game-day / recovery).</li>
+          <li><b>Trading-card concept is spreading</b> — the local high school wants the same for football (maybe track).</li>
+        </ul>
+      </div>
+
+    </div>
+  </article>
+
+</div>
+</div>
+
+<footer class="foot">
+  <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_120/v1772573827/forge-logo-no-fox-valley-23jan2026_olh5tk.png" alt="Fox Valley Forge SC">
+  Fox Valley Forge Soccer Club · Internal Meeting Notes
+</footer>
+
+</body>
+</html>
