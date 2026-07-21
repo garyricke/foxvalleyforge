@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Forge Golf Classic — Inaugural Outing · Aug 31, 2026</title>
+<meta name="description" content="The inaugural Forge Golf Classic — Aug 31, 2026 at Eagle Brook Country Club, Geneva IL. 18-hole shotgun scramble, contests, lunch & BBQ dinner. Benefiting Fox Valley Forge SC.">
+<link rel="icon" href="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1771377451/favicon-forge-1_r6l4ax.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#001B44; --navy-90:#1A2F57; --navy-70:#4D5F7D; --navy-10:#E6EAF0;
+  --crimson:#A91335; --crimson-90:#B92B4A;
+  --gold:#C5A059; --gold-light:#F8F3EA; --gold-deep:#A6813C;
+  --white:#fff; --gray:#F4F5F7; --dark:#0A0E17; --ink:#12151c;
+  --font-h:'Oswald',Impact,sans-serif;
+  --font-b:'Source Sans 3','Helvetica Neue',Arial,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-b);color:var(--ink);background:#fff;line-height:1.6;overflow-x:hidden}
+h1,h2,h3,h4{font-family:var(--font-h);text-transform:uppercase;line-height:1.05}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px}
+
+/* ── PASSWORD GATE ── */
+#pw-gate{position:fixed;inset:0;z-index:9999;background:linear-gradient(135deg,#000d22 0%,var(--navy) 60%,#1a0a1e 100%);display:flex;align-items:center;justify-content:center;font-family:var(--font-b)}
+#pw-gate::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(197,160,89,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(197,160,89,.06) 1px,transparent 1px);background-size:40px 40px;pointer-events:none}
+#pw-box{position:relative;background:rgba(255,255,255,.04);border:1px solid color-mix(in srgb, var(--gold) 25%, transparent);border-radius:16px;padding:48px 40px;text-align:center;width:min(400px,90vw);box-shadow:0 24px 80px rgba(0,0,0,.5)}
+#pw-box img{height:52px;margin-bottom:24px;display:block;margin-inline:auto}
+#pw-box h2{font-family:var(--font-h);font-size:1.9rem;color:var(--gold);letter-spacing:.06em;margin:0 0 8px}
+#pw-box .sub{font-size:.85rem;color:rgba(236,244,249,.55);margin:0 0 28px}
+#pw-input{width:100%;padding:12px 16px;background:rgba(0,0,0,.3);border:1px solid color-mix(in srgb, var(--gold) 30%, transparent);border-radius:8px;color:#fff;font-size:.95rem;font-family:inherit;outline:none;transition:border-color .2s}
+#pw-input:focus{border-color:var(--gold)}
+#pw-btn{margin-top:14px;width:100%;padding:12px;background:var(--gold);color:var(--navy);border:0;border-radius:8px;font-family:var(--font-h);font-size:1.1rem;letter-spacing:.1em;cursor:pointer;transition:background .2s}
+#pw-btn:hover{background:var(--gold-deep)}
+#pw-error{font-size:.8rem;color:#ff7a7a;margin:12px 0 0;min-height:1.2em}
+.pw-shake{animation:pwShake .35s}
+@keyframes pwShake{0%,100%{transform:translateX(0)}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+
+/* ── DRAFT NOTE ── */
+.draft-note{background:#20242c;color:#C9D5E6;font-size:.82rem;text-align:center;padding:9px 16px;border-bottom:2px solid var(--gold)}
+.draft-note b{color:var(--gold)}
+
+/* ── BUTTONS ── */
+.btn{display:inline-block;font-family:var(--font-h);text-transform:uppercase;letter-spacing:.08em;font-weight:600;font-size:1rem;padding:14px 30px;border-radius:8px;cursor:pointer;transition:.2s;border:2px solid transparent}
+.btn-gold{background:var(--gold);color:var(--navy);border-color:var(--gold)}
+.btn-gold:hover{background:var(--gold-deep);border-color:var(--gold-deep)}
+.btn-crimson{background:var(--crimson);color:#fff;border-color:var(--crimson)}
+.btn-crimson:hover{background:var(--crimson-90);border-color:var(--crimson-90)}
+.btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.5)}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+
+/* ── HERO ── */
+.hero{position:relative;min-height:92vh;display:flex;align-items:center;color:#fff;text-align:center}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,15,34,.55) 0%,rgba(0,15,34,.35) 40%,rgba(0,15,34,.85) 100%),url("https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_2000/v1784657032/forge/classic/hero-fairway.png") center/cover no-repeat}
+.hero-inner{position:relative;z-index:2;width:100%;max-width:900px;margin:0 auto;padding:120px 24px 90px}
+.hero .kicker{font-family:var(--font-h);letter-spacing:.32em;text-transform:uppercase;font-size:.82rem;color:var(--gold);font-weight:600;margin-bottom:18px}
+.hero h1{font-size:clamp(2.8rem,8vw,5.6rem);letter-spacing:.01em;text-shadow:0 4px 24px rgba(0,0,0,.5)}
+.hero .tag{font-family:var(--font-h);font-size:clamp(1rem,2.4vw,1.5rem);letter-spacing:.14em;color:#fff;margin-top:10px;font-weight:500}
+.hero .meta{margin-top:26px;display:flex;gap:12px 30px;justify-content:center;flex-wrap:wrap;font-family:var(--font-h);letter-spacing:.08em;text-transform:uppercase;font-size:.95rem}
+.hero .meta span{display:inline-flex;align-items:center;gap:9px}
+.hero .meta svg{width:20px;height:20px;color:var(--gold)}
+.hero .cta{margin-top:38px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+/* ── FACTS STRIP ── */
+.facts{background:var(--navy);color:#fff}
+.facts .row{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.12)}
+.fact{background:var(--navy);padding:26px 18px;text-align:center}
+.fact .v{font-family:var(--font-h);font-size:1.5rem;color:var(--gold);letter-spacing:.02em;line-height:1.1}
+.fact .l{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:#9FB0C9;margin-top:6px;font-family:var(--font-h)}
+@media(max-width:700px){.facts .row{grid-template-columns:repeat(2,1fr)}}
+
+/* ── SECTIONS ── */
+section{padding:76px 0}
+.sec-head{text-align:center;max-width:720px;margin:0 auto 48px}
+.sec-head .ey{font-family:var(--font-h);letter-spacing:.24em;text-transform:uppercase;font-size:.78rem;color:var(--crimson);font-weight:600}
+.sec-head h2{font-size:clamp(2rem,4.5vw,2.9rem);color:var(--navy);margin:10px 0}
+.sec-head h2 span{color:var(--gold)}
+.sec-head p{color:var(--navy-70);font-size:1.05rem}
+.alt{background:var(--gold-light)}
+.dark{background:var(--navy);color:#fff}
+.dark .sec-head h2{color:#fff}
+.dark .sec-head p{color:#B9C6DB}
+
+/* intro */
+.intro{text-align:center;max-width:760px;margin:0 auto}
+.intro p{font-size:1.15rem;color:var(--navy-70)}
+.intro .lead{font-size:1.4rem;color:var(--navy);font-weight:600;margin-bottom:16px}
+
+/* schedule */
+.schedule{max-width:640px;margin:0 auto;position:relative}
+.schedule::before{content:"";position:absolute;left:88px;top:8px;bottom:8px;width:2px;background:rgba(197,160,89,.4)}
+.sch{display:grid;grid-template-columns:88px 1fr;gap:0 26px;padding:14px 0;position:relative}
+.sch .t{font-family:var(--font-h);font-size:1.05rem;color:var(--gold-deep);text-align:right;letter-spacing:.03em;padding-top:1px}
+.sch .d{position:relative;padding-left:26px}
+.sch .d::before{content:"";position:absolute;left:-6px;top:6px;width:13px;height:13px;border-radius:50%;background:var(--navy);border:2px solid var(--gold)}
+.sch .d b{font-family:var(--font-h);letter-spacing:.04em;text-transform:uppercase;color:var(--navy);font-size:1.05rem;font-weight:600}
+.sch .d small{display:block;color:var(--navy-70);font-size:.92rem}
+
+/* included cards */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:820px){.cards{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.cards{grid-template-columns:1fr}}
+.card{background:#fff;border:1px solid var(--navy-10);border-radius:14px;padding:26px 22px;text-align:center;box-shadow:0 6px 20px rgba(0,27,68,.05)}
+.card .ic{width:52px;height:52px;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;background:var(--gold-light);border-radius:12px;color:var(--crimson)}
+.card .ic svg{width:28px;height:28px}
+.card h3{font-size:1.15rem;color:var(--navy);letter-spacing:.02em}
+.card p{color:var(--navy-70);font-size:.92rem;margin-top:6px}
+
+/* contests */
+.contest-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center}
+@media(max-width:820px){.contest-grid{grid-template-columns:1fr}}
+.contest-list{display:grid;gap:14px}
+.ct{display:flex;gap:16px;align-items:flex-start;background:rgba(255,255,255,.05);border:1px solid rgba(197,160,89,.25);border-radius:12px;padding:18px 20px}
+.ct .n{font-family:var(--font-h);font-size:1.7rem;color:var(--gold);line-height:1;flex:0 0 auto;width:34px}
+.ct b{font-family:var(--font-h);letter-spacing:.03em;text-transform:uppercase;font-size:1.15rem;color:#fff}
+.ct small{display:block;color:#B9C6DB;font-size:.9rem;margin-top:3px}
+.contest-img img{border-radius:16px;box-shadow:0 20px 50px rgba(0,0,0,.4)}
+.contest-img .cap{text-align:center;color:#9FB0C9;font-size:.78rem;margin-top:10px;font-family:var(--font-h);letter-spacing:.1em;text-transform:uppercase}
+
+/* menus */
+.menu-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:900px;margin:0 auto 34px}
+@media(max-width:720px){.menu-grid{grid-template-columns:1fr}}
+.menu{background:#fff;border:1px solid var(--navy-10);border-radius:14px;overflow:hidden}
+.menu .mh{background:var(--navy);color:#fff;padding:16px 22px;display:flex;align-items:center;gap:12px}
+.menu .mh svg{width:24px;height:24px;color:var(--gold)}
+.menu .mh h3{font-size:1.2rem;letter-spacing:.05em}
+.menu .mh .time{margin-left:auto;font-family:var(--font-h);font-size:.85rem;color:var(--gold);letter-spacing:.08em}
+.menu ul{list-style:none;padding:20px 24px}
+.menu li{padding:6px 0 6px 22px;position:relative;color:var(--ink);font-size:.98rem}
+.menu li::before{content:"";position:absolute;left:0;top:13px;width:8px;height:8px;border-radius:50%;background:var(--gold)}
+.bar-note{text-align:center;color:var(--navy-70);font-size:.95rem;max-width:640px;margin:0 auto}
+.dinner-img img{border-radius:16px;max-width:900px;margin:0 auto;box-shadow:0 16px 44px rgba(0,27,68,.18)}
+
+/* register */
+.reg-card{max-width:760px;margin:0 auto;background:linear-gradient(160deg,#012a55,var(--navy));border:1px solid rgba(197,160,89,.4);border-radius:20px;padding:44px 40px;text-align:center;color:#fff;box-shadow:0 24px 60px rgba(0,0,0,.3)}
+.reg-prices{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin:26px 0}
+.price{background:rgba(255,255,255,.05);border:1px solid rgba(197,160,89,.35);border-radius:14px;padding:22px 34px;min-width:200px}
+.price .amt{font-family:var(--font-h);font-size:2.6rem;color:var(--gold);line-height:1}
+.price .u{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:#9FB0C9;margin-top:6px;font-family:var(--font-h)}
+.prelim{display:inline-block;font-family:var(--font-h);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--navy);background:var(--gold);padding:3px 9px;border-radius:4px;vertical-align:middle;margin-left:6px}
+.reg-incl{color:#B9C6DB;font-size:.95rem;margin:6px 0 26px}
+.reg-note{font-size:.82rem;color:#8595AE;margin-top:18px}
+
+/* sponsor */
+.sponsor-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+@media(max-width:820px){.sponsor-grid{grid-template-columns:1fr}}
+.tiers{display:grid;gap:10px}
+.tier{display:flex;justify-content:space-between;align-items:center;gap:16px;background:#fff;border:1px solid var(--navy-10);border-left:4px solid var(--gold);border-radius:10px;padding:14px 18px}
+.tier b{font-family:var(--font-h);letter-spacing:.04em;text-transform:uppercase;color:var(--navy);font-size:1.05rem}
+.tier small{display:block;color:var(--navy-70);font-size:.85rem;font-weight:400;text-transform:none;letter-spacing:0}
+.tier .amt{font-family:var(--font-h);color:var(--crimson);font-size:1.25rem;white-space:nowrap}
+.sponsor-img img{border-radius:16px;box-shadow:0 16px 44px rgba(0,27,68,.18)}
+
+/* venue */
+.venue{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+@media(max-width:820px){.venue{grid-template-columns:1fr}}
+.venue-img img{border-radius:16px;box-shadow:0 16px 44px rgba(0,27,68,.18)}
+.venue h3{font-size:1.8rem;color:var(--navy)}
+.venue .addr{color:var(--navy-70);font-size:1.05rem;margin:10px 0 18px;line-height:1.7}
+
+/* footer */
+footer{background:var(--dark);color:#9FB0C9;text-align:center;padding:50px 24px}
+footer img{height:48px;margin:0 auto 18px}
+footer .fh{font-family:var(--font-h);color:#fff;letter-spacing:.1em;font-size:1.1rem}
+footer a{color:var(--gold)}
+footer .small{font-size:.82rem;margin-top:14px;color:#63718c}
+
+.center{text-align:center}
+.mt{margin-top:34px}
+</style>
+</head>
+<body>
+<!-- PASSWORD GATE — shares 'fvf_admin' session key -->
+<div id="pw-gate">
+  <div id="pw-box">
+    <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1770763739/forge-logo-w-fox-valley-23jan2026_d1dlgi.png" alt="Fox Valley Forge SC" onerror="this.style.display='none'">
+    <h2>Forge Golf Classic</h2>
+    <p class="sub">This page is password protected.</p>
+    <input id="pw-input" type="password" placeholder="Enter password" autocomplete="current-password">
+    <button id="pw-btn">Enter</button>
+    <p id="pw-error"></p>
+  </div>
+</div>
+<script>
+(function(){
+  var KEY='fvf_admin';
+  var HASH='8e484aece8ea37afd67cd15d4f13fb2ef4ca78b2f5d5904400aa4bb1a2aad3a3';
+  var gate=document.getElementById('pw-gate');
+  if(sessionStorage.getItem(KEY)==='1'){gate.style.display='none';return;}
+  document.body.style.overflow='hidden';
+  function unlock(){ sessionStorage.setItem(KEY,'1'); document.body.style.overflow=''; gate.style.display='none'; }
+  function fail(){
+    document.getElementById('pw-error').textContent='Incorrect password. Try again.';
+    var box=document.getElementById('pw-box');
+    box.classList.remove('pw-shake'); void box.offsetWidth; box.classList.add('pw-shake');
+    document.getElementById('pw-input').select();
+  }
+  function attempt(){
+    var val=document.getElementById('pw-input').value;
+    crypto.subtle.digest('SHA-256',new TextEncoder().encode(val)).then(function(buf){
+      var hex=Array.prototype.map.call(new Uint8Array(buf),function(b){return b.toString(16).padStart(2,'0');}).join('');
+      if(hex===HASH){ unlock(); } else { fail(); }
+    });
+  }
+  document.getElementById('pw-btn').addEventListener('click',attempt);
+  document.getElementById('pw-input').addEventListener('keydown',function(e){if(e.key==='Enter')attempt();});
+  document.getElementById('pw-input').focus();
+})();
+</script>
+
+<div class="draft-note">
+  <b>Working draft — for review.</b> Imagery is AI concept art for photo-shoot direction · pricing is preliminary · online registration link pending.
+</div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="kicker">Inaugural Outing · Benefiting Fox Valley Forge SC</div>
+    <h1>Forge Golf Classic</h1>
+    <div class="tag">A Championship Day for the Club We're Building</div>
+    <div class="meta">
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Monday, August 31, 2026</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Eagle Brook Country Club · Geneva, IL</span>
+    </div>
+    <div class="cta">
+      <a href="#register" class="btn btn-gold">Register Your Foursome</a>
+      <a href="#sponsor" class="btn btn-ghost">Become a Sponsor</a>
+    </div>
+  </div>
+</header>
+
+<!-- FACTS -->
+<div class="facts">
+  <div class="wrap"><div class="row">
+    <div class="fact"><div class="v">Aug 31</div><div class="l">2026</div></div>
+    <div class="fact"><div class="v">12:00 PM</div><div class="l">Shotgun Start</div></div>
+    <div class="fact"><div class="v">18 Holes</div><div class="l">Private Championship Course</div></div>
+    <div class="fact"><div class="v">Scramble</div><div class="l">Carts · Contests · Dinner</div></div>
+  </div></div>
+</div>
+
+<!-- INTRO -->
+<section>
+  <div class="wrap intro">
+    <p class="lead">One valley. One club. One unforgettable day on the course.</p>
+    <p>Join us for the very first Forge Golf Classic — a full day of championship golf at Eagle Brook Country Club, one of the Fox Valley's premier private courses. Gather your foursome for a shotgun scramble, on-course contests, lunch on the turn, and a BBQ dinner to close it out. Every registration and sponsorship directly supports Fox Valley Forge SC and the young players we're building this club for.</p>
+  </div>
+</section>
+
+<!-- THE DAY -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head"><div class="ey">The Schedule</div><h2>The <span>Day</span></h2></div>
+    <div class="schedule">
+      <div class="sch"><div class="t">9:30 AM</div><div class="d"><b>Registration Opens</b><small>Check in, grab your cart, warm up</small></div></div>
+      <div class="sch"><div class="t">11:00 AM</div><div class="d"><b>Lunch Served</b><small>Hot off the grill before you tee off</small></div></div>
+      <div class="sch"><div class="t">11:50 AM</div><div class="d"><b>Welcome &amp; Announcements</b><small>Rules, contests &amp; the day ahead</small></div></div>
+      <div class="sch"><div class="t">12:00 PM</div><div class="d"><b>Shotgun Start</b><small>18 holes · scramble format</small></div></div>
+      <div class="sch"><div class="t">5:00 PM</div><div class="d"><b>Dinner Begins</b><small>BBQ buffet, awards &amp; camaraderie</small></div></div>
+      <div class="sch"><div class="t">8:00 PM</div><div class="d"><b>Conclusion</b><small>A great day for a great cause</small></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- INCLUDED -->
+<section>
+  <div class="wrap">
+    <div class="sec-head"><div class="ey">Your Entry Includes</div><h2>What's <span>Included</span></h2></div>
+    <div class="cards">
+      <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3v18"/><path d="M5 4h11l-2 3 2 3H5"/></svg></div><h3>18-Hole Championship Golf</h3><p>A full round on Eagle Brook's private championship course.</p></div>
+      <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17h11l3-6h4l1 3v3h-2"/><circle cx="7" cy="19" r="2"/><circle cx="18" cy="19" r="2"/><path d="M3 17V9h6l2 2"/></svg></div><h3>Electric Riding Carts</h3><p>A cart for your group, all day on the course.</p></div>
+      <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg></div><h3>On-Course Contests</h3><p>Hole-in-One, Long Drive, Closest to the Pin &amp; Long Putt.</p></div>
+      <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11h16M4 11a8 8 0 0 1 16 0M4 15h16M8 11V7M12 11V6M16 11V7"/></svg></div><h3>Lunch on the Turn</h3><p>Grilled to order before the shotgun start.</p></div>
+      <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h0c1.1 0 2-.9 2-2V2M5 2v20M16 2c-2 0-3 2-3 5s1 5 3 5V2zM16 12v10"/></svg></div><h3>BBQ Dinner &amp; Awards</h3><p>A full buffet dinner and awards to close the day.</p></div>
+      <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M8.2 13.9 7 22l5-3 5 3-1.2-8.1"/></svg></div><h3>Prizes &amp; Bragging Rights</h3><p>Team awards and contest prizes throughout the day.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTESTS -->
+<section class="dark">
+  <div class="wrap">
+    <div class="sec-head"><div class="ey">Test Your Game</div><h2>On-Course <span>Contests</span></h2></div>
+    <div class="contest-grid">
+      <div class="contest-list">
+        <div class="ct"><div class="n">1</div><div><b>Hole-in-One</b><small>Ace the signature par-3 and drive home a brand-new car.</small></div></div>
+        <div class="ct"><div class="n">2</div><div><b>Long Drive</b><small>Send one down the fairway and claim the longest of the day.</small></div></div>
+        <div class="ct"><div class="n">3</div><div><b>Closest to the Pin</b><small>Stick it tight and put your name on the card.</small></div></div>
+        <div class="ct"><div class="n">4</div><div><b>Long Putt</b><small>Drain the longest putt on the contest green.</small></div></div>
+      </div>
+      <div class="contest-img">
+        <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_1000/v1784657037/forge/classic/hole-in-one-car.png" alt="Hole-in-One car staged at a par-3 tee">
+        <div class="cap">Hole-in-One — win the car</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOD -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head"><div class="ey">Eat Well, Play Well</div><h2>Food &amp; <span>Drink</span></h2></div>
+    <div class="menu-grid">
+      <div class="menu">
+        <div class="mh"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11h16M4 11a8 8 0 0 1 16 0"/><path d="M2 15h20"/></svg><h3>Lunch</h3><span class="time">11:00 AM</span></div>
+        <ul>
+          <li>Choice of grilled hot dog or brat</li>
+          <li>Assorted chips</li>
+          <li>Bottled water or soda</li>
+        </ul>
+      </div>
+      <div class="menu">
+        <div class="mh"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2s2-.9 2-2V2M5 11v11M16 2c-2 0-3 2-3 5s1 5 3 5V2z"/></svg><h3>BBQ Dinner Buffet</h3><span class="time">5:00 PM</span></div>
+        <ul>
+          <li>Pulled pork &amp; BBQ chicken</li>
+          <li>Hawaiian rolls &amp; cornbread</li>
+          <li>Coleslaw, potato salad &amp; baked beans</li>
+          <li>Fresh-baked cookies</li>
+        </ul>
+      </div>
+    </div>
+    <p class="bar-note">Cash bar &amp; beverage cart available throughout the day. <em>(Beverage packages may be offered if a sponsor is secured.)</em></p>
+    <div class="dinner-img mt">
+      <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_1200/v1784657035/forge/classic/dinner-reception.png" alt="Clubhouse patio set for the BBQ dinner reception at dusk">
+    </div>
+  </div>
+</section>
+
+<!-- REGISTER -->
+<section id="register">
+  <div class="wrap">
+    <div class="sec-head"><div class="ey">Reserve Your Spot</div><h2><span>Register</span> Your Team</h2><p>Grab three friends and lock in your foursome — or register as a single and we'll pair you up.</p></div>
+    <div class="reg-card">
+      <div class="reg-prices">
+        <div class="price"><div class="amt">$1,000</div><div class="u">Per Foursome <span class="prelim">Preliminary</span></div></div>
+        <div class="price"><div class="amt">$250</div><div class="u">Per Golfer <span class="prelim">Preliminary</span></div></div>
+      </div>
+      <p class="reg-incl">Includes 18 holes, cart, lunch, dinner &amp; entry to all contests.</p>
+      <a href="#" class="btn btn-gold" id="reg-btn">Register &amp; Pay Online</a>
+      <p class="reg-note">Online registration &amp; payment link coming soon (secure checkout). Registration deadline to be confirmed. Questions? <a href="mailto:info@forgesoccerclub.com" style="color:var(--gold)">info@forgesoccerclub.com</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- SPONSOR -->
+<section id="sponsor" class="alt">
+  <div class="wrap">
+    <div class="sec-head"><div class="ey">Partner With the Forge</div><h2>Sponsorship <span>Opportunities</span></h2><p>Put your business in front of the Fox Valley community and support youth soccer. Title, hole, contest &amp; food/beverage sponsorships available.</p></div>
+    <div class="sponsor-grid">
+      <div class="tiers">
+        <div class="tier"><div><b>Title Sponsor</b><small>Presenting partner — name on the event</small></div><div class="amt">$10,000</div></div>
+        <div class="tier"><div><b>Hole Sponsor</b><small>Signage on a hole &amp; recognition</small></div><div class="amt">$1,500</div></div>
+        <div class="tier"><div><b>Cart Sponsor</b><small>Your brand on the cart fleet</small></div><div class="amt">$1,000</div></div>
+        <div class="tier"><div><b>Food &amp; Beverage</b><small>Lunch, dinner or beverage-cart naming</small></div><div class="amt">$2,000+</div></div>
+      </div>
+      <div class="sponsor-img">
+        <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_1000/v1784657034/forge/classic/contest-signage.png" alt="Navy and gold hole-sponsor sign concept beside the green">
+      </div>
+    </div>
+    <p class="center mt" style="color:var(--navy-70);font-size:.9rem"><em>Sponsorship levels are preliminary — full packages &amp; benefits coming soon.</em></p>
+    <div class="center mt"><a href="mailto:mike.weyant@forgesoccerclub.com?subject=Forge%20Golf%20Classic%20Sponsorship" class="btn btn-crimson">Request Sponsor Info</a></div>
+  </div>
+</section>
+
+<!-- VENUE -->
+<section>
+  <div class="wrap">
+    <div class="sec-head"><div class="ey">The Venue</div><h2>Eagle Brook <span>Country Club</span></h2></div>
+    <div class="venue">
+      <div class="venue-img"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_1100/v1784657033/forge/classic/foursome-tee.png" alt="A foursome at Eagle Brook Country Club"></div>
+      <div>
+        <h3>A Private Championship Course in the Fox Valley</h3>
+        <p class="addr">2288 Fargo Blvd<br>Geneva, IL 60134</p>
+        <p style="color:var(--navy-70)">A 254-acre links-style championship layout — rolling fairways, prairie edges and a beautifully renovated clubhouse just minutes from downtown Geneva.</p>
+        <div class="mt"><a href="https://maps.google.com/?q=Eagle+Brook+Country+Club,+2288+Fargo+Blvd,+Geneva,+IL+60134" target="_blank" rel="noopener" class="btn btn-gold">Get Directions</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1770763739/forge-logo-w-fox-valley-23jan2026_d1dlgi.png" alt="Fox Valley Forge SC" onerror="this.style.display='none'">
+  <div class="fh">Forge Golf Classic · August 31, 2026</div>
+  <p style="margin-top:8px">Benefiting Fox Valley Forge SC · Eagle Brook Country Club, Geneva IL</p>
+  <p class="small">Questions or sponsorships: <a href="mailto:info@forgesoccerclub.com">info@forgesoccerclub.com</a> · <a href="tel:6303779292">630-377-9292</a></p>
+  <p class="small">One Valley. One Club.</p>
+</footer>
+
+</body>
+</html>
