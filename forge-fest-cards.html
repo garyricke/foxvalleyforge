@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Forge Fest — Trading Card Mockups</title>
+<link rel="icon" href="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1771377451/favicon-forge-1_r6l4ax.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Anton&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#001B44; --navy-90:#1A2F57; --navy-70:#4D5F7D; --navy-10:#E6EAF0;
+  --crimson:#A91335; --crimson-90:#B92B4A;
+  --gold:#C5A059; --gold-light:#F8F3EA; --gold-deep:#A6813C;
+  --cream:#F4EEDF; --cream-2:#EFE6CF; --ink:#20242C;
+  --font-h:'Oswald',Impact,sans-serif;
+  --font-b:'Source Sans 3','Helvetica Neue',Arial,sans-serif;
+  --font-retro:'Anton',Impact,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-b);color:#12151c;background:#0A0E17;line-height:1.5}
+h1,h2,h3,h4{font-family:var(--font-h);text-transform:uppercase;line-height:1.05}
+img{max-width:100%;display:block}
+
+/* ── PASSWORD GATE (SHA-256, plaintext never in source) ── */
+#pw-gate{position:fixed;inset:0;z-index:9999;background:linear-gradient(135deg,#000d22 0%,var(--navy) 60%,#1a0a1e 100%);display:flex;align-items:center;justify-content:center;font-family:var(--font-b)}
+#pw-gate::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(197,160,89,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(197,160,89,.06) 1px,transparent 1px);background-size:40px 40px;pointer-events:none}
+#pw-box{position:relative;background:rgba(255,255,255,.04);border:1px solid color-mix(in srgb, var(--gold) 25%, transparent);border-radius:16px;padding:48px 40px;text-align:center;width:min(400px,90vw);box-shadow:0 24px 80px rgba(0,0,0,.5)}
+#pw-box img{height:52px;margin-bottom:24px;display:block;margin-inline:auto}
+#pw-box h2{font-family:var(--font-h);font-size:1.9rem;color:var(--gold);letter-spacing:.06em;margin:0 0 8px}
+#pw-box .sub{font-size:.85rem;color:rgba(236,244,249,.55);margin:0 0 28px}
+#pw-input{width:100%;padding:12px 16px;background:rgba(0,0,0,.3);border:1px solid color-mix(in srgb, var(--gold) 30%, transparent);border-radius:8px;color:#fff;font-size:.95rem;font-family:inherit;outline:none;transition:border-color .2s}
+#pw-input:focus{border-color:var(--gold)}
+#pw-btn{margin-top:14px;width:100%;padding:12px;background:var(--gold);color:var(--navy);border:0;border-radius:8px;font-family:var(--font-h);font-size:1.1rem;letter-spacing:.1em;cursor:pointer;transition:background .2s}
+#pw-btn:hover{background:var(--gold-deep)}
+#pw-error{font-size:.8rem;color:#ff7a7a;margin:12px 0 0;min-height:1.2em}
+.pw-shake{animation:pwShake .35s}
+@keyframes pwShake{0%,100%{transform:translateX(0)}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+
+/* ── PAGE CHROME ── */
+.wrap{max-width:1180px;margin:0 auto;padding:48px 24px 96px}
+.masthead{text-align:center;color:#fff;margin-bottom:8px}
+.kicker{font-family:var(--font-h);letter-spacing:.28em;text-transform:uppercase;font-size:.72rem;color:var(--gold);font-weight:600}
+.masthead h1{font-size:clamp(2rem,5vw,3.2rem);color:#fff;margin:10px 0 6px}
+.masthead p{color:#9FB0C9;max-width:640px;margin:0 auto;font-size:1rem}
+
+.note{max-width:860px;margin:26px auto 0;background:rgba(255,255,255,.05);border:1px solid rgba(197,160,89,.35);border-left:4px solid var(--gold);border-radius:10px;padding:16px 20px;color:#C9D5E6;font-size:.9rem}
+.note b{color:var(--gold)}
+.note.warn{border-color:rgba(169,19,53,.5);border-left-color:var(--crimson)}
+.note.warn b{color:#ff8ba4}
+
+/* ── STYLE SWITCHER ── */
+.switch{display:flex;justify-content:center;gap:10px;margin:38px 0 30px;flex-wrap:wrap}
+.switch button{font-family:var(--font-h);text-transform:uppercase;letter-spacing:.08em;font-weight:600;font-size:.95rem;color:#B9C6DB;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);padding:11px 22px;border-radius:999px;cursor:pointer;transition:.2s}
+.switch button:hover{color:#fff;border-color:var(--gold)}
+.switch button.active{background:var(--gold);color:var(--navy);border-color:var(--gold)}
+
+.style-blurb{text-align:center;color:#9FB0C9;max-width:680px;margin:0 auto 34px;font-size:.95rem}
+.style-blurb strong{color:#fff}
+
+.section-label{color:#fff;font-family:var(--font-h);letter-spacing:.14em;font-size:.9rem;text-transform:uppercase;text-align:center;margin:44px 0 6px;font-weight:600}
+.section-label span{color:var(--gold)}
+.section-sub{text-align:center;color:#7F8DA6;font-size:.82rem;margin-bottom:26px}
+
+.grid{display:flex;flex-wrap:wrap;gap:34px 30px;justify-content:center}
+
+/* ── FLIP CARD SHELL ── */
+.card{width:300px;height:420px;perspective:1600px;cursor:pointer;flex:0 0 auto}
+.card-inner{position:relative;width:100%;height:100%;transition:transform .7s cubic-bezier(.4,.15,.2,1);transform-style:preserve-3d}
+.card.flipped .card-inner{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:16px;overflow:hidden}
+.face.back{transform:rotateY(180deg)}
+.flip-hint{position:absolute;bottom:8px;right:10px;font-family:var(--font-b);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;opacity:.55;z-index:5;pointer-events:none}
+.card-caption{text-align:center;color:#8595AE;font-size:.78rem;margin-top:12px;font-family:var(--font-h);letter-spacing:.1em;text-transform:uppercase}
+
+/* ═══════════════ CLEAN MODERN ═══════════════ */
+.m-front{background:var(--navy);color:#fff;border:1px solid rgba(197,160,89,.5);box-shadow:0 20px 45px rgba(0,0,0,.5)}
+.m-front .frame{position:absolute;inset:9px;border:1.5px solid var(--gold);border-radius:10px;pointer-events:none;z-index:4}
+.m-photo{position:absolute;top:0;left:0;right:0;height:70%;overflow:hidden}
+.m-photo img{width:100%;height:100%;object-fit:cover;object-position:top center}
+.m-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,27,68,0) 45%,rgba(0,27,68,.85) 100%)}
+.m-logo{position:absolute;top:16px;left:16px;width:46px;height:46px;z-index:5;filter:drop-shadow(0 2px 4px rgba(0,0,0,.5))}
+.m-num{position:absolute;top:14px;right:18px;z-index:5;font-family:var(--font-h);font-weight:700;font-size:2.6rem;color:var(--gold);line-height:1;text-shadow:0 2px 8px rgba(0,0,0,.6)}
+.m-num small{display:block;font-size:.5rem;letter-spacing:.24em;color:#fff;text-align:right;margin-top:2px;font-weight:500}
+.m-band{position:absolute;left:0;right:0;bottom:0;padding:0 18px 20px;z-index:5}
+.m-pos{display:inline-block;background:var(--crimson);color:#fff;font-family:var(--font-h);font-size:.62rem;letter-spacing:.16em;font-weight:600;padding:4px 10px;border-radius:4px;margin-bottom:8px}
+.m-band h3{font-size:1.7rem;color:#fff;letter-spacing:.01em}
+.m-band .team{font-family:var(--font-h);font-size:.72rem;letter-spacing:.2em;color:var(--gold);margin-top:3px;font-weight:500}
+.m-band .accent{width:44px;height:3px;background:var(--gold);margin-top:9px}
+
+.m-back{background:var(--gold-light);color:var(--navy);border:1px solid rgba(197,160,89,.55);box-shadow:0 20px 45px rgba(0,0,0,.5);padding:0}
+.m-back-head{background:var(--navy);color:#fff;padding:14px 18px 12px;display:flex;align-items:center;gap:11px}
+.m-back-head img{width:34px;height:34px;flex:0 0 auto}
+.m-back-head .nm{font-family:var(--font-h);font-size:1.12rem;letter-spacing:.02em;line-height:1}
+.m-back-head .rl{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-top:4px;font-family:var(--font-h)}
+.m-back-body{padding:14px 18px}
+.m-sec{font-family:var(--font-h);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--crimson);border-bottom:1.5px solid rgba(197,160,89,.5);padding-bottom:4px;margin:0 0 8px;font-weight:600}
+.m-sec:not(:first-child){margin-top:13px}
+.m-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:2px}
+.m-stat{background:#fff;border:1px solid rgba(0,27,68,.08);border-radius:7px;padding:7px 6px;text-align:center}
+.m-stat .v{font-family:var(--font-h);font-size:1.15rem;color:var(--navy);line-height:1}
+.m-stat .l{font-size:.5rem;letter-spacing:.08em;text-transform:uppercase;color:var(--navy-70);margin-top:3px}
+.m-onpitch{display:flex;align-items:stretch;gap:9px;margin-bottom:2px}
+.m-stat.hero{flex:0 0 62px;display:flex;flex-direction:column;justify-content:center}
+.m-stat.hero .v{font-size:1.9rem}
+.m-onpitch .m-fav--pitch{flex:1 1 auto;align-content:center}
+.m-fav--pitch dd{white-space:normal}
+.m-fav{display:grid;grid-template-columns:auto 1fr;gap:2px 10px;font-size:.72rem}
+.m-fav dt{font-family:var(--font-h);letter-spacing:.06em;text-transform:uppercase;color:var(--navy-70);font-size:.6rem;align-self:center}
+.m-fav dd{font-weight:600;color:var(--navy);text-align:right}
+.m-quality{display:flex;align-items:center;gap:9px;margin-top:12px;background:var(--navy);color:#fff;border-radius:9px;padding:9px 12px}
+.m-quality svg{width:26px;height:26px;color:var(--gold);flex:0 0 auto}
+.m-quality .ql{font-size:.52rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-family:var(--font-h)}
+.m-quality .qv{font-family:var(--font-h);font-size:1.02rem;letter-spacing:.03em;line-height:1.05}
+
+/* ═══════════════ RETRO / VINTAGE ═══════════════ */
+.r-front{background:var(--cream);border:10px solid #fff;box-shadow:0 20px 45px rgba(0,0,0,.5),inset 0 0 0 1px rgba(0,0,0,.12);color:var(--ink)}
+.r-topband{position:absolute;top:0;left:0;right:0;height:34px;background:var(--navy);display:flex;align-items:center;justify-content:space-between;padding:0 12px;z-index:4;border-bottom:3px solid var(--gold)}
+.r-topband .tm{font-family:var(--font-retro);font-size:.9rem;letter-spacing:.04em;color:#fff;text-transform:uppercase}
+.r-topband img{width:24px;height:24px}
+.r-photowrap{position:absolute;top:34px;left:0;right:0;bottom:76px;background:linear-gradient(160deg,#c9d6e4,#9fb2c9);overflow:hidden}
+.r-photowrap img{width:100%;height:100%;object-fit:cover;object-position:top center}
+.r-star{position:absolute;top:44px;right:14px;z-index:4;color:var(--gold);width:30px;height:30px;filter:drop-shadow(0 1px 1px rgba(0,0,0,.35))}
+.r-plate{position:absolute;left:0;right:0;bottom:0;height:76px;background:var(--cream);border-top:3px solid var(--crimson);padding:8px 14px;z-index:4}
+.r-plate .nm{font-family:var(--font-retro);font-size:1.5rem;text-transform:uppercase;color:var(--navy);line-height:.95;letter-spacing:.01em}
+.r-plate .meta{display:flex;align-items:center;gap:8px;margin-top:5px}
+.r-plate .pos{font-family:var(--font-h);font-weight:600;font-size:.62rem;letter-spacing:.12em;color:#fff;background:var(--crimson);padding:3px 8px;border-radius:2px;text-transform:uppercase}
+.r-plate .sub{font-family:var(--font-h);font-size:.64rem;letter-spacing:.14em;color:var(--gold-deep);text-transform:uppercase;font-weight:600}
+
+.r-back{background:var(--cream);border:10px solid #fff;box-shadow:0 20px 45px rgba(0,0,0,.5),inset 0 0 0 1px rgba(0,0,0,.12);color:var(--ink);padding:0}
+.r-back-inner{position:absolute;inset:0;padding:14px 16px;display:flex;flex-direction:column}
+.r-back-head{border-bottom:3px double var(--navy);padding-bottom:7px;margin-bottom:9px;display:flex;justify-content:space-between;align-items:flex-end}
+.r-back-head .nm{font-family:var(--font-retro);font-size:1.15rem;text-transform:uppercase;color:var(--navy);line-height:.95}
+.r-back-head .rl{font-family:var(--font-h);font-size:.55rem;letter-spacing:.16em;color:var(--crimson);text-transform:uppercase;font-weight:600;margin-top:3px}
+.r-back-head .no{font-family:var(--font-retro);font-size:1.7rem;color:var(--crimson);line-height:.8}
+.r-tbl{width:100%;font-size:.72rem;border-collapse:collapse}
+.r-tbl tr{border-bottom:1px dotted rgba(32,36,44,.4)}
+.r-tbl td{padding:3.5px 0}
+.r-tbl td:first-child{font-family:var(--font-h);text-transform:uppercase;letter-spacing:.06em;color:var(--navy-70);font-size:.58rem;font-weight:600}
+.r-tbl td:last-child{text-align:right;font-weight:600;color:var(--ink)}
+.r-favhdr{font-family:var(--font-retro);font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--navy);margin:9px 0 3px}
+.r-stamp{margin-top:auto;display:flex;align-items:center;gap:8px;border:2px solid var(--crimson);border-radius:6px;padding:6px 10px;transform:rotate(-1.5deg)}
+.r-stamp svg{width:24px;height:24px;color:var(--crimson);flex:0 0 auto}
+.r-stamp .sl{font-family:var(--font-h);font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;color:var(--navy-70)}
+.r-stamp .sv{font-family:var(--font-retro);font-size:.95rem;text-transform:uppercase;color:var(--crimson);line-height:.9}
+
+/* monogram placeholder for staff without photos */
+.mono{width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 35%,var(--navy-90),var(--navy));color:var(--gold)}
+.mono span{font-family:var(--font-h);font-size:4.4rem;font-weight:700;letter-spacing:.02em}
+.r-photowrap .mono{background:radial-gradient(circle at 50% 35%,#c9d6e4,#9fb2c9);color:var(--navy)}
+
+.legend{max-width:860px;margin:60px auto 0;color:#9FB0C9;font-size:.9rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:22px 26px}
+.legend h4{color:#fff;font-size:1rem;letter-spacing:.08em;margin-bottom:10px}
+.legend ul{list-style:none;display:grid;gap:8px}
+.legend li{padding-left:20px;position:relative}
+.legend li::before{content:"›";position:absolute;left:2px;color:var(--gold);font-weight:700}
+.legend b{color:var(--gold)}
+
+.hide{display:none!important}
+
+/* ── SURVEY FORM ── */
+.form-fill{display:flex;justify-content:center;gap:10px;margin:0 0 30px;flex-wrap:wrap}
+.form-fill button{font-family:var(--font-h);text-transform:uppercase;letter-spacing:.07em;font-weight:600;font-size:.82rem;color:#B9C6DB;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);padding:9px 18px;border-radius:999px;cursor:pointer;transition:.2s}
+.form-fill button:hover{color:#fff;border-color:var(--gold)}
+.form-fill button.active{background:var(--crimson);color:#fff;border-color:var(--crimson)}
+.form-grid{display:grid;grid-template-columns:1fr 320px;gap:44px;align-items:start;max-width:1000px;margin:0 auto}
+@media(max-width:880px){.form-grid{grid-template-columns:1fr;gap:34px}}
+.form-fields{min-width:0}
+.form-sec-h{font-family:var(--font-h);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid rgba(197,160,89,.35);padding-bottom:6px;margin:22px 0 14px;font-weight:600}
+.form-sec-h:first-child{margin-top:0}
+.ff{margin-bottom:16px}
+.ff-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.ff label{font-family:var(--font-h);text-transform:uppercase;letter-spacing:.09em;font-size:.72rem;color:#DCE4F0;font-weight:600}
+.ff .counter{font-family:var(--font-h);font-size:.7rem;letter-spacing:.04em;color:#6F7D95;font-variant-numeric:tabular-nums;white-space:nowrap}
+.ff .counter.near{color:var(--gold)}
+.ff .counter.max{color:#ff8ba4}
+.ff .counter .tag{font-size:.6rem;letter-spacing:.14em;margin-left:6px}
+.ff input,.ff select{width:100%;margin-top:7px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:9px;color:#fff;font-family:var(--font-b);font-size:.95rem;padding:10px 12px;transition:border-color .15s,background .15s;-webkit-appearance:none;appearance:none}
+.ff select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none' stroke='%23C5A059' stroke-width='2'%3E%3Cpath d='M1 1l5 5 5-5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:34px}
+.ff input:focus,.ff select:focus{outline:none;border-color:var(--gold);background:rgba(255,255,255,.09)}
+.ff input.near{border-color:var(--gold)}
+.ff input.max{border-color:var(--crimson)}
+.ff .meter{height:3px;border-radius:2px;background:rgba(255,255,255,.12);margin-top:8px;overflow:hidden}
+.ff .meter i{display:block;height:100%;width:0;background:var(--gold);transition:width .15s ease,background .15s}
+.ff .meter i.max{background:var(--crimson)}
+.ff .hint{font-size:.72rem;color:#6F7D95;margin-top:5px}
+.form-row2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.preview-col h4{color:#fff;font-family:var(--font-h);letter-spacing:.1em;font-size:.85rem;text-transform:uppercase;text-align:center;margin-bottom:4px}
+.preview-col .pv-note{text-align:center;color:#7F8DA6;font-size:.72rem;margin-bottom:16px}
+.preview-cards{display:flex;flex-direction:column;gap:14px;align-items:center}
+.preview-card{width:300px;height:420px;position:relative;border-radius:16px;flex:0 0 auto}
+.preview-card .face{position:absolute;inset:0;transform:none!important;backface-visibility:visible;-webkit-backface-visibility:visible;box-shadow:0 16px 40px rgba(0,0,0,.5)}
+.preview-card .flip-hint{display:none}
+.preview-face-label{text-align:center;font-family:var(--font-h);letter-spacing:.14em;text-transform:uppercase;font-size:.62rem;color:#6F7D95;margin-top:4px}
+
+@media(max-width:640px){
+  .card{width:270px;height:378px}
+  .wrap{padding:32px 16px 72px}
+}
+
+/* ── PRINT: true trading-card proportions ── */
+@media print{
+  body{background:#fff}
+  .masthead,.note,.switch,.style-blurb,.legend,.section-sub,.flip-hint,.card-caption{display:none!important}
+  .section-label{color:#000;page-break-before:always}
+  .card{width:2.5in;height:3.5in;page-break-inside:avoid}
+  .card-inner{transform:none!important}
+  .face{position:relative;box-shadow:none!important}
+  .face.back{transform:none;margin-top:.2in}
+  .grid{gap:.25in}
+}
+</style>
+</head>
+<body>
+<!-- ============================================================
+     PER-PAGE PASSWORD GATE — shares session key 'fvf_admin' with
+     the admin panel + other gated pages. SHA-256; plaintext never
+     stored here.
+     ============================================================ -->
+<div id="pw-gate">
+  <div id="pw-box">
+    <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1770763739/forge-logo-w-fox-valley-23jan2026_d1dlgi.png" alt="Fox Valley Forge SC" onerror="this.style.display='none'">
+    <h2>Forge Fest Cards</h2>
+    <p class="sub">This page is password protected.</p>
+    <input id="pw-input" type="password" placeholder="Enter password" autocomplete="current-password">
+    <button id="pw-btn">Enter</button>
+    <p id="pw-error"></p>
+  </div>
+</div>
+<script>
+(function(){
+  var KEY='fvf_admin';
+  /* SHA-256 hash of the access password (plaintext never stored here) */
+  var HASH='8e484aece8ea37afd67cd15d4f13fb2ef4ca78b2f5d5904400aa4bb1a2aad3a3';
+  var gate=document.getElementById('pw-gate');
+  if(sessionStorage.getItem(KEY)==='1'){gate.style.display='none';return;}
+  document.body.style.overflow='hidden';
+  function unlock(){ sessionStorage.setItem(KEY,'1'); document.body.style.overflow=''; gate.style.display='none'; }
+  function fail(){
+    document.getElementById('pw-error').textContent='Incorrect password. Try again.';
+    var box=document.getElementById('pw-box');
+    box.classList.remove('pw-shake'); void box.offsetWidth; box.classList.add('pw-shake');
+    var i=document.getElementById('pw-input'); i.select();
+  }
+  function attempt(){
+    var val=document.getElementById('pw-input').value;
+    var enc=new TextEncoder().encode(val);
+    crypto.subtle.digest('SHA-256',enc).then(function(buf){
+      var hex=Array.prototype.map.call(new Uint8Array(buf),function(b){return b.toString(16).padStart(2,'0');}).join('');
+      if(hex===HASH){ unlock(); } else { fail(); }
+    });
+  }
+  document.getElementById('pw-btn').addEventListener('click',attempt);
+  document.getElementById('pw-input').addEventListener('keydown',function(e){if(e.key==='Enter')attempt();});
+  document.getElementById('pw-input').focus();
+})();
+</script>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="kicker">Fox Valley Forge SC · Forge Fest</div>
+    <h1>Trading Card Mockups</h1>
+    <p>Two print-ready design directions for the Forge Fest player &amp; staff cards. Click any card to flip it and see the back. Nothing here is final — this is to align on look &amp; the info we collect before the survey is built.</p>
+  </header>
+
+  <div class="note">
+    <b>Print-safe by design.</b> Both directions use flat CMYK color only — no foil, no metallic ink — so they can be printed on cardstock at The UPS Store in Geneva. Cards are laid out at true <b>2.5″ × 3.5″</b> (standard trading-card size); use your browser's <b>Print</b> to see a proof sheet.
+  </div>
+  <div class="note warn">
+    <b>Real player photos.</b> The two sample faces are the real kids Bridgett sent, so this page is set to <b>noindex</b> and should stay unlinked / behind the admin gate — not deployed publicly — until the club confirms photo consent.
+  </div>
+
+  <div class="switch">
+    <button data-style="modern" class="active">Clean Modern</button>
+    <button data-style="retro">Retro / Vintage</button>
+  </div>
+
+  <p class="style-blurb" id="blurb"></p>
+
+  <!-- REDRAW STYLES -->
+  <div class="section-label" style="margin-top:20px">The <span>Illustrated</span> Redraw</div>
+  <div class="section-sub">Per the plan, kids get an <b style="color:#C5A059">AI-stylized illustration</b>, not the raw photo. Two sample players × three redraw styles — shown on the card front so you can judge them in context. (Same order left-to-right in both rows.)</div>
+  <div class="grid" id="grid-styles"></div>
+  <div class="grid" id="grid-styles2" style="margin-top:26px"></div>
+
+  <!-- PLAYERS -->
+  <div class="section-label">The <span>Player</span> Card</div>
+  <div class="section-sub">Front = photo + identity · Back = the info from your survey</div>
+  <div class="grid" id="grid-players"></div>
+
+  <!-- STAFF -->
+  <div class="section-label">Staff, Coaches, Directors &amp; <span>Board</span></div>
+  <div class="section-sub">Same family, tuned per role — color-coded, soccer stats swapped for role details</div>
+  <div class="grid" id="grid-staff"></div>
+
+  <!-- SURVEY FORM -->
+  <div class="section-label">The <span>Survey</span> Form</div>
+  <div class="section-sub">This is the form each player/family fills out. <b style="color:#C5A059">Every answer has a size limit so it always fits the card</b> — the counter turns gold as you get close and locks when you hit the max. Type in the fields and watch the live card update. It's loaded with the <b style="color:#ff8ba4">longest allowed answers</b> so you can see the worst-case fit.</div>
+
+  <div class="form-fill">
+    <button data-fill="max" class="active">Show longest answers</button>
+    <button data-fill="typical">Show typical answers</button>
+    <button data-fill="clear">Clear the form</button>
+  </div>
+
+  <div class="form-grid">
+    <div class="form-fields">
+      <div class="form-sec-h">Player Identity</div>
+      <div class="form-row2">
+        <div class="ff" data-field="name" data-max="18">
+          <div class="ff-top"><label>Player Name</label><span class="counter"></span></div>
+          <input type="text" maxlength="18" placeholder="e.g. Vaughn M.">
+          <div class="meter"><i></i></div>
+          <div class="hint">First name + last initial keeps it privacy-safe.</div>
+        </div>
+        <div class="ff" data-field="squad" data-max="16">
+          <div class="ff-top"><label>Squad / Team Label</label><span class="counter"></span></div>
+          <input type="text" maxlength="16" placeholder="e.g. Forge 2015 Boys">
+          <div class="meter"><i></i></div>
+          <div class="hint">Signals the age group — no birthdate needed.</div>
+        </div>
+      </div>
+      <div class="form-row2">
+        <div class="ff" data-field="num" data-numeric="1">
+          <div class="ff-top"><label>Jersey #</label><span class="counter"></span></div>
+          <input type="text" inputmode="numeric" maxlength="2" placeholder="e.g. 7">
+          <div class="hint">1–2 digits.</div>
+        </div>
+        <div class="ff" data-field="pos" data-select="1">
+          <div class="ff-top"><label>Current Position</label></div>
+          <select>
+            <option>Goalkeeper</option><option>Right Back</option><option>Left Back</option>
+            <option>Center Back</option><option>Defensive Mid</option><option>Center Midfielder</option>
+            <option>Attacking Mid</option><option>Right Winger</option><option>Left Winger</option>
+            <option>Forward</option><option>Striker</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-sec-h">On the Pitch</div>
+      <div class="form-row2">
+        <div class="ff" data-field="years" data-numeric="1">
+          <div class="ff-top"><label>Years Playing Soccer</label><span class="counter"></span></div>
+          <input type="text" inputmode="numeric" maxlength="2" placeholder="e.g. 6">
+          <div class="hint">Number of years.</div>
+        </div>
+        <div class="ff" data-field="prev" data-max="24">
+          <div class="ff-top"><label>Previous Club</label><span class="counter"></span></div>
+          <input type="text" maxlength="24" placeholder="e.g. Campton United">
+          <div class="meter"><i></i></div>
+          <div class="hint">Up to 24 characters.</div>
+        </div>
+      </div>
+      <div class="ff" data-field="quality" data-select="1">
+        <div class="ff-top"><label>Favorite Character Quality</label></div>
+        <select>
+          <option>Integrity</option><option>Perseverance</option>
+          <option>Indomitable Spirit</option><option>Respect</option>
+        </select>
+        <div class="hint">Choose one of the four Forge core values.</div>
+      </div>
+
+      <div class="form-sec-h">Off the Pitch — Favorites</div>
+      <div class="ff" data-field="movie" data-max="24">
+        <div class="ff-top"><label>Favorite Movie</label><span class="counter"></span></div>
+        <input type="text" maxlength="24" placeholder="e.g. Goal!">
+        <div class="meter"><i></i></div>
+        <div class="hint">Up to 24 characters.</div>
+      </div>
+      <div class="form-row2">
+        <div class="ff" data-field="athlete" data-max="20">
+          <div class="ff-top"><label>Favorite Athlete</label><span class="counter"></span></div>
+          <input type="text" maxlength="20" placeholder="e.g. Messi">
+          <div class="meter"><i></i></div>
+          <div class="hint">Up to 20 characters.</div>
+        </div>
+        <div class="ff" data-field="team" data-max="20">
+          <div class="ff-top"><label>Favorite Team</label><span class="counter"></span></div>
+          <input type="text" maxlength="20" placeholder="e.g. Barcelona">
+          <div class="meter"><i></i></div>
+          <div class="hint">Up to 20 characters.</div>
+        </div>
+      </div>
+      <div class="form-row2">
+        <div class="ff" data-field="food" data-max="18">
+          <div class="ff-top"><label>Favorite Food</label><span class="counter"></span></div>
+          <input type="text" maxlength="18" placeholder="e.g. Tacos">
+          <div class="meter"><i></i></div>
+          <div class="hint">Up to 18 characters.</div>
+        </div>
+        <div class="ff" data-field="song" data-max="24">
+          <div class="ff-top"><label>Favorite Song</label><span class="counter"></span></div>
+          <input type="text" maxlength="24" placeholder="e.g. Believer">
+          <div class="meter"><i></i></div>
+          <div class="hint">Up to 24 characters.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="preview-col">
+      <h4>Live Card Preview</h4>
+      <div class="pv-note">Updates as you type · reflects the style toggle above</div>
+      <div class="preview-cards">
+        <div class="preview-card" id="pv-front"></div>
+        <div class="preview-face-label">Front</div>
+        <div class="preview-card" id="pv-back"></div>
+        <div class="preview-face-label">Back</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="legend">
+    <h4>What each card back captures</h4>
+    <ul>
+      <li><b>Players</b> — Current Position, Years Playing Soccer, Previous Club, plus Favorites (Movie, Athlete, Team, Food, Song) and a <b>Character Quality</b> crest (Integrity · Perseverance · Indomitable Spirit · Respect).</li>
+      <li><b>Coaches / Directors / Staff</b> — Role details (Coaching Since, License, Playing Background) replace the youth stats; Favorites + Character Quality stay for a consistent set.</li>
+      <li><b>Board</b> — Years With Club, Role, "Why Forge" line, plus Favorites + Character Quality.</li>
+      <li><b>Color code</b> — Navy = players &amp; coaches · Crimson accent = directors · Gold = board.</li>
+      <li>Once you pick a direction, I'll turn each card slot into an exact survey question so the form captures precisely what the template needs.</li>
+    </ul>
+  </div>
+
+</div>
+
+<script>
+const CLD="https://res.cloudinary.com/dsbllwpbh/image/upload/";
+const LOGO=CLD+"f_auto,q_auto/v1772573827/forge-logo-no-fox-valley-23jan2026_olh5tk.png";
+const photo=(id,v)=>CLD+"f_auto,q_auto,c_fill,g_face,w_600,h_780/"+v+"/"+id;
+const PHOTO_BEANIE=photo("forge/fest-cards/sample-player-beanie.jpg","v1784637654");
+const PHOTO_HEAD=photo("forge/fest-cards/sample-player-headshot.jpg","v1784637655");
+const STYLE_SEMI=photo("forge/fest-cards/style-semi-realistic.jpg","v1784638410");
+const STYLE_VECTOR=photo("forge/fest-cards/style-vector-cartoon.jpg","v1784638411");
+const STYLE_COMIC=photo("forge/fest-cards/style-comic-hero.jpg","v1784638413");
+const STYLE2_SEMI=photo("forge/fest-cards/style2-semi-realistic.jpg","v1784640833");
+const STYLE2_VECTOR=photo("forge/fest-cards/style2-vector-cartoon.jpg","v1784640834");
+const STYLE2_COMIC=photo("forge/fest-cards/style2-comic-hero.jpg","v1784640835");
+
+/* flat, currentColor character-quality icons (per iconography rules) */
+const ICON={
+  Integrity:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.4-3 8-7 10-4-2-7-5.6-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>',
+  Perseverance:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-5 3 3 5-6 5 5"/><path d="M3 21h18"/></svg>',
+  'Indomitable Spirit':'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4.5 13H11l-1 9 8.5-11H12l1-9z"/></svg>',
+  Respect:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.5-9.5-9A5 5 0 0112 6a5 5 0 019.5 6C19 16.5 12 21 12 21z"/></svg>'
+};
+const initials=n=>n.split(' ').map(w=>w[0]).slice(0,2).join('');
+
+/* ── the people ── */
+const PLAYERS=[
+  {name:'Vaughn M.',num:'7',pos:'Forward',team:'Forge 2015 Boys',photo:PHOTO_HEAD,
+   role:'U11 Player',years:'6',prev:'Campton United',quality:'Indomitable Spirit',
+   fav:{Movie:'Goal!',Athlete:'Messi',Team:'Barcelona',Food:'Tacos',Song:'Believer'}},
+  {name:'Austin K.',num:'10',pos:'Midfielder',team:'Forge 2014 Boys',photo:PHOTO_BEANIE,
+   role:'U12 Player',years:'7',prev:'Rec League',quality:'Perseverance',
+   fav:{Movie:'The Sandlot',Athlete:'Pulisic',Team:'USMNT',Food:'Pizza',Song:'Thunder'}}
+];
+const COACH_ACTION=photo("forge/fest-cards/coach-chad-action.jpg","v1784641466");
+const CLDF="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,c_fill,g_face,w_600,h_780/";
+const STAFF=[
+  {name:'Chad Ransom',accent:'navy',role:'Staff Coach',pos:'Head Coach',team:'Forge Performance',quality:'Integrity',
+   photo:COACH_ACTION,
+   rows:[['Coaching Since','2007'],['License','USSF C'],['Played','College']],
+   fav:{Movie:'Remember the Titans',Athlete:'Klopp',Team:'Liverpool',Food:'BBQ',Song:'Eye of the Tiger'}},
+  {name:'Director Name',accent:'crimson',role:'Director',pos:'Director of Coaching',team:'Fox Valley Forge SC',quality:'Respect',
+   rows:[['With Club','5 yrs'],['License','USSF B'],['Focus','Player Dev']],
+   fav:{Movie:'Coach Carter',Athlete:'Guardiola',Team:'Man City',Food:'Pasta',Song:'Hall of Fame'}},
+  {name:'Trae Manny',accent:'navy',role:'Club Staff',pos:'Coaching Staff',team:'Fox Valley Forge SC',quality:'Perseverance',
+   photo:CLDF+"v1772205951/profile-linkedin-trae-manny-gemini_pj7ahw.jpg",
+   rows:[['Played','Louisville'],['Coached','Strikers'],['Role','Staff']],
+   fav:{Movie:'Moneyball',Athlete:'Rapinoe',Team:'USWNT',Food:'Sushi',Song:'Unstoppable'}},
+  {name:'Mike Weyant',accent:'gold',role:'President',pos:'Board President',team:'Fox Valley Forge SC',quality:'Integrity',
+   photo:CLDF+"v1772032501/profilepic-linkedin-Michael-Weyant-gemini_uetjix.jpg",
+   rows:[['Role','President'],['Also','CUSC Pres.'],['Why Forge','Kids first']],
+   fav:{Movie:'Rudy',Athlete:'Donovan',Team:'Fire',Food:'Burgers',Song:'We Are Young'}}
+];
+
+const base=PLAYERS[0], base2=PLAYERS[1];
+const STYLE_DEMOS=[
+  {...base,photo:STYLE_SEMI,styleName:'1 · Semi-Realistic'},
+  {...base,photo:STYLE_VECTOR,styleName:'2 · Bold Vector Cartoon'},
+  {...base,photo:STYLE_COMIC,styleName:'3 · Comic / Action Hero'}
+];
+const STYLE_DEMOS2=[
+  {...base2,photo:STYLE2_SEMI,styleName:'1 · Semi-Realistic'},
+  {...base2,photo:STYLE2_VECTOR,styleName:'2 · Bold Vector Cartoon'},
+  {...base2,photo:STYLE2_COMIC,styleName:'3 · Comic / Action Hero'}
+];
+
+let STYLE='modern';
+const esc=s=>String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+
+function photoOrMono(p){
+  return p.photo ? `<img src="${p.photo}" alt="">` : `<div class="mono"><span>${esc(initials(p.name))}</span></div>`;
+}
+
+/* ── CLEAN MODERN ── */
+function modernFront(p){
+  return `<div class="face front m-front">
+    <div class="frame"></div>
+    <div class="m-photo">${photoOrMono(p)}</div>
+    <img class="m-logo" src="${LOGO}" alt="Forge">
+    ${p.num?`<div class="m-num">${esc(p.num)}<small>NO.</small></div>`:''}
+    <div class="m-band">
+      <span class="m-pos">${esc(p.pos)}</span>
+      <h3>${esc(p.name)}</h3>
+      <div class="team">${esc(p.team)}</div>
+      <div class="accent"></div>
+    </div>
+    <div class="flip-hint" style="color:#fff">Tap to flip ↻</div>
+  </div>`;
+}
+function modernBack(p){
+  const isPlayer=!!p.years;
+  const stats=isPlayer
+    ? `<div class="m-onpitch">
+        <div class="m-stat hero"><div class="v">${esc(p.years)}</div><div class="l">Years Playing</div></div>
+        <dl class="m-fav m-fav--pitch">
+          <dt>Position</dt><dd>${esc(p.pos)}</dd>
+          <dt>Previous Club</dt><dd>${esc(p.prev)}</dd>
+        </dl>
+       </div>`
+    : `<dl class="m-fav m-fav--pitch">${p.rows.map(r=>`<dt>${esc(r[0])}</dt><dd>${esc(r[1])}</dd>`).join('')}</dl>`;
+  const favs=Object.entries(p.fav).map(([k,v])=>`<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join('');
+  return `<div class="face back m-back">
+    <div class="m-back-head">
+      <img src="${LOGO}" alt="">
+      <div><div class="nm">${esc(p.name)}</div><div class="rl">${esc(p.role)}</div></div>
+    </div>
+    <div class="m-back-body">
+      <div class="m-sec">${isPlayer?'On the Pitch':'Role'}</div>
+      ${stats}
+      <div class="m-sec">Off the Pitch</div>
+      <dl class="m-fav">${favs}</dl>
+      <div class="m-quality">${ICON[p.quality]}<div><div class="ql">Character Quality</div><div class="qv">${esc(p.quality)}</div></div></div>
+    </div>
+  </div>`;
+}
+
+/* ── RETRO ── */
+function retroFront(p){
+  return `<div class="face front r-front">
+    <div class="r-topband"><span class="tm">${esc(p.team)}</span><img src="${LOGO}" alt=""></div>
+    <div class="r-photowrap">${photoOrMono(p)}</div>
+    <svg class="r-star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+    <div class="r-plate">
+      <div class="nm">${esc(p.name)}</div>
+      <div class="meta"><span class="pos">${esc(p.pos)}</span><span class="sub">${esc(p.role)}</span></div>
+    </div>
+    <div class="flip-hint" style="color:var(--navy)">Tap to flip ↻</div>
+  </div>`;
+}
+function retroBack(p){
+  const isPlayer=!!p.years;
+  const rows=isPlayer
+    ? [['Position',p.pos],['Years Playing',p.years],['Previous Club',p.prev]]
+    : p.rows;
+  const statRows=rows.map(r=>`<tr><td>${esc(r[0])}</td><td>${esc(r[1])}</td></tr>`).join('');
+  const favRows=Object.entries(p.fav).map(([k,v])=>`<tr><td>${esc(k)}</td><td>${esc(v)}</td></tr>`).join('');
+  return `<div class="face back r-back"><div class="r-back-inner">
+    <div class="r-back-head">
+      <div><div class="nm">${esc(p.name)}</div><div class="rl">${esc(p.role)} · ${esc(p.team)}</div></div>
+      ${p.num?`<div class="no">#${esc(p.num)}</div>`:''}
+    </div>
+    <table class="r-tbl"><tbody>${statRows}</tbody></table>
+    <div class="r-favhdr">Favorites</div>
+    <table class="r-tbl"><tbody>${favRows}</tbody></table>
+    <div class="r-stamp">${ICON[p.quality]}<div><div class="sl">Character Quality</div><div class="sv">${esc(p.quality)}</div></div></div>
+  </div></div>`;
+}
+
+function buildCard(p,caption){
+  const front=STYLE==='modern'?modernFront(p):retroFront(p);
+  const back=STYLE==='modern'?modernBack(p):retroBack(p);
+  const el=document.createElement('div');
+  el.className='card';
+  el.innerHTML=`<div class="card-inner">${front}${back}</div>`+
+    (caption?`<div class="card-caption">${esc(caption)}</div>`:'');
+  el.addEventListener('click',()=>el.classList.toggle('flipped'));
+  return el;
+}
+
+const BLURB={
+  modern:'<strong>Clean Modern</strong> — brand-forward, lots of breathing room, a gold-framed photo and a tidy stat grid on the back. Ages well and prints crisp.',
+  retro:'<strong>Retro / Vintage</strong> — classic 1980s–90s cardboard look: white border, team-color band, big condensed nameplate and a dotted stat table on the back.'
+};
+function render(){
+  document.getElementById('blurb').innerHTML=BLURB[STYLE];
+  const gy=document.getElementById('grid-styles');gy.innerHTML='';
+  STYLE_DEMOS.forEach(p=>gy.appendChild(buildCard(p,p.styleName)));
+  const gy2=document.getElementById('grid-styles2');gy2.innerHTML='';
+  STYLE_DEMOS2.forEach(p=>gy2.appendChild(buildCard(p,p.styleName)));
+  const gp=document.getElementById('grid-players');gp.innerHTML='';
+  PLAYERS.forEach(p=>gp.appendChild(buildCard(p,p.name+' · '+p.role)));
+  const gs=document.getElementById('grid-staff');gs.innerHTML='';
+  STAFF.forEach(p=>gs.appendChild(buildCard(p,p.role)));
+  renderPreview();
+}
+
+/* ── SURVEY FORM ── */
+const PRESETS={
+  max:{name:'Sebastián Martínez',squad:'Forge 2015 Girls',num:'24',pos:'Center Midfielder',
+       years:'12',prev:'Chicago Fire Juniors FC',quality:'Indomitable Spirit',
+       movie:'The Lord of the Rings II',athlete:'Cristiano Ronaldo Jr',team:'Manchester United FC',
+       food:'Macaroni & Cheese!',song:'We Are the Champions Now'},
+  typical:{name:'Vaughn M.',squad:'Forge 2015 Boys',num:'7',pos:'Forward',
+       years:'6',prev:'Campton United',quality:'Indomitable Spirit',
+       movie:'Goal!',athlete:'Messi',team:'Barcelona',food:'Tacos',song:'Believer'},
+  clear:{name:'',squad:'',num:'',pos:'Forward',years:'',prev:'',quality:'Integrity',
+       movie:'',athlete:'',team:'',food:'',song:''}
+};
+const FF=[...document.querySelectorAll('.ff[data-field]')];
+function fieldEl(f){return document.querySelector('.ff[data-field="'+f+'"]');}
+function fieldInput(f){const el=fieldEl(f);return el?el.querySelector('input,select'):null;}
+function fval(f){const i=fieldInput(f);return i?i.value.trim():'';}
+
+function updateCounter(el){
+  const max=+el.dataset.max; if(!max) return;
+  const input=el.querySelector('input');
+  const c=el.querySelector('.counter'), bar=el.querySelector('.meter i');
+  const len=input.value.length, pct=Math.min(100,len/max*100);
+  const atMax=len>=max, near=len>=Math.ceil(max*0.8);
+  c.innerHTML=len+' / '+max+(atMax?' <span class="tag">MAX</span>':'');
+  c.className='counter'+(atMax?' max':near?' near':'');
+  input.classList.toggle('near',near&&!atMax);
+  input.classList.toggle('max',atMax);
+  bar.style.width=pct+'%';
+  bar.classList.toggle('max',atMax);
+}
+function formPerson(){
+  return {
+    name:fval('name')||'Player Name',
+    num:fval('num'),
+    pos:fval('pos'),
+    team:fval('squad')||'Forge Squad',
+    role:'Player',
+    years:fval('years')||'0',
+    prev:fval('prev')||'—',
+    quality:fval('quality')||'Integrity',
+    photo:STYLE_VECTOR,
+    fav:{Movie:fval('movie')||'—',Athlete:fval('athlete')||'—',Team:fval('team')||'—',
+         Food:fval('food')||'—',Song:fval('song')||'—'}
+  };
+}
+function renderPreview(){
+  const pf=document.getElementById('pv-front'), pb=document.getElementById('pv-back');
+  if(!pf) return;
+  const p=formPerson();
+  pf.innerHTML=STYLE==='modern'?modernFront(p):retroFront(p);
+  pb.innerHTML=STYLE==='modern'?modernBack(p):retroBack(p);
+}
+function applyPreset(name){
+  const p=PRESETS[name];
+  FF.forEach(el=>{
+    const f=el.dataset.field, input=el.querySelector('input,select');
+    if(input && p[f]!==undefined) input.value=p[f];
+    updateCounter(el);
+  });
+  renderPreview();
+}
+FF.forEach(el=>{
+  const input=el.querySelector('input,select');
+  input.addEventListener('input',()=>{updateCounter(el);renderPreview();});
+  input.addEventListener('change',()=>{updateCounter(el);renderPreview();});
+});
+document.querySelectorAll('.form-fill button').forEach(b=>{
+  b.addEventListener('click',()=>{
+    document.querySelectorAll('.form-fill button').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');applyPreset(b.dataset.fill);
+  });
+});
+document.querySelectorAll('.switch button').forEach(b=>{
+  b.addEventListener('click',()=>{
+    document.querySelectorAll('.switch button').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');STYLE=b.dataset.style;render();
+  });
+});
+render();
+applyPreset('max');
+</script>
+</body>
+</html>
