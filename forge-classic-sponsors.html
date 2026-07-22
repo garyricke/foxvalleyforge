@@ -54,7 +54,7 @@ a{text-decoration:none;color:inherit}
 
 /* HERO */
 .hero{position:relative;color:#fff;text-align:center;padding:0}
-.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,15,34,.72),rgba(0,15,34,.9)),url("https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_2000/v1784657032/forge/classic/hero-fairway.png") center/cover no-repeat}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,15,34,.42),rgba(0,15,34,.66)),url("https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_1600/v1784657032/forge/classic/hero-fairway.png") center/cover no-repeat}
 .hero-inner{position:relative;z-index:2;max-width:840px;margin:0 auto;padding:88px 24px 76px}
 .hero .kicker{font-family:var(--font-h);letter-spacing:.3em;text-transform:uppercase;font-size:.8rem;color:var(--gold);font-weight:600;margin-bottom:16px}
 .hero h1{font-size:clamp(2.4rem,6vw,4.2rem);text-shadow:0 4px 24px rgba(0,0,0,.5)}
@@ -141,13 +141,21 @@ footer .fh{font-family:var(--font-h);color:#fff;letter-spacing:.1em;font-size:1.
 footer a{color:var(--gold)}
 footer .small{font-size:.82rem;margin-top:12px;color:#63718c}
 .center{text-align:center}.mt{margin-top:30px}
+.pdf-fab{position:fixed;bottom:24px;right:24px;z-index:200;background:var(--gold);color:var(--navy);font-family:var(--font-h);letter-spacing:.06em;text-transform:uppercase;font-size:.85rem;font-weight:600;padding:12px 20px;border-radius:999px;box-shadow:0 8px 26px rgba(0,0,0,.35);display:inline-flex;align-items:center;gap:8px;text-decoration:none;transition:background .2s}
+.pdf-fab:hover{background:var(--gold-deep)}
+.pdf-fab svg{width:16px;height:16px}
 
 @media print{
-  #pw-gate,.draft-note,.hero .meta{display:none!important}
-  body{background:#fff}
-  .hero::before{background:var(--navy)}
-  section{padding:26px 0;page-break-inside:avoid}
-  .tier,.addon,table.matrix{page-break-inside:avoid}
+  @page{margin:0.35in}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  #pw-gate,.draft-note,.pdf-fab{display:none!important}
+  .hero-inner{padding:56px 24px 48px}
+  section{padding:22px 0}
+  .sec-head{page-break-after:avoid}
+  .tier,.addon{page-break-inside:avoid}
+  .matrix-scroll{overflow:visible;page-break-inside:avoid}
+  table.matrix{min-width:0;font-size:.72rem}
+  table.matrix th,table.matrix td{padding:6px 6px}
   .tiers{grid-template-columns:repeat(3,1fr)}
 }
 </style>
@@ -252,6 +260,10 @@ footer .small{font-size:.82rem;margin-top:12px;color:#63718c}
     </div>
   </div>
 </section>
+
+<a class="pdf-fab" href="https://res.cloudinary.com/dsbllwpbh/raw/upload/fl_attachment/v1784747743/forge/classic/forge-golf-classic-sponsor-prospectus.pdf" title="Download the print-ready PDF">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>Download PDF
+</a>
 
 <footer>
   <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1770763739/forge-logo-w-fox-valley-23jan2026_d1dlgi.png" alt="Fox Valley Forge SC" onerror="this.style.display='none'">
