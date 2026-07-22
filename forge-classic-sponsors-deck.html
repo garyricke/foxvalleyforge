@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Forge Golf Classic — Sponsorship Deck</title>
+<link rel="icon" href="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1771377451/favicon-forge-1_r6l4ax.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#001B44; --navy-90:#1A2F57; --navy-70:#4D5F7D; --navy-10:#E6EAF0;
+  --crimson:#A91335; --crimson-90:#B92B4A;
+  --gold:#C5A059; --gold-light:#F8F3EA; --gold-deep:#A6813C;
+  --white:#fff; --gray:#F4F5F7; --dark:#0A0E17;
+  --font-h:'Oswald',Impact,sans-serif;
+  --font-b:'Source Sans 3','Helvetica Neue',Arial,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;overflow:hidden;background:var(--dark)}
+body{font-family:var(--font-b);color:#fff}
+h1,h2,h3,h4{font-family:var(--font-h);text-transform:uppercase;line-height:1.1}
+
+/* GATE */
+#pw-gate{position:fixed;inset:0;z-index:9999;background:linear-gradient(135deg,#000d22 0%,var(--navy) 60%,#1a0a1e 100%);display:flex;align-items:center;justify-content:center}
+#pw-gate::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(197,160,89,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(197,160,89,.06) 1px,transparent 1px);background-size:40px 40px;pointer-events:none}
+#pw-box{position:relative;background:rgba(255,255,255,.04);border:1px solid color-mix(in srgb,var(--gold) 25%,transparent);border-radius:16px;padding:48px 40px;text-align:center;width:min(400px,90vw);box-shadow:0 24px 80px rgba(0,0,0,.5)}
+#pw-box img{height:52px;margin-bottom:24px;display:block;margin-inline:auto}
+#pw-box h2{font-size:1.9rem;color:var(--gold);letter-spacing:.06em;margin:0 0 8px}
+#pw-box .sub{font-size:.85rem;color:rgba(236,244,249,.55);margin:0 0 28px}
+#pw-input{width:100%;padding:12px 16px;background:rgba(0,0,0,.3);border:1px solid color-mix(in srgb,var(--gold) 30%,transparent);border-radius:8px;color:#fff;font-size:.95rem;font-family:inherit;outline:none}
+#pw-input:focus{border-color:var(--gold)}
+#pw-btn{margin-top:14px;width:100%;padding:12px;background:var(--gold);color:var(--navy);border:0;border-radius:8px;font-family:var(--font-h);font-size:1.1rem;letter-spacing:.1em;cursor:pointer}
+#pw-btn:hover{background:var(--gold-deep)}
+#pw-error{font-size:.8rem;color:#ff7a7a;margin:12px 0 0;min-height:1.2em}
+.pw-shake{animation:pwShake .35s}
+@keyframes pwShake{0%,100%{transform:translateX(0)}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+
+/* DECK */
+.deck{width:100%;height:100vh;position:relative}
+.slide{position:absolute;inset:0;display:none;flex-direction:column;justify-content:center;align-items:center;padding:56px 64px;opacity:0;transition:opacity .4s ease;text-align:center}
+.slide.active{display:flex;opacity:1}
+.slide.prev{display:flex;opacity:0;pointer-events:none}
+.nav-bar{position:fixed;bottom:26px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:18px;z-index:100;background:rgba(0,0,0,.5);backdrop-filter:blur(8px);padding:9px 18px;border-radius:40px;border:1px solid rgba(255,255,255,.15)}
+.nav-btn{background:none;border:none;color:rgba(255,255,255,.7);font-size:1rem;cursor:pointer;padding:4px 12px;border-radius:20px;transition:.2s;font-family:var(--font-h);letter-spacing:.04em}
+.nav-btn:hover{color:#fff;background:rgba(255,255,255,.1)}
+.slide-counter{font-family:var(--font-h);font-size:.82rem;color:rgba(255,255,255,.6);letter-spacing:.1em;min-width:54px;text-align:center}
+.progress-bar{position:fixed;top:0;left:0;height:3px;background:var(--gold);transition:width .4s ease;z-index:200}
+.slide-logo{position:fixed;top:22px;left:30px;height:34px;opacity:.9;z-index:100}
+
+.eyebrow{font-family:var(--font-h);font-size:.78rem;letter-spacing:.24em;color:var(--gold);margin-bottom:14px;text-transform:uppercase}
+.slide-title{font-size:clamp(1.9rem,4.6vw,3rem);font-weight:700;margin-bottom:16px}
+.slide-title .gold{color:var(--gold)}
+.slide-sub{font-size:clamp(1rem,1.7vw,1.2rem);line-height:1.6;max-width:760px;opacity:.85}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;width:100%;max-width:1000px;margin-top:8px}
+.grid-4{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;width:100%;max-width:860px;margin-top:8px}
+@media(min-width:900px){.grid-4{grid-template-columns:repeat(2,1fr)}}
+.card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:26px 22px;text-align:center}
+.card .ic{width:46px;height:46px;margin:0 auto 12px;color:var(--gold)}
+.card .ic svg{width:46px;height:46px}
+.card h3{font-size:1.1rem;color:#fff;margin-bottom:6px}
+.card p{font-size:.9rem;color:rgba(255,255,255,.78);line-height:1.55}
+
+/* facts */
+.facts{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;max-width:900px;margin-top:10px}
+.fct{background:rgba(255,255,255,.05);border:1px solid rgba(197,160,89,.28);border-radius:10px;padding:16px 22px;min-width:150px}
+.fct .v{font-family:var(--font-h);font-size:1.5rem;color:var(--gold);line-height:1}
+.fct .l{font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-top:5px;font-family:var(--font-h)}
+
+/* deck tier cards */
+.dtiers{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;width:100%;max-width:1040px;margin-top:6px}
+@media(max-width:820px){.dtiers{grid-template-columns:repeat(2,1fr)}}
+.dtier{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:16px 16px 18px;text-align:center;position:relative}
+.dtier.premier{border-color:var(--gold);background:rgba(197,160,89,.12)}
+.dtier .tag{font-family:var(--font-h);font-size:.56rem;letter-spacing:.16em;color:var(--gold);text-transform:uppercase}
+.dtier .nm{font-family:var(--font-h);font-size:1.35rem;color:#fff;margin:2px 0}
+.dtier .amt{font-family:var(--font-h);font-size:1.7rem;color:var(--gold);line-height:1}
+.dtier .gf{font-size:.72rem;color:rgba(255,255,255,.72);margin:6px 0 8px;font-family:var(--font-h);letter-spacing:.04em}
+.dtier ul{list-style:none;text-align:left;display:inline-block;margin:0 auto}
+.dtier li{font-size:.74rem;color:rgba(255,255,255,.82);padding:2px 0 2px 16px;position:relative}
+.dtier li::before{content:"✓";position:absolute;left:0;color:var(--gold);font-size:.7rem;top:3px}
+
+/* deck matrix */
+.dmx-wrap{width:100%;max-width:1080px;margin-top:4px}
+table.dmx{border-collapse:collapse;width:100%;font-size:.68rem}
+table.dmx th,table.dmx td{padding:5px 6px;border-bottom:1px solid rgba(255,255,255,.12);text-align:center}
+table.dmx thead th{font-family:var(--font-h);color:#fff;letter-spacing:.02em}
+table.dmx thead th .p{display:block;color:var(--gold);font-size:.66rem}
+table.dmx thead th.premier{color:var(--gold)}
+table.dmx td.lbl,table.dmx th.lbl{text-align:left;color:rgba(255,255,255,.85);min-width:220px}
+table.dmx .yes{color:var(--gold)}
+table.dmx .yes svg{width:14px;height:14px}
+table.dmx .no{color:rgba(255,255,255,.22)}
+table.dmx .num{font-family:var(--font-h);color:#fff;font-size:.9rem}
+
+/* closing */
+.close-logo{height:66px;margin-bottom:22px}
+.close-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:26px}
+.btn-slide{font-family:var(--font-h);text-transform:uppercase;letter-spacing:.08em;font-weight:600;font-size:.95rem;padding:13px 26px;border-radius:8px;cursor:pointer;border:2px solid transparent;text-decoration:none;display:inline-block}
+.btn-gold{background:var(--gold);color:var(--navy);border-color:var(--gold)}
+.btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.5)}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+.contact{margin-top:26px;font-size:.95rem;color:rgba(255,255,255,.8)}
+.contact a{color:var(--gold)}
+
+.draft-tab{position:fixed;top:0;right:0;z-index:150;background:var(--crimson);color:#fff;font-family:var(--font-h);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;padding:5px 14px;border-bottom-left-radius:8px}
+
+@media(max-width:640px){
+  .slide{padding:70px 20px 80px}
+  .dtiers{grid-template-columns:1fr}
+  table.dmx{font-size:.6rem}
+  table.dmx td.lbl,table.dmx th.lbl{min-width:150px}
+}
+@media print{
+  html,body{overflow:visible;height:auto}
+  #pw-gate,.nav-bar,.slide-logo,.progress-bar,.draft-tab{display:none!important}
+  .deck{height:auto}
+  .slide{display:flex!important;opacity:1!important;position:relative;inset:auto;height:100vh;page-break-after:always}
+}
+</style>
+</head>
+<body>
+<!-- GATE -->
+<div id="pw-gate">
+  <div id="pw-box">
+    <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1770763739/forge-logo-w-fox-valley-23jan2026_d1dlgi.png" alt="Fox Valley Forge SC" onerror="this.style.display='none'">
+    <h2>Sponsorship Deck</h2>
+    <p class="sub">This page is password protected.</p>
+    <input id="pw-input" type="password" placeholder="Enter password" autocomplete="current-password">
+    <button id="pw-btn">Enter</button>
+    <p id="pw-error"></p>
+  </div>
+</div>
+<script>
+(function(){
+  var KEY='fvf_admin';
+  var HASH='8e484aece8ea37afd67cd15d4f13fb2ef4ca78b2f5d5904400aa4bb1a2aad3a3';
+  var gate=document.getElementById('pw-gate');
+  if(sessionStorage.getItem(KEY)==='1'){gate.style.display='none';return;}
+  document.documentElement.style.overflow='hidden';
+  function unlock(){sessionStorage.setItem(KEY,'1');gate.style.display='none';}
+  function fail(){document.getElementById('pw-error').textContent='Incorrect password. Try again.';var b=document.getElementById('pw-box');b.classList.remove('pw-shake');void b.offsetWidth;b.classList.add('pw-shake');document.getElementById('pw-input').select();}
+  function attempt(){crypto.subtle.digest('SHA-256',new TextEncoder().encode(document.getElementById('pw-input').value)).then(function(buf){var hex=Array.prototype.map.call(new Uint8Array(buf),function(b){return b.toString(16).padStart(2,'0');}).join('');if(hex===HASH){unlock();}else{fail();}});}
+  document.getElementById('pw-btn').addEventListener('click',attempt);
+  document.getElementById('pw-input').addEventListener('keydown',function(e){if(e.key==='Enter')attempt();});
+  document.getElementById('pw-input').focus();
+})();
+</script>
+
+<div class="draft-tab">Draft</div>
+<div class="progress-bar" id="progress"></div>
+<img class="slide-logo" src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1770763739/forge-logo-w-fox-valley-23jan2026_d1dlgi.png" alt="Fox Valley Forge SC">
+<div class="nav-bar">
+  <button class="nav-btn" onclick="changeSlide(-1)">← Prev</button>
+  <div class="slide-counter" id="counter">1 / 7</div>
+  <button class="nav-btn" onclick="changeSlide(1)">Next →</button>
+</div>
+
+<div class="deck">
+
+  <!-- 1 COVER -->
+  <section class="slide active" style="background:linear-gradient(rgba(0,15,34,.72),rgba(0,15,34,.9)),url('https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_2000/v1784657032/forge/classic/hero-fairway.png') center/cover no-repeat">
+    <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1770763739/forge-logo-w-fox-valley-23jan2026_d1dlgi.png" alt="Fox Valley Forge SC" style="height:70px;margin-bottom:26px">
+    <div class="eyebrow">Forge Golf Classic · Inaugural Outing · Aug 31, 2026</div>
+    <h1 style="font-size:clamp(2.4rem,6vw,4.2rem)">Journey to the <span class="gold">Goal</span></h1>
+    <p class="slide-sub" style="margin-top:14px">Sponsorship Prospectus · Eagle Brook Country Club, Geneva IL</p>
+  </section>
+
+  <!-- 2 WHY -->
+  <section class="slide" style="background:var(--navy)">
+    <div class="eyebrow">Why Partner With Us</div>
+    <h2 class="slide-title">Your Investment, <span class="gold">On &amp; Off the Course</span></h2>
+    <div class="grid-3">
+      <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h3>Community Reach</h3><p>Connect with families, businesses and leaders across the Fox Valley invested in youth sports.</p></div>
+      <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7.4-6.3-4.6L5.7 21.4 8 14 2 9.4h7.6z"/></svg></div><h3>Premium Exposure</h3><p>Signage, digital, and year-round banners at a private championship club and both Forge field houses.</p></div>
+      <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></div><h3>Direct Impact</h3><p>Every dollar supports player development and the growth of Fox Valley Forge SC.</p></div>
+    </div>
+  </section>
+
+  <!-- 3 THE EVENT -->
+  <section class="slide" style="background:linear-gradient(rgba(0,15,34,.82),rgba(0,15,34,.92)),url('https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_2000/v1784657033/forge/classic/foursome-tee.png') center/cover no-repeat">
+    <div class="eyebrow">The Event</div>
+    <h2 class="slide-title">A Championship Day at <span class="gold">Eagle Brook</span></h2>
+    <p class="slide-sub">18-hole shotgun scramble on a private championship course — carts, on-course contests, lunch, and a BBQ dinner &amp; awards to close it out.</p>
+    <div class="facts">
+      <div class="fct"><div class="v">Aug 31</div><div class="l">2026</div></div>
+      <div class="fct"><div class="v">12:00</div><div class="l">Shotgun Start</div></div>
+      <div class="fct"><div class="v">18</div><div class="l">Holes · Carts</div></div>
+      <div class="fct"><div class="v">4</div><div class="l">On-Course Contests</div></div>
+    </div>
+  </section>
+
+  <!-- 4 TIERS -->
+  <section class="slide" style="background:var(--navy)">
+    <div class="eyebrow">Sponsorship Levels</div>
+    <h2 class="slide-title">The <span class="gold">Journey to the Goal</span></h2>
+    <div class="dtiers" id="deckTiers"></div>
+  </section>
+
+  <!-- 5 MATRIX -->
+  <section class="slide" style="background:linear-gradient(160deg,#012247,#001129)">
+    <div class="eyebrow">Compare</div>
+    <h2 class="slide-title" style="margin-bottom:10px">Benefits at a <span class="gold">Glance</span></h2>
+    <div class="dmx-wrap"><table class="dmx" id="deckMatrix"></table></div>
+  </section>
+
+  <!-- 6 ADD-ONS -->
+  <section class="slide" style="background:var(--navy)">
+    <div class="eyebrow">À La Carte</div>
+    <h2 class="slide-title">Additional <span class="gold">Opportunities</span></h2>
+    <div class="grid-4">
+      <div class="card" style="text-align:left"><h3 style="color:var(--gold)">Lunch Sponsor — $1,000</h3><p>Your brand on the lunch before the shotgun start. No foursome included.</p></div>
+      <div class="card" style="text-align:left"><h3 style="color:var(--gold)">Dinner Sponsor — $2,500</h3><p>Present the BBQ dinner &amp; awards. No foursome included.</p></div>
+      <div class="card" style="text-align:left"><h3 style="color:var(--gold)">Contest Sponsor — Inquire</h3><p>Hole-in-One, Long Drive, Long Putt &amp; Closest to the Pin — signage at the contest.</p></div>
+      <div class="card" style="text-align:left"><h3 style="color:var(--gold)">In-Kind Prize Donation</h3><p>Donate a prize, product or service — recognized on-site and online.</p></div>
+    </div>
+  </section>
+
+  <!-- 7 CLOSING -->
+  <section class="slide" style="background:linear-gradient(rgba(0,15,34,.78),rgba(0,15,34,.9)),url('https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_2000/v1784657035/forge/classic/dinner-reception.png') center/cover no-repeat">
+    <img class="close-logo" src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1770763739/forge-logo-w-fox-valley-23jan2026_d1dlgi.png" alt="Fox Valley Forge SC">
+    <h2 class="slide-title">Become a <span class="gold">Sponsor</span></h2>
+    <p class="slide-sub">Choose a level or tell us how you'd like to help — we'll make sure your brand shines on August 31.</p>
+    <div class="close-actions">
+      <a href="mailto:mike.weyant@forgesoccerclub.com?subject=Forge%20Golf%20Classic%20Sponsorship" class="btn-slide btn-gold">Email to Sponsor</a>
+      <a href="https://calendar.app.google/YXe5MbznwznYGucYA" class="btn-slide btn-ghost">Book a Call</a>
+    </div>
+    <p class="contact">Mike Weyant · President, Fox Valley Forge SC<br><a href="mailto:mike.weyant@forgesoccerclub.com">mike.weyant@forgesoccerclub.com</a> · 630.943.1400</p>
+  </section>
+
+</div>
+
+<script>
+/* ── shared sponsor data (same as the one-pager) ── */
+const TIERS=[
+  {key:'goal',name:'Goal!',tag:'Presenting Sponsor',price:'$15,000',foursomes:4,golfers:16,premier:true},
+  {key:'assist',name:'Assist',tag:'Championship Partner',price:'$7,500',foursomes:3,golfers:12},
+  {key:'hydration',name:'Hydration Break',tag:'Bar & Beverage',price:'$6,000',foursomes:2,golfers:8},
+  {key:'kickoff',name:'Kickoff',tag:'Hole Activation',price:'$5,000',foursomes:2,golfers:8},
+  {key:'fan',name:'Fan',tag:'Community Supporter',price:'$2,500',foursomes:1,golfers:4},
+  {key:'player',name:'Player',tag:'Team Entry',price:'$1,000',foursomes:1,golfers:4}
+];
+const BENEFITS=[
+  {label:'“Presented By” designation',has:['goal']},
+  {label:'Invitation to make welcome remarks',has:['goal']},
+  {label:'Company swag at registration',has:['goal']},
+  {label:'Social media spotlight',has:['goal','assist']},
+  {label:'Tagged on all event social posts',has:['goal','assist']},
+  {label:'12-month field-house banners',has:['goal','assist']},
+  {label:'Tent & interact at a hole',has:['goal','assist','kickoff']},
+  {label:'Company swag at sponsored hole',has:['goal','kickoff']},
+  {label:'Logo on bar signage',has:['hydration']},
+  {label:'Logo on beverage cart',has:['hydration']},
+  {label:'Recognition at welcome',has:['goal','assist','hydration','kickoff']},
+  {label:'Logo on website & promo material',has:['goal','assist','hydration','kickoff','fan']},
+  {label:'Signage at the course',has:['goal','assist','hydration','kickoff','fan']},
+  {label:'Recognition on FY27 donor page',has:['goal','assist','hydration','kickoff','fan']}
+];
+const CHECK='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>';
+
+/* compact tier cards — top 3 perks each */
+document.getElementById('deckTiers').innerHTML=TIERS.map(function(t){
+  var perks=BENEFITS.filter(function(b){return b.has.indexOf(t.key)>-1;}).slice(0,3)
+    .map(function(b){return '<li>'+b.label+'</li>';}).join('');
+  if(!perks) perks='<li>Foursome — golf, cart, food &amp; contests for 4</li>';
+  return '<div class="dtier'+(t.premier?' premier':'')+'">'+
+    '<div class="tag">'+t.tag+'</div><div class="nm">'+t.name+'</div>'+
+    '<div class="amt">'+t.price+'</div>'+
+    '<div class="gf">'+t.foursomes+' Foursome'+(t.foursomes>1?'s':'')+' · '+t.golfers+' Golfers</div>'+
+    '<ul>'+perks+'</ul></div>';
+}).join('');
+
+/* matrix */
+var head='<thead><tr><th class="lbl">Benefit</th>'+TIERS.map(function(t){
+  return '<th'+(t.premier?' class="premier"':'')+'>'+t.name+'<span class="p">'+t.price+'</span></th>';
+}).join('')+'</tr></thead>';
+var body='<tbody>';
+[{label:'Foursomes',vals:TIERS.map(function(t){return t.foursomes;})},
+ {label:'Golfers (18 holes, cart, food)',vals:TIERS.map(function(t){return t.golfers;})}].forEach(function(r){
+  body+='<tr><td class="lbl">'+r.label+'</td>'+r.vals.map(function(v){return '<td class="num">'+v+'</td>';}).join('')+'</tr>';
+});
+BENEFITS.forEach(function(b){
+  body+='<tr><td class="lbl">'+b.label+'</td>'+TIERS.map(function(t){
+    return b.has.indexOf(t.key)>-1 ? '<td class="yes">'+CHECK+'</td>' : '<td class="no">—</td>';
+  }).join('')+'</tr>';
+});
+document.getElementById('deckMatrix').innerHTML=head+body+'</tbody>';
+
+/* ── deck navigation ── */
+const slides=document.querySelectorAll('.slide');
+const total=slides.length;
+let current=0;
+function goTo(n){
+  slides[current].classList.remove('active');slides[current].classList.add('prev');
+  setTimeout(function(){slides[current].classList.remove('prev');},400);
+  current=(n+total)%total;
+  slides[current].classList.add('active');
+  document.getElementById('counter').textContent=(current+1)+' / '+total;
+  document.getElementById('progress').style.width=((current+1)/total*100)+'%';
+}
+function changeSlide(d){goTo(current+d);}
+document.addEventListener('keydown',function(e){
+  if(e.key==='ArrowRight'||e.key==='ArrowDown'||e.key===' '){e.preventDefault();changeSlide(1);}
+  if(e.key==='ArrowLeft'||e.key==='ArrowUp'){e.preventDefault();changeSlide(-1);}
+});
+let tx=0;
+document.addEventListener('touchstart',function(e){tx=e.touches[0].clientX;});
+document.addEventListener('touchend',function(e){var d=tx-e.changedTouches[0].clientX;if(Math.abs(d)>50)changeSlide(d>0?1:-1);});
+document.getElementById('progress').style.width=(1/total*100)+'%';
+</script>
+</body>
+</html>
