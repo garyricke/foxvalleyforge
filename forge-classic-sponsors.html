@@ -146,17 +146,28 @@ footer .small{font-size:.82rem;margin-top:12px;color:#63718c}
 .pdf-fab svg{width:16px;height:16px}
 
 @media print{
-  @page{margin:0.35in}
+  @page{margin:0.4in}
   *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
   #pw-gate,.draft-note,.pdf-fab{display:none!important}
-  .hero-inner{padding:56px 24px 48px}
-  section{padding:22px 0}
-  .sec-head{page-break-after:avoid}
-  .tier,.addon{page-break-inside:avoid}
-  .matrix-scroll{overflow:visible;page-break-inside:avoid}
+  .hero-inner{padding:44px 24px 36px}
+  section{padding:16px 0}
+  .sec-head{page-break-inside:avoid;break-inside:avoid;page-break-after:avoid;margin-bottom:18px}
+  section.pg{page-break-before:always;break-before:page}
+  /* keep multi-column layouts in print (Chrome sees a narrow print width) */
+  .why{grid-template-columns:repeat(3,1fr)}
+  .why .w{padding:16px 16px}
+  .tiers{grid-template-columns:repeat(3,1fr);gap:14px}
+  .tier,.addon{page-break-inside:avoid;break-inside:avoid}
+  .tier .th{padding:14px 16px 12px}
+  .tier .th .nm{font-size:1.5rem}
+  .tier .th .amt{font-size:1.95rem}
+  .tier .golf{padding:8px 16px}
+  .tier .perks{padding:12px 16px 14px}
+  .tier .perks li{padding:2px 0 2px 22px;font-size:.8rem;line-height:1.32}
+  .matrix-scroll{overflow:visible;page-break-inside:avoid;border:none}
   table.matrix{min-width:0;font-size:.72rem}
   table.matrix th,table.matrix td{padding:6px 6px}
-  .tiers{grid-template-columns:repeat(3,1fr)}
+  footer{page-break-before:avoid}
 }
 </style>
 </head>
@@ -216,7 +227,7 @@ footer .small{font-size:.82rem;margin-top:12px;color:#63718c}
 </section>
 
 <!-- TIERS -->
-<section class="alt">
+<section class="alt pg">
   <div class="wrap">
     <div class="sec-head"><div class="ey">Sponsorship Levels</div><h2>The <span>Journey to the Goal</span></h2><p>Six levels of partnership — each includes golf for your team and grows your brand's presence throughout the day.</p></div>
     <div class="tiers" id="tierCards"></div>
@@ -224,7 +235,7 @@ footer .small{font-size:.82rem;margin-top:12px;color:#63718c}
 </section>
 
 <!-- MATRIX -->
-<section>
+<section class="pg">
   <div class="wrap">
     <div class="sec-head"><div class="ey">Compare</div><h2>Benefits at a <span>Glance</span></h2></div>
     <div class="matrix-scroll"><table class="matrix" id="matrix"></table></div>
@@ -233,7 +244,7 @@ footer .small{font-size:.82rem;margin-top:12px;color:#63718c}
 </section>
 
 <!-- ADD-ONS -->
-<section class="alt">
+<section class="alt pg">
   <div class="wrap">
     <div class="sec-head"><div class="ey">À La Carte</div><h2>Additional <span>Opportunities</span></h2><p>Prefer to support a specific part of the day? These options are available with or without a foursome.</p></div>
     <div class="addons">
@@ -254,7 +265,7 @@ footer .small{font-size:.82rem;margin-top:12px;color:#63718c}
       <p>Choose a level above or tell us how you'd like to help. We'll handle the rest and make sure your brand shines on August 31.</p>
       <div class="cta">
         <a href="mailto:mike.weyant@forgesoccerclub.com?subject=Forge%20Golf%20Classic%20Sponsorship" class="btn btn-gold">Email to Sponsor</a>
-        <a href="https://calendar.app.google/YXe5MbznwznYGucYA" class="btn btn-ghost">Book a Call</a>
+        <a href="tel:6309431400" class="btn btn-ghost">Call 630.943.1400</a>
       </div>
       <p class="contact">Mike Weyant · President, Fox Valley Forge SC<br><a href="mailto:mike.weyant@forgesoccerclub.com">mike.weyant@forgesoccerclub.com</a> · <a href="tel:6309431400">630.943.1400</a></p>
     </div>
