@@ -264,6 +264,10 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
 .footer-col ul li a:hover{color:var(--gold)}
 .footer-hashtags{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
 .hashtag{font-family:var(--font-h);font-size:.75rem;letter-spacing:.06em;color:var(--gold);background:rgba(197,160,89,.1);padding:4px 10px;border-radius:3px}
+.footer-social{display:flex;gap:12px;margin-top:20px}
+.footer-social a{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;border:1px solid rgba(255,255,255,.18);color:rgba(255,255,255,.72);transition:background .2s,color .2s,border-color .2s}
+.footer-social a:hover{color:var(--navy);background:var(--gold);border-color:var(--gold)}
+.footer-social svg{width:20px;height:20px}
 .footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:gap}
 .footer-bottom p{font-size:.8rem}
 
@@ -401,6 +405,11 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
 
 /* ── SOCIAL REEL ── */
 #social-reel{background:#f4f4f2;border-top:4px solid var(--navy)}
+.reel-follow{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:6px;flex-wrap:wrap}
+.reel-follow .rf-label{font-family:var(--font-h);text-transform:uppercase;letter-spacing:.1em;font-size:.82rem;color:var(--navy-70)}
+.reel-follow a{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:9px;background:var(--navy);color:#fff;transition:background .2s,color .2s}
+.reel-follow a:hover{background:var(--gold);color:var(--navy)}
+.reel-follow a svg{width:19px;height:19px}
 .reel-grid{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;margin-top:40px}
 .reel-card{width:260px;border-radius:14px;overflow:hidden;cursor:pointer;background:#000;box-shadow:0 4px 24px rgba(0,0,0,.18);transition:transform .2s,box-shadow .2s}
 .reel-card:hover{transform:translateY(-4px);box-shadow:0 10px 36px rgba(0,0,0,.28)}
@@ -1639,6 +1648,15 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
     <p class="section-label fade-in">In the Wild</p>
     <h2 class="section-title fade-in">Forge Moments</h2>
     <p class="section-sub fade-in">Real moments. Real community. Hover to preview — click to watch.</p>
+    <div class="reel-follow fade-in">
+      <span class="rf-label">Follow @forgesoccerclub</span>
+      <a href="https://www.facebook.com/Forgesoccerclub/" target="_blank" rel="noopener" aria-label="Fox Valley Forge on Facebook">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.07C24 5.41 18.63 0 12 0S0 5.41 0 12.07c0 6.02 4.39 11.01 10.13 11.93v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.5c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.08 24 18.09 24 12.07z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/forgesoccerclub/" target="_blank" rel="noopener" aria-label="Fox Valley Forge on Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.1" fill="currentColor" stroke="none"/></svg>
+      </a>
+    </div>
     <div class="reel-grid">
 
       <div class="reel-card fade-in" onclick="openReel(0)">
@@ -1830,6 +1848,14 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
           <span class="hashtag">#OneValley</span>
           <span class="hashtag">#ForgePathway</span>
           <span class="hashtag">#ForgeFutures</span>
+        </div>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/Forgesoccerclub/" target="_blank" rel="noopener" aria-label="Fox Valley Forge on Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.07C24 5.41 18.63 0 12 0S0 5.41 0 12.07c0 6.02 4.39 11.01 10.13 11.93v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.5c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.08 24 18.09 24 12.07z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/forgesoccerclub/" target="_blank" rel="noopener" aria-label="Fox Valley Forge on Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.1" fill="currentColor" stroke="none"/></svg>
+          </a>
         </div>
       </div>
       <div class="footer-col">
