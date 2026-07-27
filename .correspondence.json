@@ -1,0 +1,31 @@
+{
+  "client": "Fox Valley Forge SC",
+  "subtitle": "Every response email sent to the Forge team &mdash; read or copy any one to resend.",
+  "logo": "https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1770763739/forge-logo-w-fox-valley-23jan2026_d1dlgi.png",
+  "logo_height": "52px",
+  "favicon": "https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1771377451/favicon-forge-1_r6l4ax.png",
+  "home_href": "index.html",
+  "home_title": "Back to forgesoccerclub.com",
+  "backlink_href": "index.html",
+  "backlink_label": "Back to the site",
+  "fonts": {
+    "google": "family=Oswald:wght@500;600;700&family=Source+Sans+3:wght@400;500;600",
+    "heading": "'Oswald',Impact,sans-serif",
+    "body": "'Source Sans 3',system-ui,sans-serif"
+  },
+  "colors": {
+    "accent": "#A91335",
+    "accent_soft": "#C5A059",
+    "accent_hover": "#B92B4A",
+    "ink": "#ECF4F9",
+    "bg": "linear-gradient(135deg,#000d22 0%,#001B44 60%,#1a0a1e 100%)",
+    "index_hover": "rgba(197,160,89,0.14)"
+  },
+  "gate": {
+    "key": "fvf_admin",
+    "hash": "8e484aece8ea37afd67cd15d4f13fb2ef4ca78b2f5d5904400aa4bb1a2aad3a3",
+    "heading": "Correspondence",
+    "button_ink": "#001B44",
+    "button_hover": "#A6813C"
+  }
+}

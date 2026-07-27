@@ -11,11 +11,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --red:#A91335; --red-soft:#C5A059; --ink:#ECF4F9; --navy:#001B44; }
+    :root { --red:#A91335; --red-soft:#C5A059; --ink:#ECF4F9; }
     body { font-family:'Source Sans 3',system-ui,sans-serif; background:linear-gradient(135deg,#000d22 0%,#001B44 60%,#1a0a1e 100%); color:var(--ink); min-height:100vh; padding:40px 20px 80px; }
     .wrap { width:100%; max-width:760px; margin:0 auto; }
     .page-head { text-align:center; margin-bottom:26px; }
-    .page-head img { height:38px; margin:0 auto 16px; display:block; }
+    .page-head img { height:52px; margin:0 auto 16px; display:block; }
     .page-head .eyebrow { font-family:'Oswald',Impact,sans-serif; font-size:11px; font-weight:700; letter-spacing:0.22em; text-transform:uppercase; color:var(--red-soft); margin-bottom:8px; }
     .page-head h1 { font-family:'Oswald',Impact,sans-serif; font-size:28px; font-weight:800; color:#fff; letter-spacing:0.02em; }
     .page-head p.sub { font-size:13.5px; color:rgba(236,244,249,0.5); margin-top:8px; }
@@ -50,7 +50,7 @@
     }
 
     /* password gate */
-    #pw-gate { position:fixed; inset:0; z-index:9999; background:linear-gradient(135deg,#000d22 0%,var(--navy) 60%,#1a0a1e 100%); display:flex; align-items:center; justify-content:center; }
+    #pw-gate { position:fixed; inset:0; z-index:9999; background:linear-gradient(135deg,#000d22 0%,#001B44 60%,#1a0a1e 100%); display:flex; align-items:center; justify-content:center; }
     #pw-gate::before { content:''; position:absolute; inset:0; background-image:linear-gradient(rgba(197,160,89,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(197,160,89,.06) 1px,transparent 1px); background-size:40px 40px; pointer-events:none; }
     #pw-box { position:relative; background:rgba(255,255,255,.04); border:1px solid rgba(197,160,89,.25); border-radius:16px; padding:48px 40px; text-align:center; width:min(400px,90vw); box-shadow:0 24px 80px rgba(0,0,0,.5); }
     #pw-box img { height:52px; margin:0 auto 24px; display:block; }
@@ -66,7 +66,6 @@
   </style>
 </head>
 <body>
-
 <!-- PASSWORD GATE — shares 'fvf_admin' session key -->
 <div id="pw-gate">
   <div id="pw-box">
@@ -93,9 +92,10 @@
   document.getElementById('pw-input').focus();
 })();
 </script>
+
   <div class="wrap">
     <div class="page-head">
-      <a href="index.html" title="Back to forgesoccerclub.com"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1770763739/forge-logo-w-fox-valley-23jan2026_d1dlgi.png" alt="Fox Valley Forge SC" style="height:52px" onerror="this.style.display='none'" /></a>
+      <a href="index.html" title="Back to forgesoccerclub.com"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1770763739/forge-logo-w-fox-valley-23jan2026_d1dlgi.png" alt="Fox Valley Forge SC" onerror="this.style.display='none'" /></a>
       <div class="eyebrow">Internal</div>
       <h1>Correspondence</h1>
       <p class="sub">Every response email sent to the Forge team &mdash; read or copy any one to resend.</p>
