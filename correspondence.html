@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Correspondence — Fox Valley Forge SC</title>
+  <link rel="icon" href="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1771377451/favicon-forge-1_r6l4ax.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --red:#A91335; --red-soft:#C5A059; --ink:#ECF4F9; --navy:#001B44; }
+    body { font-family:'Source Sans 3',system-ui,sans-serif; background:linear-gradient(135deg,#000d22 0%,#001B44 60%,#1a0a1e 100%); color:var(--ink); min-height:100vh; padding:40px 20px 80px; }
+    .wrap { width:100%; max-width:760px; margin:0 auto; }
+    .page-head { text-align:center; margin-bottom:26px; }
+    .page-head img { height:38px; margin:0 auto 16px; display:block; }
+    .page-head .eyebrow { font-family:'Oswald',Impact,sans-serif; font-size:11px; font-weight:700; letter-spacing:0.22em; text-transform:uppercase; color:var(--red-soft); margin-bottom:8px; }
+    .page-head h1 { font-family:'Oswald',Impact,sans-serif; font-size:28px; font-weight:800; color:#fff; letter-spacing:0.02em; }
+    .page-head p.sub { font-size:13.5px; color:rgba(236,244,249,0.5); margin-top:8px; }
+    .backlink { display:inline-flex; align-items:center; gap:7px; margin-top:16px; font-family:'Oswald',Impact,sans-serif; font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:rgba(236,244,249,0.5); text-decoration:none; }
+    .backlink:hover { color:var(--red); }
+    .index { border:1px solid rgba(255,255,255,0.08); background:rgba(255,255,255,0.03); border-radius:12px; padding:16px 18px; margin-bottom:30px; }
+    .index .lbl { font-family:'Oswald',Impact,sans-serif; font-size:10.5px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:rgba(236,244,249,0.4); margin-bottom:10px; }
+    .index ol { list-style:none; display:flex; flex-direction:column; gap:2px; }
+    .index a { display:flex; gap:12px; padding:7px 8px; border-radius:8px; text-decoration:none; color:var(--ink); font-size:13.5px; transition:background .15s; }
+    .index a:hover { background:rgba(197,160,89,0.14); }
+    .index a .d { flex:none; width:64px; color:rgba(236,244,249,0.45); font-variant-numeric:tabular-nums; }
+    .index a .t { color:#fff; }
+    .stack { display:flex; flex-direction:column; gap:34px; }
+    .letter { scroll-margin-top:20px; }
+    .letter-head { display:flex; align-items:flex-start; gap:14px; margin-bottom:12px; }
+    .letter-head .meta { flex:1; min-width:0; }
+    .letter-head .date { font-family:'Oswald',Impact,sans-serif; font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--red-soft); }
+    .letter-head h2 { font-family:'Oswald',Impact,sans-serif; font-size:18px; font-weight:800; color:#fff; margin:3px 0; line-height:1.25; }
+    .letter-head .to { font-size:12.5px; color:rgba(236,244,249,0.5); }
+    .copy { flex:none; display:inline-flex; align-items:center; gap:7px; background:var(--red); color:#fff; border:none; border-radius:8px; padding:9px 14px; font-family:'Oswald',Impact,sans-serif; font-size:12px; font-weight:700; letter-spacing:0.04em; cursor:pointer; transition:background .15s; }
+    .copy:hover { background:#B92B4A; }
+    .copy svg { width:14px; height:14px; }
+    .status { display:block; font-size:11.5px; color:rgba(236,244,249,0.5); min-height:15px; margin:-4px 0 8px; text-align:right; }
+    .paper { background:#fff; border-radius:14px; padding:30px 32px; box-shadow:0 18px 50px rgba(0,0,0,0.45); overflow-x:auto; }
+    .paper .email-body { margin:0 auto; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; color:#1a2535; line-height:1.6; }
+    .paper img { max-width:100%; height:auto; }
+    .empty { text-align:center; color:rgba(236,244,249,0.5); padding:60px 0; }
+    @media (max-width:560px) {
+      .letter-head { flex-direction:column; }
+      .status { text-align:left; }
+      .paper { padding:22px 18px; }
+    }
+
+    /* password gate */
+    #pw-gate { position:fixed; inset:0; z-index:9999; background:linear-gradient(135deg,#000d22 0%,var(--navy) 60%,#1a0a1e 100%); display:flex; align-items:center; justify-content:center; }
+    #pw-gate::before { content:''; position:absolute; inset:0; background-image:linear-gradient(rgba(197,160,89,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(197,160,89,.06) 1px,transparent 1px); background-size:40px 40px; pointer-events:none; }
+    #pw-box { position:relative; background:rgba(255,255,255,.04); border:1px solid rgba(197,160,89,.25); border-radius:16px; padding:48px 40px; text-align:center; width:min(400px,90vw); box-shadow:0 24px 80px rgba(0,0,0,.5); }
+    #pw-box img { height:52px; margin:0 auto 24px; display:block; }
+    #pw-box h2 { font-family:'Oswald',Impact,sans-serif; font-size:1.9rem; color:#C5A059; letter-spacing:.06em; margin:0 0 8px; text-transform:uppercase; }
+    #pw-box .sub { font-size:.85rem; color:rgba(236,244,249,.55); margin:0 0 28px; }
+    #pw-input { width:100%; padding:12px 16px; background:rgba(0,0,0,.3); border:1px solid rgba(197,160,89,.3); border-radius:8px; color:#fff; font-size:.95rem; font-family:inherit; outline:none; transition:border-color .2s; }
+    #pw-input:focus { border-color:#C5A059; }
+    #pw-btn { margin-top:14px; width:100%; padding:12px; background:#C5A059; color:#001B44; border:0; border-radius:8px; font-family:'Oswald',Impact,sans-serif; font-size:1.1rem; letter-spacing:.1em; cursor:pointer; }
+    #pw-btn:hover { background:#A6813C; }
+    #pw-error { font-size:.8rem; color:#ff7a7a; margin:12px 0 0; min-height:1.2em; }
+    .pw-shake { animation:pwShake .35s; }
+    @keyframes pwShake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-8px)} 75%{transform:translateX(8px)} }
+  </style>
+</head>
+<body>
+
+<!-- PASSWORD GATE — shares 'fvf_admin' session key -->
+<div id="pw-gate">
+  <div id="pw-box">
+    <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1770763739/forge-logo-w-fox-valley-23jan2026_d1dlgi.png" alt="Fox Valley Forge SC" onerror="this.style.display='none'">
+    <h2>Correspondence</h2>
+    <p class="sub">This page is password protected.</p>
+    <input id="pw-input" type="password" placeholder="Enter password" autocomplete="current-password">
+    <button id="pw-btn">Enter</button>
+    <p id="pw-error"></p>
+  </div>
+</div>
+<script>
+(function(){
+  var KEY='fvf_admin';
+  var HASH='8e484aece8ea37afd67cd15d4f13fb2ef4ca78b2f5d5904400aa4bb1a2aad3a3';
+  var gate=document.getElementById('pw-gate');
+  if(sessionStorage.getItem(KEY)==='1'){gate.style.display='none';return;}
+  document.body.style.overflow='hidden';
+  function unlock(){sessionStorage.setItem(KEY,'1');document.body.style.overflow='';gate.style.display='none';}
+  function fail(){document.getElementById('pw-error').textContent='Incorrect password. Try again.';var b=document.getElementById('pw-box');b.classList.remove('pw-shake');void b.offsetWidth;b.classList.add('pw-shake');document.getElementById('pw-input').select();}
+  function attempt(){crypto.subtle.digest('SHA-256',new TextEncoder().encode(document.getElementById('pw-input').value)).then(function(buf){var hex=Array.prototype.map.call(new Uint8Array(buf),function(b){return b.toString(16).padStart(2,'0');}).join('');if(hex===HASH){unlock();}else{fail();}});}
+  document.getElementById('pw-btn').addEventListener('click',attempt);
+  document.getElementById('pw-input').addEventListener('keydown',function(e){if(e.key==='Enter')attempt();});
+  document.getElementById('pw-input').focus();
+})();
+</script>
+  <div class="wrap">
+    <div class="page-head">
+      <a href="index.html" title="Back to forgesoccerclub.com"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1770763739/forge-logo-w-fox-valley-23jan2026_d1dlgi.png" alt="Fox Valley Forge SC" style="height:52px" onerror="this.style.display='none'" /></a>
+      <div class="eyebrow">Internal</div>
+      <h1>Correspondence</h1>
+      <p class="sub">Every response email sent to the Forge team &mdash; read or copy any one to resend.</p>
+      <br />
+      <a class="backlink" href="index.html"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Back to the site</a>
+    </div>
+    <nav class="index"><div class="lbl">9 messages</div><ol>
+        <li><a href="#c-forge-classic-live-links-email-2026-07-27-html"><span class="d">Jul 27</span><span class="t">Re: August 31st Outing Details — Golf Classic is live</span></a></li>
+        <li><a href="#c-forge-classic-golive-email-2026-07-27-html"><span class="d">Jul 27</span><span class="t">Re: August 31st Outing Details — Golf Classic page ready for review</span></a></li>
+        <li><a href="#c-forge-classic-sponsors-email-2026-07-22-html"><span class="d">Jul 22</span><span class="t">Reply to Mike — Forge Classic sponsor prospectus</span></a></li>
+        <li><a href="#c-forge-classic-email-2026-07-21-html"><span class="d">Jul 21</span><span class="t">Reply to Mike — Forge Golf Classic landing page</span></a></li>
+        <li><a href="#c-forge-fest-cards-email-2026-07-21-html"><span class="d">Jul 21</span><span class="t">Reply to Mike — Forge Fest Photo Cards</span></a></li>
+        <li><a href="#c-meeting-notes-email-mike-2026-07-15-html"><span class="d">Jul 15</span><span class="t">Meeting notes are up — email to Mike</span></a></li>
+        <li><a href="#c-sponsor-plan-demo-email-2026-07-01-html"><span class="d">Jul 1</span><span class="t">Sponsor Page — proposal + demo</span></a></li>
+        <li><a href="#c-maintenance-budget-email-mike-2026-07-01-html"><span class="d">Jul 1</span><span class="t">Site hosting + maintenance budget</span></a></li>
+        <li><a href="#c-summer-camp-website-reply-email-2026-06-19-html"><span class="d">Jun 19</span><span class="t">Reply to Bridgett — Summer Camp on the website</span></a></li>
+      </ol></nav>
+    <main class="stack">
+      <article class="letter" id="c-forge-classic-live-links-email-2026-07-27-html">
+        <div class="letter-head">
+          <div class="meta">
+            <span class="date">Jul 27, 2026</span>
+            <h2>Re: August 31st Outing Details — Golf Classic is live</h2>
+            <span class="to">To: Mike</span>
+          </div>
+          <button class="copy" data-target="body-forge-classic-live-links-email-2026-07-27-html" title="Copy this email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            Copy email
+          </button>
+        </div>
+        <span class="status"></span>
+        <div class="paper">
+          <div id="body-forge-classic-live-links-email-2026-07-27-html" class="email-body"><p style="margin:0 0 16px;">Mike —</p>
+
+    <p style="margin:0 0 16px;">It's live. Both pages are public and registration is open — circulate away.</p>
+
+    <a href="https://forgesoccerclub.com/forge-classic.html"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto:good,w_1100/v1785177939/orbis/forge-golf-classic-live-hero.png" alt="Forge Golf Classic — now live" style="display:block; width:100%; max-width:600px; height:auto; border:1px solid #dce3ed; border-radius:10px;"></a>
+    <p style="margin:8px 0 20px; font-size:13px; color:#4a5568;">Live now at forgesoccerclub.com/forge-classic.html</p>
+
+    <p style="margin:0 0 12px;">
+      <a href="https://forgesoccerclub.com/forge-classic.html" style="display:inline-block; background:#001B44; color:#ffffff; text-decoration:none; font-weight:600; font-size:15px; padding:12px 22px; border-radius:8px;">Event page &amp; registration &rarr;</a>
+    </p>
+    <p style="margin:0 0 24px;">
+      <a href="https://forgesoccerclub.com/forge-classic-sponsors.html" style="display:inline-block; background:#A91335; color:#ffffff; text-decoration:none; font-weight:600; font-size:15px; padding:12px 22px; border-radius:8px;">Sponsor prospectus &rarr;</a>
+    </p>
+
+    <p style="margin:0 0 22px;">The plain links, for pasting into social posts or an email blast:<br>
+      <span style="font-size:14px; color:#4a5568;">forgesoccerclub.com/forge-classic.html<br>forgesoccerclub.com/forge-classic-sponsors.html</span>
+    </p>
+
+    <p style="margin:0 0 16px;">"Register Your Foursome" and "Become a Sponsor" both drop straight into Bridgett's Zeffy checkout, so anyone you send it to can pay on the spot.</p>
+
+    <p style="margin:0 0 10px; font-weight:600; color:#001B44;">Three loose ends on the Zeffy side</p>
+
+    <p style="margin:0 0 16px;">None of these stop anyone registering today — but they're worth tidying while the traffic is still light. Bridgett, these are all on your end:</p>
+
+    <ul style="margin:0 0 22px; padding-left:20px;">
+      <li style="margin-bottom:10px;"><b>The "Corner Kick Package" ($2,000)</b> is purchasable on Zeffy but isn't described anywhere on the site, because it isn't in the sponsor menu. Tell me what it includes and I'll add it to both pages — or it can come off Zeffy.</li>
+      <li style="margin-bottom:10px;"><b>The $1,000 level has two names</b> — "Player" on the prospectus, "General Package - Foursome" on Zeffy. Pick one and I'll match the site to it.</li>
+      <li style="margin-bottom:0;"><b>There's no single-golfer option.</b> Zeffy sells foursomes and packages only, so I took the old $250/golfer price off the page rather than send people to a dead end. If you want individuals to be able to sign up, add it to Zeffy and I'll put the price back.</li>
+    </ul>
+
+    <p style="margin:0 0 14px;">One more when you have a moment — let's get that photo day at Eagle Brook on the calendar. The five course images are still the AI concepts, and now that the page is public they're doing real work. Same five shots on the actual course and it's finished for good. Grab whatever time suits you and we'll map out the shot list:</p>
+
+    <p style="margin:0 0 22px;">
+      <a href="https://calendar.app.google/Xpomh8HpoF5mii767" style="display:inline-block; background:#C5A059; color:#001B44; text-decoration:none; font-weight:600; font-size:15px; padding:12px 22px; border-radius:8px;">Book a time for the photo shoot &rarr;</a>
+    </p>
+
+    <p style="margin:0 0 16px;">Anything you want changed once you start sending it around, just say the word — I can turn edits around same day.</p>
+
+    <p style="margin:0 0 4px;">Talk soon,</p>
+    <p style="margin:0;">Gary</p></div>
+        </div>
+      </article>
+      <article class="letter" id="c-forge-classic-golive-email-2026-07-27-html">
+        <div class="letter-head">
+          <div class="meta">
+            <span class="date">Jul 27, 2026</span>
+            <h2>Re: August 31st Outing Details — Golf Classic page ready for review</h2>
+            <span class="to">To: Mike</span>
+          </div>
+          <button class="copy" data-target="body-forge-classic-golive-email-2026-07-27-html" title="Copy this email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            Copy email
+          </button>
+        </div>
+        <span class="status"></span>
+        <div class="paper">
+          <div id="body-forge-classic-golive-email-2026-07-27-html" class="email-body"><p style="margin:0 0 16px;">Mike —</p>
+
+    <p style="margin:0 0 16px;">All four changes are done, and Bridgett's Zeffy form is wired in. Here's a preview link so you and Robert can look it over before it's public:</p>
+
+    <a href="https://deploy-preview-8--forgesoccerclub.netlify.app/forge-classic.html"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto:good,w_1100/v1785177939/orbis/forge-golf-classic-live-hero.png" alt="Forge Golf Classic landing page" style="display:block; width:100%; max-width:600px; height:auto; border:1px solid #dce3ed; border-radius:10px;"></a>
+    <p style="margin:8px 0 18px; font-size:13px; color:#4a5568;">The Golf Classic page, with registration now live.</p>
+
+    <p style="margin:0 0 24px;">
+      <a href="https://deploy-preview-8--forgesoccerclub.netlify.app/forge-classic.html" style="display:inline-block; background:#001B44; color:#ffffff; text-decoration:none; font-weight:600; font-size:15px; padding:12px 22px; border-radius:8px;">Review the preview &rarr;</a>
+    </p>
+
+    <p style="margin:0 0 10px; font-weight:600; color:#001B44;">What changed</p>
+    <ul style="margin:0 0 22px; padding-left:20px;">
+      <li style="margin-bottom:10px;"><b>Registration is connected.</b> Both the "Register Your Foursome" button and the sponsor CTA go to Bridgett's Zeffy form.</li>
+      <li style="margin-bottom:10px;"><b>Lunch is fixed.</b> "Lunch on the Turn" is now <b>"Lunch Before the Start"</b> — served at 11:00 AM before the shotgun. I caught the same mistake in the opening paragraph and fixed it there too.</li>
+      <li style="margin-bottom:10px;"><b>The sponsor summary now matches the prospectus.</b> The old tiers on that page were placeholders and didn't match anything real. It now shows your actual ladder: <b>Goal! $15,000 · Assist $7,500 · Hydration Break $6,000 · Kickoff $5,000 · Fan $2,500</b>, plus a line for the à la carte options.</li>
+      <li style="margin-bottom:0;"><b>"Request Sponsor Info" now opens the prospectus</b> instead of an email link, with a "Become a Sponsor" button next to it. I also took the password off the prospectus page — it has to be public now that the event page links to it.</li>
+    </ul>
+
+    <p style="margin:0 0 10px; font-weight:600; color:#001B44;">Five things I need you and Bridgett to settle first</p>
+
+    <p style="margin:0 0 14px;"><b>1. Zeffy has a "Corner Kick Package" for $2,000 that isn't in the prospectus.</b> It's the one package someone can buy that the website doesn't describe anywhere. I didn't want to invent benefits for it — can you tell me what it includes, or should it come off Zeffy?</p>
+
+    <p style="margin:0 0 14px;"><b>2. The $1,000 level has two different names.</b> It's "Player" in the prospectus and "General Package - Foursome" on Zeffy. Worth picking one so people don't think they're different things.</p>
+
+    <p style="margin:0 0 14px;"><b>3. I removed the $250 single-golfer price.</b> Zeffy only sells foursomes and packages, so anyone clicking through for a single spot would have hit a dead end. If you want individuals to be able to register, Bridgett would need to add that option — happy to put the price back once it exists.</p>
+
+    <p style="margin:0 0 14px;"><b>4. The hole-in-one car.</b> The contests section says a player can "drive home a brand-new car." Behind a password that read as a concept; on a public page taking money it's an advertised prize. I'd want the hole-in-one insurance or a dealer sponsor confirmed before this goes out — or I can soften the wording for now.</p>
+
+    <p style="margin:0 0 22px;"><b>5. The course photos are still the AI concepts.</b> The "working draft" banner was the only thing saying so, and that's now gone. Nobody's likely to complain, but visitors will read them as photos of Eagle Brook. This is the argument for that photo day — same five shots, real course, and the page is done for good.</p>
+
+    <p style="margin:0 0 16px;">Give me a yes on the first three and I can push it live in a few minutes — it'll be at <b>forgesoccerclub.com/forge-classic.html</b>, ready to send to families and post to social.</p>
+
+    <p style="margin:0 0 4px;">Talk soon,</p>
+    <p style="margin:0;">Gary</p></div>
+        </div>
+      </article>
+      <article class="letter" id="c-forge-classic-sponsors-email-2026-07-22-html">
+        <div class="letter-head">
+          <div class="meta">
+            <span class="date">Jul 22, 2026</span>
+            <h2>Reply to Mike — Forge Classic sponsor prospectus</h2>
+            <span class="to">To: Mike</span>
+          </div>
+          <button class="copy" data-target="body-forge-classic-sponsors-email-2026-07-22-html" title="Copy this email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            Copy email
+          </button>
+        </div>
+        <span class="status"></span>
+        <div class="paper">
+          <div id="body-forge-classic-sponsors-email-2026-07-22-html" class="email-body"><p style="margin:0 0 16px;">Mike,</p>
+
+    <p style="margin:0 0 16px;">Thanks — the "Journey to the Goal" spreadsheet was exactly what I needed. I built the sponsor prospectus from it, and since you mentioned the pitch book, I made it <b>two ways</b> so you can pick whichever fits how you'll use it. Both are on our private, password-protected pages (same login as the other internal pages).</p>
+
+    <!-- ONE-PAGER CARD -->
+    <div style="border:1px solid #dce3ed; border-radius:12px; overflow:hidden; margin:0 0 20px;">
+      <a href="https://forgesoccerclub.com/forge-classic-sponsors.html"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto:good,w_1100/v1784748055/orbis/forge-sponsor-onepager.png" alt="One-page sponsor prospectus" style="display:block; width:100%; height:auto;"></a>
+      <div style="padding:16px 18px;">
+        <div style="font-family:inherit; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:#A91335; font-weight:700;">Option 1 · One-Pager</div>
+        <div style="font-weight:700; font-size:16px; color:#001B44; margin:3px 0 6px;">Print &amp; email handout</div>
+        <p style="margin:0 0 12px; font-size:14px; color:#4a5568;">A single scrolling page — best for emailing to a sponsor or handing them a leave-behind. Has a one-click <b>Download PDF</b> (print-ready) built in.</p>
+        <a href="https://forgesoccerclub.com/forge-classic-sponsors.html" style="display:inline-block; background:#001B44; color:#fff; text-decoration:none; font-weight:600; font-size:14px; padding:10px 18px; border-radius:8px;">Open the one-pager &rarr;</a>
+      </div>
+    </div>
+
+    <!-- DECK CARD -->
+    <div style="border:1px solid #dce3ed; border-radius:12px; overflow:hidden; margin:0 0 22px;">
+      <a href="https://forgesoccerclub.com/forge-classic-sponsors-deck.html"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto:good,w_1100/v1784746206/orbis/forge-sponsor-deck.png" alt="Sponsor slide deck" style="display:block; width:100%; height:auto;"></a>
+      <div style="padding:16px 18px;">
+        <div style="font-family:inherit; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:#A91335; font-weight:700;">Option 2 · Slide Deck</div>
+        <div style="font-weight:700; font-size:16px; color:#001B44; margin:3px 0 6px;">Present on a screen (like the pitch book)</div>
+        <p style="margin:0 0 12px; font-size:14px; color:#4a5568;">A full-screen slide deck you click through in a meeting — arrow keys or swipe. Same content, presentation feel, with a <b>Download PDF</b> button (print-ready, one slide per page).</p>
+        <a href="https://forgesoccerclub.com/forge-classic-sponsors-deck.html" style="display:inline-block; background:#001B44; color:#fff; text-decoration:none; font-weight:600; font-size:14px; padding:10px 18px; border-radius:8px;">Open the slide deck &rarr;</a>
+      </div>
+    </div>
+
+    <p style="margin:0 0 10px; font-weight:600; color:#001B44;">What's inside both</p>
+    <ul style="margin:0 0 20px; padding-left:20px;">
+      <li style="margin-bottom:8px;">All six levels — <b>Goal! ($15k)</b> down to <b>Player ($1k)</b> — as cards, plus a full benefit-comparison grid straight from your menu.</li>
+      <li style="margin-bottom:0;">Your à la carte additions: <b>Lunch $1,000</b>, <b>Dinner $2,500</b> (no foursome), <b>contest sponsors</b> (hole-in-one, long drive, long putt, closest to pin), and <b>in-kind prize donations</b>.</li>
+    </ul>
+
+    <p style="margin:0 0 10px; font-weight:600; color:#001B44;">A few things I'd confirm before it goes to sponsors</p>
+    <ul style="margin:0 0 20px; padding-left:20px;">
+      <li style="margin-bottom:8px;"><b>501(c)(3)?</b> If we can say "donations may be tax-deductible," that's a strong closer — I left it off until you confirm.</li>
+      <li style="margin-bottom:8px;"><b>Impact numbers</b> — a line like "X players / Y families" would strengthen the ask. Do we have figures?</li>
+      <li style="margin-bottom:8px;"><b>Deadlines</b> — a commitment date and a logo-artwork deadline (so signage gets printed in time).</li>
+      <li style="margin-bottom:8px;"><b>One to sanity-check:</b> Kickoff ($5,000) includes a hole tent &amp; swag that Hydration Break ($6,000) doesn't — Hydration is the bar/beverage-branding tier. Just confirm that's intended.</li>
+      <li style="margin-bottom:0;"><b>Player ($1,000)</b> is a foursome with no logo/recognition — I labeled it "Team Entry" so it doesn't look like a broken sponsorship. Good with that?</li>
+    </ul>
+
+    <p style="margin:0 0 14px;">Take a look and tell me which format you prefer — or we keep both (one to email, one to present). Happy to jump on a quick call to finalize the tiers and the open items:</p>
+
+    <p style="margin:0 0 22px;">
+      <a href="https://calendar.app.google/YXe5MbznwznYGucYA" style="display:inline-block; background:#A91335; color:#ffffff; text-decoration:none; font-weight:600; font-size:15px; padding:12px 22px; border-radius:8px;">Book an hour with me &rarr;</a>
+    </p>
+
+    <p style="margin:0 0 4px;">Talk soon,</p>
+    <p style="margin:0;">Gary</p></div>
+        </div>
+      </article>
+      <article class="letter" id="c-forge-classic-email-2026-07-21-html">
+        <div class="letter-head">
+          <div class="meta">
+            <span class="date">Jul 21, 2026</span>
+            <h2>Reply to Mike — Forge Golf Classic landing page</h2>
+            <span class="to">To: Mike</span>
+          </div>
+          <button class="copy" data-target="body-forge-classic-email-2026-07-21-html" title="Copy this email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            Copy email
+          </button>
+        </div>
+        <span class="status"></span>
+        <div class="paper">
+          <div id="body-forge-classic-email-2026-07-21-html" class="email-body"><p style="margin:0 0 16px;">Mike,</p>
+
+    <p style="margin:0 0 16px;">That's plenty to get started with — thank you. I've built a first version of the golf outing landing page and put it on our private, password-protected page (same login as the trading cards and Meeting Notes pages).</p>
+
+    <a href="https://forgesoccerclub.com/forge-classic.html">
+      <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto:good,w_1100/v1784657943/orbis/forge-classic-hero.png" alt="Forge Golf Classic landing page hero" style="display:block; width:100%; max-width:600px; height:auto; border:1px solid #dce3ed; border-radius:10px;">
+    </a>
+    <p style="margin:8px 0 20px; font-size:13px; color:#4a5568;">The Forge Golf Classic page — hosted concept art shown; real photos to follow.</p>
+
+    <p style="margin:0 0 22px;">
+      <a href="https://forgesoccerclub.com/forge-classic.html" style="display:inline-block; background:#A91335; color:#ffffff; text-decoration:none; font-weight:600; font-size:15px; padding:12px 22px; border-radius:8px;">Open the Golf Classic page &rarr;</a>
+    </p>
+
+    <p style="margin:0 0 10px; font-weight:600; color:#001B44;">What's on the page</p>
+    <ul style="margin:0 0 20px; padding-left:20px;">
+      <li style="margin-bottom:9px;">The <b>full day</b> — your schedule from 9:30 registration through the 8:00 conclusion, what's included, and the on-course contests (Hole-in-One car, Long Drive, Closest to the Pin, Long Putt).</li>
+      <li style="margin-bottom:9px;">The <b>food &amp; drink</b> menus exactly as you sent them, plus the cash bar / beverage cart note.</li>
+      <li style="margin-bottom:9px;">A <b>registration block</b> and a <b>sponsorship section</b> with tiers, and the venue with directions to Eagle Brook.</li>
+      <li style="margin-bottom:0;"><b>Concept photos</b> — I generated five images styled to look like Eagle Brook (course, a foursome, hole signage, the dinner reception, and the hole-in-one car) so we have a shot list to model real photos after. The flags and signs are intentionally left blank so we drop in real branding later.</li>
+    </ul>
+
+    <p style="margin:0 0 10px; font-weight:600; color:#001B44;">A few things I flagged as placeholders</p>
+    <ul style="margin:0 0 20px; padding-left:20px;">
+      <li style="margin-bottom:9px;"><b>Pricing</b> is marked "preliminary" — I put $1,000 per foursome / $250 per golfer as a starting point. Tell me the real numbers and I'll lock them in.</li>
+      <li style="margin-bottom:9px;"><b>Registration &amp; payment</b> — the "Register" button is a placeholder until we pick the platform. Once you and the team settle on Square or Zeffy (and Madison confirms the deadline and the info we need to collect), I'll wire up the live register-and-pay flow.</li>
+      <li style="margin-bottom:0;"><b>Sponsorship</b> — the tiers shown are preliminary. Send me the hole/contest package details when you have them and I'll build that section out, plus the separate sponsor flyer you mentioned.</li>
+    </ul>
+
+    <p style="margin:0 0 14px;">Whenever you're ready, I'd also suggest a quick photo day at Eagle Brook — we can use these five concepts as the shot list and swap the AI art for the real thing. Grab whatever time works for you and we'll map it out:</p>
+
+    <p style="margin:0 0 22px;">
+      <a href="https://calendar.app.google/YXe5MbznwznYGucYA" style="display:inline-block; background:#001B44; color:#ffffff; text-decoration:none; font-weight:600; font-size:15px; padding:12px 22px; border-radius:8px;">Book an hour with me &rarr;</a>
+    </p>
+
+    <p style="margin:0 0 16px;">Take a look and let me know what you'd change. Once pricing and the registration platform are set, this can go live to families quickly.</p>
+
+    <p style="margin:0 0 4px;">Talk soon,</p>
+    <p style="margin:0;">Gary</p></div>
+        </div>
+      </article>
+      <article class="letter" id="c-forge-fest-cards-email-2026-07-21-html">
+        <div class="letter-head">
+          <div class="meta">
+            <span class="date">Jul 21, 2026</span>
+            <h2>Reply to Mike — Forge Fest Photo Cards</h2>
+            <span class="to">To: Mike</span>
+          </div>
+          <button class="copy" data-target="body-forge-fest-cards-email-2026-07-21-html" title="Copy this email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            Copy email
+          </button>
+        </div>
+        <span class="status"></span>
+        <div class="paper">
+          <div id="body-forge-fest-cards-email-2026-07-21-html" class="email-body"><p style="margin:0 0 16px;">Mike,</p>
+
+    <p style="margin:0 0 16px;">Thanks for the profile pictures — perfect for getting started. I took the two samples and built out the trading-card concept so you can see it before we lock anything or send a survey to families. I put it all on a private, password-protected page (same login as the Meeting Notes and Build Log pages).</p>
+
+    <a href="https://forgesoccerclub.com/forge-fest-cards.html">
+      <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto:good,w_1100/v1784643255/orbis/forge-fest-cards-redraw-styles.png" alt="Forge Fest trading card — one player shown in three illustration styles" style="display:block; width:100%; max-width:600px; height:auto; border:1px solid #dce3ed; border-radius:10px;">
+    </a>
+    <p style="margin:8px 0 20px; font-size:13px; color:#4a5568;">The same player, redrawn in three styles — one of the choices on the page.</p>
+
+    <p style="margin:0 0 22px;">
+      <a href="https://forgesoccerclub.com/forge-fest-cards.html" style="display:inline-block; background:#A91335; color:#ffffff; text-decoration:none; font-weight:600; font-size:15px; padding:12px 22px; border-radius:8px;">Open the card mockups &rarr;</a>
+    </p>
+
+    <p style="margin:0 0 10px; font-weight:600; color:#001B44;">What's on the page</p>
+    <ul style="margin:0 0 20px; padding-left:20px;">
+      <li style="margin-bottom:9px;"><b>Two design directions</b> — a Clean Modern look and a Retro/Vintage look. Both are built flat (no foil), so they can print on cardstock at The UPS Store in Geneva. Click any card to flip it and see the back.</li>
+      <li style="margin-bottom:9px;"><b>The illustrated redraw</b> — since we agreed the kids should be stylized rather than raw photos, I redrew both sample players in three styles: semi-realistic, bold cartoon, and comic/action (pictured above).</li>
+      <li style="margin-bottom:9px;"><b>Coach, staff &amp; board cards</b> — I mocked these up with real leadership photos so you can see them in context. For the coach sample I turned Chad's headshot into a sideline "coaching in action" shot.</li>
+      <li style="margin-bottom:0;"><b>The survey form</b> — every question has a clear size limit with a live counter, and a live card preview that updates as you type, so families see exactly how much room they have. I loaded it with the longest possible answers so you can see the worst-case fit.</li>
+    </ul>
+
+    <p style="margin:0 0 10px; font-weight:600; color:#001B44;">What I need from you</p>
+    <ol style="margin:0 0 20px; padding-left:20px;">
+      <li style="margin-bottom:7px;">Which <b>design direction</b> — Clean Modern or Retro.</li>
+      <li style="margin-bottom:7px;">Which <b>illustration style</b> for the kids.</li>
+      <li style="margin-bottom:0;">A thumbs-up on the <b>survey questions and limits</b> — once you're good, I'll build the live form and we can start collecting.</li>
+    </ol>
+
+    <p style="margin:0 0 16px;">One note on privacy: because these include real kids' faces, the page stays password-protected and hidden from search until you're comfortable. I also kept our rule of no birthdates and no sibling info — the card uses a team label like "Forge 2015 Boys" to signal the age group without asking for it.</p>
+
+    <p style="margin:0 0 16px;">No rush at all on the golf outing details — send them whenever you have them and I'll get that landing page moving too.</p>
+
+    <p style="margin:0 0 4px;">Talk soon,</p>
+    <p style="margin:0;">Gary</p></div>
+        </div>
+      </article>
+      <article class="letter" id="c-meeting-notes-email-mike-2026-07-15-html">
+        <div class="letter-head">
+          <div class="meta">
+            <span class="date">Jul 15, 2026</span>
+            <h2>Meeting notes are up — email to Mike</h2>
+            <span class="to">To: Mike</span>
+          </div>
+          <button class="copy" data-target="body-meeting-notes-email-mike-2026-07-15-html" title="Copy this email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            Copy email
+          </button>
+        </div>
+        <span class="status"></span>
+        <div class="paper">
+          <div id="body-meeting-notes-email-mike-2026-07-15-html" class="email-body"><p style="margin:0 0 16px;">Mike,</p>
+
+    <p style="margin:0 0 16px;">Great catching up today — appreciate you walking me through all of it. I've written up the full call on our internal <strong>Meeting Notes</strong> page so nothing slips through the cracks over the next six weeks.</p>
+
+    <p style="margin:0 0 16px;">It lives in the admin area of the site: click the small <strong>&ldquo;A&rdquo;</strong> in the bottom-right corner of the homepage, enter the same password you used for the sponsor pages, and <strong>&ldquo;Meeting Notes&rdquo;</strong> is the first link at the top of the panel. (Direct button below if that&rsquo;s easier.)</p>
+
+    <p style="margin:0 0 10px;">What&rsquo;s on it:</p>
+    <ul style="margin:0 0 16px; padding-left:20px;">
+      <li style="margin-bottom:7px;">A <strong>Key Dates timeline</strong> — the runway from the player-card survey this week through Forge Fest (Aug 22) and the Forge Classic golf outing (Aug 31).</li>
+      <li style="margin-bottom:7px;">Every <strong>action item, split by who owns what</strong> — so it&rsquo;s clear at a glance what&rsquo;s on your plate versus mine.</li>
+      <li style="margin-bottom:7px;">The six topics we covered: invoices, trading cards, Forge Fest, the golf outing, the sponsor page, and coaching announcements.</li>
+    </ul>
+
+    <p style="margin:0 0 20px;">It&rsquo;s a running record, so every future check-in gets added there too.</p>
+
+    <p style="margin:0 0 24px;">
+      <a href="https://forgesoccerclub.com/meetings.html" style="display:inline-block; background:#001B44; color:#ffffff; text-decoration:none; font-weight:600; font-size:15px; padding:12px 22px; border-radius:8px;">Open the Meeting Notes &rarr;</a>
+    </p>
+    <p style="margin:-14px 0 24px; font-size:13px; color:#4a5568;">Behind the admin login — same password as the sponsor pages.</p>
+
+    <p style="margin:0 0 16px;">When you get a minute, give it a read and tell me if I captured anything wrong. A few things the page flags on your side to keep us moving: the <strong>invoices</strong> (with Talia), <strong>player photos + the survey tool</strong> (with Bridget), your <strong>sponsor/partner list with levels</strong>, and the <strong>Forge Fest details</strong> (date, time, location, activities, banner size). Meanwhile I&rsquo;m getting started on the card concepts and the survey form.</p>
+
+    <p style="margin:0 0 4px;">Talk soon,</p>
+    <p style="margin:0;">Gary</p></div>
+        </div>
+      </article>
+      <article class="letter" id="c-sponsor-plan-demo-email-2026-07-01-html">
+        <div class="letter-head">
+          <div class="meta">
+            <span class="date">Jul 1, 2026</span>
+            <h2>Sponsor Page — proposal + demo</h2>
+            <span class="to">To: Hi Mallory</span>
+          </div>
+          <button class="copy" data-target="body-sponsor-plan-demo-email-2026-07-01-html" title="Copy this email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            Copy email
+          </button>
+        </div>
+        <span class="status"></span>
+        <div class="paper">
+          <div id="body-sponsor-plan-demo-email-2026-07-01-html" class="email-body"><p style="margin:0 0 16px;">Hi Mallory,</p>
+
+    <p style="margin:0 0 16px;">Following up on your note about a sponsor &amp; partner page. Rather than just describe the idea, I built a <strong>working demo you can click through</strong> plus a short proposal that lays out how we&rsquo;d put it together.</p>
+
+    <p style="margin:0 0 16px;">Here&rsquo;s a look at the sponsor wall &mdash; roll over any logo to see the name and location, then click to open that sponsor&rsquo;s spotlight:</p>
+
+    <a href="https://forgesoccerclub.com/sponsor-demo.html" style="text-decoration:none;">
+      <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto:good,w_1100/v1782940487/orbis/forge-sponsor-wall-demo.png" alt="Fox Valley Forge sponsor wall demo" style="display:block; width:100%; max-width:600px; height:auto; border:1px solid #dce3ed; border-radius:10px;">
+    </a>
+    <p style="margin:8px 0 20px; font-size:13px; color:#4a5568;">The live demo uses Dick&rsquo;s Sporting Goods as a stand-in sponsor.</p>
+
+    <p style="margin:0 0 20px;">
+      <a href="https://forgesoccerclub.com/sponsor-demo.html" style="display:inline-block; background:#A91335; color:#ffffff; text-decoration:none; font-weight:600; font-size:15px; padding:12px 22px; border-radius:8px;">Open the working demo &rarr;</a>
+    </p>
+
+    <p style="margin:0 0 16px;">Click a logo in the demo and it opens a mini &ldquo;home page&rdquo; for that sponsor &mdash; hero photo, a short description, what they offer, hours, an embedded map, and links out to their website and social profiles. It&rsquo;s a live preview of exactly what a real sponsor spotlight would feel like:</p>
+
+    <a href="https://forgesoccerclub.com/sponsor-demo.html" style="text-decoration:none;">
+      <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto:good,w_1100/v1782940682/orbis/forge-sponsor-spotlight-popup.png" alt="Sponsor spotlight pop-up — hero photo, details, map, and social links" style="display:block; width:100%; max-width:600px; height:auto; border:1px solid #dce3ed; border-radius:10px;">
+    </a>
+    <p style="margin:8px 0 20px; font-size:13px; color:#4a5568;">The spotlight that opens when you click a sponsor logo.</p>
+
+    <p style="margin:20px 0 12px;">A few things worth calling out from the proposal:</p>
+    <ul style="margin:0 0 20px; padding-left:20px; color:#1a2535;">
+      <li style="margin-bottom:8px;"><strong>Almost nothing on the sponsor&rsquo;s side.</strong> We source the logo, photos, and details from what&rsquo;s already public, build the whole spotlight, and the sponsor just <strong>reviews and approves</strong> before it goes live. No forms, no assets to chase.</li>
+      <li style="margin-bottom:8px;"><strong>Razor-sharp logos, guaranteed.</strong> Every logo is cleaned up so it stays crisp at any size. If one needs a full redraw, that&rsquo;s a small flat cost per logo &mdash; otherwise we handle it at no extra charge.</li>
+      <li style="margin-bottom:0;"><strong>Fast, mobile-friendly hosting.</strong> Everything is delivered on a high-speed platform so the page loads quickly and looks sharp on phones.</li>
+    </ul>
+
+    <p style="margin:0 0 20px;">
+      <a href="https://forgesoccerclub.com/sponsor-page-plan.html" style="display:inline-block; background:#ffffff; color:#A91335; text-decoration:none; font-weight:600; font-size:15px; padding:11px 21px; border-radius:8px; border:1px solid #A91335;">Read the full proposal &rarr;</a>
+    </p>
+
+    <p style="margin:0 0 16px;">Take a look and let me know what you think &mdash; happy to adjust the approach. Once we&rsquo;ve settled the direction, we can start lining up the first sponsors.</p>
+
+    <p style="margin:0 0 4px;">Best,</p>
+    <p style="margin:0;">Gary</p></div>
+        </div>
+      </article>
+      <article class="letter" id="c-maintenance-budget-email-mike-2026-07-01-html">
+        <div class="letter-head">
+          <div class="meta">
+            <span class="date">Jul 1, 2026</span>
+            <h2>Site hosting + maintenance budget</h2>
+            <span class="to">To: Hi Mike</span>
+          </div>
+          <button class="copy" data-target="body-maintenance-budget-email-mike-2026-07-01-html" title="Copy this email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            Copy email
+          </button>
+        </div>
+        <span class="status"></span>
+        <div class="paper">
+          <div id="body-maintenance-budget-email-mike-2026-07-01-html" class="email-body"><p style="margin:0 0 16px;">Hi Mike,</p>
+
+    <p style="margin:0 0 16px;">Wanted to get you a clear picture of what it takes to keep the site running and cared for this year, plus my recommendation. I put it all on one page so the numbers are fully transparent.</p>
+
+    <p style="margin:0 0 20px;"><strong>The short version:</strong></p>
+
+    <ul style="margin:0 0 20px; padding-left:20px; color:#1a2535;">
+      <li style="margin-bottom:10px;"><strong>Hosting: $300/year (~$25/mo).</strong> Keeps the site live, fast, and secure. For comparison, a Squarespace or WordPress setup runs in the same range but on slower, heavier infrastructure &mdash; our build tested faster than both.</li>
+      <li style="margin-bottom:0;"><strong>Maintenance is a pre-paid block of hours.</strong> The bigger the block, the lower the hourly rate ($150/hr down to $75/hr). Hours never expire, and you get a live internal status page showing every bit of work done.</li>
+    </ul>
+
+    <p style="margin:0 0 12px;">Here&rsquo;s the full rate ladder &mdash; the highlighted tier is my recommendation for the year ahead:</p>
+
+    <a href="https://forgesoccerclub.com/hosting-maintenance.html" style="text-decoration:none;">
+      <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto:good,w_1100/v1782940488/orbis/forge-maintenance-ladder.png" alt="Fox Valley Forge pre-pay maintenance rate ladder" style="display:block; width:100%; max-width:600px; height:auto; border:1px solid #dce3ed; border-radius:10px;">
+    </a>
+    <p style="margin:8px 0 20px; font-size:13px; color:#4a5568;">Pre-pay maintenance blocks &mdash; larger blocks earn a lower hourly rate.</p>
+
+    <p style="margin:0 0 20px;">
+      <a href="https://forgesoccerclub.com/hosting-maintenance.html" style="display:inline-block; background:#001B44; color:#ffffff; text-decoration:none; font-weight:600; font-size:15px; padding:12px 22px; border-radius:8px;">See the full breakdown &rarr;</a>
+    </p>
+
+    <p style="margin:0 0 12px;"><strong>My recommendation this year: the $4,000 &middot; 50-hour block ($80/hr).</strong></p>
+
+    <p style="margin:0 0 16px;">Here&rsquo;s the reasoning. A typical year of upkeep for a club our size runs roughly 27&ndash;50 hours. Normally that&rsquo;d put us in a smaller block &mdash; but the <strong>new sponsor &amp; partner page is a larger one-time project</strong> on top of regular maintenance. Because we lean on AI for most of the logo cleanup and content, that build runs about <strong>20 hours</strong> rather than the 40&ndash;50 it might otherwise. Folded in with a normal season of upkeep, the 50-hour block covers everything comfortably with room to spare &mdash; and locks in the best hourly rate.</p>
+
+    <p style="margin:0 0 16px;">If the sponsor page weren&rsquo;t in the picture this year, I&rsquo;d point us to the $2,500&ndash;$3,000 range instead. It&rsquo;s really that project that nudges the recommendation up.</p>
+
+    <p style="margin:0 0 16px;">Happy to walk through any of it on a call. Just let me know how you&rsquo;d like to proceed.</p>
+
+    <p style="margin:0 0 4px;">Best,</p>
+    <p style="margin:0;">Gary</p></div>
+        </div>
+      </article>
+      <article class="letter" id="c-summer-camp-website-reply-email-2026-06-19-html">
+        <div class="letter-head">
+          <div class="meta">
+            <span class="date">Jun 19, 2026</span>
+            <h2>Reply to Bridgett — Summer Camp on the website</h2>
+            <span class="to">To: Hi Bridgett</span>
+          </div>
+          <button class="copy" data-target="body-summer-camp-website-reply-email-2026-06-19-html" title="Copy this email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            Copy email
+          </button>
+        </div>
+        <span class="status"></span>
+        <div class="paper">
+          <div id="body-summer-camp-website-reply-email-2026-06-19-html" class="email-body"><p style="margin:0 0 16px;">Hi Bridgett,</p>
+
+    <p style="margin:0 0 16px;">Thanks for sending this over — I took a look at the page Luis built. I went ahead and ran with <strong>Option 1</strong>: I rebuilt the camp details directly into our Events section as a proper Forge card, so it lives on our own site and stays fully on-brand. That's the cleaner path long-term — no separate page to keep in sync, and families never leave forgesoccerclub.com. Once we go live, Luis's standalone link can be retired.</p>
+
+    <p style="margin:0 0 16px;">I also kept it <strong>alongside the existing Advantage Soccer Academy camp</strong>, so both summer camps show up in Events. Here's how the new card looks:</p>
+
+    <a href="https://deploy-preview-3--forgesoccerclub.netlify.app/#event-summer-camp-series" style="text-decoration:none;">
+      <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto:good,w_1100/v1781900496/orbis/forge-summer-camp-series-card.png" alt="Forge Summer Camp Series 2026 event card" style="display:block; width:100%; max-width:600px; height:auto; border:1px solid #dce3ed; border-radius:10px;">
+    </a>
+
+    <div style="margin:16px 0 22px;">
+      <a href="https://deploy-preview-3--forgesoccerclub.netlify.app/#event-summer-camp-series" style="display:inline-block; background:#001B44; color:#ffffff; text-decoration:none; font-size:16px; font-weight:700; padding:14px 28px; border-radius:8px;">👉 View the live preview →</a>
+      <p style="margin:8px 0 0; font-size:13px; color:#4a5568;">Opens the camp card on the site — click "Full Details" there for the full schedule and pricing. (Preview only, not live yet.)</p>
+    </div>
+
+    <p style="margin:0 0 10px;"><strong>One thing I need before this goes live:</strong> the actual Sprocket registration link. The "Register" button on Luis's page isn't wired up yet (it doesn't go anywhere), so right now ours shows <em>"Registration Opening Soon."</em> Send me the live Sprocket URL and I'll drop it in and push it live the same day.</p>
+
+    <p style="margin:0 0 8px;">And so you can double-check I pulled everything correctly from Luis's page:</p>
+    <ul style="margin:0 0 18px; padding-left:20px; color:#1a2535;">
+      <li style="margin-bottom:6px;">Three 2-week blocks: Jun 30–Jul 9 · Jul 14–23 · Jul 28–Aug 6 (Tue/Wed/Thu)</li>
+      <li style="margin-bottom:6px;">U8–U12: 5:00–6:30 PM · U13–U18: 7:00–8:30 PM, at Forge West (3N800 Peck Rd)</li>
+      <li style="margin-bottom:6px;">Pricing: 2-week $220 · 4-week $400 · full summer $550 · drop-in $50/session</li>
+    </ul>
+
+    <p style="margin:0 0 16px;">Let me know if any of that needs tweaking and whenever you have the Sprocket link.</p>
+
+    <p style="margin:0 0 4px;">Thanks,</p>
+    <p style="margin:0;">Gary</p></div>
+        </div>
+      </article>
+    </main>
+  </div>
+  <script>
+    function setStatus(el, m, ok) { el.textContent = m; el.style.color = ok ? '#7Ce08a' : '#ff9a9a'; }
+    function selectFallback(el, status) {
+      try {
+        var r = document.createRange(); r.selectNode(el);
+        var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+        var ok = document.execCommand('copy'); s.removeAllRanges();
+        setStatus(status, ok ? '✓ Copied — paste into your email' : 'Press ⌘C to copy', ok);
+      } catch (e) { setStatus(status, 'Select the email and press ⌘C', false); }
+    }
+    document.querySelectorAll('.copy').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var el = document.getElementById(btn.getAttribute('data-target'));
+        var status = btn.closest('.letter').querySelector('.status');
+        if (navigator.clipboard && window.ClipboardItem) {
+          var d = [new ClipboardItem({
+            'text/html': new Blob([el.outerHTML], { type: 'text/html' }),
+            'text/plain': new Blob([el.innerText], { type: 'text/plain' })
+          })];
+          navigator.clipboard.write(d).then(
+            function () { setStatus(status, '✓ Copied — paste into your email (formatting included)', true); },
+            function () { selectFallback(el, status); }
+          );
+        } else { selectFallback(el, status); }
+      });
+    });
+  </script>
+</body>
+</html>
