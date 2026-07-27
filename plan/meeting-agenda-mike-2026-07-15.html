@@ -97,9 +97,50 @@ ol.paths li.rec::before{background:var(--gold);color:var(--navy)}
   .sec,.out{break-inside:avoid;box-shadow:none}
   .top{-webkit-print-color-adjust:exact;print-color-adjust:exact}
 }
+/* ── PASSWORD GATE ── */
+#pw-gate{position:fixed;inset:0;z-index:9999;background:linear-gradient(135deg,#000d22 0%,#001B44 60%,#1a0a1e 100%);display:flex;align-items:center;justify-content:center;font-family:'Source Sans 3',system-ui,sans-serif}
+#pw-gate::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(197,160,89,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(197,160,89,.06) 1px,transparent 1px);background-size:40px 40px;pointer-events:none}
+#pw-box{position:relative;background:rgba(255,255,255,.04);border:1px solid rgba(197,160,89,.25);border-radius:16px;padding:48px 40px;text-align:center;width:min(400px,90vw);box-shadow:0 24px 80px rgba(0,0,0,.5)}
+#pw-box img{height:52px;margin:0 auto 24px;display:block}
+#pw-box h2{font-family:'Oswald',Impact,sans-serif;font-size:1.9rem;color:#C5A059;letter-spacing:.06em;margin:0 0 8px;text-transform:uppercase}
+#pw-box .sub{font-size:.85rem;color:rgba(236,244,249,.55);margin:0 0 28px}
+#pw-input{width:100%;padding:12px 16px;background:rgba(0,0,0,.3);border:1px solid rgba(197,160,89,.3);border-radius:8px;color:#fff;font-size:.95rem;font-family:inherit;outline:none;transition:border-color .2s}
+#pw-input:focus{border-color:#C5A059}
+#pw-btn{margin-top:14px;width:100%;padding:12px;background:#C5A059;color:#001B44;border:0;border-radius:8px;font-family:'Oswald',Impact,sans-serif;font-size:1.1rem;letter-spacing:.1em;cursor:pointer}
+#pw-btn:hover{background:#A6813C}
+#pw-error{font-size:.8rem;color:#ff7a7a;margin:12px 0 0;min-height:1.2em}
+.pw-shake{animation:pwShake .35s}
+@keyframes pwShake{0%,100%{transform:translateX(0)}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+@media print{#pw-gate{display:none!important}}
 </style>
 </head>
 <body>
+<!-- PASSWORD GATE — shares 'fvf_admin' session key -->
+<div id="pw-gate">
+  <div id="pw-box">
+    <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1770763739/forge-logo-w-fox-valley-23jan2026_d1dlgi.png" alt="Fox Valley Forge SC" onerror="this.style.display='none'">
+    <h2>Meeting Agenda</h2>
+    <p class="sub">This page is password protected.</p>
+    <input id="pw-input" type="password" placeholder="Enter password" autocomplete="current-password">
+    <button id="pw-btn">Enter</button>
+    <p id="pw-error"></p>
+  </div>
+</div>
+<script>
+(function(){
+  var KEY='fvf_admin';
+  var HASH='8e484aece8ea37afd67cd15d4f13fb2ef4ca78b2f5d5904400aa4bb1a2aad3a3';
+  var gate=document.getElementById('pw-gate');
+  if(sessionStorage.getItem(KEY)==='1'){gate.style.display='none';return;}
+  document.body.style.overflow='hidden';
+  function unlock(){sessionStorage.setItem(KEY,'1');document.body.style.overflow='';gate.style.display='none';}
+  function fail(){document.getElementById('pw-error').textContent='Incorrect password. Try again.';var b=document.getElementById('pw-box');b.classList.remove('pw-shake');void b.offsetWidth;b.classList.add('pw-shake');document.getElementById('pw-input').select();}
+  function attempt(){crypto.subtle.digest('SHA-256',new TextEncoder().encode(document.getElementById('pw-input').value)).then(function(buf){var hex=Array.prototype.map.call(new Uint8Array(buf),function(b){return b.toString(16).padStart(2,'0');}).join('');if(hex===HASH){unlock();}else{fail();}});}
+  document.getElementById('pw-btn').addEventListener('click',attempt);
+  document.getElementById('pw-input').addEventListener('keydown',function(e){if(e.key==='Enter')attempt();});
+  document.getElementById('pw-input').focus();
+})();
+</script>
 
 <header class="top">
   <div class="wrap">

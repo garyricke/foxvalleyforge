@@ -2,3 +2,8 @@
 .claude/
 .env
 .env.*
+
+# Internal working drafts — never publish.
+# The one exception is the meeting agenda, which carries the fvf_admin gate.
+plan/*
+!plan/meeting-agenda-mike-2026-07-15.html
