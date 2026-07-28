@@ -70,6 +70,22 @@ nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.4)}
 /* ── SECTIONS ── */
 section{padding:80px 24px}
 .section-inner{max-width:1200px;margin:0 auto}
+
+/* ── GOLF CLASSIC BAND ── */
+#golf-classic{position:relative;padding:0;min-height:620px;display:flex;align-items:center;justify-content:center;overflow:hidden;background:var(--navy)}
+.golf-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.golf-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(0,15,34,.62) 0%,rgba(0,15,34,.48) 45%,rgba(0,15,34,.88) 100%)}
+.golf-content{position:relative;z-index:2;max-width:860px;margin:0 auto;padding:96px 24px;text-align:center;color:#fff}
+.golf-eyebrow{font-family:var(--font-h);font-size:.8rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+.golf-title{font-family:var(--font-h);font-size:clamp(2.2rem,6vw,4rem);font-weight:700;text-transform:uppercase;line-height:1.05;letter-spacing:.01em;text-shadow:0 4px 24px rgba(0,0,0,.45)}
+.golf-tag{font-family:var(--font-h);font-size:clamp(.95rem,2vw,1.25rem);letter-spacing:.12em;text-transform:uppercase;color:#fff;margin-top:8px;font-weight:500}
+.golf-sub{font-size:1.05rem;line-height:1.7;color:#D6E0EE;max-width:640px;margin:18px auto 0}
+.golf-meta{margin-top:24px;display:flex;gap:10px 28px;justify-content:center;flex-wrap:wrap;font-family:var(--font-h);font-size:.85rem;letter-spacing:.08em;text-transform:uppercase}
+.golf-meta span{display:inline-flex;align-items:center;gap:8px}
+.golf-meta svg{width:18px;height:18px;color:var(--gold);flex:none}
+.golf-btns{margin-top:32px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+@media(max-width:600px){#golf-classic{min-height:520px}.golf-content{padding:72px 20px}.golf-sub{font-size:.98rem}}
+/* reduced-motion: the video is never loaded or played (see golfObserver), so its poster stands in as a still */
 .section-label{font-family:var(--font-h);font-size:.8rem;font-weight:600;letter-spacing:.2em;color:var(--crimson);margin-bottom:12px}
 .section-title{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:700;margin-bottom:16px}
 .section-sub{font-size:1.1rem;color:#555;max-width:640px;line-height:1.65;margin-bottom:48px}
@@ -1204,6 +1220,26 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
           <p class="event-coming-soon">Team rosters and travel details coming soon — get ready!</p>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- GOLF CLASSIC — auto-hides after the event via data-event-end -->
+<section id="golf-classic" data-event-end="2026-08-31">
+  <video id="golf-video" class="golf-video" data-src="https://res.cloudinary.com/dsbllwpbh/video/upload/q_auto:low,w_1280/f_mp4/v1785237086/forge/classic/golf-classic-loop.mp4" muted loop playsinline preload="none" poster="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_1600/v1785237096/forge/classic/golf-classic-poster.jpg"></video>
+  <div class="golf-overlay"></div>
+  <div class="golf-content">
+    <p class="golf-eyebrow fade-in">Inaugural Outing · Benefiting Fox Valley Forge SC</p>
+    <h2 class="golf-title fade-in">Forge Golf Classic</h2>
+    <p class="golf-tag fade-in">A Championship Day for the Club We're Building</p>
+    <p class="golf-sub fade-in">Gather your foursome for an 18-hole shotgun scramble at one of the Fox Valley's premier private courses — on-course contests, lunch off the grill and a BBQ dinner to close it out. Every registration and sponsorship goes straight back to our players.</p>
+    <div class="golf-meta fade-in">
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Monday, August 31, 2026</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Eagle Brook Country Club · Geneva, IL</span>
+    </div>
+    <div class="golf-btns fade-in">
+      <a href="forge-classic.html" class="btn btn-gold">Event Details &amp; Registration</a>
+      <a href="forge-classic-sponsors.html" class="btn btn-outline">Sponsor Opportunities</a>
     </div>
   </div>
 </section>
@@ -3253,6 +3289,21 @@ if (collegeVideo) {
     });
   }, { threshold: 0.3 });
   videoObserver.observe(collegeVideo);
+}
+
+// Golf Classic background video — same lazy pattern; skipped entirely for reduced-motion users
+var golfVideo = document.getElementById('golf-video');
+if (golfVideo && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  var golfObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        if (!entry.target.src) { entry.target.src = entry.target.dataset.src; }
+        var p = entry.target.play();
+        if (p && p.catch) { p.catch(function(){}); }
+      } else { entry.target.pause(); }
+    });
+  }, { threshold: 0.25 });
+  golfObserver.observe(golfVideo);
 }
 
 // Only show intro once per calendar day
