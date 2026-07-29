@@ -7,3 +7,12 @@
 # The one exception is the meeting agenda, which carries the fvf_admin gate.
 plan/*
 !plan/meeting-agenda-mike-2026-07-15.html
+
+# Children's photos — NEVER commit. This repo publishes from the root on every
+# push to main, so anything tracked here goes public. The real player-photo set
+# lives outside the repo at "~/Documents/Forge Player Photos (PRIVATE)".
+# This is a backstop for accidental drops, not the storage location.
+player-photos/
+player_photos/
+**/*Player Card Photo*
+files/
