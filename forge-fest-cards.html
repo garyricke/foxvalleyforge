@@ -280,7 +280,7 @@ img{max-width:100%;display:block}
       <dt>Illustration style</dt><dd>Semi-Realistic <em>— for all 525 player cards</em></dd>
       <dt>Group colours</dt><dd>Players Navy · Coaches Red · Staff Gold <em>— Directors &amp; Board proposed below</em></dd>
       <dt>Jersey number</dt><dd>Added <em>— now on the card front and back</em></dd>
-      <dt>Character tenets</dt><dd>All seven <em>— replaces the original four</em></dd>
+      <dt>Character tenets</dt><dd>All eight <em>— Mike's seven plus Respect</em></dd>
       <dt>Consent</dt><dd>Required checkbox <em>— language drafted below</em></dd>
       <dt>Never printed</dt><dd>Last names · birthdates · siblings</dd>
     </dl>
@@ -308,8 +308,8 @@ img{max-width:100%;display:block}
   <div class="grid" id="grid-redraw"></div>
 
   <!-- CHARACTER TENETS -->
-  <div class="section-label">The Seven <span>Character Tenets</span></div>
-  <div class="section-sub">Mike's 28 Jul list, in full. Each gets its own flat icon, stamped on the back of every card. <b>Note:</b> "Respect" was in the original four and is not in the seven — flagging in case that's a change rather than an omission.</div>
+  <div class="section-label">The Eight <span>Character Tenets</span></div>
+  <div class="section-sub">Mike's 28 Jul list plus <b>Respect</b>, restored 29 Jul at Mike's confirmation — it was dropped between brainstorms, not on purpose. Each gets its own flat icon, stamped on the back of every card.</div>
   <div class="tenets" id="tenets"></div>
 
   <!-- SURVEY FORM -->
@@ -456,7 +456,6 @@ img{max-width:100%;display:block}
     <h4>Open — needs a decision from Mike or Bridgett</h4>
     <ul>
       <li><b>Director &amp; Board colours.</b> Bridgett assigned three; Mike wants five distinguishable. I've proposed <b>Bronze</b> for Directors and <b>Graphite</b> for Board — both hold up in flat CMYK next to the other three. Swap on request.</li>
-      <li><b>"Respect" vs the seven tenets.</b> Respect was in the original four but isn't in Mike's seven. Dropped for now — confirm that's intended.</li>
       <li><b>Coach &amp; director photos.</b> Yes, a shoulders-up phone photo works — the illustrated redraw is doing the heavy lifting. Requirements: <b>good even light on the face</b> (outdoors in shade is ideal), <b>plain-ish background</b>, <b>eyes to camera</b>, no hat or sunglasses, held at eye level rather than below, and sent at <b>full resolution</b> (AirDrop or "Actual Size" in email — not pasted into a document). A posed selfie at arm's length is fine.</li>
       <li><b>Still needed:</b> photos for Jeff Muhr, Greg Muhr, Angel, Taylor and Colleen. Karim's is in hand.</li>
     </ul>
@@ -489,8 +488,9 @@ const GROUPS={
 };
 const vars=g=>`--band:${g.band};--band-text:${g.bandText};--band-ink:${g.ink};--rule:${g.rule};`;
 
-/* ── THE SEVEN FORGE CHARACTER TENETS (Mike, 28 Jul) ──
-   Flat, single-stroke, currentColor icons per the iconography rules. */
+/* ── THE EIGHT FORGE CHARACTER TENETS (Mike, 28 Jul; Respect restored 29 Jul) ──
+   Flat, single-stroke, currentColor icons per the iconography rules.
+   Respect sits 4th, closing out the original four it was brainstormed with. */
 const TENETS={
   'Integrity':{
     d:'Honest and sincere with yourself, does the right thing, even when no one is watching',
@@ -501,6 +501,11 @@ const TENETS={
   'Indomitable Spirit':{
     d:'Unbreakable determination, 100% effort all the time',
     icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4.5 13H11l-1 9 8.5-11H12l1-9z"/></svg>'},
+  /* open raised hand — the on-pitch gesture to an opponent or official.
+     Deliberately not a handshake: at 24px a two-hand clasp collapses into a chevron. */
+  'Respect':{
+    d:'Honors teammates, opponents, officials, and the game',
+    icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 13V5.8a1.6 1.6 0 013.2 0V11"/><path d="M10.2 10.6V4.6a1.6 1.6 0 013.2 0v6"/><path d="M13.4 10.8V6.2a1.6 1.6 0 013.2 0v7.4a7 7 0 01-7 7 6 6 0 01-6-6v-3a1.6 1.6 0 013.2 0"/></svg>'},
   'Humility':{
     d:'Puts the team first and is always willing to learn',
     icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20v-1a5 5 0 015-5h2a5 5 0 015 5v1"/><circle cx="17.5" cy="10.5" r="2.5"/><path d="M21 20v-.5a4 4 0 00-4-4"/></svg>'},
