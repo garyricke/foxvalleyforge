@@ -33,6 +33,30 @@ body{font-family:var(--font-b);background:linear-gradient(165deg,#000d22 0%,var(
 .masthead .lede{max-width:620px;margin:0 auto;color:#B9C6DB;font-size:1.04rem}
 .masthead .lede b{color:#fff;font-weight:600}
 
+/* ── CLOSED NOTICE (13 Aug) ──
+   Shown instead of the form once the files are at the printer. Hiding #intro
+   and #card-form takes the live preview with it - the preview column lives
+   inside the <form>. Delete this block and the two display:none rules to
+   reopen the form for a second run. */
+#closed{max-width:820px;margin:0 auto 34px;background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.13);border-radius:14px;padding:30px 30px 26px;text-align:left}
+#closed .cl-icon{width:52px;height:52px;border-radius:50%;background:var(--crimson);
+  display:flex;align-items:center;justify-content:center;margin:0 0 16px}
+#closed .cl-icon svg{width:27px;height:27px;color:#fff}
+#closed h2{font-family:var(--font-retro);font-size:clamp(1.5rem,4vw,2rem);text-transform:uppercase;
+  color:#fff;line-height:1.1;margin:0 0 10px;letter-spacing:.01em}
+#closed .cl-lede{color:#C9D5E6;font-size:1.02rem;margin:0 0 20px;max-width:60ch}
+#closed .cl-list{list-style:none;display:grid;gap:13px;margin:0 0 22px}
+#closed .cl-list li{position:relative;padding-left:18px;font-size:.96rem;color:#C9D5E6;line-height:1.55}
+#closed .cl-list li:before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;
+  border-radius:50%;background:var(--gold)}
+#closed .cl-list b{color:#fff;font-weight:600}
+#closed .cl-foot{font-size:.9rem;color:#8FA0BC;margin:0;padding-top:16px;
+  border-top:1px solid rgba(255,255,255,.12)}
+#closed .cl-foot a{color:var(--gold-light)}
+#intro,#card-form{display:none!important}
+@media(max-width:560px){#closed{padding:24px 20px 22px}}
+
 /* ── INTRO PANEL ── */
 .intro{max-width:820px;margin:0 auto 34px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.13);
   border-radius:14px;padding:24px 28px;overflow:hidden}
@@ -193,7 +217,31 @@ body{font-family:var(--font-b);background:linear-gradient(165deg,#000d22 0%,var(
     <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_320/v1772573826/forge-logo-w-fox-valley-23jan2026_ojhvif.png" alt="Fox Valley Forge SC">
     <p class="eyebrow">Forge Fest 2026</p>
     <h1>Your Player's<br>Forge Trading Card</h1>
-    <p class="lede">Every Forge player is getting their own collectible trading card, handed out at <b>Forge Fest</b>. Tell us a bit about your player and we'll do the rest. <b>It takes about three minutes.</b></p>
+    <!-- reopening for a second run? the original lede was:
+         "…handed out at <b>Forge Fest</b>. Tell us a bit about your player and
+          we'll do the rest. <b>It takes about three minutes.</b>" -->
+    <p class="lede">Every Forge player is getting their own collectible trading card, handed out at <b>Forge Fest on Saturday 22 August</b>.</p>
+  </div>
+
+  <!-- ═══════════ CLOSED ═══════════
+       13 Aug, files went to the printer. Families were still submitting, and
+       every late one is a parent who believes a personalised card is coming.
+       The page stays live rather than 404ing - the link is in emails already
+       sent home, and a dead link reads worse than a clear notice. -->
+  <div id="closed">
+    <div class="cl-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.4-3 8-7 10-4-2-7-5.6-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
+    </div>
+    <h2>Thanks &mdash; this form is now closed</h2>
+    <p class="cl-lede">The cards are at the printer. We can&rsquo;t take any more answers, but here&rsquo;s what happens next.</p>
+
+    <ul class="cl-list">
+      <li><b>Every Forge player still gets a card.</b> If you didn&rsquo;t fill this in, your player&rsquo;s card is still being printed &mdash; their photo, name and team are all on it. The back carries the club design instead of their favourites.</li>
+      <li><b>Cards are handed out at Forge Fest &mdash; Saturday 22 August.</b> Come and collect them on the day.</li>
+      <li><b>Missed the deadline?</b> We&rsquo;re looking into whether a small second run is possible after Forge Fest. Nothing is promised yet &mdash; if it goes ahead, the club will be in touch.</li>
+    </ul>
+
+    <p class="cl-foot">Questions? Email <a href="mailto:bridgett.syzdek@forgesoccerclub.com">bridgett.syzdek@forgesoccerclub.com</a></p>
   </div>
 
   <div class="intro" id="intro">

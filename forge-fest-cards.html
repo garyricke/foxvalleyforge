@@ -117,6 +117,14 @@ img{max-width:100%;display:block}
 .r-tbl td:first-child{font-family:var(--font-h);text-transform:uppercase;letter-spacing:.06em;color:var(--navy-70);font-size:.58rem;font-weight:600}
 .r-tbl td:last-child{text-align:right;font-weight:600;color:var(--ink)}
 .r-favhdr{font-family:var(--font-retro);font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--band-ink);margin:9px 0 3px}
+/* shown when a card has no data to put on the back - every adult, and any
+   family that did not fill the form in. Fills the space deliberately instead
+   of leaving empty headings. */
+.r-clubback{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;flex:1;padding:14px 10px 6px}
+.r-clubback img{width:74px;height:auto;margin:0 0 10px;opacity:.95}
+.r-clubback .cb-name{font-family:var(--font-retro);font-size:.95rem;letter-spacing:.05em;text-transform:uppercase;color:var(--band-ink);line-height:1.15}
+.r-clubback .cb-line{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--band-ink);opacity:.7;margin:5px 0 0}
+.r-clubback .cb-ev{font-family:var(--font-retro);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--band-ink);margin:12px 0 0;padding:4px 12px;border:1.5px solid var(--rule);border-radius:4px}
 .r-stamp{margin-top:auto;display:flex;align-items:center;gap:8px;border:2px solid var(--rule);border-radius:6px;padding:6px 10px;transform:rotate(-1.5deg)}
 .r-stamp svg{width:24px;height:24px;color:var(--rule);flex:0 0 auto}
 .r-stamp .sl{font-family:var(--font-h);font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;color:var(--navy-70)}
@@ -579,7 +587,10 @@ function retroFront(p){
     <div class="r-plate">
       <div class="r-plate-txt">
         <div class="nm">${esc(p.name)}</div>
-        <div class="meta"><span class="pos">${esc(p.pos)}</span><span class="sub">${esc(p.role)}</span></div>
+        <!-- the chip is conditional like the number above it: .pos carries a
+             background and padding, so an empty one printed as a bare crimson
+             pill next to the name. 240 players never gave us a position. -->
+        <div class="meta">${p.pos?`<span class="pos">${esc(p.pos)}</span>`:''}${p.role&&p.role!==p.pos?`<span class="sub">${esc(p.role)}</span>`:''}</div>
       </div>
       ${p.num?`<div class="r-no">${esc(p.num)}<small>No.</small></div>`:''}
     </div>
@@ -590,20 +601,34 @@ function retroFront(p){
 function retroBack(p){
   const g=GROUPS[p.group]||GROUPS.player;
   const isPlayer=!!p.years;
-  const rows=isPlayer
+  const rows=(isPlayer
     ? [['Position',p.pos],['Years Playing',p.years],['Previous Club',p.prev]]
-    : (p.rows||[]);
+    : (p.rows||[])).filter(r=>r[1]);          // drop rows the family left blank
   const statRows=rows.map(r=>`<tr><td>${esc(r[0])}</td><td>${esc(r[1])}</td></tr>`).join('');
-  const favRows=Object.entries(p.fav).map(([k,v])=>`<tr><td>${esc(k)}</td><td>${esc(v)}</td></tr>`).join('');
-  return `<div class="face back r-back" style="${vars(g)}"><div class="r-back-inner">
-    <div class="r-back-head">
-      <div><div class="nm">${esc(p.name)}</div><div class="rl">${esc(p.role)} · ${esc(p.team)}</div></div>
+  const favs=Object.entries(p.fav||{}).filter(([,v])=>v);
+  const favRows=favs.map(([k,v])=>`<tr><td>${esc(k)}</td><td>${esc(v)}</td></tr>`).join('');
+  // Every section below is optional. The original always printed the Favorites
+  // heading and the tenet stamp, so a family that never filled the form got a
+  // card backed with empty headings and a blank box - and so did every adult,
+  // who has no favorites to give. Print a heading only when it has something
+  // under it, and fall back to the club block when there is nothing at all.
+  const head=`<div class="r-back-head">
+      <div><div class="nm">${esc(p.name)}</div><div class="rl">${[p.role,p.team].filter(Boolean).map(esc).join(' · ')}</div></div>
       ${p.num?`<div class="no">#${esc(p.num)}</div>`:''}
-    </div>
-    <table class="r-tbl"><tbody>${statRows}</tbody></table>
-    <div class="r-favhdr">Favorites</div>
-    <table class="r-tbl"><tbody>${favRows}</tbody></table>
-    <div class="r-stamp">${tenetIcon(p.quality)}<div><div class="sl">Character Tenet</div><div class="sv">${esc(p.quality)}</div></div></div>
+    </div>`;
+  const body=(statRows||favRows||p.quality)
+    ? `${statRows?`<table class="r-tbl"><tbody>${statRows}</tbody></table>`:''}
+       ${favRows?`<div class="r-favhdr">Favorites</div><table class="r-tbl"><tbody>${favRows}</tbody></table>`:''}
+       ${p.quality?`<div class="r-stamp">${tenetIcon(p.quality)}<div><div class="sl">Character Tenet</div><div class="sv">${esc(p.quality)}</div></div></div>`:''}`
+    : `<div class="r-clubback">
+         <img src="${LOGO}" alt="">
+         <div class="cb-name">Fox Valley Forge SC</div>
+         <div class="cb-line">One Valley &middot; One Club</div>
+         <div class="cb-ev">Forge Fest 2026</div>
+       </div>`;
+  return `<div class="face back r-back" style="${vars(g)}"><div class="r-back-inner">
+    ${head}
+    ${body}
   </div></div>`;
 }
 
