@@ -648,9 +648,14 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
   <a href="#" onclick="closeMobile();openModal('modal-register');return false" class="btn btn-crimson" style="text-align:center;margin-top:8px">Request Information</a>
 </div>
 
-<!-- ANNOUNCEMENT STRIP — Advantage summer camp promo removed Jul 23 2026 (camp ended).
-     To run a new promo: restore an <a class="promo-strip" data-event-end="YYYY-MM-DD"> block here;
-     it auto-hides the day after the end date via the AUTO-EXPIRE script. -->
+<!-- ANNOUNCEMENT STRIP — auto-hides the day after data-event-end via the AUTO-EXPIRE script. -->
+<a href="/news" class="promo-strip" data-event-end="2026-09-14">
+  <div class="promo-strip-inner">
+    <span class="promo-strip-eyebrow">New</span>
+    <span class="promo-strip-msg">Our first season starts today — a message from Club President Mike Weyant</span>
+    <span class="promo-strip-cta">Watch &amp; Read →</span>
+  </div>
+</a>
 
 <!-- HERO -->
 <section id="hero">
@@ -1961,6 +1966,7 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
           <li><a href="#" onclick="openModal('modal-facilities');return false">Facilities</a></li>
           <li><a href="#" onclick="openModal('modal-story');return false">Our Story</a></li>
           <li><a href="#leadership">Leadership</a></li>
+          <li><a href="/news">Club News</a></li>
           <li><a href="#" onclick="openModal('modal-tryouts');return false">Tryout Process</a></li>
         </ul>
       </div>
