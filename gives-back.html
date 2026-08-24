@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Forge Gives Back 2026 — Walk to End Alzheimer's | Fox Valley Forge SC</title>
+<meta name="description" content="Fox Valley Forge SC is walking together for the Alzheimer's Association. Register, donate, show up.">
+<link rel="canonical" href="https://forgesoccerclub.com/gives-back">
+<meta name="robots" content="noindex"><!-- REVIEW ONLY — delete this line when the page goes live -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap">
+
+<script>
+/* ==========================================================================
+   FORGE GIVES BACK 2026 — CONFIGURATION
+   Everything an editor needs to change lives in this one block.
+   ==========================================================================
+
+   >>> THREE THINGS STILL NEED CONFIRMING FROM DANIELLE <<<
+   1. WHICH WALK.  The sample dashboard said Chicago (Sat 3 Oct, Lincoln Park).
+      Mike said in February it was "coming up in September", and Danielle said on
+      the call the event is "a month from yesterday" — both point at the FOX VALLEY
+      walk, Sat 26 Sept at Pottawatomie Park in St. Charles, 15 min from the club.
+      Fox Valley is set below. If it is actually Chicago, change EVENT.* only.
+   2. REGISTER_URL — the real Forge team page on act.alz.org. Danielle has it.
+      The placeholder below points at the Fox Valley walk's team-search page so
+      the button is never dead, but it is NOT the Forge team page.
+   3. GOAL — the sample dashboard said $25,000. $100 x 549 players is $54,900.
+   ========================================================================== */
+window.FGB_CONFIG = {
+
+  /* Set to false to take the page live: removes the password gate and the
+     yellow review banner. Nothing else changes. */
+  REVIEW: true,
+
+  /* Published Google Sheet, CSV output. Columns, in order:
+        Player | Team | Amount Raised | Date Registered
+     To produce this URL: open the sheet, File > Share > Publish to web,
+     choose the sheet tab, choose "Comma-separated values (.csv)", Publish,
+     then paste the resulting link here. See SETUP note at the bottom of this file. */
+  SHEET_CSV_URL: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQECqdzPuqUWHrtIERXMBAglkdydWDVF8UUkl-j_udyTNdoh_xm57_KnFKVOB0qxwmwwyKRFesahsrv/pub?gid=1344003812&single=true&output=csv',
+
+  GOAL: 25000,
+
+  EVENT: {
+    name:     "Walk to End Alzheimer's — Fox Valley",
+    dateText: 'Saturday, September 26, 2026',
+    dateISO:  '2026-09-26',
+    time:     'Festivities 8:30am · Ceremony 9:30am · Walk 10:00am',
+    venue:    'Pottawatomie Park',
+    address:  '8 North Ave, St. Charles, IL 60174',
+    mapUrl:   'https://maps.google.com/?q=Pottawatomie+Park+8+North+Ave+St+Charles+IL+60174'
+  },
+
+  /* The Forge team page on the Alzheimer's Association site. Confirmed by
+     Rebecca Santana (ALZ) 21 Aug 2026; this vanity URL is already printed on
+     the Association's "Register or Donate" sign and its QR code, so it must
+     not be swapped for the long team_id form. Resolves to team_id=1041627. */
+  TEAM_NAME:    'Forge Forward',
+  REGISTER_URL: 'https://act.alz.org/goto/ForgeForward',
+  DONATE_URL:   'https://act.alz.org/goto/ForgeForward',
+
+  /* Danielle asked that would-be volunteers contact her directly. */
+  VOLUNTEER_NAME:  'Danielle Weyant',
+  VOLUNTEER_EMAIL: 'danielle.weyant@gmail.com',
+
+  /* Every participant who raises this much is guaranteed an official Walk
+     t-shirt, provided they hit it four weeks before walk day. */
+  SHIRT_THRESHOLD: 100,
+  SHIRT_DEADLINE:  'Saturday, August 29',
+
+  CONTACT_EMAIL: 'alzwalk@forgesoccerclub.com'
+};
+</script>
+
+<style>
+:root{
+  --navy:#001B44;
+  --navy-2:#052a63;
+  --crimson:#A91335;
+  --gold:#C5A059;
+  --purple:#5B2B87;
+  --purple-lt:#7E4FB0;
+
+  --ink:#14182B;
+  --ink-2:#4A5268;
+  --ink-3:#79809A;
+  --paper:#FFFFFF;
+  --paper-2:#F5F6FA;
+  --rule:#E2E5EE;
+  --shadow:0 1px 2px rgba(0,27,68,.05),0 10px 30px -14px rgba(0,27,68,.25);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:'Source Sans 3',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,.dsp,.stat-n,.rank,.btn,th{font-family:Oswald,'Arial Narrow',Arial,sans-serif;font-weight:600;letter-spacing:.01em}
+img{max-width:100%;display:block}
+a{color:var(--purple)}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px;border-radius:4px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+.tabnum{font-variant-numeric:tabular-nums}
+
+/* ---------- password gate ---------- */
+#pw-gate{position:fixed;inset:0;background:var(--navy);z-index:9999;display:flex;align-items:center;justify-content:center;padding:22px}
+/* An author `display` beats the UA rule for [hidden], so the gate and banner
+   need this explicitly or they stay on screen after REVIEW is switched off. */
+#pw-gate[hidden],#review-bar[hidden]{display:none}
+#pw-box{background:#fff;border-radius:16px;padding:34px 30px;max-width:380px;width:100%;text-align:center;box-shadow:0 30px 70px rgba(0,0,0,.45)}
+#pw-box img{height:64px;margin:0 auto 18px;width:auto}
+#pw-box h2{margin:0 0 6px;font-size:22px;text-transform:uppercase;letter-spacing:.06em}
+#pw-box .sub{margin:0 0 20px;color:var(--ink-2);font-size:15px}
+#pw-box input{width:100%;padding:12px 14px;font-size:16px;border:1px solid var(--rule);border-radius:9px;font-family:inherit}
+#pw-box button{width:100%;margin-top:12px;padding:12px;background:var(--navy);color:#fff;border:0;border-radius:9px;font-size:15px;cursor:pointer;font-family:Oswald,sans-serif;letter-spacing:.06em;text-transform:uppercase}
+#pw-box button:hover{background:var(--navy-2)}
+#pw-error{color:var(--crimson);font-size:14px;margin:10px 0 0;min-height:20px}
+@keyframes shake{10%,90%{transform:translateX(-2px)}20%,80%{transform:translateX(4px)}30%,50%,70%{transform:translateX(-7px)}40%,60%{transform:translateX(7px)}}
+.pw-shake{animation:shake .5s}
+
+/* ---------- review banner ---------- */
+#review-bar{background:#FFF4D6;border-bottom:2px solid var(--gold);color:#5C4514;font-size:14.5px;padding:11px 0}
+#review-bar .wrap{display:flex;gap:14px;align-items:flex-start}
+#review-bar b{font-family:Oswald,sans-serif;letter-spacing:.05em;text-transform:uppercase;font-size:13px;white-space:nowrap;padding-top:1px}
+#review-bar ul{margin:3px 0 0;padding-left:18px}
+#review-bar li{margin-bottom:2px}
+
+/* ---------- masthead ---------- */
+.masthead{background:var(--navy);color:#fff;padding:14px 0}
+.masthead .wrap{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.masthead img{height:46px;width:auto}
+.supporter{font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:#A9B8D4;text-align:right;line-height:1.45;max-width:290px}
+
+/* ---------- hero ---------- */
+.hero{
+  background:
+    linear-gradient(100deg,rgba(0,27,68,.96) 0%,rgba(0,27,68,.93) 34%,rgba(0,27,68,.72) 62%,rgba(0,27,68,.52) 100%),
+    radial-gradient(1100px 380px at 82% -10%, rgba(91,43,135,.55), transparent 70%),
+    url('https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_2000/v1787587077/forge/gives-back-hero-2026.jpg') center 62%/cover no-repeat,
+    var(--navy);
+  color:#fff;padding:72px 0 76px;position:relative;overflow:hidden;
+}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:5px;
+  background:linear-gradient(90deg,var(--gold) 0 33%,var(--purple-lt) 33% 66%,var(--crimson) 66% 100%)}
+.hero .eyebrow{font-family:Oswald,sans-serif;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin:0 0 14px}
+.hero h1{font-size:clamp(36px,6.4vw,68px);line-height:1.02;margin:0 0 18px;text-transform:uppercase;max-width:16ch;text-wrap:balance}
+.hero h1 em{font-style:normal;color:var(--gold)}
+.hero p.lede{font-size:19px;color:#D5DEEE;max-width:56ch;margin:0 0 28px}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.btn{display:inline-block;padding:14px 26px;border-radius:10px;text-decoration:none;font-size:16px;letter-spacing:.07em;text-transform:uppercase;border:2px solid transparent;transition:transform .12s ease,background .15s ease}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:var(--gold);color:var(--navy)}
+.btn-primary:hover{background:#D8B978}
+.btn-ghost{border-color:rgba(255,255,255,.45);color:#fff}
+.btn-ghost:hover{background:rgba(255,255,255,.1)}
+.hero-note{font-size:14.5px;color:#9FB0CC;margin:16px 0 0}
+
+/* ---------- numbers ---------- */
+.numbers{background:var(--paper-2);padding:44px 0;border-bottom:1px solid var(--rule)}
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px;margin-bottom:26px}
+.stat{background:#fff;border:1px solid var(--rule);border-radius:14px;padding:20px 22px;box-shadow:var(--shadow)}
+.stat .lbl{font-family:Oswald,sans-serif;font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3);margin:0 0 6px}
+.stat-n{font-size:clamp(30px,4.4vw,42px);line-height:1.05;color:var(--navy);margin:0}
+.stat .sub{font-size:14px;color:var(--ink-2);margin:5px 0 0}
+.stat.accent .stat-n{color:var(--purple)}
+
+.thermo-card{background:#fff;border:1px solid var(--rule);border-radius:14px;padding:22px;box-shadow:var(--shadow)}
+.thermo-head{display:flex;justify-content:space-between;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:12px}
+.thermo-head h3{margin:0;font-size:17px;text-transform:uppercase;letter-spacing:.07em}
+.thermo-head .goal{font-size:15px;color:var(--ink-2)}
+.track{height:30px;background:var(--paper-2);border:1px solid var(--rule);border-radius:99px;overflow:hidden;position:relative}
+.fill{height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,var(--purple),var(--purple-lt));transition:width 1.1s cubic-bezier(.2,.7,.3,1)}
+.ticks{display:flex;justify-content:space-between;font-size:12.5px;color:var(--ink-3);margin-top:7px;font-variant-numeric:tabular-nums}
+
+/* ---------- sections ---------- */
+section.band{padding:56px 0}
+section.band.alt{background:var(--paper-2);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.sec-head{margin-bottom:26px}
+.sec-head .eyebrow{font-family:Oswald,sans-serif;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--purple);margin:0 0 7px}
+.sec-head h2{font-size:clamp(26px,3.6vw,36px);margin:0 0 8px;text-transform:uppercase;line-height:1.1}
+.sec-head p{margin:0;color:var(--ink-2);max-width:62ch}
+
+/* ---------- three steps ---------- */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
+.step{background:#fff;border:1px solid var(--rule);border-radius:14px;padding:24px;box-shadow:var(--shadow);border-top:4px solid var(--purple)}
+.step:nth-child(2){border-top-color:var(--gold)}
+.step:nth-child(3){border-top-color:var(--crimson)}
+.step .n{font-family:Oswald,sans-serif;font-size:12px;letter-spacing:.14em;color:var(--ink-3);text-transform:uppercase;margin:0 0 8px}
+.step h3{margin:0 0 8px;font-size:22px;text-transform:uppercase}
+.step p{margin:0 0 14px;color:var(--ink-2);font-size:16px}
+.step a.inline{font-weight:600;text-decoration-thickness:2px;text-underline-offset:3px}
+
+/* ---------- leaderboard ---------- */
+.lb-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:16px}
+.toggle{display:inline-flex;border:1px solid var(--rule);border-radius:10px;overflow:hidden;background:#fff}
+.toggle button{border:0;background:#fff;padding:9px 15px;font-family:Oswald,sans-serif;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);cursor:pointer}
+.toggle button[aria-pressed="true"]{background:var(--navy);color:#fff}
+.tbl-wrap{overflow-x:auto;background:#fff;border:1px solid var(--rule);border-radius:14px;box-shadow:var(--shadow)}
+table{border-collapse:collapse;width:100%;font-size:16px;min-width:520px}
+th{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);text-align:left;padding:13px 16px;border-bottom:1px solid var(--rule);background:var(--paper-2);white-space:nowrap;font-weight:500}
+td{padding:13px 16px;border-bottom:1px solid var(--rule)}
+tbody tr:last-child td{border-bottom:none}
+tbody tr.top1{background:linear-gradient(90deg,rgba(197,160,89,.16),transparent 60%)}
+.rank{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--paper-2);color:var(--ink-2);font-size:14px}
+tr.top1 .rank{background:var(--gold);color:var(--navy)}
+tr.top2 .rank{background:#D8DEE9;color:var(--navy)}
+tr.top3 .rank{background:#E8D3B4;color:var(--navy)}
+td.money{font-variant-numeric:tabular-nums;font-weight:600;white-space:nowrap}
+td.muted{color:var(--ink-2);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar-cell{min-width:130px}
+.minibar{height:8px;background:var(--paper-2);border-radius:99px;overflow:hidden}
+.minibar span{display:block;height:100%;background:var(--purple-lt);border-radius:99px}
+
+/* ---------- details ---------- */
+.detail-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.card{background:#fff;border:1px solid var(--rule);border-radius:14px;padding:22px;box-shadow:var(--shadow)}
+.card h3{margin:0 0 10px;font-size:18px;text-transform:uppercase;letter-spacing:.05em}
+.card p{margin:0 0 8px;color:var(--ink-2)}
+.card p:last-child{margin-bottom:0}
+.card .big{font-family:Oswald,sans-serif;font-size:20px;color:var(--navy);margin-bottom:4px}
+
+/* ---------- footer ---------- */
+footer{background:var(--navy);color:#B9C6DD;padding:40px 0;font-size:14.5px}
+footer .wrap{display:flex;justify-content:space-between;gap:22px;flex-wrap:wrap;align-items:flex-start}
+footer img{height:42px;margin-bottom:12px}
+footer a{color:#fff}
+.stamp{font-size:13px;color:#8595B3;margin-top:10px}
+
+.loading{color:var(--ink-3);font-style:italic}
+.datanote{font-size:13.5px;color:var(--ink-3);margin:12px 0 0}
+.datanote.warn{color:#8A5A12}
+
+@media (max-width:640px){
+  body{font-size:16px}
+  .hero{padding:40px 0 44px;
+    background-image:
+      linear-gradient(180deg,rgba(0,27,68,.94) 0%,rgba(0,27,68,.90) 55%,rgba(0,27,68,.80) 100%),
+      radial-gradient(1100px 380px at 82% -10%, rgba(91,43,135,.55), transparent 70%),
+      url('https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_1200/v1787587077/forge/gives-back-hero-2026.jpg')}
+  .supporter{text-align:left;max-width:none}
+  section.band{padding:42px 0}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     PASSWORD GATE — review only.
+     Uses its OWN session key (fvf_walk), deliberately NOT the
+     fvf_admin key used by status.html / meetings.html /
+     correspondence.html, so sharing this password with Danielle
+     and Jim does not hand them the internal admin pages.
+     Password: forgewalk
+     Removed automatically when FGB_CONFIG.REVIEW is set to false.
+     ============================================================ -->
+<div id="pw-gate" hidden>
+  <div id="pw-box">
+    <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1770763739/forge-logo-w-fox-valley-23jan2026_d1dlgi.png" alt="Fox Valley Forge SC" onerror="this.style.display='none'">
+    <h2>Forge Gives Back</h2>
+    <p class="sub">Preview — password protected until this goes live.</p>
+    <input id="pw-input" type="password" placeholder="Enter password" autocomplete="current-password">
+    <button id="pw-btn">Enter</button>
+    <p id="pw-error"></p>
+  </div>
+</div>
+
+<div id="review-bar" hidden>
+  <div class="wrap">
+    <b>Preview</b>
+    <div>
+      The page is now reading Jim's tracker sheet live — but the rows in it are still <strong>invented test walkers</strong>, so no number here is real yet. Still to confirm:
+      <ul>
+        <li><strong>The club goal</strong> — still set to $25,000 from the sample dashboard. Danielle's email says the ask is $100 <em>per family</em>, not per player, so the $54,900 figure no longer applies. What number should the bar climb to?</li>
+        <li><strong>Volunteer contact</strong> — the volunteer card points at Danielle's personal email, as she asked. Swap it for a club address if she'd rather not have it on a public page.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="masthead">
+  <div class="wrap">
+    <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1770763739/forge-logo-w-fox-valley-23jan2026_d1dlgi.png" alt="Fox Valley Forge SC">
+    <p class="supporter">Proud supporter of the<br>Alzheimer's Association Walk to End Alzheimer's<sup>&reg;</sup></p>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Forge Gives Back · 2026</p>
+    <h1>This year we <em>walk together</em></h1>
+    <p class="lede">One club, one cause. Every Forge family, coach and player is walking for the Alzheimer's Association — and we're cancelling games and practices so nothing gets in the way. Treat it like a game day: show up, wear Forge, walk together.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" id="cta-register" href="#">Register for Forge Forward</a>
+      <a class="btn btn-ghost" href="#leaderboard">See where your team stands</a>
+    </div>
+    <p class="hero-note" id="hero-event"></p>
+  </div>
+</header>
+
+<div class="numbers">
+  <div class="wrap">
+    <div class="stat-grid">
+      <div class="stat accent">
+        <p class="lbl">Raised so far</p>
+        <p class="stat-n tabnum" id="s-raised">—</p>
+        <p class="sub" id="s-raised-sub">&nbsp;</p>
+      </div>
+      <div class="stat">
+        <p class="lbl">Forge walkers registered</p>
+        <p class="stat-n tabnum" id="s-reg">—</p>
+        <p class="sub" id="s-reg-sub">&nbsp;</p>
+      </div>
+      <div class="stat">
+        <p class="lbl">Teams taking part</p>
+        <p class="stat-n tabnum" id="s-teams">—</p>
+        <p class="sub" id="s-teams-sub">&nbsp;</p>
+      </div>
+      <div class="stat">
+        <p class="lbl">Walkers at $100+</p>
+        <p class="stat-n tabnum" id="s-shirt">—</p>
+        <p class="sub" id="s-shirt-sub">&nbsp;</p>
+      </div>
+    </div>
+
+    <div class="thermo-card">
+      <div class="thermo-head">
+        <h3>Club goal</h3>
+        <p class="goal" id="thermo-label">&nbsp;</p>
+      </div>
+      <div class="track"><div class="fill" id="thermo-fill"></div></div>
+      <div class="ticks"><span>$0</span><span id="tick-mid"></span><span id="tick-end"></span></div>
+      <p class="datanote" id="data-note">Loading the latest numbers…</p>
+    </div>
+  </div>
+</div>
+
+<section class="band">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">For every Forge family</p>
+      <h2>Register. Donate. Show up.</h2>
+      <p>That's the whole ask. It takes about five minutes, and every walker who raises $100 earns an official Walk t-shirt.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <p class="n">Step one</p>
+        <h3>Register</h3>
+        <p>Every walker signs up individually on the Forge team page — the Association needs each person to accept their own waiver, so we can't do it for you.</p>
+        <a class="inline" id="step-register" href="#">Join Forge Forward &rarr;</a>
+      </div>
+      <div class="step">
+        <p class="n">Step two</p>
+        <h3>Donate</h3>
+        <p>Once you're registered you get your own fundraising page to share with family and friends. Our ask is <strong>$100 per family</strong> — and $100 is the t-shirt threshold for each walker too.</p>
+        <a class="inline" id="step-donate" href="#">Give to Forge Forward &rarr;</a>
+      </div>
+      <div class="step">
+        <p class="n">Step three</p>
+        <h3>Show up</h3>
+        <p id="step-showup">Wear your Forge kit and walk with your team. No games, no practices — the whole club is there.</p>
+        <a class="inline" id="step-map" href="#" target="_blank" rel="noopener">Get directions &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band alt" id="leaderboard">
+  <div class="wrap">
+    <div class="lb-head">
+      <div class="sec-head" style="margin-bottom:0">
+        <p class="eyebrow">Team standings</p>
+        <h2>Who's in the lead</h2>
+        <p>Ranked by total raised — or switch to the per-walker average, which gives the smaller squads a fair fight.</p>
+      </div>
+      <div class="toggle" role="group" aria-label="Sort team standings">
+        <button id="sort-total" aria-pressed="true">Total raised</button>
+        <button id="sort-avg" aria-pressed="false">Per walker</button>
+      </div>
+    </div>
+    <div class="tbl-wrap">
+      <table id="team-table">
+        <thead>
+          <tr><th style="width:56px">#</th><th>Team</th><th>Walkers</th><th>Raised</th><th>Per walker</th><th class="bar-cell">Share of club total</th></tr>
+        </thead>
+        <tbody><tr><td colspan="6" class="loading">Loading team standings…</td></tr></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Top fundraisers</p>
+      <h2>Leading the way</h2>
+      <p>The Forge walkers who've raised the most so far. Every one of them started by asking one person.</p>
+    </div>
+    <div class="tbl-wrap">
+      <table id="indiv-table">
+        <thead><tr><th style="width:56px">#</th><th>Walker</th><th>Team</th><th>Raised</th></tr></thead>
+        <tbody><tr><td colspan="4" class="loading">Loading…</td></tr></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="band alt" id="volunteer">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Get involved</p>
+      <h2>More than walking</h2>
+      <p>The Association has asked Forge to take on real jobs on walk day. These are the ones they think we're built for — coaches, older players and parents all welcome.</p>
+    </div>
+    <div class="detail-grid">
+      <div class="card">
+        <h3>Lead the warm-up</h3>
+        <p>A few coaches or older players take the whole field through five minutes of gentle stretching at <strong>9:25 AM</strong>, right before the opening ceremony.</p>
+      </div>
+      <div class="card">
+        <h3>Run the Fun Zone</h3>
+        <p>Bring cones and put on simple soccer drills for the kids alongside the face painting, coloring and yard games.</p>
+      </div>
+      <div class="card">
+        <h3>Cheer brigade</h3>
+        <p>Stand at the start/finish arch and send the walkers off — then be there to celebrate them coming back in.</p>
+      </div>
+      <div class="card">
+        <h3>Route guides</h3>
+        <p>Spread out along the course in a safety vest, point the way and cheer. The Association provides the map and the vests.</p>
+      </div>
+      <div class="card">
+        <h3>Set-up &amp; clean-up</h3>
+        <p>Tents, tables and signage — <strong>6:00–8:00 AM</strong> to build it, <strong>11:30 AM–12:00 PM</strong> to strike it. Expect to lift up to 25 lbs.</p>
+      </div>
+      <div class="card">
+        <h3>Put your name down</h3>
+        <p>Volunteers gather from 8:30 AM. Tell <strong id="v-name"></strong> what you'd like to do and she'll sort the rest.</p>
+        <p><a class="inline" id="v-mail" href="#">Volunteer &rarr;</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="flowers">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">The Promise Garden</p>
+      <h2>Carry a flower</h2>
+      <p>Every walker picks a flower before the walk and carries it. The color says why you're there — and once you're on the route, you can read the whole crowd at a glance. Take more than one if more than one is true.</p>
+    </div>
+    <div class="detail-grid" style="grid-template-columns:repeat(auto-fit,minmax(210px,1fr))">
+      <div class="card" style="border-top:4px solid #1E5FBF">
+        <h3 style="color:#1E5FBF">Blue</h3>
+        <p>I am living with Alzheimer's or another dementia.</p>
+      </div>
+      <div class="card" style="border-top:4px solid #E0A02A">
+        <h3 style="color:#B4761A">Yellow</h3>
+        <p>I support or care for someone living with Alzheimer's or another dementia.</p>
+      </div>
+      <div class="card" style="border-top:4px solid var(--purple)">
+        <h3 style="color:var(--purple)">Purple</h3>
+        <p>I have lost someone to Alzheimer's or another dementia.</p>
+      </div>
+      <div class="card" style="border-top:4px solid #D2641E">
+        <h3 style="color:#B4521A">Orange</h3>
+        <p>I support the cause and the Association's vision of a world without Alzheimer's and all other dementia.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Walk day</p>
+      <h2>Where and when</h2>
+    </div>
+    <div class="detail-grid">
+      <div class="card">
+        <h3>The walk</h3>
+        <p class="big" id="d-date"></p>
+        <p id="d-time"></p>
+        <p id="d-venue"></p>
+        <p id="d-address"></p>
+        <p style="margin-top:10px">Forge has its own space in the pavilion — check in and gather with the club there before the walk.</p>
+      </div>
+      <div class="card">
+        <h3>Earn your shirt</h3>
+        <p>Raise <strong>$100</strong> and the Alzheimer's Association sends you an official Walk t-shirt.</p>
+        <p>To be guaranteed one before walk day, hit $100 by <strong id="d-shirt"></strong>.</p>
+      </div>
+      <div class="card">
+        <h3>Why we're doing this</h3>
+        <p>Forge Gives Back is our annual commitment to put the reach of this club behind something bigger than soccer.</p>
+        <p>We want our players to see their coaches, teammates and families give something back — and learn by example what it means to belong to a community.</p>
+      </div>
+      <div class="card">
+        <h3>Questions</h3>
+        <p>Team managers are running the push inside each squad.</p>
+        <p>Anything else, email <a id="d-contact" href="#"></a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1770763739/forge-logo-w-fox-valley-23jan2026_d1dlgi.png" alt="Fox Valley Forge SC">
+      <p>One Valley. One Club. One Purpose.</p>
+      <p class="stamp" id="foot-stamp"></p>
+    </div>
+    <div>
+      <p><strong style="color:#fff">Forge Gives Back 2026</strong></p>
+      <p>Proud supporter of the Alzheimer's Association<br>Walk to End Alzheimer's<sup>&reg;</sup></p>
+      <p style="margin-top:10px"><a id="foot-register" href="#">Register or donate &rarr;</a></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+  var C = window.FGB_CONFIG;
+
+  /* ---------- review gate ---------- */
+  if (C.REVIEW) {
+    document.getElementById('review-bar').hidden = false;
+    var KEY='fvf_walk',
+        HASH='e1eccb418efb661c52891448dd284646236fc808e0e50eb618dc7fd29b4164c6';
+    var gate=document.getElementById('pw-gate');
+    var unlocked=false;
+    try{ unlocked = sessionStorage.getItem(KEY)==='1'; }catch(e){}
+    if(!unlocked){
+      gate.hidden=false;
+      document.body.style.overflow='hidden';
+      var inp=document.getElementById('pw-input');
+      var attempt=function(){
+        var enc=new TextEncoder().encode(inp.value);
+        crypto.subtle.digest('SHA-256',enc).then(function(buf){
+          var hex=Array.prototype.map.call(new Uint8Array(buf),function(b){
+            return b.toString(16).padStart(2,'0');}).join('');
+          if(hex===HASH){
+            try{ sessionStorage.setItem(KEY,'1'); }catch(e){}
+            document.body.style.overflow=''; gate.hidden=true;
+          } else {
+            document.getElementById('pw-error').textContent='Incorrect password. Try again.';
+            var b=document.getElementById('pw-box');
+            b.classList.remove('pw-shake'); void b.offsetWidth; b.classList.add('pw-shake');
+            inp.select();
+          }
+        });
+      };
+      document.getElementById('pw-btn').addEventListener('click',attempt);
+      inp.addEventListener('keydown',function(e){ if(e.key==='Enter') attempt(); });
+      inp.focus();
+    }
+  }
+
+  /* ---------- static config into the page ---------- */
+  var E=C.EVENT;
+  [['cta-register',C.REGISTER_URL],['step-register',C.REGISTER_URL],
+   ['step-donate',C.DONATE_URL],['foot-register',C.REGISTER_URL],
+   ['step-map',E.mapUrl]].forEach(function(p){
+    var el=document.getElementById(p[0]); if(el) el.href=p[1];
+  });
+  document.getElementById('hero-event').textContent =
+    E.dateText + ' · ' + E.venue + ', ' + E.address.split(',')[1].trim() + ' · ' + E.name;
+  document.getElementById('d-date').textContent=E.dateText;
+  document.getElementById('d-time').textContent=E.time;
+  document.getElementById('d-venue').textContent=E.venue;
+  document.getElementById('d-address').textContent=E.address;
+  document.getElementById('d-shirt').textContent=C.SHIRT_DEADLINE;
+  var ce=document.getElementById('d-contact');
+  ce.textContent=C.CONTACT_EMAIL; ce.href='mailto:'+C.CONTACT_EMAIL;
+  document.getElementById('v-name').textContent=C.VOLUNTEER_NAME;
+  var vm=document.getElementById('v-mail');
+  vm.textContent='Email '+C.VOLUNTEER_NAME.split(' ')[0]+' \u2192';
+  vm.href='mailto:'+C.VOLUNTEER_EMAIL+'?subject='+
+    encodeURIComponent('Forge Gives Back — volunteering on walk day');
+  document.getElementById('step-showup').textContent =
+    'Wear your Forge kit and walk with your team at ' + E.venue +
+    '. No games, no practices — the whole club is there.';
+
+  /* ---------- helpers ---------- */
+  function money(n){ return '$' + Math.round(n).toLocaleString('en-US'); }
+  function esc(s){ return String(s).replace(/[&<>"']/g,function(c){
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+
+  /* RFC-4180-ish CSV parser — handles quoted fields and embedded commas,
+     which a naive split(',') would mangle the first time a team name
+     or a player's name contains one. */
+  function parseCSV(text){
+    var rows=[],row=[],field='',inQ=false,i=0;
+    text=text.replace(/\r\n/g,'\n').replace(/\r/g,'\n');
+    while(i<text.length){
+      var ch=text[i];
+      if(inQ){
+        if(ch==='"'){ if(text[i+1]==='"'){field+='"';i+=2;continue;} inQ=false;i++;continue; }
+        field+=ch;i++;continue;
+      }
+      if(ch==='"'){ inQ=true;i++;continue; }
+      if(ch===','){ row.push(field);field='';i++;continue; }
+      if(ch==='\n'){ row.push(field);rows.push(row);row=[];field='';i++;continue; }
+      field+=ch;i++;
+    }
+    if(field.length||row.length){ row.push(field);rows.push(row); }
+    return rows.filter(function(r){ return r.some(function(c){ return c.trim()!==''; }); });
+  }
+
+  function toRecords(rows){
+    if(!rows.length) return [];
+    var head=rows[0].map(function(h){ return h.trim().toLowerCase(); });
+    var iP=head.indexOf('player'), iT=head.indexOf('team'),
+        iA=head.findIndex(function(h){ return h.indexOf('amount')===0; }),
+        iD=head.findIndex(function(h){ return h.indexOf('date')===0; });
+    if(iP<0||iT<0||iA<0) return [];
+    return rows.slice(1).map(function(r){
+      var raw=(r[iA]||'').replace(/[$,\s]/g,'');
+      var amt=parseFloat(raw); if(!isFinite(amt)) amt=0;
+      return { player:(r[iP]||'').trim(), team:(r[iT]||'').trim(),
+               amount:amt, date:(iD>=0?(r[iD]||'').trim():'') };
+    }).filter(function(r){ return r.player && r.team; });
+  }
+
+  /* ---------- rendering ---------- */
+  var teamRows=[], sortMode='total';
+
+  function render(recs, isSample){
+    var total=recs.reduce(function(a,r){ return a+r.amount; },0);
+    var registered=recs.length;
+    var atShirt=recs.filter(function(r){ return r.amount>=C.SHIRT_THRESHOLD; }).length;
+
+    var byTeam={};
+    recs.forEach(function(r){
+      if(!byTeam[r.team]) byTeam[r.team]={team:r.team,total:0,n:0};
+      byTeam[r.team].total+=r.amount; byTeam[r.team].n++;
+    });
+    teamRows=Object.keys(byTeam).map(function(k){
+      var t=byTeam[k]; t.avg=t.n?t.total/t.n:0; t.share=total?t.total/total:0; return t;
+    });
+
+    document.getElementById('s-raised').textContent=money(total);
+    document.getElementById('s-reg').textContent=registered.toLocaleString('en-US');
+    document.getElementById('s-teams').textContent=teamRows.length;
+    document.getElementById('s-shirt').textContent=atShirt.toLocaleString('en-US');
+
+    document.getElementById('s-raised-sub').textContent =
+      registered ? money(total/registered)+' average per walker' : ' ';
+    document.getElementById('s-reg-sub').textContent='of 549 Forge players';
+    document.getElementById('s-teams-sub').textContent='of 49 Forge teams';
+    document.getElementById('s-shirt-sub').textContent =
+      registered ? Math.round(atShirt/registered*100)+'% of those registered' : ' ';
+
+    var pct=C.GOAL?Math.min(total/C.GOAL,1):0;
+    document.getElementById('thermo-label').innerHTML =
+      '<strong>'+money(total)+'</strong> of '+money(C.GOAL)+' &middot; '+Math.round(pct*100)+'%';
+    document.getElementById('tick-mid').textContent=money(C.GOAL/2);
+    document.getElementById('tick-end').textContent=money(C.GOAL);
+    requestAnimationFrame(function(){
+      document.getElementById('thermo-fill').style.width=(pct*100)+'%';
+    });
+
+    drawTeams();
+
+    var top=recs.slice().sort(function(a,b){ return b.amount-a.amount; })
+                .filter(function(r){ return r.amount>0; }).slice(0,10);
+    var ib=document.querySelector('#indiv-table tbody');
+    ib.innerHTML = top.length ? top.map(function(r,i){
+      return '<tr class="'+(i<3?'top'+(i+1):'')+'">'+
+        '<td><span class="rank">'+(i+1)+'</span></td>'+
+        '<td>'+esc(r.player)+'</td>'+
+        '<td class="muted">'+esc(r.team)+'</td>'+
+        '<td class="money">'+money(r.amount)+'</td></tr>';
+    }).join('') : '<tr><td colspan="4" class="loading">No donations logged yet — be the first.</td></tr>';
+
+    var note=document.getElementById('data-note');
+    var stamp=new Date().toLocaleString('en-US',
+      {weekday:'short',month:'short',day:'numeric',hour:'numeric',minute:'2-digit'});
+    if(isSample){
+      note.className='datanote warn';
+      note.textContent='Sample data — not live figures. The page will show real numbers once the tracker sheet is connected.';
+    } else {
+      note.className='datanote';
+      note.textContent='Updated '+stamp+' · figures come straight from the club tracker.';
+    }
+    document.getElementById('foot-stamp').textContent='Last updated '+stamp;
+  }
+
+  function drawTeams(){
+    var rows=teamRows.slice().sort(function(a,b){
+      return sortMode==='avg' ? b.avg-a.avg : b.total-a.total; });
+    var max=rows.length?Math.max.apply(null,rows.map(function(t){ return t.share; })):1;
+    var tb=document.querySelector('#team-table tbody');
+    tb.innerHTML = rows.length ? rows.map(function(t,i){
+      return '<tr class="'+(i<3?'top'+(i+1):'')+'">'+
+        '<td><span class="rank">'+(i+1)+'</span></td>'+
+        '<td><strong>'+esc(t.team)+'</strong></td>'+
+        '<td class="muted">'+t.n+'</td>'+
+        '<td class="money">'+money(t.total)+'</td>'+
+        '<td class="muted">'+money(t.avg)+'</td>'+
+        '<td class="bar-cell"><div class="minibar"><span style="width:'+
+          (max?(t.share/max*100):0)+'%"></span></div></td></tr>';
+    }).join('') : '<tr><td colspan="6" class="loading">No teams registered yet.</td></tr>';
+  }
+
+  document.getElementById('sort-total').addEventListener('click',function(){
+    sortMode='total'; this.setAttribute('aria-pressed','true');
+    document.getElementById('sort-avg').setAttribute('aria-pressed','false'); drawTeams();
+  });
+  document.getElementById('sort-avg').addEventListener('click',function(){
+    sortMode='avg'; this.setAttribute('aria-pressed','true');
+    document.getElementById('sort-total').setAttribute('aria-pressed','false'); drawTeams();
+  });
+
+  /* ---------- seed data ----------
+     Bundled so the page is never blank or broken: if the sheet is not
+     published yet, is briefly unreachable, or its columns get renamed,
+     the page still renders and says plainly that the numbers are samples.
+     Delete this array once the tracker has been live for a while. */
+  var SEED=[["Aster B.","U12 Girls Navy",50],["Bramble C.","U11 Girls Red",125],["Cedar D.","U16 Boys Red",50],["Clover F.","U13 Girls Red",500],["Dune G.","U13 Girls Red",100],["Ember H.","U15 Boys Red",300],["Fable J.","U11 Boys White II",100],["Fern K.","U7 Girls Red",0],["Flint L.","U13 Boys Navy",75],["Garnet M.","U12 Girls Navy",150],["Harbor N.","U12 Boys Gold",100],["Hollis P.","U10 Girls Navy",0],["Indigo R.","U11 Girls Red",100],["Juniper S.","U12 Girls Navy",300],["Kestrel T.","U16 Boys Red",50],["Lark V.","U11 Girls Red",75],["Linden W.","U13 Boys Navy",125],["Marlow B.","U8 Boys Gold 2",0],["Meadow C.","U11 Girls Red",125],["Onyx D.","U13 Girls Red",300],["Opal F.","U12 Girls Navy",50],["Pike G.","U11 Boys White II",100],["Quill H.","U12 Boys Gold",300],["Rowan J.","U15 Boys Red",25],["Sable K.","U15 Boys Red",200],["Sage L.","U11 Girls Red",100],["Sorrel M.","U14 Boys Red",100],["Tamsin N.","U13 Girls Gold",0],["Teal P.","U17 Boys Red",300],["Thistle R.","U10 Girls Red",250],["Vale S.","U12 Girls Navy",100],["Wren T.","U16 Boys Red",250],["Yarrow V.","U12 Girls Navy",300],["Zephyr W.","U9 Boys Gold",50],["Bay B.","U8 Boys Gold 2",150],["Birch C.","U15 Boys Red",0],["Cove D.","U11 Girls Red",150],["Dell F.","U13 Boys Navy",125],["Fox G.","U13 Girls Gold",0],["Glen H.","U11 Girls Red",0],["Heath J.","U11 Girls Red",150],["Isle K.","U17 Boys Red",0],["Kite L.","U13 Girls Gold",300],["Larch M.","U12 Girls Navy",200],["Moss N.","U13 Girls Red",50],["North P.","U17 Boys Red",50],["Peak R.","U12 Boys Gold",250],["Ridge S.","U13 Girls Red",0],["Shore T.","U16 Boys Red",150],["Slate V.","U16 Boys Red",0],["Stone W.","U9 Boys Gold",300],["Thorn B.","U15 Boys Red",0],["Wade C.","U14 Boys Red",100],["Ash D.","U12 Girls Navy",0],["Brook F.","U15 Boys Red",500],["Cliff G.","U11 Boys White II",200],["Drift H.","U15 Boys Red",250],["Elm J.","U11 Girls Red",100],["Ford K.","U15 Boys Red",300],["Grove L.","U9 Boys Gold",100],["Haven M.","U10 Girls Navy",150],["Ivy N.","U10 Girls Red",0],["Mesa P.","U10 Girls Navy",100],["Nova R.","U9 Boys Gold",25],["Oak S.","U15 Boys Red",25],["Pine T.","U9 Boys Gold",150],["Quarry V.","U13 Girls Red",500],["River W.","U15 Boys Red",125],["Rush B.","U13 Girls Gold",0],["Saffron C.","U10 Girls Navy",0],["Sky D.","U12 Girls Navy",100],["Storm F.","U10 Girls Red",100],["Terra G.","U12 Girls Navy",0],["Vine H.","U13 Girls Gold",200],["Wolf J.","U13 Boys Navy",250],["Amber K.","U12 Boys Gold",250],["Basil L.","U13 Girls Gold",500],["Cobalt M.","U14 Boys Red",75],["Delta N.","U13 Girls Red",0],["Echo P.","U12 Boys Gold",300],["Frost R.","U16 Boys Red",0],["Gale S.","U15 Boys Red",0],["Hazel T.","U13 Boys Navy",250],["Ink V.","U11 Boys White II",200],["Jade W.","U12 Boys Gold",75],["Kelp B.","U10 Girls Red",250],["Lumen C.","U12 Boys Gold",100],["Mica D.","U12 Boys Gold",75],["Nimbus F.","U11 Girls Red",500],["Orbit G.","U9 Boys Gold",25],["Petal H.","U15 Boys Red",100],["Quartz J.","U12 Girls Navy",100],["Rune K.","U17 Boys Red",500],["Silt L.","U8 Boys Gold 2",50],["Tide M.","U13 Girls Gold",500],["Umber N.","U16 Boys Red",125],["Verve P.","U13 Girls Red",300],["Wisp R.","U13 Girls Gold",125],["Yew S.","U13 Girls Red",300],["Zinnia T.","U13 Girls Gold",0],["Alder V.","U17 Boys Red",50]]
+    .map(function(r){ return {player:r[0],team:r[1],amount:r[2],date:''}; });
+
+  function useSeed(){ render(SEED,true); }
+
+  /* ---------- load ---------- */
+  if(!C.SHEET_CSV_URL){ useSeed(); return; }
+  var url=C.SHEET_CSV_URL+(C.SHEET_CSV_URL.indexOf('?')>-1?'&':'?')+'cb='+Date.now();
+  fetch(url,{cache:'no-store'})
+    .then(function(r){ if(!r.ok) throw new Error('HTTP '+r.status); return r.text(); })
+    .then(function(txt){
+      var recs=toRecords(parseCSV(txt));
+      if(!recs.length) throw new Error('no usable rows');
+      render(recs,false);
+    })
+    .catch(function(err){
+      if(window.console) console.warn('[Forge Gives Back] tracker unavailable:',err.message);
+      useSeed();
+    });
+})();
+</script>
+
+<!-- ==========================================================================
+     SETUP — connecting the live tracker
+     ==========================================================================
+
+     THE SHEET
+       "Forge Gives Back 2026 — Walk Tracker"
+       https://docs.google.com/spreadsheets/d/1PADHeDTN1n5662BT0f1IcOBqSQ5--oukzWjSSjOwg0E/edit
+
+       Columns, in this order — do not rename or reorder:
+         Player | Team | Amount Raised | Date Registered
+       One row per registered walker. "Amount Raised" is that walker's running
+       total, not a single donation, which is what the ALZ team page actually
+       shows Jim. A walker who has registered but raised nothing yet gets a 0 —
+       they still count toward "walkers registered".
+
+     ONE MANUAL STEP TO GO LIVE
+       Google's API cannot switch on link sharing, so this has to be done by hand
+       once, in the sheet:
+         File > Share > Publish to web
+         Select the tab, choose "Comma-separated values (.csv)", press Publish.
+       Copy the resulting URL into SHEET_CSV_URL at the top of this file.
+
+       Use "Publish to web", not "Anyone with the link". Only the published CSV
+       endpoint returns the cross-origin headers a browser needs; a link-shared
+       sheet will be blocked by CORS and the page will silently fall back to the
+       sample data.
+
+       Note that publishing makes those rows readable by anyone holding the URL.
+       That is the same information already public on the Alzheimer's Association
+       team page, and names are stored first-name-plus-initial, matching the
+       trading cards.
+
+     GOING LIVE
+       1. Paste the published CSV URL into SHEET_CSV_URL.
+       2. Set REVIEW to false — this removes the password gate and the banner.
+       3. Delete the <meta name="robots" content="noindex"> line in the head.
+       4. Clear the sample rows out of the sheet so it starts from zero.
+       5. Optional: delete the SEED array in the script above once the
+          tracker has been running reliably for a few days.
+
+     THE PAGE IS DESIGNED NEVER TO BREAK
+       If the sheet is unpublished, unreachable, empty, or its columns get
+       renamed, the page renders the seed data and says plainly that the figures
+       are samples. It will not show a zero, an error, or an empty table to a
+       parent.
+
+     CACHING
+       Google serves published sheets through a CDN, so an edit can take a couple
+       of minutes to appear. This is a Google behaviour, not a bug in the page.
+     ========================================================================== -->
+</body>
+</html>
