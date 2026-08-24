@@ -6,7 +6,6 @@
 <title>Forge Gives Back 2026 — Walk to End Alzheimer's | Fox Valley Forge SC</title>
 <meta name="description" content="Fox Valley Forge SC is walking together for the Alzheimer's Association. Register, donate, show up.">
 <link rel="canonical" href="https://forgesoccerclub.com/gives-back">
-<meta name="robots" content="noindex"><!-- REVIEW ONLY — delete this line when the page goes live -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap">
@@ -32,7 +31,7 @@ window.FGB_CONFIG = {
 
   /* Set to false to take the page live: removes the password gate and the
      yellow review banner. Nothing else changes. */
-  REVIEW: true,
+  REVIEW: false,
 
   /* Published Google Sheet, CSV output. Columns, in order:
         Player | Team | Amount Raised | Date Registered
@@ -41,7 +40,7 @@ window.FGB_CONFIG = {
      then paste the resulting link here. See SETUP note at the bottom of this file. */
   SHEET_CSV_URL: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQECqdzPuqUWHrtIERXMBAglkdydWDVF8UUkl-j_udyTNdoh_xm57_KnFKVOB0qxwmwwyKRFesahsrv/pub?gid=1344003812&single=true&output=csv',
 
-  GOAL: 25000,
+  GOAL: 54900,   /* $100 per athlete x 549 players — Mike Weyant, 24 Aug 2026 */
 
   EVENT: {
     name:     "Walk to End Alzheimer's — Fox Valley",
@@ -727,29 +726,31 @@ footer a{color:#fff}
     document.getElementById('sort-total').setAttribute('aria-pressed','false'); drawTeams();
   });
 
-  /* ---------- seed data ----------
-     Bundled so the page is never blank or broken: if the sheet is not
-     published yet, is briefly unreachable, or its columns get renamed,
-     the page still renders and says plainly that the numbers are samples.
-     Delete this array once the tracker has been live for a while. */
-  var SEED=[["Aster B.","U12 Girls Navy",50],["Bramble C.","U11 Girls Red",125],["Cedar D.","U16 Boys Red",50],["Clover F.","U13 Girls Red",500],["Dune G.","U13 Girls Red",100],["Ember H.","U15 Boys Red",300],["Fable J.","U11 Boys White II",100],["Fern K.","U7 Girls Red",0],["Flint L.","U13 Boys Navy",75],["Garnet M.","U12 Girls Navy",150],["Harbor N.","U12 Boys Gold",100],["Hollis P.","U10 Girls Navy",0],["Indigo R.","U11 Girls Red",100],["Juniper S.","U12 Girls Navy",300],["Kestrel T.","U16 Boys Red",50],["Lark V.","U11 Girls Red",75],["Linden W.","U13 Boys Navy",125],["Marlow B.","U8 Boys Gold 2",0],["Meadow C.","U11 Girls Red",125],["Onyx D.","U13 Girls Red",300],["Opal F.","U12 Girls Navy",50],["Pike G.","U11 Boys White II",100],["Quill H.","U12 Boys Gold",300],["Rowan J.","U15 Boys Red",25],["Sable K.","U15 Boys Red",200],["Sage L.","U11 Girls Red",100],["Sorrel M.","U14 Boys Red",100],["Tamsin N.","U13 Girls Gold",0],["Teal P.","U17 Boys Red",300],["Thistle R.","U10 Girls Red",250],["Vale S.","U12 Girls Navy",100],["Wren T.","U16 Boys Red",250],["Yarrow V.","U12 Girls Navy",300],["Zephyr W.","U9 Boys Gold",50],["Bay B.","U8 Boys Gold 2",150],["Birch C.","U15 Boys Red",0],["Cove D.","U11 Girls Red",150],["Dell F.","U13 Boys Navy",125],["Fox G.","U13 Girls Gold",0],["Glen H.","U11 Girls Red",0],["Heath J.","U11 Girls Red",150],["Isle K.","U17 Boys Red",0],["Kite L.","U13 Girls Gold",300],["Larch M.","U12 Girls Navy",200],["Moss N.","U13 Girls Red",50],["North P.","U17 Boys Red",50],["Peak R.","U12 Boys Gold",250],["Ridge S.","U13 Girls Red",0],["Shore T.","U16 Boys Red",150],["Slate V.","U16 Boys Red",0],["Stone W.","U9 Boys Gold",300],["Thorn B.","U15 Boys Red",0],["Wade C.","U14 Boys Red",100],["Ash D.","U12 Girls Navy",0],["Brook F.","U15 Boys Red",500],["Cliff G.","U11 Boys White II",200],["Drift H.","U15 Boys Red",250],["Elm J.","U11 Girls Red",100],["Ford K.","U15 Boys Red",300],["Grove L.","U9 Boys Gold",100],["Haven M.","U10 Girls Navy",150],["Ivy N.","U10 Girls Red",0],["Mesa P.","U10 Girls Navy",100],["Nova R.","U9 Boys Gold",25],["Oak S.","U15 Boys Red",25],["Pine T.","U9 Boys Gold",150],["Quarry V.","U13 Girls Red",500],["River W.","U15 Boys Red",125],["Rush B.","U13 Girls Gold",0],["Saffron C.","U10 Girls Navy",0],["Sky D.","U12 Girls Navy",100],["Storm F.","U10 Girls Red",100],["Terra G.","U12 Girls Navy",0],["Vine H.","U13 Girls Gold",200],["Wolf J.","U13 Boys Navy",250],["Amber K.","U12 Boys Gold",250],["Basil L.","U13 Girls Gold",500],["Cobalt M.","U14 Boys Red",75],["Delta N.","U13 Girls Red",0],["Echo P.","U12 Boys Gold",300],["Frost R.","U16 Boys Red",0],["Gale S.","U15 Boys Red",0],["Hazel T.","U13 Boys Navy",250],["Ink V.","U11 Boys White II",200],["Jade W.","U12 Boys Gold",75],["Kelp B.","U10 Girls Red",250],["Lumen C.","U12 Boys Gold",100],["Mica D.","U12 Boys Gold",75],["Nimbus F.","U11 Girls Red",500],["Orbit G.","U9 Boys Gold",25],["Petal H.","U15 Boys Red",100],["Quartz J.","U12 Girls Navy",100],["Rune K.","U17 Boys Red",500],["Silt L.","U8 Boys Gold 2",50],["Tide M.","U13 Girls Gold",500],["Umber N.","U16 Boys Red",125],["Verve P.","U13 Girls Red",300],["Wisp R.","U13 Girls Gold",125],["Yew S.","U13 Girls Red",300],["Zinnia T.","U13 Girls Gold",0],["Alder V.","U17 Boys Red",50]]
-    .map(function(r){ return {player:r[0],team:r[1],amount:r[2],date:''}; });
-
-  function useSeed(){ render(SEED,true); }
-
-  /* ---------- load ---------- */
-  if(!C.SHEET_CSV_URL){ useSeed(); return; }
+  /* ---------- load ----------
+     There is deliberately no sample-data fallback. This page is public, so it
+     shows the real tracker or it shows honest zeros — it must never put invented
+     walkers and invented amounts in front of a parent. */
+  function renderEmpty(msg){
+    render([],false);
+    var note=document.getElementById('data-note');
+    note.className='datanote warn';
+    note.textContent=msg;
+  }
+  if(!C.SHEET_CSV_URL){ renderEmpty('The tracker is not connected yet.'); return; }
   var url=C.SHEET_CSV_URL+(C.SHEET_CSV_URL.indexOf('?')>-1?'&':'?')+'cb='+Date.now();
   fetch(url,{cache:'no-store'})
     .then(function(r){ if(!r.ok) throw new Error('HTTP '+r.status); return r.text(); })
     .then(function(txt){
       var recs=toRecords(parseCSV(txt));
-      if(!recs.length) throw new Error('no usable rows');
+      if(!recs.length){
+        renderEmpty('No walkers logged yet — registration has just opened. Be the first.');
+        return;
+      }
       render(recs,false);
     })
     .catch(function(err){
       if(window.console) console.warn('[Forge Gives Back] tracker unavailable:',err.message);
-      useSeed();
+      renderEmpty('Live figures are updating — please check back shortly.');
     });
 })();
 </script>
@@ -786,19 +787,18 @@ footer a{color:#fff}
        team page, and names are stored first-name-plus-initial, matching the
        trading cards.
 
-     GOING LIVE
-       1. Paste the published CSV URL into SHEET_CSV_URL.
-       2. Set REVIEW to false — this removes the password gate and the banner.
-       3. Delete the <meta name="robots" content="noindex"> line in the head.
-       4. Clear the sample rows out of the sheet so it starts from zero.
-       5. Optional: delete the SEED array in the script above once the
-          tracker has been running reliably for a few days.
+     THIS PAGE IS LIVE (24 Aug 2026)
+       The CSV URL is connected, REVIEW is false, the noindex is gone and the
+       sample rows have been cleared out of the sheet. Nothing here is a draft
+       any more — an edit to this file or to the sheet is visible to families
+       within minutes.
 
-     THE PAGE IS DESIGNED NEVER TO BREAK
-       If the sheet is unpublished, unreachable, empty, or its columns get
-       renamed, the page renders the seed data and says plainly that the figures
-       are samples. It will not show a zero, an error, or an empty table to a
-       parent.
+     WHAT HAPPENS IF THE SHEET BREAKS
+       There is deliberately NO sample-data fallback. If the sheet is
+       unreachable, empty or its columns get renamed, the page shows honest
+       zeros and a short line saying figures are updating. It will never invent
+       a walker or an amount, because this page is public and the names on it
+       are children's. Do not reintroduce seed data.
 
      CACHING
        Google serves published sheets through a CDN, so an edit can take a couple
