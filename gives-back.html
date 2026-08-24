@@ -636,10 +636,14 @@ footer a{color:#fff}
     var registered=recs.length;
     var atShirt=recs.filter(function(r){ return r.amount>=C.SHIRT_THRESHOLD; }).length;
 
+    /* Group on a normalised key so a stray capital or double space in the sheet
+       cannot split one squad into two rows on the leaderboard. The label shown
+       is the first spelling seen, so the sheet still controls the wording. */
     var byTeam={};
     recs.forEach(function(r){
-      if(!byTeam[r.team]) byTeam[r.team]={team:r.team,total:0,n:0};
-      byTeam[r.team].total+=r.amount; byTeam[r.team].n++;
+      var key=r.team.toLowerCase().replace(/\s+/g,' ');
+      if(!byTeam[key]) byTeam[key]={team:r.team.replace(/\s+/g,' '),total:0,n:0};
+      byTeam[key].total+=r.amount; byTeam[key].n++;
     });
     teamRows=Object.keys(byTeam).map(function(k){
       var t=byTeam[k]; t.avg=t.n?t.total/t.n:0; t.share=total?t.total/total:0; return t;
