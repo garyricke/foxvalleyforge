@@ -507,7 +507,10 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
 .summer-reg{flex-shrink:0;background:var(--crimson);color:#fff;font-family:var(--font-h);font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:9px 18px;border-radius:5px;text-decoration:none;white-space:nowrap;transition:background .2s}
 .summer-reg:hover{background:var(--crimson-90)}
 .summer-cost{margin-top:12px;font-size:.84rem;color:#555;font-weight:600}
-@media(max-width:880px){.summer-grid{grid-template-columns:1fr}}
+.summer-prog--wide{grid-column:1/-1}
+.summer-loc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.summer-loc-grid .summer-loc{margin-bottom:0}
+@media(max-width:880px){.summer-grid{grid-template-columns:1fr}.summer-loc-grid{grid-template-columns:1fr;gap:18px}}
 
 /* Reel fullscreen overlay */
 .reel-overlay{display:none;position:fixed;inset:0;z-index:9000;background:rgba(0,0,0,.93);align-items:center;justify-content:center}
@@ -1342,13 +1345,13 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
 <span id="summer" aria-hidden="true" style="display:block;height:0;scroll-margin-top:96px"></span>
 <section id="sessions">
   <div class="section-inner">
-    <p class="section-label fade-in">Fall 2026 · Now Registering</p>
-    <h2 class="section-title fade-in">Fall Programs</h2>
-    <p class="section-sub fade-in">Six-week fall sessions for our youngest players. Register directly online — open to members and new families alike.</p>
+    <p class="section-label fade-in">Fall &amp; Winter 2026 · Now Registering</p>
+    <h2 class="section-title fade-in">Fall &amp; Winter Programs</h2>
+    <p class="section-sub fade-in">Six-week sessions for our youngest players. Register directly online — open to members and new families alike.</p>
     <div class="summer-grid">
 
-      <!-- Forge Community -->
-      <div class="summer-prog fade-in">
+      <!-- Forge Community · Fall 2026 (auto-hides after the last session) -->
+      <div class="summer-prog fade-in" data-event-end="2026-10-18">
         <div class="summer-prog-head navy">
           <div class="summer-prog-eyebrow">Ages U6–U12 · For All Levels</div>
           <h3 class="summer-prog-title">Forge Community</h3>
@@ -1401,8 +1404,8 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
         </div>
       </div>
 
-      <!-- Forge Foxes -->
-      <div class="summer-prog fade-in">
+      <!-- Forge Foxes · Fall 2026 (auto-hides after the last session) -->
+      <div class="summer-prog fade-in" data-event-end="2026-10-17">
         <div class="summer-prog-head gold">
           <div class="summer-prog-eyebrow">Ages U4–U6 · Introductory</div>
           <h3 class="summer-prog-title">Forge Foxes</h3>
@@ -1455,6 +1458,64 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
               <a class="summer-reg" href="https://forgesoccerclub.sprocketsports.com/registrations/175581" target="_blank" rel="noopener">Register →</a>
             </div>
             <p class="summer-cost">$75 / 6-week session</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Forge Foxes · Winter 2026 — Sprocket program 29248. Appears automatically on Sep 11 (data-event-start) and hides after registration closes (data-event-end). Preview early with ?show=hiddenevents -->
+      <div id="foxes-winter" class="summer-prog summer-prog--wide fade-in" data-event-start="2026-09-11" data-event-end="2026-10-31" style="scroll-margin-top:96px">
+        <div class="summer-prog-head gold">
+          <div class="summer-prog-eyebrow">Ages U4–U6 · Introductory · Next Session</div>
+          <h3 class="summer-prog-title">Forge Foxes · Winter 2026</h3>
+          <div class="summer-prog-dates">Nov 3 – Dec 19 · 6 Weeks · No Play Thanksgiving Week</div>
+        </div>
+        <div class="summer-prog-body">
+          <p class="summer-prog-desc">Registration is open now for the winter session. Same fun-first format as fall: one 45-minute session each week, led by licensed coaches, for players U4–U6 (born Aug 2020 – Jul 2023). A good coach-to-player ratio matters to us, so spots are limited — sign up early.</p>
+
+          <p class="summer-note">Six weeks, from the week of November 3 through the week of December 19, with no sessions Thanksgiving week. A Foxes T-shirt is included. Registration closes October 30.</p>
+
+          <div class="summer-loc-grid">
+            <div class="summer-loc">
+              <div class="summer-loc-head">
+                <span class="summer-loc-days">Tuesdays</span>
+                <span class="summer-loc-place">Dean &amp; Peck Park</span>
+              </div>
+              <div class="summer-row">
+                <div class="summer-row-info"><span class="summer-row-age">U4–U6</span><span class="summer-row-time">1:00–1:45 PM</span></div>
+                <a class="summer-reg" href="https://forgesoccerclub.sprocketsports.com/all-programs/29248" target="_blank" rel="noopener">Register →</a>
+              </div>
+              <p class="summer-cost">$75 / 6-week session</p>
+            </div>
+            <div class="summer-loc">
+              <div class="summer-loc-head">
+                <span class="summer-loc-days">Fridays</span>
+                <span class="summer-loc-place">Forge East · East Side Sports Complex</span>
+              </div>
+              <div class="summer-row">
+                <div class="summer-row-info"><span class="summer-row-age">U4</span><span class="summer-row-time">4:30–5:15 PM</span></div>
+                <a class="summer-reg" href="https://forgesoccerclub.sprocketsports.com/all-programs/29248" target="_blank" rel="noopener">Register →</a>
+              </div>
+              <div class="summer-row">
+                <div class="summer-row-info"><span class="summer-row-age">U5–U6</span><span class="summer-row-time">5:30–6:15 PM</span></div>
+                <a class="summer-reg" href="https://forgesoccerclub.sprocketsports.com/all-programs/29248" target="_blank" rel="noopener">Register →</a>
+              </div>
+              <p class="summer-cost">$75 / 6-week session</p>
+            </div>
+            <div class="summer-loc">
+              <div class="summer-loc-head">
+                <span class="summer-loc-days">Saturdays</span>
+                <span class="summer-loc-place">Dean &amp; Peck Park</span>
+              </div>
+              <div class="summer-row">
+                <div class="summer-row-info"><span class="summer-row-age">U4</span><span class="summer-row-time">9:00–9:45 AM</span></div>
+                <a class="summer-reg" href="https://forgesoccerclub.sprocketsports.com/all-programs/29248" target="_blank" rel="noopener">Register →</a>
+              </div>
+              <div class="summer-row">
+                <div class="summer-row-info"><span class="summer-row-age">U5–U6</span><span class="summer-row-time">10:00–10:45 AM</span></div>
+                <a class="summer-reg" href="https://forgesoccerclub.sprocketsports.com/all-programs/29248" target="_blank" rel="noopener">Register →</a>
+              </div>
+              <p class="summer-cost">$75 / 6-week session</p>
+            </div>
           </div>
         </div>
       </div>
@@ -2115,7 +2176,7 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
       <h3>No Tryouts. Everyone Welcome.</h3>
       <p>Forge Futures has no tryouts and no cuts. This program is open to every child in the Fox Valley corridor. Our most affordable option — starting well under $200 per season. Financial assistance is always available.</p>
 
-      <div style="background:var(--gold-light);border-radius:8px;padding:20px 22px;margin-top:24px">
+      <div style="background:var(--gold-light);border-radius:8px;padding:20px 22px;margin-top:24px" data-event-end="2026-10-18">
         <h3 style="margin-bottom:4px">Fall 2026 Sessions — Now Registering</h3>
         <p style="font-size:.9rem;color:#555;margin-bottom:16px">Sept 7 – Oct 18 · six weeks · $160 each · register directly online.</p>
         <div class="summer-loc">
@@ -2684,7 +2745,7 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
       </div>
       <p style="font-size:.9rem;color:#555">Forge Foxes is the natural on-ramp to our Forge Community program as players grow. When your child is ready for the next step, the pathway is already here.</p>
 
-      <div style="background:var(--gold-light);border-radius:8px;padding:20px 22px;margin-top:24px">
+      <div style="background:var(--gold-light);border-radius:8px;padding:20px 22px;margin-top:24px" data-event-end="2026-10-17">
         <h3 style="margin-bottom:4px">Fall 2026 Sessions — Now Registering</h3>
         <p style="font-size:.9rem;color:#555;margin-bottom:16px">Sept 8 – Oct 17 · six weeks · $75 · U4–U6 · register directly online.</p>
         <div class="summer-loc">
@@ -2700,6 +2761,25 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
           <div class="summer-loc-head"><span class="summer-loc-days">Saturdays</span><span class="summer-loc-place">Dean &amp; Peck Park</span></div>
           <div class="summer-row"><div class="summer-row-info"><span class="summer-row-age">U4</span><span class="summer-row-time">9:00–9:45 AM</span></div><a class="summer-reg" href="https://forgesoccerclub.sprocketsports.com/registrations/175578" target="_blank" rel="noopener">Register →</a></div>
           <div class="summer-row"><div class="summer-row-info"><span class="summer-row-age">U5–U6</span><span class="summer-row-time">10:00–10:45 AM</span></div><a class="summer-reg" href="https://forgesoccerclub.sprocketsports.com/registrations/175581" target="_blank" rel="noopener">Register →</a></div>
+        </div>
+      </div>
+
+      <div style="background:var(--gold-light);border-radius:8px;padding:20px 22px;margin-top:24px" data-event-start="2026-09-11" data-event-end="2026-10-31">
+        <h3 style="margin-bottom:4px">Winter 2026 Sessions — Now Registering</h3>
+        <p style="font-size:.9rem;color:#555;margin-bottom:16px">Nov 3 – Dec 19 · six weeks · no play Thanksgiving week · $75 · U4–U6 · registration closes Oct 30.</p>
+        <div class="summer-loc">
+          <div class="summer-loc-head"><span class="summer-loc-days">Tuesdays</span><span class="summer-loc-place">Dean &amp; Peck Park</span></div>
+          <div class="summer-row"><div class="summer-row-info"><span class="summer-row-age">U4–U6</span><span class="summer-row-time">1:00–1:45 PM</span></div><a class="summer-reg" href="https://forgesoccerclub.sprocketsports.com/all-programs/29248" target="_blank" rel="noopener">Register →</a></div>
+        </div>
+        <div class="summer-loc" style="margin-top:18px">
+          <div class="summer-loc-head"><span class="summer-loc-days">Fridays</span><span class="summer-loc-place">Forge East · East Side Sports Complex</span></div>
+          <div class="summer-row"><div class="summer-row-info"><span class="summer-row-age">U4</span><span class="summer-row-time">4:30–5:15 PM</span></div><a class="summer-reg" href="https://forgesoccerclub.sprocketsports.com/all-programs/29248" target="_blank" rel="noopener">Register →</a></div>
+          <div class="summer-row"><div class="summer-row-info"><span class="summer-row-age">U5–U6</span><span class="summer-row-time">5:30–6:15 PM</span></div><a class="summer-reg" href="https://forgesoccerclub.sprocketsports.com/all-programs/29248" target="_blank" rel="noopener">Register →</a></div>
+        </div>
+        <div class="summer-loc" style="margin-top:18px">
+          <div class="summer-loc-head"><span class="summer-loc-days">Saturdays</span><span class="summer-loc-place">Dean &amp; Peck Park</span></div>
+          <div class="summer-row"><div class="summer-row-info"><span class="summer-row-age">U4</span><span class="summer-row-time">9:00–9:45 AM</span></div><a class="summer-reg" href="https://forgesoccerclub.sprocketsports.com/all-programs/29248" target="_blank" rel="noopener">Register →</a></div>
+          <div class="summer-row"><div class="summer-row-info"><span class="summer-row-age">U5–U6</span><span class="summer-row-time">10:00–10:45 AM</span></div><a class="summer-reg" href="https://forgesoccerclub.sprocketsports.com/all-programs/29248" target="_blank" rel="noopener">Register →</a></div>
         </div>
       </div>
     </div>
@@ -3138,7 +3218,8 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
 })();
 
 // ── AUTO-EXPIRE EVENTS ──
-// Any .event-card with data-event-end="YYYY-MM-DD" is hidden once that date has passed.
+// Any element with data-event-end="YYYY-MM-DD" is hidden once that date has passed.
+// Any element with data-event-start="YYYY-MM-DD" stays hidden until that date (preview early with ?show=hiddenevents).
 // If an entire .events-grid has no visible cards left, its enclosing <section> is hidden too.
 (function(){
   var params = new URLSearchParams(window.location.search);
@@ -3151,6 +3232,13 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
     if(el.getAttribute('data-event-end') < todayStr){
       el.style.display = 'none';
       el.setAttribute('data-expired','');
+    }
+  });
+  var preview = params.get('show') === 'hiddenevents';
+  document.querySelectorAll('[data-event-start]').forEach(function(el){
+    if(!preview && el.getAttribute('data-event-start') > todayStr){
+      el.style.display = 'none';
+      el.setAttribute('data-pending','');
     }
   });
   document.querySelectorAll('.events-grid').forEach(function(grid){
