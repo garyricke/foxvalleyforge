@@ -25,7 +25,8 @@
    2. REGISTER_URL — the real Forge team page on act.alz.org. Danielle has it.
       The placeholder below points at the Fox Valley walk's team-search page so
       the button is never dead, but it is NOT the Forge team page.
-   3. GOAL — the sample dashboard said $25,000. $100 x 549 players is $54,900.
+   3. GOAL — $25,000, set by Danielle Weyant 25 Aug 2026 (deliberately below
+      $100 x 549 so families who can't give aren't the reason it misses).
    ========================================================================== */
 window.FGB_CONFIG = {
 
@@ -40,7 +41,7 @@ window.FGB_CONFIG = {
      then paste the resulting link here. See SETUP note at the bottom of this file. */
   SHEET_CSV_URL: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQECqdzPuqUWHrtIERXMBAglkdydWDVF8UUkl-j_udyTNdoh_xm57_KnFKVOB0qxwmwwyKRFesahsrv/pub?gid=1344003812&single=true&output=csv',
 
-  GOAL: 54900,   /* $100 per athlete x 549 players — Mike Weyant, 24 Aug 2026 */
+  GOAL: 25000,   /* Danielle Weyant, 25 Aug 2026 — the team goal on act.alz.org */
 
   EVENT: {
     name:     "Walk to End Alzheimer's — Fox Valley",
@@ -68,6 +69,7 @@ window.FGB_CONFIG = {
      t-shirt, provided they hit it four weeks before walk day. */
   SHIRT_THRESHOLD: 100,
   SHIRT_DEADLINE:  'Saturday, August 29',
+  SHIRT_DEADLINE_ISO: '2026-08-29',   /* the guarantee line hides itself after this date */
 
   CONTACT_EMAIL: 'alzwalk@forgesoccerclub.com'
 };
@@ -491,7 +493,7 @@ footer a{color:#fff}
       <div class="card">
         <h3>Earn your shirt</h3>
         <p>Raise <strong>$100</strong> and the Alzheimer's Association sends you an official Walk t-shirt.</p>
-        <p>To be guaranteed one before walk day, hit $100 by <strong id="d-shirt"></strong>.</p>
+        <p id="d-shirt-line">To be guaranteed one before walk day, hit $100 by <strong id="d-shirt"></strong>.</p>
       </div>
       <div class="card">
         <h3>What your team can win</h3>
@@ -580,6 +582,7 @@ footer a{color:#fff}
   document.getElementById('d-venue').textContent=E.venue;
   document.getElementById('d-address').textContent=E.address;
   document.getElementById('d-shirt').textContent=C.SHIRT_DEADLINE;
+  if(C.SHIRT_DEADLINE_ISO && new Date()>new Date(C.SHIRT_DEADLINE_ISO+'T23:59:59')){ document.getElementById('d-shirt-line').style.display='none'; }
   var ce=document.getElementById('d-contact');
   ce.textContent=C.CONTACT_EMAIL; ce.href='mailto:'+C.CONTACT_EMAIL;
   document.getElementById('v-name').textContent=C.VOLUNTEER_NAME;
