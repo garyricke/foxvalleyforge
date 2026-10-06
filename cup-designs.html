@@ -55,13 +55,35 @@ figcaption em{margin-left:auto;font-style:normal;font-family:Oswald,sans-serif;f
 .next p{color:#8E9BB5;font-size:14px;margin:22px 0 0}
 @media (max-width:860px){.brief,.logic,.pair{grid-template-columns:1fr}.brief{gap:28px}.rec-box{grid-template-columns:1fr}}
 @media (max-width:640px){.wrap{padding:0 16px}.cover{padding:48px 0 44px}.num{font-size:52px}}
+.orig{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:start;padding:56px 0 8px;border-top:1px solid var(--rule);margin-top:40px}
+.orig figure{background:#fff}
+.orig .art{aspect-ratio:auto;padding:22px}
+.wd{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin:18px 0 0}
+.wd h3{font-size:14px;letter-spacing:.14em;margin:0 0 10px}
+.wd .yes h3{color:#1F6B3A}.wd .no h3{color:var(--crimson)}
+.wd ul{margin:0;padding-left:18px;color:var(--ink-2);font-size:16px}
+.wd li{margin-bottom:8px}
+.orig .verdict{margin:22px 0 0;padding:16px 20px;background:#fff;border-left:4px solid var(--gold);color:var(--ink-2)}
+.score{width:100%;border-collapse:collapse;margin:40px 0 0;background:#fff;font-size:15px}
+.score caption{text-align:left;font-family:Oswald,sans-serif;text-transform:uppercase;font-size:24px;color:var(--navy);padding:0 0 12px}
+.score th,.score td{padding:12px 14px;border-bottom:1px solid var(--rule);text-align:left;vertical-align:top}
+.score thead th{font-family:Oswald,sans-serif;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);font-weight:500}
+.score tbody th{font-family:Oswald,sans-serif;font-weight:600;color:var(--navy);white-space:nowrap}
+.score tr.hl{background:#FBF5E8}
+.r{display:inline-flex;align-items:center;gap:6px;font-weight:600}
+.r::before{content:"";width:10px;height:10px;border-radius:50%;flex:none}
+.r.pass{color:#1F6B3A}.r.pass::before{background:#1F6B3A}
+.r.part{color:#8A6D2F}.r.part::before{background:var(--gold)}
+.r.fail{color:var(--crimson)}.r.fail::before{background:var(--crimson)}
+.score-wrap{overflow-x:auto}
+@media (max-width:860px){.orig,.wd{grid-template-columns:1fr;gap:22px}}
 </style>
 </head>
 <body>
 <header class="cover"><div class="wrap">
   <p class="eyebrow">Fox Valley Forge SC · Identity directions · Draft for review</p>
   <h1>The Forge Cup</h1>
-  <p>Five directions for the club's new spring tournament, each explored by two image models, Google Gemini and OpenAI, with the reasoning behind every one and a clear recommendation.</p>
+  <p>Karim's original concept, then five new directions for the club's spring tournament, each explored by two image models, Google Gemini and OpenAI, with the reasoning behind every one and a clear recommendation.</p>
 </div></header>
 <main class="wrap">
   <div class="brief">
@@ -80,6 +102,31 @@ figcaption em{margin-left:auto;font-style:normal;font-family:Oswald,sans-serif;f
       </ul>
     </div>
   </div>
+  <section class="orig">
+    <div>
+      <p class="eyebrow" style="color:var(--crimson)">00 · The starting point</p>
+      <h2 style="font-size:clamp(30px,4vw,44px)">Karim's original</h2>
+      <p style="color:var(--ink-2);margin:14px 0 0">Karim's concept, as he sent it on August 5: a trophy whose rim rises into fox ears, a ball in the cup, the whole thing standing on an anvil, with a stacked wordmark and a "Powered by Nike" line.</p>
+      <div class="wd">
+        <div class="yes"><h3>Where it works</h3><ul>
+          <li>The right ingredients. Fox, forge and cup are exactly the Forge's story, and the colors match the club's exactly.</li>
+          <li>It has real athletic presence. The trophy silhouette says "cup" instantly.</li>
+          <li>The wordmark hierarchy is sound: a small THE, a big FORGE, CUP in crimson, and a gold rule.</li>
+        </ul></div>
+        <div class="no"><h3>Where it doesn't</h3><ul>
+          <li>It says four things at once (trophy, fox ears, ball, anvil) stacked on top of each other, and none of them leads.</li>
+          <li>The detail collapses small. The thin gold and crimson slivers and the ball panels fill in at avatar size, and there are too many tiny shapes to embroider well.</li>
+          <li>It has the rough edges of an AI rendering: lopsided anvil accents, notches, slivers that don't match. It would need a full redraw either way.</li>
+          <li>Its tall, narrow shape wastes a square slot like GotSoccer or a social avatar.</li>
+          <li>At a glance the fox ears read as a cat's ears or horns.</li>
+          <li>The Nike swoosh can't run without Nike's written permission.</li>
+        </ul></div>
+      </div>
+      <p class="verdict"><b>Verdict:</b> the right instincts, still looking for a single idea. The fox-and-forge story Karim chose is exactly what 01 Fox Fire distills into one shape.</p>
+    </div>
+    <figure><div class="art"><img loading="lazy" alt="Karim's original Forge Cup logo concept" src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_1100/v1791311811/forge/cup/designs/karim-original.png" width="1100" height="524"></div><figcaption><b>00</b><span>Karim Hussain · August 5</span></figcaption></figure>
+  </section>
+  <div class="score-wrap"><table class="score"><caption>Scorecard against the four tests</caption><thead><tr><th>Design</th><th>1 · Forge family</th><th>2 · Stands alone</th><th>3 · Works small</th><th>4 · One idea</th></tr></thead><tbody><tr><th>Karim's original</th><td><span class="r pass">Pass</span></td><td><span class="r pass">Pass</span></td><td><span class="r fail">Fail</span></td><td><span class="r fail">Fail</span></td></tr><tr class="hl"><th>01 Fox Fire (B)</th><td><span class="r pass">Pass</span></td><td><span class="r pass">Pass</span></td><td><span class="r pass">Pass</span></td><td><span class="r pass">Pass</span></td></tr><tr><th>02 Forged Trophy (B)</th><td><span class="r part">Partial</span></td><td><span class="r pass">Pass</span></td><td><span class="r part">Partial</span></td><td><span class="r pass">Pass</span></td></tr><tr><th>03 Anvil Shield (B)</th><td><span class="r pass">Pass</span></td><td><span class="r pass">Pass</span></td><td><span class="r part">Partial</span></td><td><span class="r part">Partial</span></td></tr><tr><th>04 The Strike</th><td><span class="r part">Partial</span></td><td><span class="r pass">Pass</span></td><td><span class="r part">Partial</span></td><td><span class="r part">Partial</span></td></tr><tr><th>05 Hammer Monogram</th><td><span class="r part">Partial</span></td><td><span class="r fail">Fail</span></td><td><span class="r pass">Pass</span></td><td><span class="r part">Partial</span></td></tr></tbody></table></div>
   <div class="rec-box">
     <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_300/v1791311030/forge/cup/designs/openai-foxfire.png" alt="Fox Fire, the recommended direction" width="300" height="300">
     <div><p class="eyebrow" style="color:var(--crimson);margin-bottom:6px">Recommendation</p><h2>Fox Fire as the primary mark, Forged Trophy for medals and print</h2><p>Fox Fire is the only direction that passes all four tests and could not belong to any other club. Forged Trophy is its formal partner wherever restraint matters more than impact. Directions 04 and 05 didn't hold up in either model.</p></div>
