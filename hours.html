@@ -99,7 +99,14 @@ h1,h2,h3{font-family:var(--font-h);text-transform:uppercase;line-height:1.1}
 .row.disc{background:var(--gold-light)}
 .row.disc .tag{color:#fff;background:var(--crimson);border-color:var(--crimson)}
 .row.disc .h{color:var(--crimson)}
-.brow .nm .off{color:var(--crimson);font-weight:600}
+.sum{border-top:1px solid var(--navy-10);margin:6px 12px 0;padding-top:6px}
+.sum-row{display:flex;justify-content:space-between;align-items:baseline;gap:14px;padding:7px 0;font-size:.94rem}
+.sum-row .nm{font-weight:600}
+.sum-row .nm small{display:block;font-weight:400;font-size:.76rem;color:var(--navy-70)}
+.sum-row .val{font-family:var(--font-h);font-size:1rem;letter-spacing:.02em;white-space:nowrap}
+.sum-row.disc .nm,.sum-row.disc .val{color:var(--crimson)}
+.sum-row.total{border-top:2px solid var(--navy);margin-top:4px;padding-top:10px}
+.sum-row.total .nm,.sum-row.total .val{font-family:var(--font-h);text-transform:uppercase;letter-spacing:.04em;font-size:1.05rem}
 .empty{padding:28px 18px;color:var(--navy-70);font-size:.92rem}
 
 .foot{background:var(--dark);color:rgba(255,255,255,.42);text-align:center;padding:24px;font-size:.78rem}
@@ -199,7 +206,7 @@ h1,h2,h3{font-family:var(--font-h);text-transform:uppercase;line-height:1.1}
 <main class="wrap">
   <section class="sec">
     <div class="sec-h"><h2>Where the hours went</h2></div>
-    <p class="sec-note">Hours charged to the block, by project, after any discount. Select a project to see its sessions below. A session that covered two projects is counted under its main one.</p>
+    <p class="sec-note">Hours worked, by project, with discounts listed separately underneath. Select a project to see its sessions below. A session that covered two projects is counted under its main one.</p>
     <div class="bars" id="bars"></div>
   </section>
 
@@ -254,23 +261,28 @@ h1,h2,h3{font-family:var(--font-h);text-transform:uppercase;line-height:1.1}
 
   function totals(){
     var t={};
-    function slot(k){ return t[k]=t[k]||{hrs:0,n:0,off:0}; }
+    function slot(k){ return t[k]=t[k]||{hrs:0,n:0}; }
     data.entries.forEach(function(e){ var s=slot(e.stream); s.hrs+=e.hours; s.n++; });
-    (data.adjustments||[]).forEach(function(a){ var s=slot(a.stream); s.hrs+=a.hours; s.off-=a.hours; });
-    return Object.keys(t).map(function(k){ return {key:k,name:data.streams[k]||k,hrs:t[k].hrs,n:t[k].n,off:t[k].off}; })
+    return Object.keys(t).map(function(k){ return {key:k,name:data.streams[k]||k,hrs:t[k].hrs,n:t[k].n}; })
       .sort(function(a,b){ return b.hrs-a.hrs; });
   }
 
   function renderBars(){
     var rows=totals(), max=rows[0]?rows[0].hrs:1, el=document.getElementById('bars');
     el.innerHTML=rows.map(function(r){
-      var share=Math.round(r.hrs/data.used*100);
+      var share=Math.round(r.hrs/data.worked*100);
       return '<button class="brow" type="button" data-k="'+r.key+'" aria-pressed="'+(filter===r.key)+'">'+
-        '<span class="nm">'+esc(r.name)+'<small>'+r.n+(r.n===1?' session':' sessions')+
-        (r.off?' · '+h(r.hrs+r.off)+' h worked, <span class="off">'+h(r.off)+' h discount</span>':'')+'</small></span>'+
+        '<span class="nm">'+esc(r.name)+'<small>'+r.n+(r.n===1?' session':' sessions')+'</small></span>'+
         '<span class="track"><i class="fill" data-w="'+(r.hrs/max*100).toFixed(1)+'"></i></span>'+
         '<span class="val">'+h(r.hrs)+' h<small>'+share+'%</small></span></button>';
-    }).join('');
+    }).join('')+
+      '<div class="sum">'+
+        '<div class="sum-row"><span class="nm">Total worked</span><span class="val">'+h(data.worked)+' h</span></div>'+
+        (data.adjustments||[]).map(function(a){
+          return '<div class="sum-row disc"><span class="nm">Discount<small>'+esc(a.desc)+'</small></span><span class="val">−'+h(-a.hours)+' h</span></div>';
+        }).join('')+
+        '<div class="sum-row total"><span class="nm">Charged to the block</span><span class="val">'+h(data.used)+' h</span></div>'+
+      '</div>';
     requestAnimationFrame(function(){
       el.querySelectorAll('.fill').forEach(function(f){ f.style.width=f.getAttribute('data-w')+'%'; });
     });
