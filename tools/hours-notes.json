@@ -1,0 +1,166 @@
+{
+  "_readme": "Curated labels for Time-app entries on the Forge maintenance block. Keyed by Time-app entry id. 'stream' must be a key in 'streams'. Entries not listed here fall back to the entry's own summary/note and the 'site' stream. 'include' lists entry ids from other projects that draw down the block. Clockify logs by time block, so a session that touched two projects is filed under its main one. This file and data/hours.json are publicly readable — keep descriptions client-safe. Each entry is rounded to the nearest quarter hour. 'adjustments' are credits (negative hours) against a project, shown as discounts.",
+  "include": [
+    4019
+  ],
+  "streams": {
+    "cards": "Forge Fest trading cards",
+    "golf": "Forge Golf Classic",
+    "programs": "Programs & events",
+    "gives": "Forge Gives Back",
+    "east": "Forge East rental page",
+    "board": "Board documents",
+    "news": "Club news",
+    "site": "Meetings, admin & site care"
+  },
+  "entries": {
+    "3646": [
+      "site",
+      "Jul 15 check-in with Mike; gated Meeting Notes page and the meeting's notes"
+    ],
+    "3635": [
+      "cards",
+      "Trading-card mockups: two design directions, flip cards, coach and staff variants, survey form with live preview"
+    ],
+    "3632": [
+      "golf",
+      "Golf Classic landing page draft: schedule, contests, registration, sponsorship and venue"
+    ],
+    "3626": [
+      "golf",
+      "Golf Classic sponsor prospectus: one-pager with six sponsor levels and a benefit matrix"
+    ],
+    "3624": [
+      "golf",
+      "Sponsor deck version of the prospectus, print-ready PDFs and page-break fixes"
+    ],
+    "3622": [
+      "site",
+      "Forge Facebook and Instagram links added; expired summer-camp banner removed"
+    ],
+    "3617": [
+      "golf",
+      "Golf Classic goes public with Zeffy registration and copy fixes; gated Correspondence page"
+    ],
+    "3615": [
+      "golf",
+      "Golf Classic homepage video band, Forge crest on the golf ball, 9:16 social videos"
+    ],
+    "3609": [
+      "cards",
+      "Trading cards: design direction locked, player-photo privacy safeguards, character tenets"
+    ],
+    "3608": [
+      "board",
+      "Business plan and presentation review for Mike"
+    ],
+    "3607": [
+      "board",
+      "Business plan follow-up on Mike's answers"
+    ],
+    "3605": [
+      "cards",
+      "Parent-facing player card form built"
+    ],
+    "3601": [
+      "cards",
+      "Player card form wired to the real team list; photo pipeline"
+    ],
+    "3594": [
+      "cards",
+      "Card form family deadline set; card production pipeline"
+    ],
+    "3591": [
+      "cards",
+      "Card production: player portrait rendering"
+    ],
+    "3589": [
+      "programs",
+      "Fall 2026 sessions replace the summer programs (section and both program modals); coach cards made photographic"
+    ],
+    "3587": [
+      "cards",
+      "Card production: player portrait rendering"
+    ],
+    "3585": [
+      "cards",
+      "Card production: rendering and checks; fall session corrections"
+    ],
+    "3582": [
+      "cards",
+      "Card production: rendering and checks"
+    ],
+    "3580": [
+      "cards",
+      "Print files prepared for the printer"
+    ],
+    "3577": [
+      "cards",
+      "Print files prepared for the printer: 580 cards with bleed"
+    ],
+    "3860": [
+      "cards",
+      "Player card form closed; empty position chip removed"
+    ],
+    "3566": [
+      "cards",
+      "Corrected cards re-rendered and sent to the printer"
+    ],
+    "3563": [
+      "gives",
+      "Forge Gives Back page built and launched, with a live team leaderboard from the tracker sheet"
+    ],
+    "3560": [
+      "news",
+      "Club news page with Mike's season-opening message; Futsal winter card"
+    ],
+    "3861": [
+      "programs",
+      "Supplemental Tryouts back on the site plus Boys HS Supplemental Tryouts; Futsal moved to the new Sprocket program"
+    ],
+    "3523": [
+      "programs",
+      "Foxes Winter 2026 card and details; fall sessions set to hide themselves"
+    ],
+    "3862": [
+      "programs",
+      "Community Winter 2026 card; fall cards down; navigation says Winter"
+    ],
+    "3750": [
+      "programs",
+      "Winter Developmental League card and details; event cards resized to fit; Gives Back goal set to $25,000"
+    ],
+    "3740": [
+      "golf",
+      "Golf Classic page becomes a post-event recap; second card batch proposed to Bridgett"
+    ],
+    "3729": [
+      "cards",
+      "Second card run: late form submissions merged, 129 cards rendered, review page"
+    ],
+    "3726": [
+      "cards",
+      "Second card run sent to Bridgett and Mike for review; family-photo column on the review page"
+    ],
+    "3863": [
+      "site",
+      "Admin password changed on every gated page"
+    ],
+    "3712": [
+      "east",
+      "Forge East page: options for a live availability calendar, booking and payments reviewed with Kevin"
+    ],
+    "4019": [
+      "east",
+      "Forge East rental page: first draft for Kevin's review, with spaces, pricing, photos and calendar"
+    ]
+  },
+  "adjustments": [
+    {
+      "date": "2026-10-06",
+      "stream": "cards",
+      "hours": -10,
+      "desc": "Courtesy discount on the Forge Fest trading cards"
+    }
+  ]
+}

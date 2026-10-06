@@ -1,0 +1,278 @@
+{
+ "updated": "2026-10-06T16:15Z",
+ "block": {
+  "hours": 50,
+  "rate": 80,
+  "price": 4000,
+  "opened": "2026-07-14"
+ },
+ "worked": 45.0,
+ "discount": 10,
+ "used": 35.0,
+ "remaining": 15.0,
+ "streams": {
+  "cards": "Forge Fest trading cards",
+  "golf": "Forge Golf Classic",
+  "programs": "Programs & events",
+  "gives": "Forge Gives Back",
+  "east": "Forge East rental page",
+  "board": "Board documents",
+  "news": "Club news",
+  "site": "Meetings, admin & site care"
+ },
+ "adjustments": [
+  {
+   "date": "2026-10-06",
+   "stream": "cards",
+   "hours": -10,
+   "desc": "Courtesy discount on the Forge Fest trading cards"
+  }
+ ],
+ "entries": [
+  {
+   "id": 4019,
+   "date": "2026-10-01",
+   "hours": 2.0,
+   "stream": "east",
+   "desc": "Forge East rental page: first draft for Kevin's review, with spaces, pricing, photos and calendar"
+  },
+  {
+   "id": 3712,
+   "date": "2026-09-21",
+   "hours": 0.25,
+   "stream": "east",
+   "desc": "Forge East page: options for a live availability calendar, booking and payments reviewed with Kevin"
+  },
+  {
+   "id": 3863,
+   "date": "2026-09-20",
+   "hours": 0.25,
+   "stream": "site",
+   "desc": "Admin password changed on every gated page"
+  },
+  {
+   "id": 3726,
+   "date": "2026-09-18",
+   "hours": 0.5,
+   "stream": "cards",
+   "desc": "Second card run sent to Bridgett and Mike for review; family-photo column on the review page"
+  },
+  {
+   "id": 3729,
+   "date": "2026-09-17",
+   "hours": 1.75,
+   "stream": "cards",
+   "desc": "Second card run: late form submissions merged, 129 cards rendered, review page"
+  },
+  {
+   "id": 3750,
+   "date": "2026-09-16",
+   "hours": 1.5,
+   "stream": "programs",
+   "desc": "Winter Developmental League card and details; event cards resized to fit; Gives Back goal set to $25,000"
+  },
+  {
+   "id": 3740,
+   "date": "2026-09-16",
+   "hours": 0.5,
+   "stream": "golf",
+   "desc": "Golf Classic page becomes a post-event recap; second card batch proposed to Bridgett"
+  },
+  {
+   "id": 3862,
+   "date": "2026-09-11",
+   "hours": 0.25,
+   "stream": "programs",
+   "desc": "Community Winter 2026 card; fall cards down; navigation says Winter"
+  },
+  {
+   "id": 3523,
+   "date": "2026-09-10",
+   "hours": 1.0,
+   "stream": "programs",
+   "desc": "Foxes Winter 2026 card and details; fall sessions set to hide themselves"
+  },
+  {
+   "id": 3861,
+   "date": "2026-09-04",
+   "hours": 0.5,
+   "stream": "programs",
+   "desc": "Supplemental Tryouts back on the site plus Boys HS Supplemental Tryouts; Futsal moved to the new Sprocket program"
+  },
+  {
+   "id": 3563,
+   "date": "2026-08-24",
+   "hours": 1.5,
+   "stream": "gives",
+   "desc": "Forge Gives Back page built and launched, with a live team leaderboard from the tracker sheet"
+  },
+  {
+   "id": 3560,
+   "date": "2026-08-24",
+   "hours": 0.5,
+   "stream": "news",
+   "desc": "Club news page with Mike's season-opening message; Futsal winter card"
+  },
+  {
+   "id": 3566,
+   "date": "2026-08-21",
+   "hours": 1.0,
+   "stream": "cards",
+   "desc": "Corrected cards re-rendered and sent to the printer"
+  },
+  {
+   "id": 3860,
+   "date": "2026-08-13",
+   "hours": 0.25,
+   "stream": "cards",
+   "desc": "Player card form closed; empty position chip removed"
+  },
+  {
+   "id": 3580,
+   "date": "2026-08-12",
+   "hours": 0.75,
+   "stream": "cards",
+   "desc": "Print files prepared for the printer"
+  },
+  {
+   "id": 3577,
+   "date": "2026-08-12",
+   "hours": 1.5,
+   "stream": "cards",
+   "desc": "Print files prepared for the printer: 580 cards with bleed"
+  },
+  {
+   "id": 3582,
+   "date": "2026-08-11",
+   "hours": 1.25,
+   "stream": "cards",
+   "desc": "Card production: rendering and checks"
+  },
+  {
+   "id": 3585,
+   "date": "2026-08-10",
+   "hours": 2.75,
+   "stream": "cards",
+   "desc": "Card production: rendering and checks; fall session corrections"
+  },
+  {
+   "id": 3587,
+   "date": "2026-08-09",
+   "hours": 2.5,
+   "stream": "cards",
+   "desc": "Card production: player portrait rendering"
+  },
+  {
+   "id": 3589,
+   "date": "2026-08-07",
+   "hours": 2.5,
+   "stream": "programs",
+   "desc": "Fall 2026 sessions replace the summer programs (section and both program modals); coach cards made photographic"
+  },
+  {
+   "id": 3591,
+   "date": "2026-08-06",
+   "hours": 1.0,
+   "stream": "cards",
+   "desc": "Card production: player portrait rendering"
+  },
+  {
+   "id": 3594,
+   "date": "2026-08-03",
+   "hours": 2.25,
+   "stream": "cards",
+   "desc": "Card form family deadline set; card production pipeline"
+  },
+  {
+   "id": 3601,
+   "date": "2026-07-31",
+   "hours": 3.0,
+   "stream": "cards",
+   "desc": "Player card form wired to the real team list; photo pipeline"
+  },
+  {
+   "id": 3607,
+   "date": "2026-07-30",
+   "hours": 1.0,
+   "stream": "board",
+   "desc": "Business plan follow-up on Mike's answers"
+  },
+  {
+   "id": 3605,
+   "date": "2026-07-30",
+   "hours": 2.5,
+   "stream": "cards",
+   "desc": "Parent-facing player card form built"
+  },
+  {
+   "id": 3609,
+   "date": "2026-07-29",
+   "hours": 2.0,
+   "stream": "cards",
+   "desc": "Trading cards: design direction locked, player-photo privacy safeguards, character tenets"
+  },
+  {
+   "id": 3608,
+   "date": "2026-07-29",
+   "hours": 1.0,
+   "stream": "board",
+   "desc": "Business plan and presentation review for Mike"
+  },
+  {
+   "id": 3615,
+   "date": "2026-07-28",
+   "hours": 2.0,
+   "stream": "golf",
+   "desc": "Golf Classic homepage video band, Forge crest on the golf ball, 9:16 social videos"
+  },
+  {
+   "id": 3617,
+   "date": "2026-07-27",
+   "hours": 1.0,
+   "stream": "golf",
+   "desc": "Golf Classic goes public with Zeffy registration and copy fixes; gated Correspondence page"
+  },
+  {
+   "id": 3622,
+   "date": "2026-07-23",
+   "hours": 0.5,
+   "stream": "site",
+   "desc": "Forge Facebook and Instagram links added; expired summer-camp banner removed"
+  },
+  {
+   "id": 3626,
+   "date": "2026-07-22",
+   "hours": 1.0,
+   "stream": "golf",
+   "desc": "Golf Classic sponsor prospectus: one-pager with six sponsor levels and a benefit matrix"
+  },
+  {
+   "id": 3624,
+   "date": "2026-07-22",
+   "hours": 1.0,
+   "stream": "golf",
+   "desc": "Sponsor deck version of the prospectus, print-ready PDFs and page-break fixes"
+  },
+  {
+   "id": 3635,
+   "date": "2026-07-21",
+   "hours": 1.75,
+   "stream": "cards",
+   "desc": "Trading-card mockups: two design directions, flip cards, coach and staff variants, survey form with live preview"
+  },
+  {
+   "id": 3632,
+   "date": "2026-07-21",
+   "hours": 0.75,
+   "stream": "golf",
+   "desc": "Golf Classic landing page draft: schedule, contests, registration, sponsorship and venue"
+  },
+  {
+   "id": 3646,
+   "date": "2026-07-15",
+   "hours": 1.25,
+   "stream": "site",
+   "desc": "Jul 15 check-in with Mike; gated Meeting Notes page and the meeting's notes"
+  }
+ ]
+}
