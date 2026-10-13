@@ -254,7 +254,7 @@ h1,h2,h3{font-family:var(--font-h);text-transform:uppercase;line-height:1.1}
     document.getElementById('hrs-used').textContent=h(used);
     document.getElementById('hrs-pct').textContent=Math.round(pct)+'%';
     document.getElementById('val-used').textContent='$'+Math.round(used*b.rate).toLocaleString();
-    document.getElementById('sessions').textContent=d.entries.length;
+    document.getElementById('sessions').textContent=new Set(d.entries.map(function(e){ return e.id; })).size;  // split sessions count once
     // span of the engagement: first logged session through today, in weeks
     var first=d.entries.reduce(function(m,e){ return e.date<m?e.date:m; }, d.entries[0].date).split('-');
     var start=new Date(+first[0],+first[1]-1,+first[2]), today=new Date(); today.setHours(0,0,0,0);

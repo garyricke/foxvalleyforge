@@ -1,5 +1,5 @@
 {
-  "_readme": "Curated labels for Time-app entries on the Forge maintenance block. Keyed by Time-app entry id. 'stream' must be a key in 'streams'. Entries not listed here fall back to the entry's own summary/note and the 'site' stream. 'include' lists entry ids from other projects that draw down the block. Clockify logs by time block, so a session that touched two projects is filed under its main one. This file and data/hours.json are publicly readable — keep descriptions client-safe. Each entry is rounded to the nearest quarter hour. 'adjustments' are credits (negative hours) against a project, shown as discounts. 'credits' are out-of-pocket costs Orbis absorbed (dollars, not hours); shown under the project and in the totals.",
+  "_readme": "Curated labels for Time-app entries on the Forge maintenance block. Keyed by Time-app entry id. 'stream' must be a key in 'streams'. Entries not listed here fall back to the entry's own summary/note and the 'site' stream. 'include' lists entry ids from other projects that draw down the block. Clockify logs by time block, so a session that touched two projects is filed under its main one. This file and data/hours.json are publicly readable — keep descriptions client-safe. Each entry is rounded to the nearest quarter hour. 'adjustments' are credits (negative hours) against a project, shown as discounts. 'credits' are out-of-pocket costs Orbis absorbed (dollars, not hours); shown under the project and in the totals. An entry can be split across projects with 'splits': [[stream, hours, desc], ...] — the parts must add up to the entry's rounded hours.",
   "include": [
     4019
   ],
@@ -12,7 +12,8 @@
     "board": "Board documents",
     "news": "Club news",
     "site": "Meetings, admin & site care",
-    "cup": "Forge Cup tournament"
+    "cup": "Forge Cup tournament",
+    "camps": "Your Separation Season camps"
   },
   "entries": {
     "3646": [
@@ -190,5 +191,31 @@
       "desc": "Corrected-card reprint, paid by Orbis Design (M13 order #1145131, Aug 21)",
       "amount": 107.79
     }
-  ]
+  ],
+  "splits": {
+    "4070": [
+      [
+        "programs",
+        1.0,
+        "GK Wars added to Events; Forge Cup files to Karim"
+      ],
+      [
+        "camps",
+        0.25,
+        "Camps project opened with Chris Mueller and Mike: what's needed to open registration Oct 14"
+      ]
+    ],
+    "4090": [
+      [
+        "programs",
+        0.25,
+        "Winter Community and Foxes moved to their new days and locations"
+      ],
+      [
+        "camps",
+        0.75,
+        "Your Separation Season camps page built from Chris's brief; preview for Chris and Mike"
+      ]
+    ]
+  }
 }

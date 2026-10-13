@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-13T14:22Z",
+ "updated": "2026-10-13T14:24Z",
  "block": {
   "hours": 50,
   "rate": 80,
@@ -19,7 +19,8 @@
   "board": "Board documents",
   "news": "Club news",
   "site": "Meetings, admin & site care",
-  "cup": "Forge Cup tournament"
+  "cup": "Forge Cup tournament",
+  "camps": "Your Separation Season camps"
  },
  "adjustments": [
   {
@@ -40,9 +41,16 @@
   {
    "id": 4090,
    "date": "2026-10-13",
-   "hours": 1.0,
+   "hours": 0.25,
    "stream": "programs",
-   "desc": "Winter Community and Foxes moved to their new days and locations; camps page preview for Chris and Mike"
+   "desc": "Winter Community and Foxes moved to their new days and locations"
+  },
+  {
+   "id": 4090,
+   "date": "2026-10-13",
+   "hours": 0.75,
+   "stream": "camps",
+   "desc": "Your Separation Season camps page built from Chris's brief; preview for Chris and Mike"
   },
   {
    "id": 4076,
@@ -54,9 +62,16 @@
   {
    "id": 4070,
    "date": "2026-10-08",
-   "hours": 1.25,
+   "hours": 1.0,
    "stream": "programs",
-   "desc": "GK Wars added to Events; Forge Cup files to Karim; camps project opened with Chris Mueller and Mike"
+   "desc": "GK Wars added to Events; Forge Cup files to Karim"
+  },
+  {
+   "id": 4070,
+   "date": "2026-10-08",
+   "hours": 0.25,
+   "stream": "camps",
+   "desc": "Camps project opened with Chris Mueller and Mike: what's needed to open registration Oct 14"
   },
   {
    "id": 4048,
