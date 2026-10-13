@@ -99,6 +99,8 @@ section.dark .sec-h p{color:#B9BDC6}
 .coach-photo{background:linear-gradient(160deg,#23262C,#101114);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;min-height:260px;color:var(--gold);font-family:Oswald,sans-serif;font-size:12px;letter-spacing:.18em;text-transform:uppercase;text-align:center;padding:16px}
 .coach-photo .mono{font-size:54px;letter-spacing:.04em;color:rgba(197,160,89,.55)}
 .coach-photo img{width:100%;height:100%;object-fit:cover}
+.coach-photo.has-img{padding:0;display:block;position:relative}
+.coach-photo.has-img img{position:absolute;inset:0;object-position:50% 20%}
 .coach-body{padding:28px 28px 30px}
 .coach h3{font-size:30px;margin:0 0 6px;color:#fff}
 .coach .role{font-family:Oswald,sans-serif;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin:0 0 16px;line-height:1.5}
@@ -185,6 +187,7 @@ footer img{height:40px;width:auto}
   .when-item:first-child{border-top:0}
   .coach{grid-template-columns:1fr}
   .coach-photo{min-height:200px}
+  .coach-photo.has-img{min-height:360px}
   .pillars{grid-template-columns:1fr}
   .pillar{border-right:0;margin-right:0;border-bottom:1px solid var(--rule);padding-bottom:22px}
   .pair{grid-template-columns:1fr}
@@ -195,7 +198,7 @@ footer img{height:40px;width:auto}
 </head>
 <body>
 
-<div class="draft" role="note">Draft for review. Items marked <span class="tbd">TBD</span> are waiting on BTB and Forge. Registration buttons switch on when the Sprocket links are set.</div>
+<div class="draft" role="note">Draft for review. Registration buttons switch on when the Sprocket links are set.</div>
 
 <header class="mast">
   <div class="wrap">
@@ -247,7 +250,7 @@ footer img{height:40px;width:auto}
     </div>
     <div class="coaches">
       <article class="coach">
-        <div class="coach-photo"><span class="mono">CM</span>Photo from BTB<br><span class="tbd" style="margin-top:6px">TBD</span></div>
+        <div class="coach-photo has-img"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_400/v1791929216/forge/camps/chris-mueller.jpg" width="400" height="533" alt="Chris Mueller playing for Orlando City SC" loading="lazy"></div>
         <div class="coach-body">
           <h3>Chris Mueller</h3>
           <p class="role">Former professional player · U.S. Men's National Team · Founder of BTB</p>
@@ -256,7 +259,7 @@ footer img{height:40px;width:auto}
         </div>
       </article>
       <article class="coach">
-        <div class="coach-photo"><span class="mono">JT</span>Photo from BTB<br><span class="tbd" style="margin-top:6px">TBD</span></div>
+        <div class="coach-photo has-img"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1791929216/forge/camps/john-trask.jpg" width="254" height="339" alt="John Trask" loading="lazy"></div>
         <div class="coach-body">
           <h3>John Trask</h3>
           <p class="role">Former Wisconsin men's head coach · U.S. Soccer Talent ID Scout</p>
@@ -300,7 +303,7 @@ footer img{height:40px;width:auto}
         <div class="prog-body">
           <p class="lead">Tuesdays, Wednesdays and Fridays. Every group trains on the same six dates, at its own time.</p>
           <ul class="slots">
-            <li><span>Ages 6–8 <span class="tbd">TBD</span></span><span>4:30–5:45 PM</span></li>
+            <li><span>Ages 8 &amp; under</span><span>4:30–5:45 PM</span></li>
             <li><span>Ages 9–13</span><span>6:00–7:15 PM</span></li>
             <li><span>High school</span><span>7:30–9:00 PM</span></li>
           </ul>
@@ -318,7 +321,7 @@ footer img{height:40px;width:auto}
             <li><span>Lunch + film / mindset</span><span>11:30–12:30</span></li>
             <li><span>Training session 2</span><span>12:30–2:00 PM</span></li>
           </ul>
-          <p class="lead" style="font-size:14.5px">Players are grouped by age and ability for focused, high-quality instruction. Ages <span class="tbd">TBD</span></p>
+          <p class="lead" style="font-size:14.5px">Open to all ages. Players are grouped by age and ability for focused, high-quality instruction.</p>
           <div class="price"><div><small>Forge players</small><b>$400</b></div><div><small>Non-Forge</small><b>$450</b></div></div>
           <a class="btn btn-dark" data-register-url="" href="#programs" aria-disabled="true">Registration opens Oct 14</a>
         </div>
@@ -332,13 +335,13 @@ footer img{height:40px;width:auto}
             <li><span>Lunch + film / mindset</span><span>11:30–12:30</span></li>
             <li><span>Training session 2</span><span>12:30–2:00 PM</span></li>
           </ul>
-          <p class="lead" style="font-size:14.5px">Players are grouped by age and ability for focused, high-quality instruction. Ages <span class="tbd">TBD</span></p>
+          <p class="lead" style="font-size:14.5px">Open to all ages. Players are grouped by age and ability for focused, high-quality instruction.</p>
           <div class="price"><div><small>Forge players</small><b>$400</b></div><div><small>Non-Forge</small><b>$450</b></div></div>
           <a class="btn btn-dark" data-register-url="" href="#programs" aria-disabled="true">Registration opens Oct 14</a>
         </div>
       </article>
     </div>
-    <p class="discount"><b>Bet on yourself:</b> register for the November Development Series and at least one December camp and save 10%. Sibling discounts <span class="tbd">TBD</span></p>
+    <p class="discount"><b>Bet on yourself:</b> register for the November Development Series and at least one December camp and save 10%. Each sibling who does the same saves an extra 10%.</p>
   </div>
 </section>
 
@@ -363,7 +366,7 @@ footer img{height:40px;width:auto}
       <details><summary>What's included?<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><p>Instruction for the full program you choose. The November Development Series is six training sessions. Each December camp is three days, 10:00 AM to 2:00 PM.</p></details>
       <details><summary>Do players need to attend every session?<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><p>Each program is built as a complete development experience, so players get the most from attending every session, especially in November.</p></details>
       <details><summary>How are players grouped?<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><p>November has set training groups and times by age. In December everyone attends the same daily hours and is grouped by age and ability for focused, high-quality instruction.</p></details>
-      <details><summary>Can players register for more than one program?<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><p>Yes. Each program has its own registration and brings its own focus and drills. Register for November plus at least one December camp and save 10%.</p></details>
+      <details><summary>Can players register for more than one program?<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><p>Yes. Each program has its own registration and brings its own focus and drills. Register for November plus at least one December camp and save 10%. Siblings who do the same save an extra 10%.</p></details>
       <details><summary>What should players bring?<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><p>Equipment, water and other preparation details will be sent to registered families before each program.</p></details>
     </div>
   </div>
