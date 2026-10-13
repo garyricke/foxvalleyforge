@@ -56,6 +56,8 @@ h1,h2,h3{font-family:var(--font-h);text-transform:uppercase;line-height:1.1}
 /* ── BLOCK BALANCE ── */
 .block{margin-top:26px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:22px 24px}
 .block-h{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:14px}
+.block-span{margin:6px 0 0;font-size:.9rem;color:rgba(255,255,255,.72)}
+.block-span b{color:#fff;font-family:var(--font-h);letter-spacing:.03em;font-weight:500}
 .block-h h3{font-size:1.15rem;color:#fff;margin-top:5px;letter-spacing:.02em}
 .block-bal{text-align:right;line-height:1;flex:none}
 .block-bal b{font-family:var(--font-h);font-size:3rem;font-weight:700;color:var(--gold);display:block}
@@ -105,6 +107,13 @@ h1,h2,h3{font-family:var(--font-h);text-transform:uppercase;line-height:1.1}
 .sum-row .nm small{display:block;font-weight:400;font-size:.76rem;color:var(--navy-70)}
 .sum-row .val{font-family:var(--font-h);font-size:1rem;letter-spacing:.02em;white-space:nowrap}
 .sum-row.disc .nm,.sum-row.disc .val{color:var(--crimson)}
+.sum-row .usd{font-weight:400;font-size:.8em;color:var(--navy-70);margin-left:6px}
+.sum-row.absorbed{margin-top:8px;padding:12px 14px;background:var(--gold-light);border-radius:8px}
+.sum-row.absorbed .nm,.sum-row.absorbed .val{color:#7A5E25}
+.sum-row.absorbed .val{font-family:var(--font-h);font-size:1.05rem}
+.sum-row.under{margin:-4px 12px 6px;padding:6px 0 8px;border-bottom:1px dashed color-mix(in srgb,var(--crimson) 35%,transparent);font-size:.9rem}
+.sum-row.under .nm{padding-left:14px;position:relative}
+.sum-row.under .nm::before{content:'';position:absolute;left:0;top:.2em;width:8px;height:.65em;border-left:2px solid var(--crimson);border-bottom:2px solid var(--crimson)}
 .sum-row.total{border-top:2px solid var(--navy);margin-top:4px;padding-top:10px}
 .sum-row.total .nm,.sum-row.total .val{font-family:var(--font-h);text-transform:uppercase;letter-spacing:.04em;font-size:1.05rem}
 .empty{padding:28px 18px;color:var(--navy-70);font-size:.92rem}
@@ -185,6 +194,7 @@ h1,h2,h3{font-family:var(--font-h);text-transform:uppercase;line-height:1.1}
         <div>
           <span class="eyebrow">Maintenance Block</span>
           <h3 id="block-title">50-Hour Pre-Pay · $4,000</h3>
+          <p class="block-span" id="block-span"></p>
         </div>
         <div class="block-bal">
           <b id="hrs-left">—</b>
@@ -244,7 +254,13 @@ h1,h2,h3{font-family:var(--font-h);text-transform:uppercase;line-height:1.1}
     document.getElementById('hrs-used').textContent=h(used);
     document.getElementById('hrs-pct').textContent=Math.round(pct)+'%';
     document.getElementById('val-used').textContent='$'+Math.round(used*b.rate).toLocaleString();
-    document.getElementById('sessions').textContent=d.entries.length;
+    document.getElementById('sessions').textContent=new Set(d.entries.map(function(e){ return e.id; })).size;  // split sessions count once
+    // span of the engagement: first logged session through today, in weeks
+    var first=d.entries.reduce(function(m,e){ return e.date<m?e.date:m; }, d.entries[0].date).split('-');
+    var start=new Date(+first[0],+first[1]-1,+first[2]), today=new Date(); today.setHours(0,0,0,0);
+    var weeks=Math.max(1,Math.round((today-start)/6048e5));
+    var fmt=function(x,yr){ return MONTHS[x.getMonth()]+' '+x.getDate()+(yr?', '+x.getFullYear():''); };
+    document.getElementById('block-span').innerHTML='Maintenance running <b>'+fmt(start)+' – '+fmt(today,true)+'</b> · <b>'+weeks+' weeks</b>';
     if(d.discount>0){
       document.getElementById('hrs-worked').textContent=h(d.worked);
       document.getElementById('hrs-disc').textContent=h(d.discount)+'-hour';
@@ -269,19 +285,30 @@ h1,h2,h3{font-family:var(--font-h);text-transform:uppercase;line-height:1.1}
 
   function renderBars(){
     var rows=totals(), max=rows[0]?rows[0].hrs:1, el=document.getElementById('bars');
+    var adj=data.adjustments||[], cred=data.credits||[];
+    var money=function(n){ return '$'+n.toLocaleString('en-US',{minimumFractionDigits:n%1?2:0,maximumFractionDigits:2}); };
     el.innerHTML=rows.map(function(r){
       var share=Math.round(r.hrs/data.worked*100);
+      // a project's discount sits directly under its bar
+      var disc=adj.filter(function(a){ return a.stream===r.key; }).map(function(a){
+        return '<div class="sum-row disc under"><span class="nm">'+esc(a.desc)+' <small class="usd">'+money(-a.hours*data.block.rate)+' value</small></span><span class="val">−'+h(-a.hours)+' h</span></div>';
+      }).join('')+cred.filter(function(c){ return c.stream===r.key; }).map(function(c){
+        return '<div class="sum-row disc under"><span class="nm">'+esc(c.desc)+'</span><span class="val">'+money(c.amount)+'</span></div>';
+      }).join('');
       return '<button class="brow" type="button" data-k="'+r.key+'" aria-pressed="'+(filter===r.key)+'">'+
         '<span class="nm">'+esc(r.name)+'<small>'+r.n+(r.n===1?' session':' sessions')+'</small></span>'+
         '<span class="track"><i class="fill" data-w="'+(r.hrs/max*100).toFixed(1)+'"></i></span>'+
-        '<span class="val">'+h(r.hrs)+' h<small>'+share+'%</small></span></button>';
+        '<span class="val">'+h(r.hrs)+' h<small>'+share+'%</small></span></button>'+disc;
     }).join('')+
       '<div class="sum">'+
         '<div class="sum-row"><span class="nm">Total worked</span><span class="val">'+h(data.worked)+' h</span></div>'+
-        (data.adjustments||[]).map(function(a){
-          return '<div class="sum-row disc"><span class="nm">Discount<small>'+esc(a.desc)+'</small></span><span class="val">−'+h(-a.hours)+' h</span></div>';
+        adj.map(function(a){
+          return '<div class="sum-row disc"><span class="nm">'+esc(a.desc)+'</span><span class="val">−'+h(-a.hours)+' h</span></div>';
         }).join('')+
         '<div class="sum-row total"><span class="nm">Charged to the block</span><span class="val">'+h(data.used)+' h</span></div>'+
+        (adj.length||cred.length ? '<div class="sum-row absorbed"><span class="nm">Absorbed by Orbis Design<small>'+
+          adj.map(function(a){ return h(-a.hours)+' hours ('+money(-a.hours*data.block.rate)+')'; }).concat(cred.map(function(c){ return 'reprint '+money(c.amount); })).join(' + ')+
+          '</small></span><span class="val">'+money(adj.reduce(function(t,a){ return t-a.hours*data.block.rate; },0)+cred.reduce(function(t,c){ return t+c.amount; },0))+'</span></div>' : '')+
       '</div>';
     requestAnimationFrame(function(){
       el.querySelectorAll('.fill').forEach(function(f){ f.style.width=f.getAttribute('data-w')+'%'; });

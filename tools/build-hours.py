@@ -45,7 +45,14 @@ def main():
         if label is None:
             unlabeled.append(e['id'])
             label = ['site', e.get('summary') or e.get('note') or 'Site work']
-        entries.append({'id': e['id'], 'date': e['day'], 'hours': quarter(e['minutes']),
+        hours = quarter(e['minutes'])
+        parts = notes.get('splits', {}).get(str(e['id']))
+        if parts:   # one session shared between projects
+            assert abs(sum(p[1] for p in parts) - hours) < 1e-9, f"split for {e['id']} must total {hours}"
+            for stream, hrs, desc in parts:
+                entries.append({'id': e['id'], 'date': e['day'], 'hours': hrs, 'stream': stream, 'desc': desc})
+            continue
+        entries.append({'id': e['id'], 'date': e['day'], 'hours': hours,
                         'stream': label[0], 'desc': label[1]})
     entries.sort(key=lambda x: (x['date'], x['id']), reverse=True)
 
@@ -56,7 +63,7 @@ def main():
     out = {'updated': datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%MZ'),
            'block': BLOCK, 'worked': worked, 'discount': discount, 'used': used,
            'remaining': BLOCK['hours'] - used,
-           'streams': notes['streams'], 'adjustments': adjustments, 'entries': entries}
+           'streams': notes['streams'], 'adjustments': adjustments, 'credits': notes.get('credits', []), 'entries': entries}
     os.makedirs(os.path.join(ROOT, 'data'), exist_ok=True)
     with open(os.path.join(ROOT, 'data', 'hours.json'), 'w') as f:
         json.dump(out, f, indent=1)
