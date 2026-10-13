@@ -56,7 +56,7 @@ def main():
     out = {'updated': datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%MZ'),
            'block': BLOCK, 'worked': worked, 'discount': discount, 'used': used,
            'remaining': BLOCK['hours'] - used,
-           'streams': notes['streams'], 'adjustments': adjustments, 'entries': entries}
+           'streams': notes['streams'], 'adjustments': adjustments, 'credits': notes.get('credits', []), 'entries': entries}
     os.makedirs(os.path.join(ROOT, 'data'), exist_ok=True)
     with open(os.path.join(ROOT, 'data', 'hours.json'), 'w') as f:
         json.dump(out, f, indent=1)

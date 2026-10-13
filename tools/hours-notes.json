@@ -1,5 +1,5 @@
 {
-  "_readme": "Curated labels for Time-app entries on the Forge maintenance block. Keyed by Time-app entry id. 'stream' must be a key in 'streams'. Entries not listed here fall back to the entry's own summary/note and the 'site' stream. 'include' lists entry ids from other projects that draw down the block. Clockify logs by time block, so a session that touched two projects is filed under its main one. This file and data/hours.json are publicly readable — keep descriptions client-safe. Each entry is rounded to the nearest quarter hour. 'adjustments' are credits (negative hours) against a project, shown as discounts.",
+  "_readme": "Curated labels for Time-app entries on the Forge maintenance block. Keyed by Time-app entry id. 'stream' must be a key in 'streams'. Entries not listed here fall back to the entry's own summary/note and the 'site' stream. 'include' lists entry ids from other projects that draw down the block. Clockify logs by time block, so a session that touched two projects is filed under its main one. This file and data/hours.json are publicly readable — keep descriptions client-safe. Each entry is rounded to the nearest quarter hour. 'adjustments' are credits (negative hours) against a project, shown as discounts. 'credits' are out-of-pocket costs Orbis absorbed (dollars, not hours); shown under the project and in the totals.",
   "include": [
     4019
   ],
@@ -182,6 +182,13 @@
       "stream": "cards",
       "hours": -10,
       "desc": "Trading Cards discount"
+    }
+  ],
+  "credits": [
+    {
+      "stream": "cards",
+      "desc": "Corrected-card reprint, paid by Orbis Design (M13 order #1145131, Aug 21)",
+      "amount": 107.79
     }
   ]
 }

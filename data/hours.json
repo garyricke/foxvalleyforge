@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-13T14:18Z",
+ "updated": "2026-10-13T14:22Z",
  "block": {
   "hours": 50,
   "rate": 80,
@@ -27,6 +27,13 @@
    "stream": "cards",
    "hours": -10,
    "desc": "Trading Cards discount"
+  }
+ ],
+ "credits": [
+  {
+   "stream": "cards",
+   "desc": "Corrected-card reprint, paid by Orbis Design (M13 order #1145131, Aug 21)",
+   "amount": 107.79
   }
  ],
  "entries": [
