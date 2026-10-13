@@ -105,6 +105,9 @@ h1,h2,h3{font-family:var(--font-h);text-transform:uppercase;line-height:1.1}
 .sum-row .nm small{display:block;font-weight:400;font-size:.76rem;color:var(--navy-70)}
 .sum-row .val{font-family:var(--font-h);font-size:1rem;letter-spacing:.02em;white-space:nowrap}
 .sum-row.disc .nm,.sum-row.disc .val{color:var(--crimson)}
+.sum-row.under{margin:-4px 12px 6px;padding:6px 0 8px;border-bottom:1px dashed color-mix(in srgb,var(--crimson) 35%,transparent);font-size:.9rem}
+.sum-row.under .nm{padding-left:14px;position:relative}
+.sum-row.under .nm::before{content:'';position:absolute;left:0;top:.2em;width:8px;height:.65em;border-left:2px solid var(--crimson);border-bottom:2px solid var(--crimson)}
 .sum-row.total{border-top:2px solid var(--navy);margin-top:4px;padding-top:10px}
 .sum-row.total .nm,.sum-row.total .val{font-family:var(--font-h);text-transform:uppercase;letter-spacing:.04em;font-size:1.05rem}
 .empty{padding:28px 18px;color:var(--navy-70);font-size:.92rem}
@@ -269,17 +272,22 @@ h1,h2,h3{font-family:var(--font-h);text-transform:uppercase;line-height:1.1}
 
   function renderBars(){
     var rows=totals(), max=rows[0]?rows[0].hrs:1, el=document.getElementById('bars');
+    var adj=data.adjustments||[];
     el.innerHTML=rows.map(function(r){
       var share=Math.round(r.hrs/data.worked*100);
+      // a project's discount sits directly under its bar
+      var disc=adj.filter(function(a){ return a.stream===r.key; }).map(function(a){
+        return '<div class="sum-row disc under"><span class="nm">'+esc(a.desc)+'</span><span class="val">−'+h(-a.hours)+' h</span></div>';
+      }).join('');
       return '<button class="brow" type="button" data-k="'+r.key+'" aria-pressed="'+(filter===r.key)+'">'+
         '<span class="nm">'+esc(r.name)+'<small>'+r.n+(r.n===1?' session':' sessions')+'</small></span>'+
         '<span class="track"><i class="fill" data-w="'+(r.hrs/max*100).toFixed(1)+'"></i></span>'+
-        '<span class="val">'+h(r.hrs)+' h<small>'+share+'%</small></span></button>';
+        '<span class="val">'+h(r.hrs)+' h<small>'+share+'%</small></span></button>'+disc;
     }).join('')+
       '<div class="sum">'+
         '<div class="sum-row"><span class="nm">Total worked</span><span class="val">'+h(data.worked)+' h</span></div>'+
-        (data.adjustments||[]).map(function(a){
-          return '<div class="sum-row disc"><span class="nm">Discount<small>'+esc(a.desc)+'</small></span><span class="val">−'+h(-a.hours)+' h</span></div>';
+        adj.map(function(a){
+          return '<div class="sum-row disc"><span class="nm">'+esc(a.desc)+'</span><span class="val">−'+h(-a.hours)+' h</span></div>';
         }).join('')+
         '<div class="sum-row total"><span class="nm">Charged to the block</span><span class="val">'+h(data.used)+' h</span></div>'+
       '</div>';
