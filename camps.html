@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Built in the Offseason | BTB × Forge Camps with Chris Mueller &amp; John Trask</title>
+<meta name="description" content="Elite off-season soccer development with Chris Mueller and John Trask. November Development Series and two December Intensive Camps at Forge East, Geneva. Hosted by Forge, presented by BTB.">
+<link rel="canonical" href="https://forgesoccerclub.com/camps">
+<meta property="og:title" content="Built in the Offseason — BTB × Forge">
+<meta property="og:description" content="The work nobody sees. The progress everyone notices. Elite soccer development with Chris Mueller & John Trask, November & December 2026.">
+<meta property="og:type" content="website">
+<link rel="icon" href="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1771377451/favicon-forge-1_r6l4ax.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap">
+<style>
+:root{
+  --black:#0B0C0E; --ink-dark:#15171B; --line-dark:#2A2D33;
+  --gold:#C5A059; --gold-hi:#D9B978; --gold-light:#F6EFE1;
+  --navy:#001B44; --crimson:#A91335;
+  --paper:#FFFFFF; --paper-2:#F5F4F0; --ink:#121418; --ink-2:#4B505A; --ink-3:#7D828C; --rule:#E4E2DC;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:'Source Sans 3',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:Oswald,'Arial Narrow',Arial,sans-serif;font-weight:600;line-height:1.05;margin:0;text-transform:uppercase;letter-spacing:.01em}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px;border-radius:3px}
+.wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+.narrow{max-width:760px}
+.eyebrow{font-family:Oswald,sans-serif;font-size:12.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin:0 0 14px}
+.icon{width:22px;height:22px;flex:none}
+
+.tbd{display:inline-block;font-family:Oswald,sans-serif;font-size:.78em;letter-spacing:.1em;text-transform:uppercase;background:var(--gold-light);color:#7A5E25;border:1px dashed var(--gold);border-radius:4px;padding:0 7px;vertical-align:.08em}
+
+/* masthead */
+.mast{background:var(--black);border-bottom:1px solid var(--line-dark)}
+.mast .wrap{display:flex;align-items:center;justify-content:space-between;gap:18px;padding-top:14px;padding-bottom:14px}
+.mast-brand{display:flex;align-items:center;gap:14px;text-decoration:none;color:#fff}
+.mast-brand img{height:42px;width:auto}
+.mast-x{font-family:Oswald,sans-serif;font-size:14px;letter-spacing:.2em;color:#9CA0A8}
+.mast-x b{color:#fff;font-weight:600}
+.mast a.home{color:#9CA0A8;font-family:Oswald,sans-serif;font-size:12px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none}
+.mast a.home:hover{color:#fff}
+
+/* hero */
+.hero{position:relative;background:var(--black);color:#fff;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;
+  background:radial-gradient(ellipse at 80% 20%,rgba(197,160,89,.20) 0%,transparent 55%),radial-gradient(ellipse at 0% 100%,rgba(0,27,68,.65) 0%,transparent 60%)}
+.hero-lines{position:absolute;right:-120px;top:-60px;width:720px;opacity:.10;color:var(--gold)}
+.hero .wrap{position:relative;padding-top:96px;padding-bottom:104px}
+.hero h1{font-size:clamp(52px,10vw,124px);line-height:.9;font-weight:700;margin:0 0 22px;max-width:12.5ch}
+.hero h1 span{color:var(--gold)}
+.hero .tag{font-family:'Source Sans 3',sans-serif;font-style:italic;font-size:clamp(20px,2.4vw,26px);color:#E9E6DF;margin:0 0 10px}
+.hero .sub{font-size:19px;color:#B9BDC6;max-width:54ch;margin:0 0 34px}
+.hero .sub b{color:#fff;font-weight:600}
+.ctas{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:Oswald,sans-serif;font-size:15px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;border:0;cursor:pointer;padding:15px 26px;border-radius:2px;transition:background .2s,color .2s}
+.btn-gold{background:var(--gold);color:var(--black)}
+.btn-gold:hover{background:var(--gold-hi)}
+.btn-line{background:transparent;color:#fff;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.5)}
+.btn-line:hover{background:rgba(255,255,255,.08)}
+.btn-dark{background:var(--black);color:#fff}
+.btn-dark:hover{background:#25282E}
+.btn[aria-disabled="true"]{background:#D9D7D1;color:#5C6069;cursor:default;pointer-events:none}
+
+/* timeline strip */
+.when{background:var(--ink-dark);color:#fff;border-top:1px solid var(--line-dark)}
+.when .wrap{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0}
+.when-item{padding:22px 24px;border-left:1px solid var(--line-dark)}
+.when-item:first-child{border-left:0;padding-left:0}
+.when-item small{display:block;font-family:Oswald,sans-serif;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.when-item b{display:block;font-family:Oswald,sans-serif;font-size:22px;font-weight:500;letter-spacing:.02em;margin:4px 0 2px}
+.when-item span{color:#A6AAB3;font-size:15px}
+
+/* sections */
+section{padding:96px 0}
+section.alt{background:var(--paper-2)}
+section.dark{background:var(--black);color:#fff}
+.sec-h{margin:0 0 44px;max-width:64ch}
+.sec-h h2{font-size:clamp(34px,5vw,58px);line-height:.98;margin:0 0 16px}
+.sec-h p{color:var(--ink-2);margin:0;font-size:18px}
+section.dark .sec-h p{color:#B9BDC6}
+
+/* opportunity */
+.opp{display:grid;grid-template-columns:1fr 1.1fr;gap:64px;align-items:start}
+.opp blockquote{margin:0;font-family:Oswald,sans-serif;font-size:clamp(30px,3.6vw,44px);line-height:1.08;text-transform:uppercase;color:var(--black)}
+.opp blockquote em{font-style:normal;color:var(--gold)}
+.opp p{margin:0 0 16px;color:var(--ink-2);font-size:18px}
+
+/* coaches */
+.coaches{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
+.coach{background:var(--ink-dark);border:1px solid var(--line-dark);display:grid;grid-template-columns:200px 1fr}
+.coach-photo{background:linear-gradient(160deg,#23262C,#101114);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;min-height:260px;color:var(--gold);font-family:Oswald,sans-serif;font-size:12px;letter-spacing:.18em;text-transform:uppercase;text-align:center;padding:16px}
+.coach-photo .mono{font-size:54px;letter-spacing:.04em;color:rgba(197,160,89,.55)}
+.coach-photo img{width:100%;height:100%;object-fit:cover}
+.coach-photo.has-img{padding:0;display:block;position:relative}
+.coach-photo.has-img img{position:absolute;inset:0;object-position:50% 20%}
+.coach-body{padding:28px 28px 30px}
+.coach h3{font-size:30px;margin:0 0 6px;color:#fff}
+.coach .role{font-family:Oswald,sans-serif;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin:0 0 16px;line-height:1.5}
+.coach p{color:#B9BDC6;margin:0 0 14px;font-size:16px}
+.coach ul{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:8px}
+.coach li{font-size:13px;letter-spacing:.04em;color:#E9E6DF;border:1px solid var(--line-dark);padding:4px 10px;border-radius:2px}
+.pair{margin:30px 0 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;color:#B9BDC6;font-size:16px}
+.pair b{display:block;font-family:Oswald,sans-serif;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#fff;font-size:14px;margin-bottom:4px}
+
+/* pillars */
+.pillars{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border-top:2px solid var(--black)}
+.pillar{padding:28px 24px 8px 0;border-right:1px solid var(--rule);margin-right:24px}
+.pillar:last-child{border-right:0;margin-right:0}
+.pillar .n{font-family:Oswald,sans-serif;font-size:14px;color:var(--gold);letter-spacing:.16em}
+.pillar h3{font-size:22px;margin:10px 0 10px;line-height:1.1}
+.pillar p{color:var(--ink-2);margin:0;font-size:16px}
+
+/* programs */
+.programs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;align-items:stretch}
+.prog{background:#fff;border:1px solid var(--rule);display:flex;flex-direction:column}
+.prog-top{background:var(--black);color:#fff;padding:24px 24px 22px;border-bottom:3px solid var(--gold)}
+.prog-top small{font-family:Oswald,sans-serif;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.prog-top h3{font-size:28px;margin:8px 0 6px}
+.prog-top .dates{font-family:Oswald,sans-serif;font-size:18px;letter-spacing:.02em;color:#E9E6DF}
+.prog-body{padding:22px 24px 24px;display:flex;flex-direction:column;flex:1}
+.prog-body .lead{color:var(--ink-2);margin:0 0 14px;font-size:16px}
+.slots{list-style:none;margin:0 0 16px;padding:0;border-top:1px solid var(--rule)}
+.slots li{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--rule);font-size:15.5px}
+.slots li span:first-child{font-weight:600}
+.slots li span:last-child{color:var(--ink-2);white-space:nowrap}
+.price{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:auto 0 18px}
+.price div{background:var(--paper-2);padding:12px 14px}
+.price small{display:block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);font-family:Oswald,sans-serif}
+.price b{font-family:Oswald,sans-serif;font-size:30px;font-weight:600;color:var(--black)}
+.prog .btn{width:100%}
+.prog-note{font-size:13.5px;color:var(--ink-3);text-align:center;margin:10px 0 0}
+.discount{margin:28px 0 0;padding:18px 22px;border-left:4px solid var(--gold);background:var(--gold-light);color:var(--ink);font-size:16px}
+
+/* different */
+.diff{display:grid;grid-template-columns:1.2fr 1fr;gap:56px;align-items:center}
+.diff p{color:#B9BDC6;font-size:18px;margin:0 0 14px}
+.diff .big{font-family:Oswald,sans-serif;text-transform:uppercase;font-size:clamp(28px,3.4vw,40px);line-height:1.1;color:#fff}
+.diff .big em{font-style:normal;color:var(--gold)}
+
+/* faq */
+.faq{border-top:1px solid var(--rule)}
+.faq details{border-bottom:1px solid var(--rule)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 0;font-weight:600;font-size:18px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .icon{color:var(--gold);transition:transform .2s}
+.faq details[open] summary .icon{transform:rotate(45deg)}
+.faq details p{margin:0 0 20px;color:var(--ink-2);max-width:68ch}
+
+/* location */
+.loc{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;background:var(--paper-2);padding:36px}
+.loc h3{font-size:26px;margin:0 0 8px}
+.loc p{margin:0 0 6px;color:var(--ink-2)}
+.loc a.map{display:inline-flex;align-items:center;gap:8px;margin-top:10px;color:var(--black);font-weight:600}
+
+/* final */
+.final{text-align:center}
+.final h2{font-size:clamp(40px,7vw,84px);line-height:.95;margin:0 0 18px}
+.final p{color:#B9BDC6;font-size:19px;margin:0 auto 32px;max-width:52ch}
+.final .ctas{justify-content:center}
+
+footer{background:#060708;color:#8B9099;padding:40px 0;font-size:14.5px;border-top:1px solid var(--line-dark)}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+footer a{color:var(--gold);text-decoration:none}
+footer img{height:40px;width:auto}
+
+@media (max-width:980px){
+  .programs{grid-template-columns:1fr;max-width:560px}
+  .coaches{grid-template-columns:1fr}
+  .pillars{grid-template-columns:1fr 1fr}
+  .pillar:nth-child(2){border-right:0;margin-right:0}
+  .opp,.diff,.loc{grid-template-columns:1fr;gap:28px}
+}
+@media (max-width:640px){
+  .wrap{padding:0 16px}
+  section{padding:64px 0}
+  .hero .wrap{padding-top:56px;padding-bottom:64px}
+  .when .wrap{grid-template-columns:1fr}
+  .when-item{border-left:0;border-top:1px solid var(--line-dark);padding:16px 0}
+  .when-item:first-child{border-top:0}
+  .coach{grid-template-columns:1fr}
+  .coach-photo{min-height:200px}
+  .coach-photo.has-img{min-height:360px}
+  .pillars{grid-template-columns:1fr}
+  .pillar{border-right:0;margin-right:0;border-bottom:1px solid var(--rule);padding-bottom:22px}
+  .pair{grid-template-columns:1fr}
+  .loc{padding:24px}
+  .mast-x{display:none}
+}
+</style>
+</head>
+<body>
+
+
+<header class="mast">
+  <div class="wrap">
+    <a class="mast-brand" href="/"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1770763739/forge-logo-w-fox-valley-23jan2026_d1dlgi.png" alt="Fox Valley Forge SC"><span class="mast-x"><b>BTB</b> × <b>FORGE</b></span></a>
+    <a class="home" href="/">&larr; forgesoccerclub.com</a>
+  </div>
+</header>
+
+<section class="hero" style="padding:0">
+  <svg class="hero-lines" viewBox="0 0 400 400" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><rect x="20" y="20" width="360" height="360"/><line x1="200" y1="20" x2="200" y2="380"/><circle cx="200" cy="200" r="60"/><rect x="20" y="120" width="70" height="160"/><rect x="310" y="120" width="70" height="160"/><rect x="20" y="165" width="26" height="70"/><rect x="354" y="165" width="26" height="70"/></svg>
+  <div class="wrap">
+    <p class="eyebrow">BTB × Forge &nbsp;·&nbsp; November &amp; December 2026</p>
+    <h1>Built in the <span>Offseason</span></h1>
+    <p class="tag">The work nobody sees. The progress everyone notices.</p>
+    <p class="sub">Elite soccer development with <b>Chris Mueller</b> and <b>John Trask</b>. Sharper technique, better finishing, greater game intelligence, and the qualities it takes to play at the next level.</p>
+    <div class="ctas">
+      <a class="btn btn-gold" href="#programs">Choose your program</a>
+      <a class="btn btn-line" href="#coaches">Meet the coaches</a>
+    </div>
+  </div>
+</section>
+
+<div class="when" aria-label="Registration dates">
+  <div class="wrap">
+    <div class="when-item"><small>Forge First</small><b>October 14</b><span>Forge families register first. Space is limited.</span></div>
+    <div class="when-item"><small>Open to all</small><b>October 18</b><span>General registration opens to every player.</span></div>
+    <div class="when-item"><small>Where</small><b>Forge East</b><span>1000 S Kirk Rd, Geneva</span></div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap opp">
+    <blockquote>The season reveals your level. <em>The off-season is where you raise it.</em></blockquote>
+    <div>
+      <p class="eyebrow" style="color:var(--crimson)">The opportunity</p>
+      <p>During the season, everyone trains. Everyone competes. Everyone works within a similar schedule. When the season slows down, a different opportunity opens up.</p>
+      <p>The chance to work on your weaknesses, sharpen your strengths, build new skills, and come back to the field better prepared than you left it. That's what Built in the Offseason is for.</p>
+      <p>A focused curriculum and high-level coaching, aimed at the technical, tactical, physical and mental qualities that set players apart.</p>
+    </div>
+  </div>
+</section>
+
+<section class="dark" id="coaches">
+  <div class="wrap">
+    <div class="sec-h">
+      <p class="eyebrow">Meet your coaches</p>
+      <h2>Learn from people who know the next level.</h2>
+      <p>Professional playing experience, collegiate coaching and national-level talent identification, together on one field.</p>
+    </div>
+    <div class="coaches">
+      <article class="coach">
+        <div class="coach-photo has-img"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_400/v1791929216/forge/camps/chris-mueller.jpg" width="400" height="533" alt="Chris Mueller playing for Orlando City SC" loading="lazy"></div>
+        <div class="coach-body">
+          <h3>Chris Mueller</h3>
+          <p class="role">Former professional player · U.S. Men's National Team · Founder of BTB</p>
+          <p>A decade-long top-tier professional career in Major League Soccer and in Scotland, and caps for the United States Men's National Team. Chris founded BTB (Be The Best) to help aspiring players reach their potential on and off the field.</p>
+          <ul><li>Orlando City SC</li><li>Hibernian FC</li><li>Chicago Fire FC</li><li>USMNT</li></ul>
+        </div>
+      </article>
+      <article class="coach">
+        <div class="coach-photo has-img"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_500/v1792071676/forge/camps/trask-mueller-2017.jpg" width="500" height="670" alt="John Trask with Chris Mueller at Wisconsin in 2017" loading="lazy" style="object-position:50% 15%"></div>
+        <div class="coach-body">
+          <h3>John Trask</h3>
+          <p class="role">Former Wisconsin men's head coach · U.S. Soccer Talent ID Scout</p>
+          <p>Twelve seasons as head coach at the University of Wisconsin, five at UIC and nine as an assistant at Indiana, plus professional stints with the Miami Fusion, D.C. United and FC Dallas. John now scouts for U.S. Soccer's Talent Identification program.</p>
+          <ul><li>Wisconsin</li><li>UIC</li><li>Indiana</li><li>U.S. Soccer Talent ID</li></ul>
+        </div>
+      </article>
+    </div>
+    <div class="pair">
+      <div><b>The player's perspective</b>What it takes to develop, compete and perform at the professional level.</div>
+      <div><b>The coach &amp; evaluator's perspective</b>What experienced coaches look for, and how players build the qualities that help them progress.</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-h">
+      <p class="eyebrow" style="color:var(--crimson)">What you'll develop</p>
+      <h2>Train the qualities that separate players.</h2>
+    </div>
+    <div class="pillars">
+      <div class="pillar"><span class="n">01</span><h3>Technical Excellence &amp; Ball Striking</h3><p>Cleaner, more consistent striking, a sharper first touch, and the confidence to execute under pressure.</p></div>
+      <div class="pillar"><span class="n">02</span><h3>Finishing Like a Pro</h3><p>The technique, movement and timing that create chances, and the composure to convert them.</p></div>
+      <div class="pillar"><span class="n">03</span><h3>Game Intelligence &amp; Decision-Making</h3><p>Read the game, process faster, and make smarter decisions in realistic situations.</p></div>
+      <div class="pillar"><span class="n">04</span><h3>Physical &amp; Mental Performance</h3><p>Soccer-specific movement, preparation habits, and a confident, resilient competitive mindset.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="programs">
+  <div class="wrap">
+    <div class="sec-h">
+      <p class="eyebrow" style="color:var(--crimson)">Choose your program</p>
+      <h2>Three opportunities to get ahead.</h2>
+      <p>Each program is priced and registered separately. Forge members save $50 with the member code from the club.</p>
+    </div>
+    <div class="programs">
+      <article class="prog">
+        <div class="prog-top"><small>Six sessions · Two weeks</small><h3>November Development Series</h3><div class="dates">Nov 10, 11, 13, 17, 18 &amp; 20</div></div>
+        <div class="prog-body">
+          <p class="lead">Tuesdays, Wednesdays and Fridays. Every group trains on the same six dates, at its own time.</p>
+          <ul class="slots">
+            <li><span>Ages 8 &amp; under</span><span>4:30–5:45 PM</span></li>
+            <li><span>Ages 9–13</span><span>6:00–7:15 PM</span></li>
+            <li><span>High school</span><span>7:30–9:00 PM</span></li>
+          </ul>
+          <p class="lead" style="font-size:14.5px">7.5 to 9 hours of instruction, depending on age group.</p>
+          <div class="price"><div><small>Forge members</small><b>$400</b></div><div><small>Non-Forge</small><b>$450</b></div></div>
+          <a class="btn btn-dark" data-register-url="https://forgesoccerclub.sprocketsports.com/all-programs/30283" href="#programs" aria-disabled="true">Registration opens Oct 14</a>
+        </div>
+      </article>
+      <article class="prog">
+        <div class="prog-top"><small>Three days · Intensive</small><h3>December Intensive Camp I</h3><div class="dates">December 21–23</div></div>
+        <div class="prog-body">
+          <p class="lead">10:00 AM – 2:00 PM daily: two 90-minute training blocks around a lunch break with film and mindset work.</p>
+          <ul class="slots">
+            <li><span>Training session 1</span><span>10:00–11:30 AM</span></li>
+            <li><span>Lunch + film / mindset</span><span>11:30–12:30</span></li>
+            <li><span>Training session 2</span><span>12:30–2:00 PM</span></li>
+          </ul>
+          <p class="lead" style="font-size:14.5px">Open to all ages. Players are grouped by age and ability for focused, high-quality instruction.</p>
+          <div class="price"><div><small>Forge members</small><b>$400</b></div><div><small>Non-Forge</small><b>$450</b></div></div>
+          <a class="btn btn-dark" data-register-url="https://forgesoccerclub.sprocketsports.com/all-programs/30387" href="#programs" aria-disabled="true">Registration opens Oct 14</a>
+        </div>
+      </article>
+      <article class="prog">
+        <div class="prog-top"><small>Three days · Intensive</small><h3>December Intensive Camp II</h3><div class="dates">December 28–30</div></div>
+        <div class="prog-body">
+          <p class="lead">10:00 AM – 2:00 PM daily: two 90-minute training blocks around a lunch break with film and mindset work.</p>
+          <ul class="slots">
+            <li><span>Training session 1</span><span>10:00–11:30 AM</span></li>
+            <li><span>Lunch + film / mindset</span><span>11:30–12:30</span></li>
+            <li><span>Training session 2</span><span>12:30–2:00 PM</span></li>
+          </ul>
+          <p class="lead" style="font-size:14.5px">Open to all ages. Players are grouped by age and ability for focused, high-quality instruction.</p>
+          <div class="price"><div><small>Forge members</small><b>$400</b></div><div><small>Non-Forge</small><b>$450</b></div></div>
+          <a class="btn btn-dark" data-register-url="https://forgesoccerclub.sprocketsports.com/all-programs/30387" href="#programs" aria-disabled="true">Registration opens Oct 14</a>
+        </div>
+      </article>
+    </div>
+    <p class="discount"><b>Bet on yourself:</b> register for the November Development Series and at least one December camp and save 10%. <b>Siblings save too:</b> 10% off the second player and 20% off the third and beyond.</p>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="wrap diff">
+    <div>
+      <p class="eyebrow">More than extra training</p>
+      <p class="big">The goal isn't to train more. <em>It's to become a better player.</em></p>
+    </div>
+    <div>
+      <p>Learn from experienced coaches. Understand the details that matter. Improve your technique, make sharper decisions, and build the habits and mindset that support long-term progress.</p>
+      <p>This is a professionally informed curriculum that goes beyond the work players do in team practice.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap narrow">
+    <div class="sec-h"><p class="eyebrow" style="color:var(--crimson)">Questions</p><h2>Good to know.</h2></div>
+    <div class="faq">
+      <details><summary>Is it open to players outside Forge?<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><p>Yes. Forge and non-Forge players are welcome. Forge families register first, from October 14, and save $50 with the member code from the club. Registration opens to everyone on October 18.</p></details>
+      <details><summary>What's included?<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><p>Instruction for the full program you choose. The November Development Series is six training sessions. Each December camp is three days, 10:00 AM to 2:00 PM.</p></details>
+      <details><summary>Do players need to attend every session?<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><p>Each program is built as a complete development experience, so players get the most from attending every session, especially in November.</p></details>
+      <details><summary>How are players grouped?<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><p>November has set training groups and times by age. In December everyone attends the same daily hours and is grouped by age and ability for focused, high-quality instruction.</p></details>
+      <details><summary>Can players register for more than one program?<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><p>Yes. Each program has its own registration and brings its own focus and drills. Register for November plus at least one December camp and save 10%. Siblings save 10% for the second player and 20% for the third and beyond.</p></details>
+      <details><summary>What should players bring?<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><p>Equipment, water and other preparation details will be sent to registered families before each program.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="alt" style="padding-top:0;padding-bottom:0;background:#fff">
+  <div class="wrap" style="padding-bottom:96px">
+    <div class="loc">
+      <div>
+        <p class="eyebrow" style="color:var(--crimson)">Where</p>
+        <h3>Forge East</h3>
+        <p>1000 S Kirk Rd, Geneva, IL 60134</p>
+        <p style="color:var(--ink-3);font-size:15px">Formerly Strikers Fox Valley.</p>
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=1000+S+Kirk+Rd+Geneva+IL+60134" target="_blank" rel="noopener">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Get directions
+        </a>
+      </div>
+      <div>
+        <p class="eyebrow" style="color:var(--crimson)">Hosted by Forge · Presented by BTB</p>
+        <p>Questions? Email <a href="mailto:info@forgesoccerclub.com" style="color:var(--black);font-weight:600">info@forgesoccerclub.com</a> or call 630-377-9292.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dark final">
+  <div class="wrap">
+    <p class="eyebrow">November &amp; December 2026</p>
+    <h2>Your next season<br>starts now.</h2>
+    <p>The players who make the most of the off-season come back stronger, sharper and better prepared. Make this offseason count.</p>
+    <div class="ctas"><a class="btn btn-gold" href="#programs">Choose your program</a></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a href="/"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1770763739/forge-logo-w-fox-valley-23jan2026_d1dlgi.png" alt="Fox Valley Forge SC"></a>
+    <span>BTB × Forge · Built in the Offseason · <a href="/">forgesoccerclub.com</a></span>
+  </div>
+</footer>
+
+<script>
+// Registration buttons switch on once each data-register-url holds its Sprocket link.
+document.querySelectorAll('[data-register-url]').forEach(function(b){
+  var url=b.getAttribute('data-register-url'); if(!url) return;
+  b.href=url; b.target='_blank'; b.rel='noopener'; b.removeAttribute('aria-disabled'); b.textContent='Register →';
+});
+</script>
+</body>
+</html>
