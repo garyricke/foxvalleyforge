@@ -13,7 +13,8 @@
     "news": "Club news",
     "site": "Meetings, admin & site care",
     "cup": "Forge Cup tournament",
-    "camps": "Your Separation Season camps"
+    "camps": "Built in the Offseason camps",
+    "media": "Homepage footage"
   },
   "entries": {
     "3646": [
@@ -175,6 +176,34 @@
     "4090": [
       "programs",
       "Winter Community and Foxes moved to their new days and locations; camps page preview for Chris and Mike"
+    ],
+    "4094": [
+      "site",
+      "Hours page: camps as their own line, shared sessions split, card discount and absorbed reprint shown"
+    ],
+    "4105": [
+      "camps",
+      "Camps go-live as Built in the Offseason: both Sprocket registrations wired, member and sibling pricing"
+    ],
+    "4146": [
+      "site",
+      "Facilities fundraiser landing page: first reply to Robert; planning meeting set with Mike, Robert and Jeff"
+    ],
+    "4154": [
+      "programs",
+      "Winter Development League taken off the website at Bridgett's request"
+    ],
+    "4156": [
+      "site",
+      "Check-in call with Mike: Patriot sponsor prospectus, new hero footage, leadership cleanup, coaches page, Trunk or Treat"
+    ],
+    "4160": [
+      "media",
+      "Game-day filming at Forge East for the new homepage hero, drone and 360 (includes travel)"
+    ],
+    "4161": [
+      "media",
+      "Game-day filming at James O. Breen Park for the new homepage hero, drone and 360 (includes travel)"
     ]
   },
   "adjustments": [

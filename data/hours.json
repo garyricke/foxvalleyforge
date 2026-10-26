@@ -1,15 +1,15 @@
 {
- "updated": "2026-10-13T14:24Z",
+ "updated": "2026-10-26T21:20Z",
  "block": {
   "hours": 50,
   "rate": 80,
   "price": 4000,
   "opened": "2026-07-14"
  },
- "worked": 50.0,
+ "worked": 57.25,
  "discount": 10,
- "used": 40.0,
- "remaining": 10.0,
+ "used": 47.25,
+ "remaining": 2.75,
  "streams": {
   "cards": "Forge Fest trading cards",
   "golf": "Forge Golf Classic",
@@ -20,7 +20,8 @@
   "news": "Club news",
   "site": "Meetings, admin & site care",
   "cup": "Forge Cup tournament",
-  "camps": "Your Separation Season camps"
+  "camps": "Built in the Offseason camps",
+  "media": "Homepage footage"
  },
  "adjustments": [
   {
@@ -38,6 +39,55 @@
   }
  ],
  "entries": [
+  {
+   "id": 4161,
+   "date": "2026-10-24",
+   "hours": 1.75,
+   "stream": "media",
+   "desc": "Game-day filming at James O. Breen Park for the new homepage hero, drone and 360 (includes travel)"
+  },
+  {
+   "id": 4160,
+   "date": "2026-10-24",
+   "hours": 1.5,
+   "stream": "media",
+   "desc": "Game-day filming at Forge East for the new homepage hero, drone and 360 (includes travel)"
+  },
+  {
+   "id": 4156,
+   "date": "2026-10-23",
+   "hours": 0.75,
+   "stream": "site",
+   "desc": "Check-in call with Mike: Patriot sponsor prospectus, new hero footage, leadership cleanup, coaches page, Trunk or Treat"
+  },
+  {
+   "id": 4154,
+   "date": "2026-10-22",
+   "hours": 0.25,
+   "stream": "programs",
+   "desc": "Winter Development League taken off the website at Bridgett's request"
+  },
+  {
+   "id": 4146,
+   "date": "2026-10-21",
+   "hours": 0.25,
+   "stream": "site",
+   "desc": "Facilities fundraiser landing page: first reply to Robert; planning meeting set with Mike, Robert and Jeff"
+  },
+  {
+   "id": 4105,
+   "date": "2026-10-15",
+   "hours": 2.0,
+   "stream": "camps",
+   "desc": "Camps go-live as Built in the Offseason: both Sprocket registrations wired, member and sibling pricing"
+  },
+  {
+   "id": 4094,
+   "date": "2026-10-13",
+   "hours": 0.75,
+   "stream": "site",
+   "desc": "Hours page: camps as their own line, shared sessions split, card discount and absorbed reprint shown"
+  },
   {
    "id": 4090,
    "date": "2026-10-13",
