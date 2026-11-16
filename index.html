@@ -23,7 +23,8 @@ html{scroll-behavior:smooth}
 body{font-family:var(--font-b);color:var(--dark);background:#fff;overflow-x:hidden}
 img{max-width:100%;display:block}
 a{text-decoration:none;color:inherit}
-h1,h2,h3,h4{font-family:var(--font-h);text-transform:uppercase;line-height:1.1}
+h1,h2,h3,h4{font-family:var(--font-h);text-transform:uppercase;line-height:1.1;text-wrap:balance}
+p,li,.event-card-date{text-wrap:pretty}
 
 /* ── NAV ── */
 nav{position:fixed;top:0;left:0;width:100%;z-index:1000;background:var(--navy);transition:box-shadow .3s}
@@ -1136,6 +1137,34 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
           <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px">
             <button class="btn btn-navy" onclick="openModal('modal-futsal')">Full Details →</button>
             <a href="https://forgesoccerclub.sprocketsports.com/all-programs/28889" target="_blank" rel="noopener" class="btn btn-gold">Register →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- HS WINTER SHOWCASE — Sprocket program 31409 (girls Jan 23, boys Feb 6 2027); auto-hides after Feb 6. Forge players' free code goes out by club email, not on the site (Bridgett, Nov 14) -->
+      <div id="event-hs-showcase" class="event-card fade-in" data-event-end="2027-02-06" style="scroll-margin-top:96px">
+        <div class="event-card-img" style="background-image:url('https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_1200/v1794844038/forge/hs-showcase-2027.jpg')">
+          <div class="event-eyebrow">College Showcase · High School Boys &amp; Girls</div>
+          <h3 class="event-card-title">HS Winter Showcase</h3>
+          <div class="event-card-date">Girls Jan&nbsp;23 · Boys Feb&nbsp;6,&nbsp;2027</div>
+        </div>
+        <div class="event-card-body">
+          <div>
+            <h4>About the Showcase</h4>
+            <p>Cold weather, hot talent. <strong>7v7 and 8v8 games in front of college coaches</strong>, built for high school players who want to play in college, plus transfer college players. A detailed schedule goes out one week before each night.</p>
+          </div>
+          <div>
+            <h4>Event Details</h4>
+            <ul class="event-activities">
+              <li>Girls: Sat, Jan&nbsp;23 · Boys: Sat, Feb&nbsp;6</li>
+              <li>Check-in 4:30&nbsp;PM · games 5:00&nbsp;–&nbsp;10:00&nbsp;PM</li>
+              <li>Forge East Indoor · 1000&nbsp;S&nbsp;Kirk Road, Geneva</li>
+              <li>Colleges: Northern Illinois, Aurora University, Waubonsee&nbsp;CC, more&nbsp;to&nbsp;come</li>
+              <li><strong>$50 per player · U14&nbsp;–&nbsp;U19</strong></li>
+            </ul>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px">
+            <a href="https://forgesoccerclub.sprocketsports.com/all-programs/31409" target="_blank" rel="noopener" class="btn btn-gold">Register →</a>
           </div>
         </div>
       </div>
