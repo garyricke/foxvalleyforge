@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>HS Winter Showcase Flyer (Girls) · Fox Valley Forge SC</title>
+<link rel="canonical" href="https://forgesoccerclub.com/flyers/hs-showcase-girls">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#001B44;--crimson:#A91335;--gold:#C5A059;--ink:#0b1730;--font-h:'Oswald',sans-serif;--font-b:'Source Sans 3',sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+@page{size:letter;margin:0}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{background:#d9dce2;font-family:var(--font-b);color:#fff}
+h1,h2,h3,.eyebrow,.label{font-family:var(--font-h);text-transform:uppercase;text-wrap:balance}
+p,li{text-wrap:pretty}
+
+/* One US Letter page */
+.sheet{width:8.5in;height:11in;margin:.4in auto;background:var(--navy);position:relative;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,.25);display:flex;flex-direction:column}
+
+/* Photo band */
+.hero{position:relative;height:4.55in;background:url('https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_1700/v1794855718/forge/hs-showcase-2027-girls.jpg') center 22%/cover}
+.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,27,68,.15) 0%,rgba(0,27,68,.25) 55%,var(--navy) 100%)}
+.logo{position:absolute;top:.35in;left:.45in;width:1.35in;z-index:2}
+.tag{position:absolute;top:.42in;right:.45in;z-index:2;font-family:var(--font-h);font-size:10pt;letter-spacing:.28em;background:var(--crimson);padding:.07in .16in}
+
+/* Title block overlapping photo */
+.title{position:relative;z-index:2;margin-top:-1.55in;padding:0 .55in}
+.eyebrow{font-size:11pt;letter-spacing:.32em;color:var(--gold);font-weight:500}
+h1{font-size:50pt;line-height:.95;font-weight:700;margin:.06in 0 .1in;letter-spacing:.01em}
+h1 span{color:var(--gold)}
+.tagline{font-family:var(--font-h);font-size:14pt;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.85)}
+.tagline b{color:var(--gold);font-weight:600}
+
+/* Date blocks */
+.dates{display:grid;grid-template-columns:1fr 1fr;gap:.18in;padding:.28in .55in 0}
+.date{border:2px solid var(--gold);padding:.14in .2in .16in;display:flex;align-items:center;gap:.2in}
+.date .who{font-family:var(--font-h);font-size:11pt;letter-spacing:.28em;color:var(--gold);writing-mode:vertical-rl;transform:rotate(180deg);border-left:1px solid rgba(197,160,89,.5);padding-left:.1in}
+.date .day{font-family:var(--font-h);font-size:11pt;letter-spacing:.18em;color:rgba(255,255,255,.7)}
+.date .md{font-family:var(--font-h);font-size:34pt;font-weight:700;line-height:1}
+.date .yr{font-size:10.5pt;color:rgba(255,255,255,.7);margin-top:.03in}
+
+/* Details */
+.details{display:grid;grid-template-columns:1.25fr 1fr;gap:.3in;padding:.26in .55in 0;flex:1}
+.label{font-size:9.5pt;letter-spacing:.26em;color:var(--gold);margin-bottom:.05in;font-weight:500}
+.item{margin-bottom:.15in}
+.item p{font-size:12.5pt;line-height:1.3}
+.item p strong{font-weight:700}
+.colleges li{list-style:none;font-size:12.5pt;line-height:1.35;padding-left:.2in;position:relative}
+.colleges li::before{content:'';position:absolute;left:0;top:.4em;width:.08in;height:.08in;background:var(--crimson);transform:rotate(45deg)}
+.colleges li.more{color:rgba(255,255,255,.65);font-style:italic}
+
+/* Register bar */
+.register{margin:0 .55in .3in;background:#fff;color:var(--navy);display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:.25in;padding:.18in .25in}
+.qr{width:1.2in;height:1.2in}
+.qr svg{width:100%;height:100%;display:block}
+.register h2{font-size:22pt;line-height:1;font-weight:700}
+.register .url{font-family:var(--font-h);font-size:15pt;color:var(--crimson);letter-spacing:.02em;margin-top:.05in}
+.register .small{font-size:10pt;color:#4a5568;margin-top:.04in}
+.price{text-align:center;border-left:2px solid #e2e5ea;padding-left:.25in}
+.price .amt{font-family:var(--font-h);font-size:34pt;font-weight:700;line-height:1;color:var(--navy)}
+.price .per{font-family:var(--font-h);font-size:9.5pt;letter-spacing:.2em;color:var(--crimson);text-transform:uppercase}
+
+.foot{background:var(--crimson);display:flex;justify-content:space-between;align-items:center;padding:.12in .55in;font-family:var(--font-h);font-size:9.5pt;letter-spacing:.24em;text-transform:uppercase}
+.foot span:last-child{letter-spacing:.08em}
+
+.toolbar{max-width:8.5in;margin:.35in auto -.2in;display:flex;justify-content:flex-end;gap:10px;font-family:var(--font-h)}
+.toolbar a{display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:#fff;text-decoration:none;font-size:11pt;letter-spacing:.12em;text-transform:uppercase;padding:10px 18px;border-radius:3px}
+.toolbar a:hover{background:var(--crimson)}
+.toolbar svg{width:18px;height:18px}
+@media print{.toolbar{display:none}}
+@media print{body{background:none}.sheet{margin:0;box-shadow:none}}
+@media screen and (max-width:8.9in){.sheet{transform-origin:top left;transform:scale(calc(100vw / 8.9in))}}
+</style>
+</head>
+<body>
+<div class="toolbar">
+  <a href="/flyers/hs-showcase-girls.pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download print PDF</a>
+</div>
+<div class="sheet">
+  <div class="hero">
+    <img class="logo" src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_400/v1772573826/forge-logo-w-fox-valley-23jan2026_ojhvif.png" alt="Fox Valley Forge SC">
+    <div class="tag">College Showcase</div>
+  </div>
+
+  <div class="title">
+    <div class="eyebrow">Forge SC · Winter 2026/27</div>
+    <h1>High School <span>Winter&nbsp;Showcase</span></h1>
+    <div class="tagline">Cold weather. <b>Hot talent.</b> Next&#8209;level opportunity.</div>
+  </div>
+
+  <div class="dates">
+    <div class="date">
+      <div class="who">Girls</div>
+      <div><div class="day">Saturday</div><div class="md">Jan&nbsp;23</div><div class="yr">2027</div></div>
+    </div>
+    <div class="date">
+      <div class="who">Boys</div>
+      <div><div class="day">Saturday</div><div class="md">Feb&nbsp;6</div><div class="yr">2027</div></div>
+    </div>
+  </div>
+
+  <div class="details">
+    <div>
+      <div class="item">
+        <div class="label">Time</div>
+        <p>Check-in 4:30&nbsp;PM · Games 5:00&nbsp;–&nbsp;10:00&nbsp;PM</p>
+      </div>
+      <div class="item">
+        <div class="label">Location</div>
+        <p><strong>Forge East Indoor</strong><br>1000&nbsp;S&nbsp;Kirk Road, Geneva,&nbsp;IL&nbsp;60134</p>
+      </div>
+      <div class="item">
+        <div class="label">Who &amp; Format</div>
+        <p>High school players, U14&nbsp;–&nbsp;U19, plus transfer college players. 7v7 and 8v8 games in front of college&nbsp;coaches.</p>
+      </div>
+    </div>
+    <div>
+      <div class="label">Colleges Confirmed</div>
+      <ul class="colleges">
+        <li>Northern Illinois University</li>
+        <li>Aurora University</li>
+        <li>Waubonsee Community College</li>
+        <li class="more">More to come</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="register">
+    <div class="qr" aria-label="QR code to forgesoccerclub.com/showcase"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29" shape-rendering="crispEdges" class="segno"><path class="qrline" stroke="#001b44" d="M0 0.5h7m1 0h1m1 0h1m4 0h1m2 0h3m1 0h7m-29 1h1m5 0h1m1 0h1m1 0h3m1 0h1m1 0h1m5 0h1m5 0h1m-29 1h1m1 0h3m1 0h1m3 0h1m1 0h2m5 0h2m1 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m1 0h4m3 0h1m1 0h2m1 0h1m1 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m2 0h2m2 0h4m2 0h1m2 0h1m1 0h3m1 0h1m-29 1h1m5 0h1m3 0h3m1 0h1m2 0h3m2 0h1m5 0h1m-29 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-21 1h2m3 0h3m1 0h1m-18 1h1m1 0h2m1 0h3m2 0h1m1 0h3m2 0h2m3 0h1m2 0h1m1 0h2m-27 1h4m2 0h2m1 0h2m3 0h1m1 0h7m3 0h1m-25 1h1m1 0h2m3 0h1m2 0h1m1 0h1m4 0h1m2 0h1m1 0h2m-28 1h3m6 0h6m1 0h1m1 0h1m2 0h3m4 0h1m-27 1h1m1 0h1m1 0h2m7 0h1m1 0h1m7 0h2m-24 1h1m3 0h2m1 0h2m1 0h1m1 0h2m2 0h1m1 0h2m3 0h3m-28 1h1m1 0h5m2 0h3m1 0h1m2 0h3m2 0h1m1 0h1m1 0h3m-27 1h3m3 0h2m1 0h3m5 0h1m2 0h1m1 0h1m2 0h1m-28 1h2m4 0h1m1 0h3m1 0h1m5 0h1m2 0h1m2 0h2m1 0h1m-25 1h1m3 0h1m5 0h1m1 0h1m1 0h1m2 0h1m2 0h1m1 0h3m-28 1h1m3 0h1m1 0h2m2 0h3m2 0h2m3 0h1m1 0h2m2 0h1m-25 1h1m1 0h2m3 0h1m2 0h1m2 0h4m2 0h2m1 0h1m1 0h1m-26 1h1m2 0h1m1 0h2m1 0h1m1 0h1m1 0h1m3 0h1m1 0h8m-19 1h1m2 0h4m1 0h3m1 0h1m3 0h5m-29 1h7m1 0h4m1 0h1m2 0h1m1 0h3m1 0h1m1 0h2m1 0h1m-28 1h1m5 0h1m1 0h1m1 0h1m1 0h1m2 0h1m2 0h1m1 0h1m3 0h2m2 0h1m-29 1h1m1 0h3m1 0h1m4 0h2m1 0h1m2 0h1m2 0h5m1 0h1m-27 1h1m1 0h3m1 0h1m1 0h2m4 0h6m1 0h1m1 0h3m2 0h1m-29 1h1m1 0h3m1 0h1m1 0h2m1 0h3m2 0h2m1 0h1m3 0h1m2 0h1m1 0h1m-29 1h1m5 0h1m2 0h4m2 0h1m4 0h2m3 0h1m1 0h1m-28 1h7m1 0h1m2 0h1m1 0h1m1 0h1m2 0h5m4 0h1"/></svg></div>
+    <div>
+      <h2>Scan to Register</h2>
+      <div class="url">forgesoccerclub.com/showcase</div>
+      <div class="small">Detailed schedule sent one week before each night. Questions: info@forgesoccerclub.com · 630&#8209;377&#8209;9292</div>
+    </div>
+    <div class="price"><div class="amt">$50</div><div class="per">per player</div></div>
+  </div>
+
+  <div class="foot"><span>One Valley. One Club. One Pathway.</span><span>forgesoccerclub.com</span></div>
+</div>
+</body>
+</html>
