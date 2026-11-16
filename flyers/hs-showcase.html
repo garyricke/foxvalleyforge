@@ -67,11 +67,19 @@ h1 span{color:var(--gold)}
 .foot{background:var(--crimson);display:flex;justify-content:space-between;align-items:center;padding:.12in .55in;font-family:var(--font-h);font-size:9.5pt;letter-spacing:.24em;text-transform:uppercase}
 .foot span:last-child{letter-spacing:.08em}
 
+.toolbar{max-width:8.5in;margin:.35in auto -.2in;display:flex;justify-content:flex-end;gap:10px;font-family:var(--font-h)}
+.toolbar a{display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:#fff;text-decoration:none;font-size:11pt;letter-spacing:.12em;text-transform:uppercase;padding:10px 18px;border-radius:3px}
+.toolbar a:hover{background:var(--crimson)}
+.toolbar svg{width:18px;height:18px}
+@media print{.toolbar{display:none}}
 @media print{body{background:none}.sheet{margin:0;box-shadow:none}}
 @media screen and (max-width:8.9in){.sheet{transform-origin:top left;transform:scale(calc(100vw / 8.9in))}}
 </style>
 </head>
 <body>
+<div class="toolbar">
+  <a href="/flyers/hs-showcase.pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download print PDF</a>
+</div>
 <div class="sheet">
   <div class="hero">
     <img class="logo" src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_400/v1772573826/forge-logo-w-fox-valley-23jan2026_ojhvif.png" alt="Fox Valley Forge SC">
