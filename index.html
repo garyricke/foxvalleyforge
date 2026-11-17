@@ -508,6 +508,14 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
 .summer-reg{flex-shrink:0;background:var(--crimson);color:#fff;font-family:var(--font-h);font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:9px 18px;border-radius:5px;text-decoration:none;white-space:nowrap;transition:background .2s}
 .summer-reg:hover{background:var(--crimson-90)}
 .summer-cost{margin-top:12px;font-size:.84rem;color:#555;font-weight:600}
+.winter-status{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:0 0 24px}
+.winter-stat{background:var(--gold-light,#f6efe1);border-radius:8px;padding:16px 18px;display:flex;flex-direction:column;gap:6px}
+.winter-stat-tag{font-family:var(--font-h);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--crimson)}
+.winter-stat h4{font-family:var(--font-h);font-size:1.15rem;text-transform:uppercase;color:var(--navy);margin:0;text-wrap:balance}
+.winter-stat p{font-size:.88rem;color:#444;line-height:1.5;margin:0;text-wrap:pretty}
+.winter-stat .summer-reg{align-self:flex-start;margin-top:6px}
+.winter-sched-label{font-family:var(--font-h);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:#777;margin:0 0 10px}
+@media(max-width:700px){.winter-status{grid-template-columns:1fr}}
 .summer-prog--wide{grid-column:1/-1}
 .summer-loc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .summer-loc-grid .summer-loc{margin-bottom:0}
@@ -1429,9 +1437,9 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
 <span id="summer" aria-hidden="true" style="display:block;height:0;scroll-margin-top:96px"></span>
 <section id="sessions">
   <div class="section-inner">
-    <p class="section-label fade-in">Winter 2026 · Now Registering</p>
+    <p class="section-label fade-in">Winter I Underway · Winter II Starts Jan&nbsp;11</p>
     <h2 class="section-title fade-in">Winter Programs</h2>
-    <p class="section-sub fade-in">Six-week sessions for our youngest players. Register directly online — open to members and new families alike.</p>
+    <p class="section-sub fade-in">Six-week sessions for our youngest players, open to members and new families&nbsp;alike.</p>
     <div class="summer-grid">
 
       <!-- Forge Community · Fall 2026 — registration closed; Sarah asked for the card to come down Sep 11 -->
@@ -1547,17 +1555,32 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
       </div>
 
       <!-- Forge Community · Winter 2026 — Sprocket program 29299. Published Sep 11 (data-event-start), hides after registration closes (data-event-end). Oct 13: Wednesday East session moved to Thursday at Forge East (1000 S Kirk Rd); Monday + Saturday at Forge West (Taylor). -->
-      <div id="community-winter" class="summer-prog summer-prog--wide fade-in" data-event-start="2026-09-11" data-event-end="2026-10-30" style="scroll-margin-top:96px">
+      <div id="community-winter" class="summer-prog summer-prog--wide fade-in" data-event-start="2026-09-11" data-event-end="2026-12-19" style="scroll-margin-top:96px">
         <div class="summer-prog-head navy">
           <div class="summer-prog-eyebrow">Ages U6–U12 · For All Levels</div>
-          <h3 class="summer-prog-title">Forge Community · Winter 2026</h3>
-          <div class="summer-prog-dates">Nov 2 – Dec 19 · 6 Weeks · No Play Thanksgiving Week</div>
+          <h3 class="summer-prog-title">Forge Community · Winter</h3>
+          <div class="summer-prog-dates">Winter I underway · Winter II starts Jan&nbsp;11</div>
         </div>
         <div class="summer-prog-body">
           <p class="summer-prog-desc">Develop skills. Build confidence. Play the game. Age-appropriate technical training and small-sided games built to maximize touches, decision-making, confidence and enjoyment — ball mastery, dribbling, 1v1, tactical awareness and the rules and flow of the game, with character development woven through it all.</p>
 
-          <p class="summer-note">One weekday training session plus a Saturday game each week, November 2 through December 19, with no programming Thanksgiving week (Nov 23–28). Saturday games run 3v3, 4v4 or 5v5 between 12:00 and 4:00 PM at the Forge West building — Nov 7, 14, 21 and Dec 5, 12, 19. Registration closes October 30.</p>
+          <p class="summer-note">Winter I: one weekday training session plus a Saturday game each week, November 2 through December 19, with no programming Thanksgiving week (Nov 23–28). Saturday games run 3v3, 4v4 or 5v5 between 12:00 and 4:00 PM at the Forge West building — Nov 7, 14, 21 and Dec 5, 12,&nbsp;19.</p>
 
+          <div class="winter-status">
+            <div class="winter-stat">
+              <span class="winter-stat-tag">Winter I · Underway</span>
+              <h4>Join for the final three&nbsp;weeks</h4>
+              <p>Winter&nbsp;I started November&nbsp;2 and runs through December&nbsp;19. Some sessions are full, so register by email with Taylor Ortiz, our Community Program&nbsp;Coordinator.</p>
+              <a class="summer-reg" href="mailto:taylor.ortiz@forgesoccerclub.com?subject=Forge%20Community%20Winter%20I%20registration">Email Taylor to Register →</a>
+            </div>
+            <div class="winter-stat">
+              <span class="winter-stat-tag">Winter II · Full Session</span>
+              <h4>Starts January&nbsp;11</h4>
+              <p>Registration for the full Winter&nbsp;II session opens&nbsp;soon.</p>
+            </div>
+          </div>
+
+          <p class="winter-sched-label">Winter I schedule</p>
           <div class="summer-loc-grid">
             <div class="summer-loc">
               <div class="summer-loc-head">
@@ -1566,17 +1589,13 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
               </div>
               <div class="summer-row">
                 <div class="summer-row-info"><span class="summer-row-age">U6–U8</span><span class="summer-row-time">4:30–5:30 PM</span></div>
-                <a class="summer-reg" href="https://forgesoccerclub.sprocketsports.com/all-programs/29299" target="_blank" rel="noopener">Register →</a>
               </div>
               <div class="summer-row">
                 <div class="summer-row-info"><span class="summer-row-age">U9–U10</span><span class="summer-row-time">6:00–7:00 PM</span></div>
-                <a class="summer-reg" href="https://forgesoccerclub.sprocketsports.com/all-programs/29299" target="_blank" rel="noopener">Register →</a>
               </div>
               <div class="summer-row">
                 <div class="summer-row-info"><span class="summer-row-age">U11–U12</span><span class="summer-row-time">6:00–7:00 PM</span></div>
-                <a class="summer-reg" href="https://forgesoccerclub.sprocketsports.com/all-programs/29299" target="_blank" rel="noopener">Register →</a>
               </div>
-              <p class="summer-cost">$160 / 6-week session</p>
             </div>
             <div class="summer-loc">
               <div class="summer-loc-head">
@@ -1585,17 +1604,13 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
               </div>
               <div class="summer-row">
                 <div class="summer-row-info"><span class="summer-row-age">U6–U8</span><span class="summer-row-time">4:30–5:30 PM</span></div>
-                <a class="summer-reg" href="https://forgesoccerclub.sprocketsports.com/all-programs/29299" target="_blank" rel="noopener">Register →</a>
               </div>
               <div class="summer-row">
                 <div class="summer-row-info"><span class="summer-row-age">U9–U10</span><span class="summer-row-time">6:00–7:00 PM</span></div>
-                <a class="summer-reg" href="https://forgesoccerclub.sprocketsports.com/all-programs/29299" target="_blank" rel="noopener">Register →</a>
               </div>
               <div class="summer-row">
                 <div class="summer-row-info"><span class="summer-row-age">U11–U12</span><span class="summer-row-time">6:00–7:00 PM</span></div>
-                <a class="summer-reg" href="https://forgesoccerclub.sprocketsports.com/all-programs/29299" target="_blank" rel="noopener">Register →</a>
               </div>
-              <p class="summer-cost">$160 / 6-week session</p>
             </div>
             <div class="summer-loc">
               <div class="summer-loc-head">
@@ -1612,17 +1627,32 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
       </div>
 
       <!-- Forge Foxes · Winter 2026 — Sprocket program 29248. Appears automatically on Sep 11 (data-event-start) and hides after registration closes (data-event-end). Preview early with ?show=hiddenevents -->
-      <div id="foxes-winter" class="summer-prog summer-prog--wide fade-in" data-event-start="2026-09-11" data-event-end="2026-10-30" style="scroll-margin-top:96px">
+      <div id="foxes-winter" class="summer-prog summer-prog--wide fade-in" data-event-start="2026-09-11" data-event-end="2026-12-19" style="scroll-margin-top:96px">
         <div class="summer-prog-head gold">
           <div class="summer-prog-eyebrow">Ages U4–U6 · Introductory</div>
-          <h3 class="summer-prog-title">Forge Foxes · Winter 2026</h3>
-          <div class="summer-prog-dates">Nov 3 – Dec 19 · 6 Weeks · No Play Thanksgiving Week</div>
+          <h3 class="summer-prog-title">Forge Foxes · Winter</h3>
+          <div class="summer-prog-dates">Winter I underway · Winter II starts the week of Jan&nbsp;11</div>
         </div>
         <div class="summer-prog-body">
-          <p class="summer-prog-desc">Registration is open now for the winter session. One fun-first, 45-minute session each week, led by licensed coaches, for players U4–U6 (born Aug 2020 – Jul 2023). A good coach-to-player ratio matters to us, so spots are limited — sign up early.</p>
+          <p class="summer-prog-desc">One fun-first, 45-minute session each week, led by licensed coaches, for players U4–U6 (born Aug 2020 – Jul 2023). A good coach-to-player ratio matters to us, so spots are limited.</p>
 
-          <p class="summer-note">Six weeks, from the week of November 3 through the week of December 19, with no sessions Thanksgiving week. A Foxes T-shirt is included. Registration closes October 30.</p>
+          <p class="summer-note">Winter I: six weeks, from the week of November 3 through the week of December 19, with no sessions Thanksgiving week. A Foxes T-shirt is&nbsp;included.</p>
 
+          <div class="winter-status">
+            <div class="winter-stat">
+              <span class="winter-stat-tag">Winter I · Underway</span>
+              <h4>Join for the final three&nbsp;weeks</h4>
+              <p>Winter&nbsp;I started the week of November&nbsp;3 and runs through December&nbsp;19. Some sessions are full, so register by email with Taylor Ortiz, our Community Program&nbsp;Coordinator.</p>
+              <a class="summer-reg" href="mailto:taylor.ortiz@forgesoccerclub.com?subject=Forge%20Foxes%20Winter%20I%20registration">Email Taylor to Register →</a>
+            </div>
+            <div class="winter-stat">
+              <span class="winter-stat-tag">Winter II · Full Session</span>
+              <h4>Starts the week of January&nbsp;11</h4>
+              <p>Registration for the full Winter&nbsp;II session opens&nbsp;soon.</p>
+            </div>
+          </div>
+
+          <p class="winter-sched-label">Winter I schedule</p>
           <div class="summer-loc-grid">
             <div class="summer-loc">
               <div class="summer-loc-head">
@@ -1631,9 +1661,7 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
               </div>
               <div class="summer-row">
                 <div class="summer-row-info"><span class="summer-row-age">U4–U6</span><span class="summer-row-time">1:00–1:45 PM</span></div>
-                <a class="summer-reg" href="https://forgesoccerclub.sprocketsports.com/all-programs/29248" target="_blank" rel="noopener">Register →</a>
               </div>
-              <p class="summer-cost">$75 / 6-week session</p>
             </div>
             <div class="summer-loc">
               <div class="summer-loc-head">
@@ -1642,13 +1670,10 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
               </div>
               <div class="summer-row">
                 <div class="summer-row-info"><span class="summer-row-age">U4</span><span class="summer-row-time">4:30–5:15 PM</span></div>
-                <a class="summer-reg" href="https://forgesoccerclub.sprocketsports.com/all-programs/29248" target="_blank" rel="noopener">Register →</a>
               </div>
               <div class="summer-row">
                 <div class="summer-row-info"><span class="summer-row-age">U5–U6</span><span class="summer-row-time">5:30–6:15 PM</span></div>
-                <a class="summer-reg" href="https://forgesoccerclub.sprocketsports.com/all-programs/29248" target="_blank" rel="noopener">Register →</a>
               </div>
-              <p class="summer-cost">$75 / 6-week session</p>
             </div>
             <div class="summer-loc">
               <div class="summer-loc-head">
@@ -1657,13 +1682,10 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
               </div>
               <div class="summer-row">
                 <div class="summer-row-info"><span class="summer-row-age">U4</span><span class="summer-row-time">9:00–9:45 AM</span></div>
-                <a class="summer-reg" href="https://forgesoccerclub.sprocketsports.com/all-programs/29248" target="_blank" rel="noopener">Register →</a>
               </div>
               <div class="summer-row">
                 <div class="summer-row-info"><span class="summer-row-age">U5–U6</span><span class="summer-row-time">10:00–10:45 AM</span></div>
-                <a class="summer-reg" href="https://forgesoccerclub.sprocketsports.com/all-programs/29248" target="_blank" rel="noopener">Register →</a>
               </div>
-              <p class="summer-cost">$75 / 6-week session</p>
             </div>
           </div>
         </div>
@@ -2328,20 +2350,22 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
         </div>
       </div>
 
-      <div style="background:var(--gold-light);border-radius:8px;padding:20px 22px;margin-top:24px" data-event-start="2026-09-11" data-event-end="2026-10-30">
-        <h3 style="margin-bottom:4px">Winter 2026 Sessions — Now Registering</h3>
-        <p style="font-size:.9rem;color:#555;margin-bottom:16px">Nov 2 – Dec 19 · six weeks · no play Thanksgiving week · $160 · one weekday training plus Saturday games (12:00–4:00 PM at Forge West) · registration closes Oct 30.</p>
+      <div style="background:var(--gold-light);border-radius:8px;padding:20px 22px;margin-top:24px" data-event-start="2026-09-11" data-event-end="2026-12-19">
+        <h3 style="margin-bottom:4px">Winter Sessions</h3>
+        <p style="font-size:.9rem;color:#555;margin-bottom:12px">Winter&nbsp;I is underway (Nov 2 – Dec 19, one weekday training plus Saturday games 12:00–4:00 PM at Forge West). Some sessions are full, so join for the final three weeks by emailing Taylor Ortiz. <strong>Winter&nbsp;II starts January&nbsp;11</strong>; registration opens&nbsp;soon.</p>
+        <a class="summer-reg" href="mailto:taylor.ortiz@forgesoccerclub.com?subject=Forge%20Community%20Winter%20I%20registration" style="display:inline-block;margin-bottom:18px">Email Taylor to Register →</a>
+        <p class="winter-sched-label">Winter I schedule</p>
         <div class="summer-loc">
           <div class="summer-loc-head"><span class="summer-loc-days">Mondays</span><span class="summer-loc-place">Forge West</span></div>
-          <div class="summer-row"><div class="summer-row-info"><span class="summer-row-age">U6–U8</span><span class="summer-row-time">4:30–5:30 PM</span></div><a class="summer-reg" href="https://forgesoccerclub.sprocketsports.com/all-programs/29299" target="_blank" rel="noopener">Register →</a></div>
-          <div class="summer-row"><div class="summer-row-info"><span class="summer-row-age">U9–U10</span><span class="summer-row-time">6:00–7:00 PM</span></div><a class="summer-reg" href="https://forgesoccerclub.sprocketsports.com/all-programs/29299" target="_blank" rel="noopener">Register →</a></div>
-          <div class="summer-row"><div class="summer-row-info"><span class="summer-row-age">U11–U12</span><span class="summer-row-time">6:00–7:00 PM</span></div><a class="summer-reg" href="https://forgesoccerclub.sprocketsports.com/all-programs/29299" target="_blank" rel="noopener">Register →</a></div>
+          <div class="summer-row"><div class="summer-row-info"><span class="summer-row-age">U6–U8</span><span class="summer-row-time">4:30–5:30 PM</span></div></div>
+          <div class="summer-row"><div class="summer-row-info"><span class="summer-row-age">U9–U10</span><span class="summer-row-time">6:00–7:00 PM</span></div></div>
+          <div class="summer-row"><div class="summer-row-info"><span class="summer-row-age">U11–U12</span><span class="summer-row-time">6:00–7:00 PM</span></div></div>
         </div>
         <div class="summer-loc" style="margin-top:18px">
           <div class="summer-loc-head"><span class="summer-loc-days">Thursdays</span><span class="summer-loc-place">Forge East · 1000 S Kirk Rd, Geneva</span></div>
-          <div class="summer-row"><div class="summer-row-info"><span class="summer-row-age">U6–U8</span><span class="summer-row-time">4:30–5:30 PM</span></div><a class="summer-reg" href="https://forgesoccerclub.sprocketsports.com/all-programs/29299" target="_blank" rel="noopener">Register →</a></div>
-          <div class="summer-row"><div class="summer-row-info"><span class="summer-row-age">U9–U10</span><span class="summer-row-time">6:00–7:00 PM</span></div><a class="summer-reg" href="https://forgesoccerclub.sprocketsports.com/all-programs/29299" target="_blank" rel="noopener">Register →</a></div>
-          <div class="summer-row"><div class="summer-row-info"><span class="summer-row-age">U11–U12</span><span class="summer-row-time">6:00–7:00 PM</span></div><a class="summer-reg" href="https://forgesoccerclub.sprocketsports.com/all-programs/29299" target="_blank" rel="noopener">Register →</a></div>
+          <div class="summer-row"><div class="summer-row-info"><span class="summer-row-age">U6–U8</span><span class="summer-row-time">4:30–5:30 PM</span></div></div>
+          <div class="summer-row"><div class="summer-row-info"><span class="summer-row-age">U9–U10</span><span class="summer-row-time">6:00–7:00 PM</span></div></div>
+          <div class="summer-row"><div class="summer-row-info"><span class="summer-row-age">U11–U12</span><span class="summer-row-time">6:00–7:00 PM</span></div></div>
         </div>
       </div>
     </div>
@@ -2916,22 +2940,24 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
         </div>
       </div>
 
-      <div style="background:var(--gold-light);border-radius:8px;padding:20px 22px;margin-top:24px" data-event-start="2026-09-11" data-event-end="2026-10-30">
-        <h3 style="margin-bottom:4px">Winter 2026 Sessions — Now Registering</h3>
-        <p style="font-size:.9rem;color:#555;margin-bottom:16px">Nov 3 – Dec 19 · six weeks · no play Thanksgiving week · $75 · U4–U6 · registration closes Oct 30.</p>
+      <div style="background:var(--gold-light);border-radius:8px;padding:20px 22px;margin-top:24px" data-event-start="2026-09-11" data-event-end="2026-12-19">
+        <h3 style="margin-bottom:4px">Winter Sessions</h3>
+        <p style="font-size:.9rem;color:#555;margin-bottom:12px">Winter&nbsp;I is underway (week of Nov 3 – Dec 19, U4–U6). Some sessions are full, so join for the final three weeks by emailing Taylor Ortiz. <strong>Winter&nbsp;II starts the week of January&nbsp;11</strong>; registration opens&nbsp;soon.</p>
+        <a class="summer-reg" href="mailto:taylor.ortiz@forgesoccerclub.com?subject=Forge%20Foxes%20Winter%20I%20registration" style="display:inline-block;margin-bottom:18px">Email Taylor to Register →</a>
+        <p class="winter-sched-label">Winter I schedule</p>
         <div class="summer-loc">
           <div class="summer-loc-head"><span class="summer-loc-days">Tuesdays</span><span class="summer-loc-place">Forge West</span></div>
-          <div class="summer-row"><div class="summer-row-info"><span class="summer-row-age">U4–U6</span><span class="summer-row-time">1:00–1:45 PM</span></div><a class="summer-reg" href="https://forgesoccerclub.sprocketsports.com/all-programs/29248" target="_blank" rel="noopener">Register →</a></div>
+          <div class="summer-row"><div class="summer-row-info"><span class="summer-row-age">U4–U6</span><span class="summer-row-time">1:00–1:45 PM</span></div></div>
         </div>
         <div class="summer-loc" style="margin-top:18px">
           <div class="summer-loc-head"><span class="summer-loc-days">Fridays</span><span class="summer-loc-place">Forge West</span></div>
-          <div class="summer-row"><div class="summer-row-info"><span class="summer-row-age">U4</span><span class="summer-row-time">4:30–5:15 PM</span></div><a class="summer-reg" href="https://forgesoccerclub.sprocketsports.com/all-programs/29248" target="_blank" rel="noopener">Register →</a></div>
-          <div class="summer-row"><div class="summer-row-info"><span class="summer-row-age">U5–U6</span><span class="summer-row-time">5:30–6:15 PM</span></div><a class="summer-reg" href="https://forgesoccerclub.sprocketsports.com/all-programs/29248" target="_blank" rel="noopener">Register →</a></div>
+          <div class="summer-row"><div class="summer-row-info"><span class="summer-row-age">U4</span><span class="summer-row-time">4:30–5:15 PM</span></div></div>
+          <div class="summer-row"><div class="summer-row-info"><span class="summer-row-age">U5–U6</span><span class="summer-row-time">5:30–6:15 PM</span></div></div>
         </div>
         <div class="summer-loc" style="margin-top:18px">
           <div class="summer-loc-head"><span class="summer-loc-days">Saturdays</span><span class="summer-loc-place">Forge West</span></div>
-          <div class="summer-row"><div class="summer-row-info"><span class="summer-row-age">U4</span><span class="summer-row-time">9:00–9:45 AM</span></div><a class="summer-reg" href="https://forgesoccerclub.sprocketsports.com/all-programs/29248" target="_blank" rel="noopener">Register →</a></div>
-          <div class="summer-row"><div class="summer-row-info"><span class="summer-row-age">U5–U6</span><span class="summer-row-time">10:00–10:45 AM</span></div><a class="summer-reg" href="https://forgesoccerclub.sprocketsports.com/all-programs/29248" target="_blank" rel="noopener">Register →</a></div>
+          <div class="summer-row"><div class="summer-row-info"><span class="summer-row-age">U4</span><span class="summer-row-time">9:00–9:45 AM</span></div></div>
+          <div class="summer-row"><div class="summer-row-info"><span class="summer-row-age">U5–U6</span><span class="summer-row-time">10:00–10:45 AM</span></div></div>
         </div>
       </div>
     </div>
