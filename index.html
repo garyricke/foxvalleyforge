@@ -34,6 +34,8 @@ nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.4)}
 .nav-links{display:flex;gap:32px;list-style:none}
 .nav-links a{font-family:var(--font-h);font-size:.9rem;font-weight:500;color:rgba(255,255,255,.85);letter-spacing:.06em;transition:color .2s}
 .nav-links a:hover{color:var(--gold)}
+.nav-links a{white-space:nowrap}
+@media(max-width:1100px){.nav-links{gap:18px}.nav-links a{font-size:.82rem}.nav-cta{padding-left:16px;padding-right:16px;white-space:nowrap}}
 .btn{display:inline-block;font-family:var(--font-h);font-size:.85rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:10px 22px;border-radius:3px;cursor:pointer;transition:all .2s;border:2px solid transparent}
 .btn-crimson{background:var(--crimson);color:#fff;border-color:var(--crimson)}
 .btn-crimson:hover{background:var(--crimson-90);border-color:var(--crimson-90)}
@@ -339,6 +341,7 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
   .stat:nth-child(3),.stat:nth-child(6){border-right:none}
   .footer-top{grid-template-columns:1fr 1fr}
 }
+@media(max-width:860px){.nav-links,.nav-cta{display:none}.hamburger{display:flex}}
 @media(max-width:768px){
   .nav-links,.nav-cta{display:none}
   .hamburger{display:flex}
@@ -515,6 +518,7 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
 .winter-stat p{font-size:.88rem;color:#444;line-height:1.5;margin:0;text-wrap:pretty}
 .winter-stat .summer-reg{align-self:flex-start;margin-top:6px}
 .winter-sched-label{font-family:var(--font-h);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:#777;margin:0 0 10px}
+.winter-status:has(>[data-expired]){grid-template-columns:1fr}
 @media(max-width:700px){.winter-status{grid-template-columns:1fr}}
 .summer-prog--wide{grid-column:1/-1}
 .summer-loc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
@@ -640,6 +644,7 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
       <li><a href="#sessions">Winter</a></li>
       <!-- Hidden until 2027: <li><a href="#tryouts">Tryouts</a></li> -->
       <li><a href="#community">Our Story</a></li>
+      <li><a href="https://team.europeansports.com/clubs/forge?category=Spiritwear" target="_blank" rel="noopener">Shop</a></li>
       <li><a href="#" onclick="openModal('modal-faq');return false">FAQ</a></li>
     </ul>
     <a href="#" onclick="openModal('modal-register');return false" class="btn btn-crimson nav-cta">Request Information</a>
@@ -656,6 +661,7 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
   <a href="#sessions" onclick="closeMobile()">Winter</a>
   <!-- Hidden until 2027: <a href="#tryouts" onclick="closeMobile()">Tryouts</a> -->
   <a href="#community" onclick="closeMobile()">Our Story</a>
+  <a href="https://team.europeansports.com/clubs/forge?category=Spiritwear" target="_blank" rel="noopener" onclick="closeMobile()">Shop Spiritwear</a>
   <a href="#" onclick="openModal('modal-faq');closeMobile();return false">FAQ</a>
   <a href="#" onclick="closeMobile();openModal('modal-register');return false" class="btn btn-crimson" style="text-align:center;margin-top:8px">Request Information</a>
 </div>
@@ -1554,8 +1560,8 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
         </div>
       </div>
 
-      <!-- Winter II (Jan 11 – Feb 20): Sprocket program 30259, no open registrations as of Nov 17 — add Register buttons once open. Forge Community · Winter 2026 — Sprocket program 29299. Published Sep 11 (data-event-start), hides after registration closes (data-event-end). Oct 13: Wednesday East session moved to Thursday at Forge East (1000 S Kirk Rd); Monday + Saturday at Forge West (Taylor). -->
-      <div id="community-winter" class="summer-prog summer-prog--wide fade-in" data-event-start="2026-09-11" data-event-end="2026-12-19" style="scroll-margin-top:96px">
+      <!-- Winter II (Jan 11 – Feb 20): Sprocket program 30259, registration open Nov 18 (Register buttons live). Forge Community · Winter 2026 — Sprocket program 29299. Published Sep 11 (data-event-start), hides after registration closes (data-event-end). Oct 13: Wednesday East session moved to Thursday at Forge East (1000 S Kirk Rd); Monday + Saturday at Forge West (Taylor). -->
+      <div id="community-winter" class="summer-prog summer-prog--wide fade-in" data-event-start="2026-09-11" data-event-end="2027-02-20" style="scroll-margin-top:96px">
         <div class="summer-prog-head navy">
           <div class="summer-prog-eyebrow">Ages U6–U12 · For All Levels</div>
           <h3 class="summer-prog-title">Forge Community · Winter</h3>
@@ -1564,10 +1570,10 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
         <div class="summer-prog-body">
           <p class="summer-prog-desc">Develop skills. Build confidence. Play the game. Age-appropriate technical training and small-sided games built to maximize touches, decision-making, confidence and enjoyment — ball mastery, dribbling, 1v1, tactical awareness and the rules and flow of the game, with character development woven through it all.</p>
 
-          <p class="summer-note">Winter I: one weekday training session plus a Saturday game each week, November 2 through December 19, with no programming Thanksgiving week (Nov 23–28). Saturday games run 3v3, 4v4 or 5v5 between 12:00 and 4:00 PM at the Forge West building — Nov 7, 14, 21 and Dec 5, 12,&nbsp;19.</p>
+          <p class="summer-note" data-event-end="2026-12-19">Winter I: one weekday training session plus a Saturday game each week, November 2 through December 19, with no programming Thanksgiving week (Nov 23–28). Saturday games run 3v3, 4v4 or 5v5 between 12:00 and 4:00 PM at the Forge West building — Nov 7, 14, 21 and Dec 5, 12,&nbsp;19.</p>
 
           <div class="winter-status">
-            <div class="winter-stat">
+            <div class="winter-stat" data-event-end="2026-12-19">
               <span class="winter-stat-tag">Winter I · Underway</span>
               <h4>Join for the final three&nbsp;weeks</h4>
               <p>Winter&nbsp;I started November&nbsp;2 and runs through December&nbsp;19. Some sessions are full, so register by email with Taylor Ortiz, our Community Program&nbsp;Coordinator.</p>
@@ -1576,11 +1582,12 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
             <div class="winter-stat">
               <span class="winter-stat-tag">Winter II · Full Session</span>
               <h4>January&nbsp;11 – February&nbsp;20</h4>
-              <p>Six weeks, same weekly schedule as Winter&nbsp;I, $160 per player. Registration opens&nbsp;soon.</p>
+              <p>Six weeks, same weekly schedule as Winter&nbsp;I, $160 per&nbsp;player.</p>
+              <a class="summer-reg" href="https://forgesoccerclub.sprocketsports.com/all-programs/30259" target="_blank" rel="noopener">Register →</a>
             </div>
           </div>
 
-          <p class="winter-sched-label">Winter I schedule</p>
+          <p class="winter-sched-label">Weekly schedule</p>
           <div class="summer-loc-grid">
             <div class="summer-loc">
               <div class="summer-loc-head">
@@ -1626,8 +1633,8 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
         </div>
       </div>
 
-      <!-- Winter II (Jan 12 – Feb 20): Sprocket program 30358, no open registrations as of Nov 17 — add Register buttons once open. Forge Foxes · Winter 2026 — Sprocket program 29248. Appears automatically on Sep 11 (data-event-start) and hides after registration closes (data-event-end). Preview early with ?show=hiddenevents -->
-      <div id="foxes-winter" class="summer-prog summer-prog--wide fade-in" data-event-start="2026-09-11" data-event-end="2026-12-19" style="scroll-margin-top:96px">
+      <!-- Winter II (Jan 12 – Feb 20): Sprocket program 30358, registration open Nov 18 (Register buttons live). Forge Foxes · Winter 2026 — Sprocket program 29248. Appears automatically on Sep 11 (data-event-start) and hides after registration closes (data-event-end). Preview early with ?show=hiddenevents -->
+      <div id="foxes-winter" class="summer-prog summer-prog--wide fade-in" data-event-start="2026-09-11" data-event-end="2027-02-20" style="scroll-margin-top:96px">
         <div class="summer-prog-head gold">
           <div class="summer-prog-eyebrow">Ages U4–U6 · Introductory</div>
           <h3 class="summer-prog-title">Forge Foxes · Winter</h3>
@@ -1636,10 +1643,10 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
         <div class="summer-prog-body">
           <p class="summer-prog-desc">One fun-first, 45-minute session each week, led by licensed coaches, for players U4–U6 (born Aug 2020 – Jul 2023). A good coach-to-player ratio matters to us, so spots are limited.</p>
 
-          <p class="summer-note">Winter I: six weeks, from the week of November 3 through the week of December 19, with no sessions Thanksgiving week. A Foxes T-shirt is&nbsp;included.</p>
+          <p class="summer-note" data-event-end="2026-12-19">Winter I: six weeks, from the week of November 3 through the week of December 19, with no sessions Thanksgiving week. A Foxes T-shirt is&nbsp;included.</p>
 
           <div class="winter-status">
-            <div class="winter-stat">
+            <div class="winter-stat" data-event-end="2026-12-19">
               <span class="winter-stat-tag">Winter I · Underway</span>
               <h4>Join for the final three&nbsp;weeks</h4>
               <p>Winter&nbsp;I started the week of November&nbsp;3 and runs through December&nbsp;19. Some sessions are full, so register by email with Taylor Ortiz, our Community Program&nbsp;Coordinator.</p>
@@ -1648,11 +1655,12 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
             <div class="winter-stat">
               <span class="winter-stat-tag">Winter II · Full Session</span>
               <h4>January&nbsp;12 – February&nbsp;20</h4>
-              <p>Six weeks, same weekly schedule as Winter&nbsp;I, $75 with a Foxes T&#8209;shirt included. Registration opens&nbsp;soon.</p>
+              <p>Six weeks, same weekly schedule as Winter&nbsp;I, $75 with a Foxes T&#8209;shirt&nbsp;included.</p>
+              <a class="summer-reg" href="https://forgesoccerclub.sprocketsports.com/all-programs/30358" target="_blank" rel="noopener">Register →</a>
             </div>
           </div>
 
-          <p class="winter-sched-label">Winter I schedule</p>
+          <p class="winter-sched-label">Weekly schedule</p>
           <div class="summer-loc-grid">
             <div class="summer-loc">
               <div class="summer-loc-head">
@@ -2254,6 +2262,7 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
           <li><a href="#" onclick="openModal('modal-alumni');return false">Alumni Network</a></li>
           <li><a href="#events">Upcoming Events</a></li>
           <li><a href="#sessions">Winter Programs</a></li>
+          <li><a href="https://team.europeansports.com/clubs/forge?category=Spiritwear" target="_blank" rel="noopener">Shop Spiritwear</a></li>
           <!-- Hidden until 2027: <li><a href="#tryouts">May Tryouts</a></li> -->
           <li><a href="#" onclick="openModal('modal-compare');return false">Compare Programs</a></li>
           <li><a href="fox-valley-forge-brand-guide.html">Brand Guide</a></li>
@@ -2350,11 +2359,13 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
         </div>
       </div>
 
-      <div style="background:var(--gold-light);border-radius:8px;padding:20px 22px;margin-top:24px" data-event-start="2026-09-11" data-event-end="2026-12-19">
+      <div style="background:var(--gold-light);border-radius:8px;padding:20px 22px;margin-top:24px" data-event-start="2026-09-11" data-event-end="2027-02-20">
         <h3 style="margin-bottom:4px">Winter Sessions</h3>
-        <p style="font-size:.9rem;color:#555;margin-bottom:12px">Winter&nbsp;I is underway (Nov 2 – Dec 19, one weekday training plus Saturday games 12:00–4:00 PM at Forge West). Some sessions are full, so join for the final three weeks by emailing Taylor Ortiz. <strong>Winter&nbsp;II runs January&nbsp;11 – February&nbsp;20</strong> ($160); registration opens&nbsp;soon.</p>
-        <a class="summer-reg" href="mailto:taylor.ortiz@forgesoccerclub.com?subject=Forge%20Community%20Winter%20I%20registration" style="display:inline-block;margin-bottom:18px">Email Taylor to Register →</a>
-        <p class="winter-sched-label">Winter I schedule</p>
+        <p style="font-size:.9rem;color:#555;margin-bottom:12px"><strong>Winter&nbsp;II runs January&nbsp;11 – February&nbsp;20</strong> ($160): one weekday training plus Saturday games 12:00–4:00&nbsp;PM at Forge&nbsp;West.</p>
+        <a class="summer-reg" href="https://forgesoccerclub.sprocketsports.com/all-programs/30259" target="_blank" rel="noopener" style="display:inline-block;margin-bottom:14px">Register for Winter&nbsp;II →</a>
+        <div data-event-end="2026-12-19"><p style="font-size:.9rem;color:#555;margin-bottom:12px">Winter&nbsp;I is underway through December&nbsp;19. Some sessions are full, so join for the final three weeks by emailing Taylor&nbsp;Ortiz.</p>
+        <a class="summer-reg" href="mailto:taylor.ortiz@forgesoccerclub.com?subject=Forge%20Community%20Winter%20I%20registration" style="display:inline-block;margin-bottom:18px">Email Taylor to Register →</a></div>
+        <p class="winter-sched-label">Weekly schedule</p>
         <div class="summer-loc">
           <div class="summer-loc-head"><span class="summer-loc-days">Mondays</span><span class="summer-loc-place">Forge West</span></div>
           <div class="summer-row"><div class="summer-row-info"><span class="summer-row-age">U6–U8</span><span class="summer-row-time">4:30–5:30 PM</span></div></div>
@@ -2940,11 +2951,13 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
         </div>
       </div>
 
-      <div style="background:var(--gold-light);border-radius:8px;padding:20px 22px;margin-top:24px" data-event-start="2026-09-11" data-event-end="2026-12-19">
+      <div style="background:var(--gold-light);border-radius:8px;padding:20px 22px;margin-top:24px" data-event-start="2026-09-11" data-event-end="2027-02-20">
         <h3 style="margin-bottom:4px">Winter Sessions</h3>
-        <p style="font-size:.9rem;color:#555;margin-bottom:12px">Winter&nbsp;I is underway (week of Nov 3 – Dec 19, U4–U6). Some sessions are full, so join for the final three weeks by emailing Taylor Ortiz. <strong>Winter&nbsp;II runs January&nbsp;12 – February&nbsp;20</strong> ($75); registration opens&nbsp;soon.</p>
-        <a class="summer-reg" href="mailto:taylor.ortiz@forgesoccerclub.com?subject=Forge%20Foxes%20Winter%20I%20registration" style="display:inline-block;margin-bottom:18px">Email Taylor to Register →</a>
-        <p class="winter-sched-label">Winter I schedule</p>
+        <p style="font-size:.9rem;color:#555;margin-bottom:12px"><strong>Winter&nbsp;II runs January&nbsp;12 – February&nbsp;20</strong> ($75, U4–U6, Foxes T&#8209;shirt&nbsp;included).</p>
+        <a class="summer-reg" href="https://forgesoccerclub.sprocketsports.com/all-programs/30358" target="_blank" rel="noopener" style="display:inline-block;margin-bottom:14px">Register for Winter&nbsp;II →</a>
+        <div data-event-end="2026-12-19"><p style="font-size:.9rem;color:#555;margin-bottom:12px">Winter&nbsp;I is underway through December&nbsp;19. Some sessions are full, so join for the final three weeks by emailing Taylor&nbsp;Ortiz.</p>
+        <a class="summer-reg" href="mailto:taylor.ortiz@forgesoccerclub.com?subject=Forge%20Foxes%20Winter%20I%20registration" style="display:inline-block;margin-bottom:18px">Email Taylor to Register →</a></div>
+        <p class="winter-sched-label">Weekly schedule</p>
         <div class="summer-loc">
           <div class="summer-loc-head"><span class="summer-loc-days">Tuesdays</span><span class="summer-loc-place">Forge West</span></div>
           <div class="summer-row"><div class="summer-row-info"><span class="summer-row-age">U4–U6</span><span class="summer-row-time">1:00–1:45 PM</span></div></div>
