@@ -521,6 +521,45 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
 .winter-status:has(>[data-expired]){grid-template-columns:1fr}
 @media(max-width:700px){.winter-status{grid-template-columns:1fr}}
 .summer-prog--wide{grid-column:1/-1}
+
+/* ── FORGE GEAR (European Sports store) ── */
+#gear{background:var(--navy);color:#fff;padding:88px 24px 96px;position:relative;overflow:hidden}
+#gear::before{content:"";position:absolute;inset:0;background:radial-gradient(1200px 500px at 85% -10%,rgba(197,160,89,.18),transparent 60%);pointer-events:none}
+#gear .section-inner{position:relative}
+#gear .section-label{color:var(--gold)}
+#gear .section-title{color:#fff;margin-bottom:28px}
+.gear-drop{display:grid;grid-template-columns:minmax(260px,1fr) 2.1fr;gap:40px;align-items:start;margin-bottom:64px}
+.gear-drop-copy h3{font-family:var(--font-h);font-size:clamp(2rem,4.2vw,3.2rem);line-height:1;text-transform:uppercase;margin:6px 0 16px;text-wrap:balance}
+.gear-drop-copy h3 em{font-style:normal;color:var(--gold)}
+.gear-drop-copy p{color:rgba(255,255,255,.78);font-size:1.02rem;line-height:1.6;margin:0 0 22px;text-wrap:pretty}
+.gear-tag{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-h);font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;background:var(--crimson);color:#fff;padding:6px 12px;border-radius:3px}
+.gear-tag svg{width:14px;height:14px}
+.gear-countdown{display:flex;gap:10px;margin:0 0 26px}
+.gear-countdown div{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:6px;padding:10px 0;width:68px;text-align:center}
+.gear-countdown b{display:block;font-family:var(--font-h);font-size:1.7rem;line-height:1;color:var(--gold)}
+.gear-countdown span{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.gear-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.gear-grid--small{grid-template-columns:repeat(5,1fr);gap:12px;margin-top:12px}
+.gear-card{display:flex;flex-direction:column;background:#fff;border-radius:10px;overflow:hidden;color:var(--navy);transition:transform .2s,box-shadow .2s}
+.gear-card:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(0,0,0,.28)}
+.gear-img{display:block;aspect-ratio:1/1;background:#fff}
+.gear-img img{width:100%;height:100%;object-fit:contain;display:block;padding:6%;transition:transform .3s}
+.gear-card:hover .gear-img img{transform:scale(1.05)}
+.gear-name{font-family:var(--font-h);font-size:.95rem;text-transform:uppercase;letter-spacing:.03em;padding:10px 14px 0;line-height:1.2;text-wrap:balance}
+.gear-price{font-size:.88rem;color:var(--crimson);font-weight:700;padding:4px 14px 14px}
+.gear-grid--small .gear-name{font-size:.78rem;padding:8px 10px 0}
+.gear-grid--small .gear-price{font-size:.8rem;padding:2px 10px 10px}
+.gear-everyday-head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.14);padding-top:40px;margin-bottom:22px}
+.gear-everyday-head h3{font-family:var(--font-h);font-size:clamp(1.5rem,3vw,2.1rem);text-transform:uppercase;margin:0}
+.gear-everyday-head p{color:rgba(255,255,255,.7);margin:6px 0 0;max-width:520px;text-wrap:pretty}
+.gear-rail{display:grid;grid-template-columns:repeat(8,1fr);gap:12px}
+.gear-rail .gear-name{font-size:.8rem;padding:8px 10px 0}
+.gear-rail .gear-price{font-size:.8rem;padding:2px 10px 10px}
+.gear-foot{margin-top:26px;font-size:.85rem;color:rgba(255,255,255,.55)}
+@media(max-width:1100px){.gear-drop{grid-template-columns:1fr}.gear-rail{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:700px){.gear-grid{grid-template-columns:repeat(2,1fr)}.gear-grid--small{grid-template-columns:repeat(3,1fr)}
+  .gear-rail{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -24px 0 0;padding:0 24px 8px 0}
+  .gear-rail .gear-card{flex:0 0 42%;scroll-snap-align:start}}
 .summer-loc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .summer-loc-grid .summer-loc{margin-bottom:0}
 @media(max-width:880px){.summer-grid{grid-template-columns:1fr}.summer-loc-grid{grid-template-columns:1fr;gap:18px}}
@@ -644,7 +683,7 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
       <li><a href="#sessions">Winter</a></li>
       <!-- Hidden until 2027: <li><a href="#tryouts">Tryouts</a></li> -->
       <li><a href="#community">Our Story</a></li>
-      <li><a href="https://team.europeansports.com/clubs/forge?category=Spiritwear" target="_blank" rel="noopener">Shop</a></li>
+      <li><a href="#gear">Shop</a></li>
       <li><a href="#" onclick="openModal('modal-faq');return false">FAQ</a></li>
     </ul>
     <a href="#" onclick="openModal('modal-register');return false" class="btn btn-crimson nav-cta">Request Information</a>
@@ -661,7 +700,7 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
   <a href="#sessions" onclick="closeMobile()">Winter</a>
   <!-- Hidden until 2027: <a href="#tryouts" onclick="closeMobile()">Tryouts</a> -->
   <a href="#community" onclick="closeMobile()">Our Story</a>
-  <a href="https://team.europeansports.com/clubs/forge?category=Spiritwear" target="_blank" rel="noopener" onclick="closeMobile()">Shop Spiritwear</a>
+  <a href="#gear" onclick="closeMobile()">Shop Gear</a>
   <a href="#" onclick="openModal('modal-faq');closeMobile();return false">FAQ</a>
   <a href="#" onclick="closeMobile();openModal('modal-register');return false" class="btn btn-crimson" style="text-align:center;margin-top:8px">Request Information</a>
 </div>
@@ -1699,6 +1738,132 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
         </div>
       </div>
 
+    </div>
+  </div>
+</section>
+
+<!-- FORGE GEAR — club store run by European Sports (Angel Pedraza, Nov 17 2026). Product photos/prices pulled from the store Nov 18 and hosted on Cloudinary forge/gear/. The Winter '26 drop block hides itself after Nov 25 (store collection expires 2026-11-26 05:59 UTC); the Everyday Spiritwear rail stays. -->
+<section id="gear">
+  <div class="section-inner">
+    <p class="section-label fade-in">Forge Gear</p>
+    <h2 class="section-title fade-in">Wear the&nbsp;Crest</h2>
+
+    <div class="gear-drop fade-in" data-event-end="2026-11-25">
+      <div class="gear-drop-copy">
+        <span class="gear-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Limited drop · Closes Nov&nbsp;25</span>
+        <h3>Winter &rsquo;26 <em>Exclusive&nbsp;Drop</em></h3>
+        <p>Heritage hoodies, plaid flannels, a Nike track jacket and new caps in navy, black and gold. These pieces are only available until 11:59&nbsp;PM on November&nbsp;25, just in time for the&nbsp;holidays.</p>
+        <div class="gear-countdown" id="gear-countdown" aria-label="Time left in the Winter '26 drop" hidden>
+          <div><b data-cd="d">0</b><span>Days</span></div>
+          <div><b data-cd="h">0</b><span>Hours</span></div>
+          <div><b data-cd="m">0</b><span>Min</span></div>
+        </div>
+        <a class="btn btn-gold" href="https://team.europeansports.com/clubs/forge?category=Winter+26+Exclusive+Drop" target="_blank" rel="noopener">Shop the Drop →</a>
+      </div>
+      <div>
+        <div class="gear-grid">
+        <a class="gear-card" href="https://team.europeansports.com/clubs/forge?category=Winter+26+Exclusive+Drop" target="_blank" rel="noopener">
+          <span class="gear-img"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,c_pad,ar_1:1,b_white,w_520/v1795024567/forge/gear/winter-26-exclusive-heritage-hoodie" alt="Heritage Hoodie" loading="lazy" width="520" height="520"></span>
+          <span class="gear-name">Heritage Hoodie</span>
+          <span class="gear-price">From&nbsp;$45</span>
+        </a>
+        <a class="gear-card" href="https://team.europeansports.com/clubs/forge?category=Winter+26+Exclusive+Drop" target="_blank" rel="noopener">
+          <span class="gear-img"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,c_pad,ar_1:1,b_white,w_520/v1795024568/forge/gear/winter-26-exclusive-nike-track-jacket" alt="Nike Track Jacket" loading="lazy" width="520" height="520"></span>
+          <span class="gear-name">Nike Track&nbsp;Jacket</span>
+          <span class="gear-price">From&nbsp;$40</span>
+        </a>
+        <a class="gear-card" href="https://team.europeansports.com/clubs/forge?category=Winter+26+Exclusive+Drop" target="_blank" rel="noopener">
+          <span class="gear-img"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,c_pad,ar_1:1,b_white,w_520/v1795024566/forge/gear/winter-26-exclusive-flannel-pants" alt="Plaid Flannel Pants" loading="lazy" width="520" height="520"></span>
+          <span class="gear-name">Plaid Flannel&nbsp;Pants</span>
+          <span class="gear-price">$32</span>
+        </a>
+        <a class="gear-card" href="https://team.europeansports.com/clubs/forge?category=Winter+26+Exclusive+Drop" target="_blank" rel="noopener">
+          <span class="gear-img"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,c_pad,ar_1:1,b_white,w_520/v1795024569/forge/gear/winter-26-exclusive-own-the-pitch-t-shirt" alt="&lsquo;Forge Your Legacy&rsquo; Tee" loading="lazy" width="520" height="520"></span>
+          <span class="gear-name">&lsquo;Forge Your Legacy&rsquo;&nbsp;Tee</span>
+          <span class="gear-price">From&nbsp;$20</span>
+        </a>
+        </div>
+        <div class="gear-grid gear-grid--small">
+        <a class="gear-card" href="https://team.europeansports.com/clubs/forge?category=Winter+26+Exclusive+Drop" target="_blank" rel="noopener">
+          <span class="gear-img"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,c_pad,ar_1:1,b_white,w_520/v1795024572/forge/gear/winter-26-exclusive-waffle-beanie" alt="Waffle Beanie" loading="lazy" width="520" height="520"></span>
+          <span class="gear-name">Waffle Beanie</span>
+          <span class="gear-price">$25</span>
+        </a>
+        <a class="gear-card" href="https://team.europeansports.com/clubs/forge?category=Winter+26+Exclusive+Drop" target="_blank" rel="noopener">
+          <span class="gear-img"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,c_pad,ar_1:1,b_white,w_520/v1795024569/forge/gear/winter-26-exclusive-rope-cap" alt="Rope Cap" loading="lazy" width="520" height="520"></span>
+          <span class="gear-name">Rope Cap</span>
+          <span class="gear-price">$30</span>
+        </a>
+        <a class="gear-card" href="https://team.europeansports.com/clubs/forge?category=Winter+26+Exclusive+Drop" target="_blank" rel="noopener">
+          <span class="gear-img"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,c_pad,ar_1:1,b_white,w_520/v1795024570/forge/gear/winter-26-exclusive-snapback-cap" alt="FSC Snapback" loading="lazy" width="520" height="520"></span>
+          <span class="gear-name">FSC Snapback</span>
+          <span class="gear-price">$30</span>
+        </a>
+        <a class="gear-card" href="https://team.europeansports.com/clubs/forge?category=Winter+26+Exclusive+Drop" target="_blank" rel="noopener">
+          <span class="gear-img"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,c_pad,ar_1:1,b_white,w_520/v1795024571/forge/gear/winter-26-exclusive-visor" alt="Visor" loading="lazy" width="520" height="520"></span>
+          <span class="gear-name">Visor</span>
+          <span class="gear-price">$25</span>
+        </a>
+        <a class="gear-card" href="https://team.europeansports.com/clubs/forge?category=Winter+26+Exclusive+Drop" target="_blank" rel="noopener">
+          <span class="gear-img"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,c_pad,ar_1:1,b_white,w_520/v1795024566/forge/gear/sticker-page" alt="Sticker Sheet" loading="lazy" width="520" height="520"></span>
+          <span class="gear-name">Sticker Sheet</span>
+          <span class="gear-price">$8</span>
+        </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="gear-everyday fade-in">
+      <div class="gear-everyday-head">
+        <div>
+          <h3>Everyday Spiritwear</h3>
+          <p>Nike training tops, hoodies, crewnecks and caps for players, parents and grandparents, in youth and adult&nbsp;sizes.</p>
+        </div>
+        <a class="btn btn-crimson" href="https://team.europeansports.com/clubs/forge?category=Spiritwear" target="_blank" rel="noopener">Shop Spiritwear →</a>
+      </div>
+      <div class="gear-rail">
+        <a class="gear-card" href="https://team.europeansports.com/clubs/forge?category=Spiritwear" target="_blank" rel="noopener">
+          <span class="gear-img"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,c_pad,ar_1:1,b_white,w_520/v1795024564/forge/gear/nike-hoodie" alt="Nike Hoodie" loading="lazy" width="520" height="520"></span>
+          <span class="gear-name">Nike Hoodie</span>
+          <span class="gear-price">From&nbsp;$50</span>
+        </a>
+        <a class="gear-card" href="https://team.europeansports.com/clubs/forge?category=Spiritwear" target="_blank" rel="noopener">
+          <span class="gear-img"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,c_pad,ar_1:1,b_white,w_520/v1795024563/forge/gear/nike-drifit" alt="Nike Dri&#8209;FIT Tee" loading="lazy" width="520" height="520"></span>
+          <span class="gear-name">Nike Dri&#8209;FIT&nbsp;Tee</span>
+          <span class="gear-price">From&nbsp;$30</span>
+        </a>
+        <a class="gear-card" href="https://team.europeansports.com/clubs/forge?category=Spiritwear" target="_blank" rel="noopener">
+          <span class="gear-img"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,c_pad,ar_1:1,b_white,w_520/v1795024559/forge/gear/crewneck" alt="Crewneck" loading="lazy" width="520" height="520"></span>
+          <span class="gear-name">Crewneck</span>
+          <span class="gear-price">From&nbsp;$20</span>
+        </a>
+        <a class="gear-card" href="https://team.europeansports.com/clubs/forge?category=Spiritwear" target="_blank" rel="noopener">
+          <span class="gear-img"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,c_pad,ar_1:1,b_white,w_520/v1795024560/forge/gear/hoodie" alt="Club Hoodie" loading="lazy" width="520" height="520"></span>
+          <span class="gear-name">Club Hoodie</span>
+          <span class="gear-price">From&nbsp;$25</span>
+        </a>
+        <a class="gear-card" href="https://team.europeansports.com/clubs/forge?category=Spiritwear" target="_blank" rel="noopener">
+          <span class="gear-img"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,c_pad,ar_1:1,b_white,w_520/v1795024562/forge/gear/nike-crimson-drifit" alt="Crimson Dri&#8209;FIT" loading="lazy" width="520" height="520"></span>
+          <span class="gear-name">Crimson Dri&#8209;FIT</span>
+          <span class="gear-price">From&nbsp;$30</span>
+        </a>
+        <a class="gear-card" href="https://team.europeansports.com/clubs/forge?category=Spiritwear" target="_blank" rel="noopener">
+          <span class="gear-img"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,c_pad,ar_1:1,b_white,w_520/v1795024564/forge/gear/nike-parka-1" alt="Nike Parka" loading="lazy" width="520" height="520"></span>
+          <span class="gear-name">Nike Parka</span>
+          <span class="gear-price">From&nbsp;$150</span>
+        </a>
+        <a class="gear-card" href="https://team.europeansports.com/clubs/forge?category=Spiritwear" target="_blank" rel="noopener">
+          <span class="gear-img"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,c_pad,ar_1:1,b_white,w_520/v1795024565/forge/gear/nike-trucker-cap" alt="Nike Trucker Cap" loading="lazy" width="520" height="520"></span>
+          <span class="gear-name">Nike Trucker&nbsp;Cap</span>
+          <span class="gear-price">$30</span>
+        </a>
+        <a class="gear-card" href="https://team.europeansports.com/clubs/forge?category=Spiritwear" target="_blank" rel="noopener">
+          <span class="gear-img"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,c_pad,ar_1:1,b_white,w_520/v1795024561/forge/gear/nike-beanie" alt="Nike Beanie" loading="lazy" width="520" height="520"></span>
+          <span class="gear-name">Nike Beanie</span>
+          <span class="gear-price">$20</span>
+        </a>
+      </div>
+      <p class="gear-foot">Orders are placed and fulfilled through European Sports, the club&rsquo;s official&nbsp;outfitter.</p>
     </div>
   </div>
 </section>
@@ -3411,6 +3576,20 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
 // ── AUTO-EXPIRE EVENTS ──
 // Any element with data-event-end="YYYY-MM-DD" is hidden once that date has passed.
 // Any element with data-event-start="YYYY-MM-DD" stays hidden until that date (preview early with ?show=hiddenevents).
+// FORGE GEAR countdown — Winter '26 drop closes Nov 25, 11:59 PM Central
+(function(){
+  var el=document.getElementById('gear-countdown'); if(!el) return;
+  var end=new Date('2026-11-26T05:59:00Z').getTime();
+  function tick(){
+    var ms=end-Date.now(); if(ms<=0){el.hidden=true;return;}
+    el.hidden=false;
+    var m=Math.floor(ms/60000), d=Math.floor(m/1440), h=Math.floor((m%1440)/60);
+    el.querySelector('[data-cd="d"]').textContent=d;
+    el.querySelector('[data-cd="h"]').textContent=h;
+    el.querySelector('[data-cd="m"]').textContent=m%60;
+  }
+  tick(); setInterval(tick,30000);
+})();
 // If an entire .events-grid has no visible cards left, its enclosing <section> is hidden too.
 (function(){
   var params = new URLSearchParams(window.location.search);
