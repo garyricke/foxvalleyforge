@@ -650,7 +650,7 @@ footer{background:var(--navy);padding:48px 24px 24px;color:rgba(255,255,255,.7)}
     <p id="intro-tap-label">TAP ANYWHERE TO BEGIN</p>
   </div>
   <button id="intro-skip">SKIP ›</button>
-  <audio id="intro-audio" preload="auto" src="https://res.cloudinary.com/dsbllwpbh/video/upload/v1771543964/Fox_Valley_Forge-logo-reveal-voice-music_wgpemw.m4a"></audio>
+  <audio id="intro-audio" preload="none" src="https://res.cloudinary.com/dsbllwpbh/video/upload/v1771543964/Fox_Valley_Forge-logo-reveal-voice-music_wgpemw.m4a"></audio>
 </div>
 
 <!-- Hidden Netlify form for build-time detection -->
@@ -3945,15 +3945,16 @@ if (golfVideo && !window.matchMedia('(prefers-reduced-motion: reduce)').matches)
   golfObserver.observe(golfVideo);
 }
 
-// Only show intro once per calendar day
-(function() {
-  var today = new Date().toDateString();
-  var key = 'fvf_intro_seen';
-  if (localStorage.getItem(key) !== today) {
-    localStorage.setItem(key, today);
-    startIntro();
-  }
-})();
+// Intro animation turned OFF Nov 18 2026 (Gary): the page opens straight to the hero.
+// To bring it back (once per calendar day), restore this block:
+// (function() {
+//   var today = new Date().toDateString();
+//   var key = 'fvf_intro_seen';
+//   if (localStorage.getItem(key) !== today) {
+//     localStorage.setItem(key, today);
+//     startIntro();
+//   }
+// })();
 
 // ── HIGH-RES FOR PRINT ──
 var WEB_PARAMS = 'f_auto,q_auto';
